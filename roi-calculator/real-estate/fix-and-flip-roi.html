@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>Fix-and-Flip ROI Calculator | Real Estate | roicalculator.live</title>
+  <meta name="description" content="Calculate fix-and-flip ROI: purchase, renovation, holding costs, selling price, transaction fees. Get total investment, gross profit, ROI %, profit margin.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/real-estate/fix-and-flip-roi.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/real-estate/fix-and-flip-roi.html">
+  <meta property="og:title" content="Fix-and-Flip ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Calculate fix-and-flip ROI with profit margin and bar chart.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fix-and-Flip ROI Calculator | roicalculator.live">
+  <meta name="twitter:description" content="Calculate fix-and-flip ROI.">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Real Estate ROI","item":"https://roicalculator.live/roi-calculator/real-estate/"},{"@type":"ListItem","position":3,"name":"Fix-and-Flip ROI"}]}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Fix-and-Flip ROI Calculator",
+    "description": "Calculate fix-and-flip ROI, gross profit, and profit margin.",
+    "url": "https://roicalculator.live/roi-calculator/real-estate/fix-and-flip-roi.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do you calculate fix-and-flip ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Total Investment = Purchase + Renovation + Holding + Transaction Fees. Gross Profit = Selling Price minus Total Investment. ROI = (Gross Profit / Total Investment) × 100."}},
+      {"@type": "Question", "name": "What counts as holding costs in a flip?", "acceptedAnswer": {"@type": "Answer", "text": "Holding costs include loan interest during the hold, property tax, insurance, utilities, staging, and any other costs incurred between purchase and sale."}},
+      {"@type": "Question", "name": "What is a good fix-and-flip profit margin?", "acceptedAnswer": {"@type": "Answer", "text": "Many flippers target 20% or higher profit margin on the sale price. Margins vary by market; over-improvement or extended holds can compress them."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/real-estate/">Real Estate ROI</a>
+      <span> / </span>
+      <span>Fix-and-Flip ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Fix-and-Flip ROI Calculator</h1>
+
+      <p>Calculate fix-and-flip ROI from purchase price, renovation cost, holding costs, selling price, and transaction fees. Links: <a href="/">ROI calculator</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/glossary/net-profit.html">net profit</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="flip-calc-heading">
+        <h2 id="flip-calc-heading">Fix-and-Flip ROI Calculator</h2>
+        <form id="flip-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="flip-purchase">Purchase Price ($)</label>
+              <input type="number" id="flip-purchase" min="0" step="1000" value="150000" required>
+            </div>
+            <div class="form-group">
+              <label for="flip-renovation">Renovation Cost ($)</label>
+              <input type="number" id="flip-renovation" min="0" step="1000" value="40000" required>
+            </div>
+            <div class="form-group">
+              <label for="flip-holding">Holding Costs ($)</label>
+              <input type="number" id="flip-holding" min="0" step="100" value="5000">
+            </div>
+            <div class="form-group">
+              <label for="flip-sale">Selling Price ($)</label>
+              <input type="number" id="flip-sale" min="0" step="1000" value="265000" required>
+            </div>
+            <div class="form-group">
+              <label for="flip-fees">Transaction Fees ($)</label>
+              <input type="number" id="flip-fees" min="0" step="100" value="12000">
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="flip-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Total Investment</span>
+              <span class="value" id="flip-cost">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Gross Profit</span>
+              <span class="value" id="flip-profit">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">ROI %</span>
+              <span class="value" id="flip-roi">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Profit Margin</span>
+              <span class="value" id="flip-margin">—</span>
+            </div>
+          </div>
+          <div class="chart-container" style="height:220px;">
+            <canvas id="flip-chart" role="img" aria-label="Fix-and-flip investment breakdown bar chart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <h2>Flip ROI Formula</h2>
+      <p class="math-inline">Total Investment = Purchase + Renovation + Holding + Transaction Fees</p>
+      <p>Gross Profit = Selling Price − Total Investment. ROI = (Gross Profit / Total Investment) × 100. Profit Margin = (Gross Profit / Selling Price) × 100. See <a href="/learn/roi-formula.html">ROI formula</a> and <a href="/glossary/net-profit.html">net profit</a> for definitions.</p>
+
+      <h2>Hidden Costs</h2>
+      <p>Renovation often runs over budget. Include soft costs: loan fees, insurance during hold, utilities, staging, permits. Transaction fees cover commissions (typically 5–6%), title, transfer tax. Omitting any of these inflates ROI. Build 10–20% buffer on renovation estimates.</p>
+
+      <h2>Timeline Sensitivity</h2>
+      <p>Longer holds increase carrying costs—loan interest, taxes, insurance, utilities. A 6-month flip versus 12 months can materially change profit. Model best, expected, and worst-case timelines. Delays from permits, contractor availability, or market slowdowns are common.</p>
+
+      <h2>Market Risk</h2>
+      <p>Sale price depends on market conditions at listing time. Valuations based on comparable sales can shift. Down markets compress margins; over-improvement for the neighborhood may not recoup. See <a href="/learn/roi-limitations.html">ROI limitations</a>.</p>
+
+      <h2>Example Flip Breakdown</h2>
+      <p>Purchase $150,000, renovation $40,000, holding $5,000, transaction fees $12,000. Total investment = $207,000. Sale $265,000. Gross profit = $58,000. ROI = 28%. Profit margin = 22%. If renovation runs to $50,000, profit drops to $48,000 and ROI to 23%.</p>
+
+      <h2>Mistakes Flippers Make</h2>
+      <ul>
+        <li>Underestimating renovation and holding costs</li>
+        <li>Overvaluing after-repair value based on optimistic comps</li>
+        <li>Ignoring transaction fees and loan costs</li>
+        <li>Failing to model extended hold periods</li>
+        <li>Over-improving for the neighborhood</li>
+      </ul>
+
+      <h2>Loan and Financing Impact</h2>
+      <p>If you finance the purchase and renovation, interest during the hold period belongs in holding costs. Hard money and bridge loans carry higher rates and shorter terms; a few months of interest can materially affect profit. Include all loan fees—origination, points, inspection—in your total investment. For accurate ROI, treat borrowed funds as part of your cost basis; the return is measured against what you actually put in, including financing expenses.</p>
+
+      <h2>After-Repair Value (ARV) Accuracy</h2>
+      <p>ARV drives the selling price assumption. Use recent comparable sales in the same neighborhood; adjust for condition, size, and timing. Avoid relying on listings or optimistic agent opinions. In declining markets, comps from six months ago may overstate current value. Build a range: best case, expected, and worst case. The 70% rule (purchase + renovation ≤ 70% of ARV minus holding) is a heuristic, not a guarantee—your actual costs may exceed that margin.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>How do you calculate fix-and-flip ROI?</h4>
+          <p>Total Investment = Purchase + Renovation + Holding + Transaction Fees. Gross Profit = Selling Price minus Total Investment. ROI = (Gross Profit / Total Investment) × 100.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What counts as holding costs in a flip?</h4>
+          <p>Holding costs include loan interest during the hold, property tax, insurance, utilities, staging, and any other costs incurred between purchase and sale.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is a good fix-and-flip profit margin?</h4>
+          <p>Many flippers target 20% or higher profit margin on the sale price. Margins vary by market; over-improvement or extended holds can compress them.</p>
+        </div>
+      </div>
+
+      <nav class="related-topics">
+        <h3>Related Topics</h3>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/real-estate/">Real Estate ROI Guide</a></li>
+          <li><a href="/roi-calculator/real-estate/rental-property-roi.html">Rental Property ROI</a></li>
+          <li><a href="/roi-calculator/real-estate/cash-on-cash-return.html">Cash-on-Cash Return</a></li>
+          <li><a href="/roi-calculator/marketing/">Marketing ROI</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('flip-form');
+        var parse = window.mktParseNum || function(v){ return parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0; };
+        var fmt = window.mktFormatMoney || function(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:0}); };
+        var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+        var flipChart = null;
+        function run(){
+          var purchase = parse(document.getElementById('flip-purchase').value);
+          var reno = parse(document.getElementById('flip-renovation').value);
+          var holding = parse(document.getElementById('flip-holding').value);
+          var sale = parse(document.getElementById('flip-sale').value);
+          var fees = parse(document.getElementById('flip-fees').value);
+          var cost = purchase + reno + holding + fees;
+          if(cost <= 0) return;
+          var profit = sale - cost;
+          var roi = (profit/cost)*100;
+          var margin = sale ? (profit/sale)*100 : 0;
+          document.getElementById('flip-cost').textContent = fmt(cost);
+          document.getElementById('flip-profit').textContent = fmt(profit);
+          document.getElementById('flip-roi').textContent = fmtPct(roi);
+          document.getElementById('flip-margin').textContent = fmtPct(margin);
+          var canvas = document.getElementById('flip-chart');
+          if(canvas && typeof Chart !== 'undefined'){
+            if(flipChart) flipChart.destroy();
+            flipChart = new Chart(canvas, { type: 'bar', data: { labels: ['Total Investment', 'Gross Profit'], datasets: [{ label: 'Amount ($)', data: [cost, Math.max(profit,0)], backgroundColor: ['#94a3b8', profit>=0?'#16a34a':'#dc2626'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } } });
+          }
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>Rental Property ROI Calculator | Real Estate | roicalculator.live</title>
+  <meta name="description" content="Calculate rental property ROI: purchase price, down payment, rent, expenses, appreciation, holding period. Get cash flow, total ROI, annualized ROI, and projection chart.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/real-estate/rental-property-roi.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/real-estate/rental-property-roi.html">
+  <meta property="og:title" content="Rental Property ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Calculate rental property ROI with cash flow, appreciation, and projection chart.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rental Property ROI Calculator | roicalculator.live">
+  <meta name="twitter:description" content="Calculate rental property ROI.">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Real Estate ROI","item":"https://roicalculator.live/roi-calculator/real-estate/"},{"@type":"ListItem","position":3,"name":"Rental Property ROI"}]}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Rental Property ROI Calculator",
+    "description": "Calculate rental property ROI with cash flow, appreciation, and holding period.",
+    "url": "https://roicalculator.live/roi-calculator/real-estate/rental-property-roi.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do I calculate rental property ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Rental ROI = [(Total Cash Flow + Appreciation) / Total Investment] × 100. Total cash flow = (Annual Rent − Annual Expenses) × Years. Use purchase price plus closing costs as total investment for all-cash."}},
+      {"@type": "Question", "name": "Should I include appreciation in rental ROI?", "acceptedAnswer": {"@type": "Answer", "text": "For total return, yes. For income yield only, use cash flow. Appreciation is uncertain; many investors model conservatively or exclude it."}},
+      {"@type": "Question", "name": "What expenses should I include for rental ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Include property tax, insurance, maintenance, property management, vacancy allowance, and HOA if applicable. Excluding expenses inflates ROI."}},
+      {"@type": "Question", "name": "What is a good rental property ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Cash rentals often target 6–8% or higher. Leveraged rentals may target 10–15% cash-on-cash. Compare to your cost of capital and alternative investments."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/real-estate/">Real Estate ROI</a>
+      <span> / </span>
+      <span>Rental Property ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Rental Property ROI Calculator</h1>
+
+      <p>Calculate rental property ROI from purchase price, down payment, annual rent, expenses, expected appreciation, and holding period. Links: <a href="/">ROI calculator</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/glossary/cap-rate.html">cap rate</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="rental-calc-heading">
+        <h2 id="rental-calc-heading">Rental Property ROI Calculator</h2>
+        <form id="rental-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rental-purchase">Purchase Price ($)</label>
+              <input type="number" id="rental-purchase" min="0" step="1000" value="250000" required>
+            </div>
+            <div class="form-group">
+              <label for="rental-down">Down Payment ($)</label>
+              <input type="number" id="rental-down" min="0" step="1000" value="62500">
+            </div>
+            <div class="form-group">
+              <label for="rental-rent">Annual Rental Income ($)</label>
+              <input type="number" id="rental-rent" min="0" step="100" value="24000" required>
+            </div>
+            <div class="form-group">
+              <label for="rental-expenses">Annual Expenses ($)</label>
+              <input type="number" id="rental-expenses" min="0" step="100" value="8000">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rental-appreciation">Expected Appreciation (%)</label>
+              <input type="number" id="rental-appreciation" min="-20" max="20" step="0.5" value="3">
+            </div>
+            <div class="form-group">
+              <label for="rental-years">Holding Period (years)</label>
+              <input type="number" id="rental-years" min="0.5" step="0.5" value="5" required>
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="rental-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Annual Cash Flow</span>
+              <span class="value" id="rental-flow">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Total ROI %</span>
+              <span class="value" id="rental-roi">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Annualized ROI %</span>
+              <span class="value" id="rental-annualized">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Total Profit</span>
+              <span class="value" id="rental-profit">—</span>
+            </div>
+          </div>
+          <div class="chart-container" style="height:260px;">
+            <canvas id="rental-chart" role="img" aria-label="Investment vs Property Value over time"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <h2>Rental ROI Formula</h2>
+      <p class="math-inline">Annual Cash Flow = Annual Rent − Annual Expenses</p>
+      <p>Total investment = down payment (or full purchase for all-cash) plus closing costs. For total return: Total Gain = (Sale Price − Purchase Price) + (Annual Cash Flow × Years). Sale price is estimated using appreciation: Sale Price = Purchase × (1 + Appreciation/100)^Years. Total ROI = (Total Gain / Total Investment) × 100. Annualized ROI = [(1 + Total ROI/100)^(1/Years) − 1] × 100. See <a href="/learn/roi-formula.html">ROI formula</a> and <a href="/glossary/annualized-return.html">annualized return</a>.</p>
+
+      <h2>Cash Flow vs Equity Growth</h2>
+      <p>Cash flow is the net income from rent after expenses and debt service. Equity growth comes from principal paydown and appreciation. A property can have negative cash flow but positive total return if appreciation is strong—a speculative bet. Cash-flow-positive properties provide ongoing income and reduce reliance on sale timing. See <a href="/roi-calculator/real-estate/cash-on-cash-return.html">cash-on-cash return</a> for leveraged yield.</p>
+
+      <h2>Expense Considerations</h2>
+      <p>Include property tax, insurance, maintenance (often 1% of value annually), property management (8–10% of rent), vacancy allowance (5–10%), and HOA if applicable. Excluding expenses inflates ROI. For <a href="/glossary/net-profit.html">net profit</a>, use conservative estimates; actual costs often run higher than modeled.</p>
+
+      <h2>Appreciation Assumptions</h2>
+      <p>Appreciation is uncertain. Historical averages vary by market; past performance does not guarantee future results. Use conservative rates (e.g., 2–3%) or exclude appreciation for income-focused analysis. Downside scenarios (flat or negative appreciation) help stress-test the investment.</p>
+
+      <h2>Risk Factors</h2>
+      <p>Vacancy, tenant damage, extended maintenance, interest rate changes (for leveraged properties), and market cycles affect actual returns. Liquidity is lower than stocks; selling can take months. See <a href="/learn/roi-limitations.html">ROI limitations</a> for general caveats.</p>
+
+      <h2>Example Property Scenario</h2>
+      <p>Purchase $250,000, down payment $62,500, annual rent $24,000, expenses $8,000. Annual cash flow = $16,000 (all-cash) or less with debt. At 3% annual appreciation, value after 5 years ≈ $290,000. Total gain = $40,000 appreciation + $80,000 cash flow = $120,000. On $62,500 invested (assuming no closing): Total ROI = 192%, annualized ≈ 24%. Results depend on expense accuracy and appreciation realization.</p>
+
+      <h2>Benchmark Ranges</h2>
+      <table>
+        <thead>
+          <tr><th>Strategy</th><th>Typical Range</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cash rental yield</td><td>4–8%</td></tr>
+          <tr><td>Leveraged CoC</td><td>8–15%</td></tr>
+          <tr><td>Total return (incl. appreciation)</td><td>8–12%+ annualized</td></tr>
+        </tbody>
+      </table>
+      <p>Varies by market and property. Use <a href="/roi-calculator/real-estate/">Real Estate ROI</a> guide for context.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>How do I calculate rental property ROI?</h4>
+          <p>Rental ROI = [(Total Cash Flow + Appreciation) / Total Investment] × 100. Total cash flow = (Annual Rent − Annual Expenses) × Years. Use purchase price plus closing as total investment for all-cash.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Should I include appreciation in rental ROI?</h4>
+          <p>For total return, yes. For income yield only, use cash flow. Appreciation is uncertain; many investors model conservatively or exclude it.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What expenses should I include for rental ROI?</h4>
+          <p>Include property tax, insurance, maintenance, property management, vacancy allowance, HOA if applicable. Excluding expenses inflates ROI.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is a good rental property ROI?</h4>
+          <p>Cash rentals often target 6–8% or higher. Leveraged rentals may target 10–15% cash-on-cash. Compare to cost of capital and alternatives.</p>
+        </div>
+      </div>
+
+      <nav class="related-topics">
+        <h3>Related Topics</h3>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/real-estate/">Real Estate ROI Guide</a></li>
+          <li><a href="/roi-calculator/real-estate/fix-and-flip-roi.html">Fix-and-Flip ROI</a></li>
+          <li><a href="/roi-calculator/real-estate/cash-on-cash-return.html">Cash-on-Cash Return</a></li>
+          <li><a href="/roi-calculator/marketing/">Marketing ROI</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+          <li><a href="/glossary/cap-rate.html">Cap Rate</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('rental-form');
+        var parse = window.mktParseNum || function(v){ return parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0; };
+        var fmt = window.mktFormatMoney || function(n){ return '$'+(n/1000).toFixed(0)+'k'; };
+        var fmtFull = window.mktFormatMoney || function(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:0}); };
+        var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+        var rentalChart = null;
+        function run(){
+          var purchase = parse(document.getElementById('rental-purchase').value);
+          var down = parse(document.getElementById('rental-down').value);
+          var rent = parse(document.getElementById('rental-rent').value);
+          var expenses = parse(document.getElementById('rental-expenses').value);
+          var appreciation = parse(document.getElementById('rental-appreciation').value) / 100;
+          var years = parse(document.getElementById('rental-years').value) || 5;
+          var invested = (down > 0 && down < purchase) ? down : purchase;
+          if(invested <= 0) return;
+          var flow = rent - expenses;
+          var salePrice = purchase * Math.pow(1 + appreciation, years);
+          var totalCashFlow = flow * years;
+          var totalGain = (salePrice - purchase) + totalCashFlow;
+          var totalRoi = (totalGain / invested) * 100;
+          var annualized = years > 0 ? (Math.pow(1 + totalRoi/100, 1/years) - 1) * 100 : 0;
+          document.getElementById('rental-flow').textContent = fmtFull(flow);
+          document.getElementById('rental-roi').textContent = fmtPct(totalRoi);
+          document.getElementById('rental-annualized').textContent = fmtPct(annualized);
+          document.getElementById('rental-profit').textContent = fmtFull(totalGain);
+          var labels = []; var invLine = []; var valLine = [];
+          for(var i = 0; i <= Math.min(years, 10); i++){
+            labels.push('Year '+i);
+            invLine.push(invested);
+            valLine.push(purchase * Math.pow(1 + appreciation, i));
+          }
+          var canvas = document.getElementById('rental-chart');
+          if(canvas && typeof Chart !== 'undefined'){
+            if(rentalChart) rentalChart.destroy();
+            rentalChart = new Chart(canvas, { type: 'line', data: { labels: labels, datasets: [{ label: 'Investment', data: invLine, borderColor: '#94a3b8', borderDash: [5,5], fill: false }, { label: 'Property Value', data: valLine, borderColor: '#2563eb', fill: true, backgroundColor: 'rgba(37,99,235,0.1)' }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { beginAtZero: false, ticks: { callback: function(v){ return fmt(v); } } } } } });
+          }
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>
