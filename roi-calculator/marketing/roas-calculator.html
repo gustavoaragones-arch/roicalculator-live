@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>ROAS Calculator — Return on Ad Spend | roicalculator.live</title>
+  <meta name="description" content="Calculate ROAS (Return on Ad Spend), ROI %, and profit. Compare ROAS vs marketing ROI with a bar chart. Free, privacy-first calculator.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/marketing/roas-calculator.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/marketing/roas-calculator.html">
+  <meta property="og:title" content="ROAS Calculator | roicalculator.live">
+  <meta property="og:description" content="Calculate ROAS, ROI %, and profit. Compare revenue efficiency vs profitability.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ROAS Calculator | roicalculator.live">
+  <meta name="twitter:description" content="Calculate ROAS, ROI %, and profit.">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Marketing ROI","item":"https://roicalculator.live/roi-calculator/marketing/"},{"@type":"ListItem","position":3,"name":"ROAS Calculator"}]}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is ROAS?", "acceptedAnswer": {"@type": "Answer", "text": "ROAS (Return on Ad Spend) is revenue generated from ads divided by ad spend. Formula: ROAS = Revenue / Ad Spend. A 5:1 ROAS means $5 revenue per $1 spent."}},
+      {"@type": "Question", "name": "How does ROAS differ from ROI?", "acceptedAnswer": {"@type": "Answer", "text": "ROAS uses revenue; ROI uses profit after costs. ROAS ignores gross margin. A high ROAS can still yield negative ROI if margins are low."}},
+      {"@type": "Question", "name": "What is a good ROAS?", "acceptedAnswer": {"@type": "Answer", "text": "Ecommerce often targets 3:1 to 5:1. The break-even ROAS depends on gross margin. At 30% margin, you need 3.33:1 ROAS to break even."}},
+      {"@type": "Question", "name": "Should I optimize for ROAS or ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Optimize for ROI (profit) when possible. ROAS is useful for revenue efficiency and quick comparison; ROI reflects true profitability."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/marketing/">Marketing ROI</a>
+      <span> / </span>
+      <span>ROAS Calculator</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>ROAS Calculator</h1>
+
+      <p>ROAS (Return on Ad Spend) measures revenue generated per dollar spent on advertising. Use this calculator to compute ROAS, ROI, and profit. Link to master <a href="/">ROI calculator</a>, <a href="/roi-calculator/marketing/">Marketing ROI guide</a>, and <a href="/glossary/gross-margin.html">gross margin</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="roas-calc-heading">
+        <h2 id="roas-calc-heading">ROAS Calculator</h2>
+        <form id="roas-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ad-spend">Ad Spend ($)</label>
+              <input type="number" id="ad-spend" min="0" step="0.01" value="1000" required>
+            </div>
+            <div class="form-group">
+              <label for="revenue">Revenue Generated ($)</label>
+              <input type="number" id="revenue" min="0" step="0.01" value="5000" required>
+            </div>
+            <div class="form-group">
+              <label for="gross-margin-pct">Gross Margin (%)</label>
+              <input type="number" id="gross-margin-pct" min="0" max="100" step="1" value="50">
+            </div>
+          </div>
+          <div class="toggle-row">
+            <input type="checkbox" id="roas-advanced" aria-describedby="roas-advanced-desc">
+            <label for="roas-advanced" id="roas-advanced-desc">Advanced: conversion rate</label>
+          </div>
+          <div id="roas-advanced-fields" style="display:none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="roas-clicks">Clicks</label>
+                <input type="number" id="roas-clicks" min="0" step="1" value="1000">
+              </div>
+              <div class="form-group">
+                <label for="roas-conv-rate">Conversion Rate (%)</label>
+                <input type="number" id="roas-conv-rate" min="0" max="100" step="0.1" value="2">
+              </div>
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="roas-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">ROAS Ratio</span>
+              <span class="value" id="roas-ratio">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">ROI %</span>
+              <span class="value" id="roas-roi">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Profit</span>
+              <span class="value" id="roas-profit">—</span>
+            </div>
+          </div>
+          <div class="interpretation-block" id="roas-interpretation" role="status" aria-live="polite"></div>
+          <div class="chart-container" style="height:240px;">
+            <canvas id="roas-chart" role="img" aria-label="ROAS vs ROI bar chart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <h2>ROAS Formula</h2>
+      <p class="math-inline">ROAS = Revenue from Ads / Ad Spend</p>
+      <p>ROAS is expressed as a ratio (e.g., 5:1) or percentage (500%). Example: $5,000 revenue from $1,000 spend = 5:1 ROAS. ROAS measures revenue efficiency; it does not subtract cost of goods sold. To get ROI, apply <a href="/glossary/gross-margin.html">gross margin</a>: Profit = Revenue × Gross Margin; ROI = (Profit − Ad Spend) / Ad Spend × 100.</p>
+
+      <h2>When ROAS Differs from ROI</h2>
+      <p>ROAS and ROI diverge when margins are below 100%. A 5:1 ROAS on 20% gross margin yields $1 of profit per $1 spent—0% ROI. At 10% margin, the same ROAS loses money. ROAS is useful for comparing ad efficiency across campaigns; ROI is required for profitability decisions. See <a href="/roi-calculator/marketing/">Marketing ROI</a> and <a href="/learn/what-is-roi.html">What Is ROI?</a> for the full picture.</p>
+
+      <h2>Ecommerce Example</h2>
+      <p>An ecommerce brand spends $20,000 on Google Ads. Revenue attributed to those ads is $80,000. ROAS = 4:1. Gross margin is 40%. Gross profit = $80,000 × 0.40 = $32,000. Profit after ad spend = $32,000 − $20,000 = $12,000. ROI = ($12,000 / $20,000) × 100 = 60%. The campaign is profitable. At 25% margin, profit would be $20,000 − $20,000 = $0—break-even.</p>
+
+      <h2>Paid Ads Case Study</h2>
+      <p>A B2B SaaS company runs LinkedIn ads at $15,000/month. Attribution (last-click, 30-day) reports $45,000 in pipeline. ROAS = 3:1. Pipeline-to-close rate is 20%; average deal size $12,000. Closed revenue = $45,000 × 0.20 × (12,000 / blended ACV) requires pipeline value modeling. If closed revenue is $30,000 and gross margin is 85%, profit = $25,500 − $15,000 = $10,500. ROI ≈ 70%. The key is connecting attributed pipeline to actual closed revenue.</p>
+
+      <h2>Benchmark Ranges</h2>
+      <table>
+        <thead>
+          <tr><th>Industry</th><th>Typical ROAS</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ecommerce (D2C)</td><td>3:1 to 5:1</td><td>Varies by margin; 4:1 common target</td></tr>
+          <tr><td>B2B SaaS</td><td>2:1 to 4:1</td><td>Longer cycles; pipeline ROAS often higher</td></tr>
+          <tr><td>Lead gen</td><td>5:1 to 15:1</td><td>Revenue per lead × close rate</td></tr>
+        </tbody>
+      </table>
+      <p>Break-even ROAS = 1 / Gross Margin. At 30% margin, break-even ROAS = 3.33:1. See <a href="/roi-calculator/marketing/lead-generation-roi.html">Lead Generation ROI</a> and <a href="/roi-calculator/marketing/email-marketing-roi.html">Email Marketing ROI</a> for channel-specific tools.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>What is ROAS?</h4>
+          <p>ROAS (Return on Ad Spend) is revenue generated from ads divided by ad spend. Formula: ROAS = Revenue / Ad Spend. A 5:1 ROAS means $5 revenue per $1 spent.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How does ROAS differ from ROI?</h4>
+          <p>ROAS uses revenue; ROI uses profit after costs. ROAS ignores gross margin. A high ROAS can still yield negative ROI if margins are low.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is a good ROAS?</h4>
+          <p>Ecommerce often targets 3:1 to 5:1. The break-even ROAS depends on gross margin. At 30% margin, you need 3.33:1 ROAS to break even.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Should I optimize for ROAS or ROI?</h4>
+          <p>Optimize for ROI (profit) when possible. ROAS is useful for revenue efficiency and quick comparison; ROI reflects true profitability.</p>
+        </div>
+      </div>
+
+      <nav class="related-topics">
+        <h3>Related Topics</h3>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/marketing/">Marketing ROI Guide</a></li>
+          <li><a href="/roi-calculator/marketing/lead-generation-roi.html">Lead Generation ROI</a></li>
+          <li><a href="/roi-calculator/marketing/email-marketing-roi.html">Email Marketing ROI</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+          <li><a href="/glossary/gross-margin.html">Gross Margin</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('roas-form');
+        var adv = document.getElementById('roas-advanced');
+        var advFields = document.getElementById('roas-advanced-fields');
+        adv.addEventListener('change', function(){ advFields.style.display = this.checked ? 'block' : 'none'; });
+        var roasChart = null;
+        function run(){
+          var s = (window.mktParseNum || parseFloat)(document.getElementById('ad-spend').value) || 0;
+          var r = (window.mktParseNum || parseFloat)(document.getElementById('revenue').value) || 0;
+          var m = (window.mktParseNum || parseFloat)(document.getElementById('gross-margin-pct').value) || 0;
+          if(s <= 0){ return; }
+          var roasRatio = r / s;
+          var profit = r * (m/100) - s;
+          var roi = s ? ((profit) / s) * 100 : 0;
+          var fmt = window.mktFormatMoney || function(n){ return '$'+n.toFixed(2); };
+          var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+          document.getElementById('roas-ratio').textContent = roasRatio.toFixed(2) + ':1';
+          document.getElementById('roas-roi').textContent = fmtPct(roi);
+          document.getElementById('roas-profit').textContent = fmt(profit);
+          var msg = '';
+          if(profit > 0) msg = 'Campaign is profitable. ROI of ' + fmtPct(roi) + ' indicates positive return after costs.';
+          else if(profit < 0) msg = 'Campaign is unprofitable. Consider improving conversion, margin, or reducing spend.';
+          else msg = 'Break-even. Revenue covers costs but yields no profit.';
+          document.getElementById('roas-interpretation').textContent = msg;
+          var canvas = document.getElementById('roas-chart');
+          if(canvas && typeof Chart !== 'undefined'){
+            if(roasChart) roasChart.destroy();
+            roasChart = new Chart(canvas, { type: 'bar', data: { labels: ['Ad Spend', 'Revenue', 'Profit'], datasets: [{ label: 'Amount ($)', data: [s, r, profit], backgroundColor: ['#94a3b8', '#2563eb', profit >= 0 ? '#16a34a' : '#dc2626'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: function(v){ return '$' + (v>=1000 ? (v/1000).toFixed(0)+'k' : v); } } } } } });
+          }
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>

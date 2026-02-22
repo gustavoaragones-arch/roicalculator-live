@@ -216,6 +216,14 @@ th, td {
 }
 th { background: var(--color-bg-alt); font-weight: 600; }
 
+/* Interpretation block (calculator results) */
+.interpretation-block {
+  background: var(--color-bg-alt);
+  border-left: 4px solid var(--color-accent);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
 /* Definition block (glossary) */
 .definition-block {
   background: var(--color-bg-alt);

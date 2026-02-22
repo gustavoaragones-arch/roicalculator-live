@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>Lead Generation ROI Calculator | roicalculator.live</title>
+  <meta name="description" content="Calculate lead generation ROI: campaign cost, leads, close rate, deal value. Get revenue, ROI, cost per lead, and profit.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/marketing/lead-generation-roi.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/marketing/lead-generation-roi.html">
+  <meta property="og:title" content="Lead Generation ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Calculate lead generation ROI, cost per lead, and profit.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Lead Generation ROI Calculator | roicalculator.live">
+  <meta name="twitter:description" content="Calculate lead generation ROI.">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Marketing ROI","item":"https://roicalculator.live/roi-calculator/marketing/"},{"@type":"ListItem","position":3,"name":"Lead Generation ROI"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/marketing/">Marketing ROI</a>
+      <span> / </span>
+      <span>Lead Generation ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Lead Generation ROI Calculator</h1>
+
+      <p>Calculate lead generation ROI from campaign cost, leads, close rate, and average deal value. Links: <a href="/">ROI calculator</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/glossary/cac.html">CAC</a>, <a href="/glossary/ltv.html">LTV</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="lead-calc-heading">
+        <h2 id="lead-calc-heading">Lead Generation ROI Calculator</h2>
+        <form id="lead-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="lead-cost">Campaign Cost ($)</label>
+              <input type="number" id="lead-cost" min="0" step="0.01" value="10000" required>
+            </div>
+            <div class="form-group">
+              <label for="lead-count">Leads Generated</label>
+              <input type="number" id="lead-count" min="0" step="1" value="200" required>
+            </div>
+            <div class="form-group">
+              <label for="close-rate">Close Rate (%)</label>
+              <input type="number" id="close-rate" min="0" max="100" step="0.5" value="10" required>
+            </div>
+            <div class="form-group">
+              <label for="deal-value">Average Deal Value ($)</label>
+              <input type="number" id="deal-value" min="0" step="0.01" value="5000" required>
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="lead-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Revenue</span>
+              <span class="value" id="lead-revenue">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">ROI</span>
+              <span class="value" id="lead-roi">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Cost per Lead</span>
+              <span class="value" id="lead-cpl">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Profit</span>
+              <span class="value" id="lead-profit">—</span>
+            </div>
+          </div>
+          <div class="interpretation-block" id="lead-interpretation" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <h2>Full-Funnel Model</h2>
+      <p>Lead gen ROI requires modeling: Spend → Leads → Customers → Revenue. Customers = Leads × Close Rate. Revenue = Customers × Average Deal Value. ROI = (Revenue − Campaign Cost) / Campaign Cost × 100. A low <a href="/glossary/cac.html">CAC</a> or cost per lead is meaningless if close rate is poor or <a href="/glossary/churn-rate.html">churn</a> erodes <a href="/glossary/ltv.html">LTV</a>. See <a href="/learn/what-is-roi.html">What Is ROI?</a> for the core formula.</p>
+
+      <h2>Cost Per Lead (CPL)</h2>
+      <p>CPL = Campaign Cost / Leads Generated. Use CPL to compare channels and creative, but do not optimize on CPL alone. A $20 CPL with 5% close rate beats a $10 CPL with 1% close when deal value supports it. Always model through to revenue and profit.</p>
+
+      <h2>B2B vs B2C</h2>
+      <p>B2B lead gen typically has higher CPL, longer sales cycles, and higher deal values. Attribution windows must match the cycle—30 days may be too short for enterprise. B2C often has shorter cycles and lower LTV; focus on conversion and repeat purchase. See <a href="/roi-calculator/marketing/roas-calculator.html">ROAS calculator</a> for paid-ad efficiency and <a href="/roi-calculator/marketing/email-marketing-roi.html">Email Marketing ROI</a> for channel-specific metrics.</p>
+
+      <h2>Channels and Benchmarks</h2>
+      <p>Paid search, LinkedIn, and content syndication are common B2B channels. CPL varies by industry: $50–200+ for B2B SaaS, $20–80 for lower-ticket B2B. Compare channels on full-funnel ROI, not CPL. The <a href="/roi-calculator/marketing/">Marketing ROI guide</a> has benchmarks by channel.</p>
+
+      <h2>Common Pitfalls</h2>
+      <ul>
+        <li>Using pipeline value instead of closed revenue for ROI</li>
+        <li>Ignoring sales team cost in total campaign cost</li>
+        <li>Comparing CPL across channels with different close rates</li>
+        <li>Using too short an attribution window for long-cycle deals</li>
+      </ul>
+
+      <nav class="related-topics">
+        <h3>Related Topics</h3>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/marketing/">Marketing ROI Guide</a></li>
+          <li><a href="/roi-calculator/marketing/roas-calculator.html">ROAS Calculator</a></li>
+          <li><a href="/roi-calculator/marketing/email-marketing-roi.html">Email Marketing ROI</a></li>
+          <li><a href="/learn/how-to-calculate-roi.html">How to Calculate ROI</a></li>
+          <li><a href="/glossary/cac.html">CAC</a></li>
+          <li><a href="/glossary/ltv.html">LTV</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('lead-form');
+        var parse = window.mktParseNum || function(v){ return parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0; };
+        var fmt = window.mktFormatMoney || function(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:2}); };
+        var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+        function run(){
+          var cost = parse(document.getElementById('lead-cost').value);
+          var leads = parse(document.getElementById('lead-count').value);
+          var close = parse(document.getElementById('close-rate').value);
+          var deal = parse(document.getElementById('deal-value').value);
+          if(cost <= 0 || leads < 0) return;
+          var customers = leads * (close/100);
+          var revenue = customers * deal;
+          var profit = revenue - cost;
+          var roi = cost ? (profit/cost)*100 : 0;
+          var cpl = leads ? cost/leads : 0;
+          document.getElementById('lead-revenue').textContent = fmt(revenue);
+          document.getElementById('lead-roi').textContent = fmtPct(roi);
+          document.getElementById('lead-cpl').textContent = fmt(cpl);
+          document.getElementById('lead-profit').textContent = fmt(profit);
+          var msg = roi > 0 ? 'Campaign is profitable. Consider scaling spend while monitoring close rate and deal value.' : roi < 0 ? 'Campaign is unprofitable. Improve close rate, raise deal value, or reduce cost per lead.' : 'Break-even. Optimize to reach profitability.';
+          document.getElementById('lead-interpretation').textContent = msg;
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>

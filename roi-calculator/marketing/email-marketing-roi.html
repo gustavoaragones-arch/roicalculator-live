@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>Email Marketing ROI Calculator | roicalculator.live</title>
+  <meta name="description" content="Calculate email marketing ROI: tool cost, campaign cost, subscribers, open rate, conversion, AOV. Get revenue, ROI, and subscriber value.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/marketing/email-marketing-roi.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/marketing/email-marketing-roi.html">
+  <meta property="og:title" content="Email Marketing ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Calculate email marketing ROI, revenue, and subscriber value.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Email Marketing ROI Calculator | roicalculator.live">
+  <meta name="twitter:description" content="Calculate email marketing ROI.">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Marketing ROI","item":"https://roicalculator.live/roi-calculator/marketing/"},{"@type":"ListItem","position":3,"name":"Email Marketing ROI"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/marketing/">Marketing ROI</a>
+      <span> / </span>
+      <span>Email Marketing ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Email Marketing ROI Calculator</h1>
+
+      <p>Calculate email marketing ROI from tool cost, campaign cost, subscribers, open rate, conversion rate, and average order value. Links: <a href="/">ROI calculator</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/glossary/ltv.html">LTV</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="email-calc-heading">
+        <h2 id="email-calc-heading">Email Marketing ROI Calculator</h2>
+        <form id="email-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email-tool-cost">Email Tool Cost ($)</label>
+              <input type="number" id="email-tool-cost" min="0" step="0.01" value="500">
+            </div>
+            <div class="form-group">
+              <label for="email-campaign-cost">Campaign Cost ($)</label>
+              <input type="number" id="email-campaign-cost" min="0" step="0.01" value="200">
+            </div>
+            <div class="form-group">
+              <label for="email-subscribers">Subscribers</label>
+              <input type="number" id="email-subscribers" min="0" step="1" value="10000" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email-open-rate">Open Rate (%)</label>
+              <input type="number" id="email-open-rate" min="0" max="100" step="0.5" value="25">
+            </div>
+            <div class="form-group">
+              <label for="email-conv-rate">Conversion Rate (%)</label>
+              <input type="number" id="email-conv-rate" min="0" max="100" step="0.1" value="2">
+            </div>
+            <div class="form-group">
+              <label for="email-aov">Average Order Value ($)</label>
+              <input type="number" id="email-aov" min="0" step="0.01" value="75" required>
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="email-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Revenue</span>
+              <span class="value" id="email-revenue">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">ROI</span>
+              <span class="value" id="email-roi">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Subscriber Value</span>
+              <span class="value" id="email-sub-value">—</span>
+            </div>
+          </div>
+          <div class="interpretation-block" id="email-interpretation" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <h2>Email ROI Formula</h2>
+      <p class="math-inline">Email ROI = [(Revenue from Email − Total Cost) / Total Cost] × 100</p>
+      <p>Total cost = Email tool cost + Campaign cost. Revenue = Subscribers × Open Rate × Conversion Rate × AOV. Use UTM parameters and closed-loop attribution where possible. See <a href="/glossary/gross-margin.html">gross margin</a> and <a href="/learn/roi-formula.html">ROI formula</a> for core concepts.</p>
+
+      <h2>Attribution Limits</h2>
+      <p>Email attribution is imperfect. Last-click overcredits email when other touches (paid, organic) contributed. Multi-touch or incrementality tests improve accuracy. Many buyers open multiple emails or click from a later touch; strict last-click may undercount. Use consistent methodology for trend analysis. See <a href="/roi-calculator/marketing/">Marketing ROI</a> and <a href="/learn/roi-limitations.html">ROI limitations</a>.</p>
+
+      <h2>Retention Effect</h2>
+      <p>Email drives both acquisition and retention. Welcome and lifecycle campaigns affect <a href="/glossary/ltv.html">LTV</a> and <a href="/glossary/churn-rate.html">churn</a>. A one-off campaign ROI understates long-term value if it reactivates lapsed customers or increases repeat purchase. Model LTV impact separately when possible.</p>
+
+      <h2>LTV Relation</h2>
+      <p>Subscriber value = Revenue / Subscribers. It approximates contribution per subscriber for that campaign. For full <a href="/glossary/ltv.html">LTV</a>, include all emails and touchpoints over the relationship. Email ROI per campaign is a snapshot; LTV captures lifetime value. Compare to <a href="/glossary/cac.html">CAC</a> for list acquisition ROI.</p>
+
+      <h2>Cost Components</h2>
+      <p>Include: ESP fees, design/copy, deliverability tools, internal labor. Excluding costs inflates ROI. See <a href="/roi-calculator/marketing/roas-calculator.html">ROAS calculator</a> and <a href="/roi-calculator/marketing/lead-generation-roi.html">Lead Generation ROI</a> for other channel tools.</p>
+
+      <h2>Benchmarks</h2>
+      <p>Industry reports cite median email ROI of 36:1 to 42:1. Varies by list quality, product, and attribution. Transactional and triggered often outperform broadcast. Compare to your baseline and paid channels.</p>
+
+      <nav class="related-topics">
+        <h3>Related Topics</h3>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/marketing/">Marketing ROI Guide</a></li>
+          <li><a href="/roi-calculator/marketing/roas-calculator.html">ROAS Calculator</a></li>
+          <li><a href="/roi-calculator/marketing/lead-generation-roi.html">Lead Generation ROI</a></li>
+          <li><a href="/learn/roi-limitations.html">ROI Limitations</a></li>
+          <li><a href="/glossary/ltv.html">LTV</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('email-form');
+        var parse = window.mktParseNum || function(v){ return parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0; };
+        var fmt = window.mktFormatMoney || function(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:2}); };
+        var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+        function run(){
+          var tool = parse(document.getElementById('email-tool-cost').value);
+          var campaign = parse(document.getElementById('email-campaign-cost').value);
+          var subs = parse(document.getElementById('email-subscribers').value);
+          var open = parse(document.getElementById('email-open-rate').value);
+          var conv = parse(document.getElementById('email-conv-rate').value);
+          var aov = parse(document.getElementById('email-aov').value);
+          var cost = tool + campaign;
+          if(cost <= 0 || subs <= 0) return;
+          var opens = subs * (open/100);
+          var convs = opens * (conv/100);
+          var revenue = convs * aov;
+          var profit = revenue - cost;
+          var roi = cost ? (profit/cost)*100 : 0;
+          var subVal = subs ? revenue/subs : 0;
+          document.getElementById('email-revenue').textContent = fmt(revenue);
+          document.getElementById('email-roi').textContent = fmtPct(roi);
+          document.getElementById('email-sub-value').textContent = fmt(subVal);
+          var msg = roi > 0 ? 'Campaign is profitable. Consider A/B tests on subject lines and creative to improve open and conversion rates.' : roi < 0 ? 'Campaign is unprofitable. Improve open rate, conversion, or AOV; or reduce costs.' : 'Break-even.';
+          document.getElementById('email-interpretation').textContent = msg;
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>
