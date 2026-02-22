@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology | roicalculator.live</title>
+  <meta name="description" content="How the roicalculator.live ROI calculator works: formulas, assumptions, and methodology.">
+  <link rel="canonical" href="https://roicalculator.live/methodology.html">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <span>Methodology</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Methodology</h1>
+
+      <p>This page describes how the roicalculator.live ROI calculator computes results, the formulas used, and the assumptions applied.</p>
+
+      <h2>ROI Formula</h2>
+      <p>The calculator uses the standard ROI formula:</p>
+      <p class="math-inline">ROI = [(Final Value − Initial Investment) / Initial Investment] × 100</p>
+      <p>Where:</p>
+      <ul>
+        <li><strong>Initial Investment</strong>: The amount invested at the start</li>
+        <li><strong>Final Value</strong>: The value at the end of the holding period</li>
+      </ul>
+      <p>The result is expressed as a percentage. A positive value indicates a gain; a negative value indicates a loss.</p>
+
+      <h2>Annualized ROI</h2>
+      <p>Annualized ROI converts the total return into an equivalent compound annual growth rate:</p>
+      <p class="math-inline">Annualized ROI = [(Final Value / Initial Investment)<sup>1/n</sup> − 1] × 100</p>
+      <p>Where <em>n</em> is the number of years. Fractional years (e.g., 2.5) are supported. This formula assumes compounding and is appropriate for investments that grow (or decline) over time without intermediate cash flows.</p>
+
+      <h2>Target ROI Mode (Reverse Calculation)</h2>
+      <p>When Target ROI mode is enabled, the user enters a desired annual ROI percentage. The calculator solves for the final value required to achieve that annualized return:</p>
+      <p class="math-inline">Final Value = Initial Investment × (1 + r)<sup>n</sup></p>
+      <p>Where <em>r</em> is the target annual ROI expressed as a decimal (e.g., 0.10 for 10%) and <em>n</em> is the number of years.</p>
+
+      <h2>Total Profit</h2>
+      <p>Total profit is computed as:</p>
+      <p class="math-inline">Total Profit = Final Value − Initial Investment</p>
+      <p>No adjustment is made for inflation, taxes, or fees. The user is responsible for considering these factors.</p>
+
+      <h2>5-Year Projection Chart</h2>
+      <p>The projection chart assumes constant compound growth at the annualized rate derived from the user’s inputs. Year 0 is the initial investment. Each subsequent year shows the projected value if growth continues at that rate. This is illustrative only and does not predict actual future performance.</p>
+
+      <h2>Assumptions and Limitations</h2>
+      <ul>
+        <li><strong>Single cash flow</strong>: The calculator assumes one initial investment and one final value. It does not handle multiple deposits or withdrawals. For that, use <a href="/learn/roi-vs-irr.html">IRR</a>.</li>
+        <li><strong>No fees or taxes</strong>: Transaction costs, management fees, and taxes are not included.</li>
+        <li><strong>Constant growth</strong>: The annualized rate and projection assume steady compound growth, which may not reflect real investments.</li>
+        <li><strong>Input validation</strong>: Initial investment and period must be positive. Final value must be non-negative.</li>
+      </ul>
+
+      <h2>Rounding</h2>
+      <p>ROI and annualized ROI are displayed to two decimal places. Total profit is displayed with two decimal places in currency format. Internal calculations use full precision.</p>
+
+      <nav class="related-topics">
+        <h3>Related</h3>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/learn/roi-formula.html">ROI Formula</a></li>
+          <li><a href="/learn/how-to-calculate-roi.html">How to Calculate ROI</a></li>
+          <li><a href="/glossary/annualized-return.html">Annualized Return</a></li>
+        </ul>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

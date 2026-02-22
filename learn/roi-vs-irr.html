@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI vs IRR | roicalculator.live</title>
+  <meta name="description" content="Understand the difference between ROI and IRR, when to use each, and how they compare for investment analysis.">
+  <link rel="canonical" href="https://roicalculator.live/learn/roi-vs-irr.html">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/learn/what-is-roi.html">Learn</a>
+      <span> / </span>
+      <span>ROI vs IRR</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>ROI vs IRR</h1>
+
+      <p>ROI and IRR are both used to evaluate investments, but they measure different things and suit different situations. Understanding when to use each helps you choose the right metric for your analysis.</p>
+
+      <h2>What Is ROI?</h2>
+      <p>ROI (Return on Investment) is a simple percentage: (Final Value − Initial Investment) / Initial Investment × 100. It treats the investment as a single lump sum at the start and a single value at the end. It does not consider when cash flows occur or whether there are multiple inflows or outflows. For the basics, see <a href="/learn/what-is-roi.html">What Is ROI?</a></p>
+
+      <h2>What Is IRR?</h2>
+      <p>IRR (Internal Rate of Return) is the discount rate that makes the net present value (NPV) of all cash flows equal to zero. In other words, it is the rate at which the investment "breaks even" in present-value terms. IRR accounts for the timing of cash flows: money received earlier is valued more than money received later. Calculating IRR typically requires iteration or a financial calculator, as there is no closed-form algebraic solution for most cash flow patterns.</p>
+
+      <h2>Key Differences</h2>
+      <p><strong>Cash flow timing:</strong> ROI ignores when money is invested or returned. IRR explicitly incorporates the time value of money. A dollar today is worth more than a dollar in five years; IRR reflects that.</p>
+      <p><strong>Number of cash flows:</strong> ROI is designed for a single initial outlay and a single terminal value. IRR can handle multiple deposits, withdrawals, and intermediate cash flows. Real estate with rental income, development costs, and sale proceeds is a typical IRR application.</p>
+      <p><strong>Interpretation:</strong> ROI is intuitive: 50% means you made 50% on your money. IRR is the annualized effective rate implied by the cash flow stream. Both are percentages, but they answer different questions.</p>
+
+      <h2>When They Match</h2>
+      <p>For a simple investment—one lump sum at the start, one payoff at the end—ROI and IRR convey similar information. The annualized ROI (using the compound growth formula) will approximate IRR when there are no intermediate cash flows. For a two-year investment with 44% total ROI, annualized ROI is about 20% per year, and IRR would be the same.</p>
+
+      <h2>When IRR Is Preferable</h2>
+      <p>IRR is better when:</p>
+      <ul>
+        <li>There are multiple investments or withdrawals over time (e.g., staged funding, dividend reinvestment, capital calls)</li>
+        <li>Cash flows are irregular (e.g., rental income, renovation costs, eventual sale)</li>
+        <li>You need to compare projects with different timing of cash flows</li>
+      </ul>
+      <p>Example: You invest $100,000 in a rental property. You spend $20,000 on renovations in year 1, receive $8,000 net rent in years 2–5, and sell for $150,000 in year 5. ROI could be computed in various ways (e.g., total outlay vs. sale proceeds), but the result depends on how you define "initial" and "final." IRR provides a single, consistent rate that accounts for all cash flows and their timing.</p>
+
+      <h2>IRR Caveats</h2>
+      <p>IRR has its own limitations. Some cash flow patterns produce multiple IRRs or no real IRR. IRR assumes reinvestment at the same rate, which may be unrealistic. For project comparison, NPV is often preferred when the reinvestment assumption matters. Despite these issues, IRR remains widely used in private equity, real estate, and project finance.</p>
+
+      <h2>Summary</h2>
+      <p>Use ROI for simple, single-flow investments. Use IRR when cash flows are multiple or irregular and timing matters. Our <a href="/">ROI Calculator</a> supports the standard ROI case; for IRR, use a spreadsheet or dedicated financial tool. For more on ROI’s limitations, see <a href="/learn/roi-limitations.html">ROI Limitations</a>.</p>
+
+      <nav class="related-topics">
+        <h3>Related Topics</h3>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+          <li><a href="/learn/roi-limitations.html">ROI Limitations</a></li>
+          <li><a href="/learn/how-to-calculate-roi.html">How to Calculate ROI</a></li>
+          <li><a href="/glossary/payback-period.html">Payback Period</a></li>
+        </ul>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

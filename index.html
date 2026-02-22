@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator (Free &amp; Private) | roicalculator.live</title>
+  <meta name="description" content="Calculate return on investment (ROI) with our free, privacy-first calculator. No cookies, no tracking. Learn the formula, annualized ROI, and industry benchmarks.">
+  <link rel="canonical" href="https://roicalculator.live/">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "roicalculator.live",
+    "url": "https://roicalculator.live",
+    "description": "Free, privacy-first ROI calculator and educational resource for investors and business professionals."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is ROI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ROI (Return on Investment) measures the profitability of an investment as a percentage of the initial cost. The formula is: ROI = [(Final Value - Initial Investment) / Initial Investment] × 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate annualized ROI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Annualized ROI converts multi-year returns to an equivalent annual rate. Formula: Annualized ROI = [(Final Value / Initial Investment)^(1/years) - 1] × 100. This allows comparison of investments with different holding periods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When can ROI be misleading?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ROI can be misleading when it ignores the time value of money, excludes costs like taxes or fees, or compares investments with different risk levels. Annualized ROI and IRR address some of these limitations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good ROI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 'good' ROI depends on asset class, risk, and holding period. Stock market historical average is around 10% annually; real estate cap rates vary by market; business investments typically target 15–25% or higher depending on risk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between ROI and IRR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ROI is a simple percentage gain over the total period. IRR (Internal Rate of Return) accounts for the timing of cash flows and finds the discount rate that makes NPV zero. IRR is better for investments with multiple inflows and outflows."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ROI Calculator (Free &amp; Private) | roicalculator.live",
+    "description": "Calculate return on investment with our free, privacy-first calculator. Learn the formula and industry benchmarks.",
+    "url": "https://roicalculator.live"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-zone-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+    </nav>
+
+    <section class="hero">
+      <h1>Professional ROI Calculator (Free &amp; Private)</h1>
+      <p>Calculate return on investment with a simple formula. No sign-up, no data collection. Your numbers stay on your device.</p>
+    </section>
+
+    <section class="calculator-module" aria-labelledby="calc-heading">
+      <h2 id="calc-heading">ROI Calculator</h2>
+      <form id="roi-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="initial-investment">Initial Investment ($)</label>
+            <input type="number" id="initial-investment" min="0" step="0.01" value="10000" required>
+          </div>
+          <div class="form-group">
+            <label for="final-value">Final Value ($)</label>
+            <input type="number" id="final-value" min="0" step="0.01" value="15000" required>
+          </div>
+          <div class="form-group">
+            <label for="period-years">Investment Period (years)</label>
+            <input type="number" id="period-years" min="0.01" step="0.25" value="5" required>
+          </div>
+        </div>
+        <div class="toggle-row">
+          <input type="checkbox" id="reverse-mode" aria-describedby="reverse-desc">
+          <label for="reverse-mode" id="reverse-desc">Target ROI mode: calculate required final value from target ROI %</label>
+        </div>
+        <div class="calc-buttons">
+          <button type="submit" class="btn btn-primary">Calculate</button>
+          <button type="button" class="btn btn-secondary" id="btn-pdf">Download PDF</button>
+        </div>
+      </form>
+
+      <div class="results-panel" id="results-panel" hidden>
+        <h3>Results</h3>
+        <div class="results-grid">
+          <div class="result-item">
+            <span class="label">ROI</span>
+            <span class="value" id="result-roi">—</span>
+          </div>
+          <div class="result-item">
+            <span class="label">Annualized ROI</span>
+            <span class="value" id="result-annualized">—</span>
+          </div>
+          <div class="result-item">
+            <span class="label">Total Profit</span>
+            <span class="value" id="result-profit">—</span>
+          </div>
+        </div>
+        <h3>5-Year Projection</h3>
+        <div class="chart-container">
+          <canvas id="projection-chart" role="img" aria-label="5-year ROI projection chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-zone-mid" role="presentation" aria-hidden="true"></div>
+
+    <article class="content-section">
+      <h2>What Is ROI?</h2>
+      <p>Return on investment (ROI) is a performance measure used to evaluate the efficiency or profitability of an investment. It expresses the gain or loss generated relative to the amount of money invested. ROI is widely used in finance, real estate, marketing, and business planning because it provides a simple, comparable metric across different types of investments.</p>
+
+      <h3>The ROI Formula</h3>
+      <p>The standard ROI formula is:</p>
+      <p class="math-inline">ROI = [(Final Value − Initial Investment) / Initial Investment] × 100</p>
+      <p>In notation: ROI = [(V<sub>f</sub> − I) / I] × 100%, where V<sub>f</sub> is the final value and I is the initial investment. A positive ROI indicates a profit; a negative ROI indicates a loss. For example, an investment of $10,000 that grows to $15,000 has an ROI of 50%.</p>
+
+      <h3>Step-by-Step Example</h3>
+      <p>Suppose you invest $20,000 in a stock. After three years, you sell for $28,000.</p>
+      <ol>
+        <li>Identify initial investment: $20,000</li>
+        <li>Identify final value: $28,000</li>
+        <li>Calculate gain: $28,000 − $20,000 = $8,000</li>
+        <li>Divide gain by initial investment: $8,000 / $20,000 = 0.40</li>
+        <li>Multiply by 100: 0.40 × 100 = 40% ROI</li>
+      </ol>
+      <p>Your total ROI over three years is 40%. This does not tell you the annual rate of return—for that, you need annualized ROI.</p>
+
+      <h3>Annualized ROI Explanation</h3>
+      <p>Simple ROI ignores the holding period. A 50% return over one year is not equivalent to a 50% return over ten years. Annualized ROI converts the total return into an equivalent compound annual growth rate:</p>
+      <p class="math-inline">Annualized ROI = [(Final Value / Initial Investment)<sup>1/n</sup> − 1] × 100</p>
+      <p>where n is the number of years. For the $20,000 → $28,000 example over 3 years: (28,000/20,000)^(1/3) − 1 ≈ 0.119, or about 11.9% per year. This allows meaningful comparison between investments with different time horizons.</p>
+
+      <h3>When ROI Can Be Misleading</h3>
+      <p>ROI has several limitations. It does not account for the time value of money—$100 today is worth more than $100 in five years. It often excludes transaction costs, taxes, and ongoing fees, which can significantly reduce actual returns. ROI can also be manipulated by choosing selective time periods or including only favorable costs. When comparing investments, risk is not factored in: a 30% ROI on a high-risk venture is not equivalent to 30% on a government bond. For cash flows occurring at different times, <a href="/learn/roi-vs-irr.html">IRR</a> or net present value (NPV) are more appropriate.</p>
+
+      <h3>ROI vs IRR</h3>
+      <p>IRR (Internal Rate of Return) addresses one of ROI’s main weaknesses: the timing of cash flows. ROI treats all dollars equally regardless of when they occur. IRR solves for the discount rate that makes the net present value of all cash flows equal to zero. For a single lump-sum investment and return, ROI and IRR tell similar stories. For projects with multiple inflows and outflows—such as real estate with rental income and renovations—IRR provides a more accurate picture. See <a href="/learn/roi-vs-irr.html">ROI vs IRR</a> for a detailed comparison.</p>
+
+      <h3>Industry Benchmarks</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Asset Class</th>
+            <th>Typical Range</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>U.S. large-cap stocks</td>
+            <td>~8–10% annualized</td>
+            <td>Historical long-term average</td>
+          </tr>
+          <tr>
+            <td>Real estate (cap rate)</td>
+            <td>4–8%</td>
+            <td>Varies by market and property type</td>
+          </tr>
+          <tr>
+            <td>Business projects</td>
+            <td>15–30%+</td>
+            <td>Risk-adjusted hurdle rates</td>
+          </tr>
+          <tr>
+            <td>Bonds</td>
+            <td>2–5%</td>
+            <td>Depends on credit and duration</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>These are illustrative ranges. Actual returns depend on market conditions, risk, and holding period.</p>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Comparing ROI across different time periods without annualizing</li>
+        <li>Ignoring fees, taxes, and transaction costs</li>
+        <li>Using ROI for investments with irregular cash flows instead of IRR</li>
+        <li>Confusing gross and net returns—ensure all costs are included</li>
+        <li>Extrapolating past performance as a guarantee of future results</li>
+      </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>What is ROI?</h4>
+          <p>ROI (Return on Investment) measures the profitability of an investment as a percentage of the initial cost. The formula is: ROI = [(Final Value − Initial Investment) / Initial Investment] × 100.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do you calculate annualized ROI?</h4>
+          <p>Annualized ROI converts multi-year returns to an equivalent annual rate. Formula: Annualized ROI = [(Final Value / Initial Investment)^(1/years) − 1] × 100. This allows comparison of investments with different holding periods.</p>
+        </div>
+        <div class="faq-item">
+          <h4>When can ROI be misleading?</h4>
+          <p>ROI can be misleading when it ignores the time value of money, excludes costs like taxes or fees, or compares investments with different risk levels. Annualized ROI and IRR address some of these limitations.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is a good ROI?</h4>
+          <p>A "good" ROI depends on asset class, risk, and holding period. Stock market historical average is around 10% annually; real estate cap rates vary by market; business investments typically target 15–25% or higher depending on risk.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the difference between ROI and IRR?</h4>
+          <p>ROI is a simple percentage gain over the total period. IRR (Internal Rate of Return) accounts for the timing of cash flows and finds the discount rate that makes NPV zero. IRR is better for investments with multiple inflows and outflows.</p>
+        </div>
+      </div>
+
+      <nav class="related-topics">
+        <h3>Related Topics</h3>
+        <ul>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+          <li><a href="/learn/roi-formula.html">ROI Formula Deep Dive</a></li>
+          <li><a href="/learn/roi-vs-irr.html">ROI vs IRR</a></li>
+          <li><a href="/learn/how-to-calculate-roi.html">How to Calculate ROI</a></li>
+          <li><a href="/glossary/annualized-return.html">Annualized Return (Glossary)</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-zone-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="/assets/js/calculator.js"></script>
+  <script src="/assets/js/chart-config.js"></script>
+  <script src="/assets/js/pdf-export.js"></script>
+</body>
+</html>
