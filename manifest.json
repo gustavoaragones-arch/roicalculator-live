@@ -1,0 +1,8 @@
+{
+  "name": "ROI Calculator",
+  "short_name": "ROI",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "start_url": "/"
+}

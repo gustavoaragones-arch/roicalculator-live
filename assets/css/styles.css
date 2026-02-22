@@ -33,10 +33,11 @@ body {
   line-height: 1.6;
 }
 
-/* Ad-safe zones (placeholders) */
-.ad-zone-top { min-height: 90px; background: var(--color-bg-alt); margin-bottom: var(--space-xl); }
-.ad-zone-mid { min-height: 250px; background: var(--color-bg-alt); margin: var(--space-2xl) 0; }
-.ad-zone-bottom { min-height: 90px; background: var(--color-bg-alt); margin-top: var(--space-2xl); }
+/* Ad-safe zones (placeholders) - no layout shift */
+.ad-slot, .ad-top, .ad-middle, .ad-bottom { min-height: 90px; background: var(--color-bg-alt); contain: layout; }
+.ad-slot.ad-top { margin-bottom: var(--space-xl); }
+.ad-slot.ad-middle { min-height: 250px; margin: var(--space-2xl) 0; }
+.ad-slot.ad-bottom { margin-top: var(--space-2xl); }
 
 /* Header */
 .site-header {
@@ -167,6 +168,7 @@ main {
   margin-top: var(--space-xl);
   padding-top: var(--space-xl);
   border-top: 1px solid var(--color-border);
+  min-height: 400px;
 }
 .results-panel h3 { font-size: 1rem; margin: 0 0 var(--space-md); }
 .results-grid {
@@ -233,6 +235,16 @@ th { background: var(--color-bg-alt); font-weight: 600; }
 .faq-item h4 { font-size: 1rem; margin: 0 0 var(--space-xs); }
 .faq-item p { margin: 0; }
 
+/* Explore industry */
+.explore-industry {
+  margin: var(--space-2xl) 0;
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+}
+.explore-industry h3 { margin: 0 0 var(--space-md); }
+.explore-industry ul { list-style: none; padding: 0; margin: 0; }
+.explore-industry li { margin-bottom: var(--space-sm); }
+
 /* Related topics */
 .related-topics {
   margin-top: var(--space-2xl);
@@ -266,6 +278,9 @@ th { background: var(--color-bg-alt); font-weight: 600; }
   text-align: center;
 }
 .footer-inner p { margin: 0 0 var(--space-md); font-size: 0.875rem; color: var(--color-text-muted); }
+.footer-inner .trust-signal { font-size: 0.8125rem; }
+.footer-inner .trust-signal a { color: var(--color-accent); text-decoration: none; }
+.footer-inner .trust-signal a:hover { text-decoration: underline; }
 .footer-links {
   display: flex;
   justify-content: center;
@@ -282,5 +297,5 @@ th { background: var(--color-bg-alt); font-weight: 600; }
 
 /* Print */
 @media print {
-  .site-header .nav-main, .calc-buttons .btn-secondary, .ad-zone-top, .ad-zone-mid, .ad-zone-bottom { display: none !important; }
+  .site-header .nav-main, .calc-buttons .btn-secondary, .ad-slot { display: none !important; }
 }
