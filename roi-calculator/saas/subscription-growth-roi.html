@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>Subscription Growth ROI Calculator | SaaS | roicalculator.live</title>
+  <meta name="description" content="Project subscriber count and revenue with growth and churn. Calculate subscription growth ROI over time with line chart.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/saas/subscription-growth-roi.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/saas/subscription-growth-roi.html">
+  <meta property="og:title" content="Subscription Growth ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Project subscribers and revenue with growth and churn.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Subscription Growth ROI Calculator | roicalculator.live">
+  <meta name="twitter:description" content="Subscription growth and ROI projection.">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"SaaS ROI","item":"https://roicalculator.live/roi-calculator/saas/"},{"@type":"ListItem","position":3,"name":"Subscription Growth ROI"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Subscription Growth ROI Calculator","description":"Project subscribers and revenue with growth and churn.","url":"https://roicalculator.live/roi-calculator/saas/subscription-growth-roi.html"}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/saas/">SaaS ROI</a>
+      <span> / </span>
+      <span>Subscription Growth ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Subscription Growth ROI Calculator</h1>
+
+      <p>Project subscriber count and revenue over time using monthly growth and <a href="/glossary/churn-rate.html">churn rate</a>. Links: <a href="/">ROI calculator</a>, <a href="/roi-calculator/saas/">SaaS ROI</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/glossary/ltv.html">LTV</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="sub-calc-heading">
+        <h2 id="sub-calc-heading">Subscription Growth ROI Calculator</h2>
+        <form id="sub-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sub-initial">Initial subscriber count</label>
+              <input type="number" id="sub-initial" min="0" step="1" value="1000" required>
+            </div>
+            <div class="form-group">
+              <label for="sub-growth">Monthly growth rate (%)</label>
+              <input type="number" id="sub-growth" min="-20" max="50" step="0.5" value="5">
+            </div>
+            <div class="form-group">
+              <label for="sub-churn">Monthly churn rate (%)</label>
+              <input type="number" id="sub-churn" min="0" max="50" step="0.25" value="2">
+            </div>
+            <div class="form-group">
+              <label for="sub-arpu">ARPU ($/month)</label>
+              <input type="number" id="sub-arpu" min="0" step="1" value="50" required>
+            </div>
+            <div class="form-group">
+              <label for="sub-horizon">Time horizon (months)</label>
+              <input type="number" id="sub-horizon" min="1" max="120" step="1" value="24" required>
+            </div>
+            <div class="form-group">
+              <label for="sub-spend">Total growth spend ($, optional)</label>
+              <input type="number" id="sub-spend" min="0" step="1000" value="0" placeholder="For ROI %">
+            </div>
+            <div class="form-group">
+              <label for="sub-margin">Gross margin (%)</label>
+              <input type="number" id="sub-margin" min="0" max="100" step="1" value="75">
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="sub-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Projected subscribers</span>
+              <span class="value" id="sub-projected">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Revenue growth %</span>
+              <span class="value" id="sub-rev-growth">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Monthly revenue (end)</span>
+              <span class="value" id="sub-mrr">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">ROI %</span>
+              <span class="value" id="sub-roi">—</span>
+            </div>
+          </div>
+          <div class="chart-container" style="height:260px;">
+            <canvas id="sub-chart" role="img" aria-label="Subscriber and revenue projection over time"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <h2>Compounding Growth</h2>
+      <p>Subscriber count in each period depends on the prior period: net growth rate = growth rate − churn rate. So subscribers evolve as a compound curve: Sub_t ≈ Sub_0 × (1 + g − c)^t, where g is monthly growth and c is monthly churn. Small changes in g or c have large effects over long horizons. Positive net growth (g > c) yields expansion; negative net growth leads to decline. See <a href="/learn/roi-formula.html">ROI formula</a> for return concepts.</p>
+
+      <h2>Churn Drag Effect</h2>
+      <p><a href="/glossary/churn-rate.html">Churn</a> reduces the effective growth rate. A 5% monthly growth rate with 2% churn gives 3% net growth; with 4% churn, net growth is 1%. High churn makes it harder to grow the base and increases the share of new revenue needed to replace lost customers. Model sensitivity by varying churn in the calculator. Sustainable growth requires churn low enough that net growth and unit economics support acquisition spend. See <a href="/roi-calculator/saas/cac-ltv-roi.html">CAC vs LTV ROI</a> for unit economics.</p>
+
+      <h2>Sustainable Growth Modeling</h2>
+      <p>Sustainable growth ties to how much you can spend on acquisition while remaining profitable. If LTV:CAC and payback are healthy, you can reinvest in growth. If churn rises or CAC increases, the same growth rate may become uneconomic. Use this calculator to project subscriber and revenue trajectories; use the CAC-LTV calculator to check whether the implied acquisition cost supports the growth rate. See <a href="/roi-calculator/saas/">SaaS ROI</a> for the full framework.</p>
+
+      <h2>Sensitivity Discussion</h2>
+      <p>Outputs are sensitive to growth and churn. A 1 percentage point increase in churn or decrease in growth can materially lower projected subscribers and revenue over 24+ months. Run best, base, and worst cases. Also consider that ARPU may change (expansion, downgrades); the calculator assumes constant ARPU. For <a href="/glossary/net-profit.html">net profit</a> and ROI of growth spend, combine with cost assumptions in the CAC-LTV and time-to-value tools.</p>
+
+      <h2>Example B2B SaaS Case</h2>
+      <p>Initial 500 subscribers, 4% monthly growth, 1.5% monthly churn, ARPU $200. After 24 months: net monthly rate = 4% − 1.5% = 2.5%. Subscribers ≈ 500 × (1.025)^24 ≈ 908. Revenue at start = 500 × 200 = $100,000/month; at end ≈ 908 × 200 = $181,600/month. Revenue growth ≈ (181,600 − 100,000) / 100,000 × 100 = 81.6%. If churn were 3%, net growth 1%, subscribers ≈ 500 × (1.01)^24 ≈ 635; revenue growth would be much lower. Churn discipline is critical. Use the calculator for your own inputs.</p>
+
+      <section class="related-topics">
+        <h2>Related ROI Topics</h2>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/saas/">SaaS ROI Guide</a></li>
+          <li><a href="/roi-calculator/saas/cac-ltv-roi.html">CAC vs LTV ROI</a></li>
+          <li><a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a></li>
+          <li><a href="/roi-calculator/marketing/">Marketing ROI</a></li>
+          <li><a href="/roi-calculator/real-estate/">Real Estate ROI</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+          <li><a href="/glossary/churn-rate.html">Churn Rate</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('sub-form');
+        var parse = window.mktParseNum || function(v){ return parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0; };
+        var fmt = window.mktFormatMoney || function(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:0}); };
+        var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+        var subChart = null;
+        function run(){
+          var initial = Math.max(0, Math.floor(parse(document.getElementById('sub-initial').value)));
+          var growth = parse(document.getElementById('sub-growth').value) / 100;
+          var churn = parse(document.getElementById('sub-churn').value) / 100;
+          var arpu = parse(document.getElementById('sub-arpu').value);
+          var horizon = Math.min(120, Math.max(1, Math.floor(parse(document.getElementById('sub-horizon').value))));
+          var subs = initial;
+          var subsPath = [initial];
+          for(var m = 0; m < horizon; m++){
+            subs = Math.max(0, subs * (1 + growth - churn));
+            subsPath.push(subs);
+          }
+          var projected = Math.round(subsPath[horizon]);
+          var revStart = initial * arpu;
+          var revEnd = projected * arpu;
+          var revGrowth = revStart > 0 ? ((revEnd - revStart) / revStart) * 100 : 0;
+          var totalRev = 0; for(var j = 0; j < horizon; j++) totalRev += subsPath[j] * arpu;
+          var baselineRev = initial * arpu * horizon;
+          var incRev = totalRev - baselineRev;
+          var margin = parse(document.getElementById('sub-margin').value) / 100;
+          var spend = parse(document.getElementById('sub-spend').value);
+          var incProfit = incRev * margin;
+          var roi = (spend > 0 && incProfit >= 0) ? ((incProfit - spend) / spend) * 100 : null;
+          document.getElementById('sub-projected').textContent = projected.toLocaleString();
+          document.getElementById('sub-rev-growth').textContent = fmtPct(revGrowth);
+          document.getElementById('sub-mrr').textContent = fmt(revEnd);
+          document.getElementById('sub-roi').textContent = roi !== null ? fmtPct(roi) : '—';
+          var labels = []; for(var i = 0; i <= horizon; i++) labels.push(i);
+          var revPath = subsPath.map(function(s){ return s * arpu; });
+          var canvas = document.getElementById('sub-chart');
+          if(canvas && typeof Chart !== 'undefined'){
+            if(subChart) subChart.destroy();
+            subChart = new Chart(canvas, { type: 'line', data: { labels: labels, datasets: [{ label: 'Subscribers', data: subsPath, borderColor: '#2563eb', yAxisID: 'y', fill: false }, { label: 'Monthly revenue ($)', data: revPath, borderColor: '#16a34a', yAxisID: 'y1', fill: false }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { x: { title: { display: true, text: 'Month' } }, y: { type: 'linear', position: 'left', title: { display: true, text: 'Subscribers' } }, y1: { type: 'linear', position: 'right', title: { display: true, text: 'MRR ($)' }, grid: { drawOnChartArea: false }, ticks: { callback: function(v){ return (v/1000)+'k'; } } } } } });
+          }
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>

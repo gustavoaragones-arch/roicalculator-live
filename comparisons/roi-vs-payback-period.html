@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>ROI vs Payback Period: Time to Recover Investment | roicalculator.live</title>
+  <meta name="description" content="ROI vs payback period: formulas, time-to-value, equipment example. When to use liquidity and break-even vs percentage return.">
+  <link rel="canonical" href="https://roicalculator.live/comparisons/roi-vs-payback-period.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/comparisons/roi-vs-payback-period.html">
+  <meta property="og:title" content="ROI vs Payback Period | roicalculator.live">
+  <meta property="og:description" content="When to use payback vs ROI. Time-to-value and liquidity.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"ROI Comparisons","item":"https://roicalculator.live/comparisons/"},{"@type":"ListItem","position":3,"name":"ROI vs Payback Period"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"ROI vs Payback Period","description":"Compare ROI and payback period: time to recover investment, liquidity, when to use each.","url":"https://roicalculator.live/comparisons/roi-vs-payback-period.html"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is payback period?", "acceptedAnswer": {"@type": "Answer", "text": "Payback period is the time (e.g., months or years) required for cumulative cash inflows to equal the initial investment. It is a liquidity and risk measure, not a return measure."}},
+      {"@type": "Question", "name": "Does payback consider the time value of money?", "acceptedAnswer": {"@type": "Answer", "text": "Simple payback does not; it sums nominal cash flows. Discounted payback discounts flows first, so it partially incorporates time value."}},
+      {"@type": "Question", "name": "When is payback period more useful than ROI?", "acceptedAnswer": {"@type": "Answer", "text": "When liquidity or time-to-recovery is critical: equipment, tool adoption, projects where early cash flow matters. ROI is better for total return comparison."}},
+      {"@type": "Question", "name": "What is time-to-value?", "acceptedAnswer": {"@type": "Answer", "text": "Time-to-value is the period until an investment generates enough benefit to offset its cost—similar to payback. Relevant for software and process investments."}},
+      {"@type": "Question", "name": "Can a project have short payback but low ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Quick payback means fast recovery but says nothing about total return after payback. A project can pay back in 1 year but have low ROI over 5 years if flows stop."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/comparisons/">ROI Comparisons</a>
+      <span> / </span>
+      <span>ROI vs Payback Period</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>ROI vs Payback Period</h1>
+
+      <p>ROI measures total return as a percentage; payback period measures how long it takes to recover the initial investment in nominal cash terms. Both are widely used; they answer different questions. This page covers formulas, time-to-value relevance, an equipment example, and when to use each. For tool and implementation decisions, see <a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a>. For definitions, see <a href="/glossary/payback-period.html">payback period</a> and <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+
+      <h2>ROI Formula (Recap)</h2>
+      <p class="math-inline">ROI = [(Gain − Cost) / Cost] × 100</p>
+      <p>ROI is a percentage over the life of the investment. It does not tell you when the return is achieved; a 50% ROI could occur in one year or ten.</p>
+
+      <h2>Payback Formula</h2>
+      <p>Payback period is the time until cumulative net cash inflow equals the initial investment. For constant annual (or monthly) inflow:</p>
+      <p class="math-inline">Payback = Initial Investment / Annual (or Monthly) Net Cash Inflow</p>
+      <p>When cash flows vary, payback is found by adding period inflows until the cumulative total equals or exceeds the initial outlay. The result is in years or months. See <a href="/glossary/payback-period.html">payback period</a> in the glossary. Payback does not account for the time value of money unless a discounted payback variant is used.</p>
+
+      <h2>Time-to-Value Relevance</h2>
+      <p>Time-to-value (TTV) is the period from the start of an investment until it has generated enough benefit to offset its cost—effectively the same idea as payback when "benefit" is measured as cash or cash-equivalent savings. In SaaS and equipment decisions, TTV is used to assess how quickly a tool or process change pays for itself. Shorter TTV reduces risk and improves liquidity. The <a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a> calculator combines tool cost, implementation cost, and monthly efficiency gain to compute break-even time and ROI over a horizon; it is a direct application of payback and ROI together.</p>
+
+      <h2>Example: Equipment Purchase</h2>
+      <p>A business spends $40,000 on equipment. The equipment generates $8,000 in net cash savings per year (after operating costs). Payback = 40,000 / 8,000 = 5 years. Over 10 years, total gain = $80,000; ROI = (80,000 − 40,000) / 40,000 × 100 = 100%. So payback is 5 years and total ROI over 10 years is 100%. If the equipment lasts only 6 years, total gain = $48,000 and ROI = 20%; payback is still 5 years. Payback does not change with project life; ROI does. A project with 2-year payback might have lower 10-year ROI than one with 4-year payback if the latter generates more cash after year 4. Use both: payback for liquidity and risk, ROI for total return.</p>
+
+      <h2>Comparison Table</h2>
+      <table>
+        <thead>
+          <tr><th>Aspect</th><th>ROI</th><th>Payback Period</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Output</td><td>Percentage</td><td>Time (years or months)</td></tr>
+          <tr><td>Question answered</td><td>Total return on capital</td><td>When is investment recovered?</td></tr>
+          <tr><td>Time value of money</td><td>No (simple ROI)</td><td>No (simple payback)</td></tr>
+          <tr><td>Cash flows after payback</td><td>Included in ROI</td><td>Ignored</td></tr>
+          <tr><td>Typical use</td><td>Return comparison</td><td>Liquidity, risk, adoption</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Use-Case Scenarios</h2>
+      <p><strong>Use payback</strong> when liquidity or speed of recovery is critical: equipment, software adoption, process changes where management wants to know "how long until we're whole." <strong>Use ROI</strong> when the goal is to compare total return across options or to assess profitability over the full life. In practice, many organizations require both: e.g., maximum payback of 3 years and minimum ROI of 15%. For subscription and tool adoption, combine payback with the <a href="/roi-calculator/saas/">SaaS ROI</a> framework; for capital equipment, see <a href="/">ROI calculator</a> and <a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a> for discounted analysis.</p>
+
+      <h2>Interpretation</h2>
+      <p>Short payback means fast recovery of capital but does not imply high long-term return. Long payback means capital is at risk longer and may be unacceptable even if ROI is high. ROI summarizes total profitability but does not tell you when you get your money back. Use payback for risk and liquidity; use ROI (and optionally NPV) for return. For tools and implementation, the <a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a> page ties both together.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>What is payback period?</h3>
+          <p>Payback is the time for cumulative cash inflows to equal the initial investment. It is a liquidity measure, not a return measure.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does payback consider the time value of money?</h3>
+          <p>Simple payback does not. Discounted payback discounts flows first and partially incorporates time value.</p>
+        </div>
+        <div class="faq-item">
+          <h3>When is payback more useful than ROI?</h3>
+          <p>When liquidity or time-to-recovery is critical: equipment, tool adoption. ROI is better for total return comparison.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is time-to-value?</h3>
+          <p>Time-to-value is the period until benefits offset cost—similar to payback. Relevant for software and process investments.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can a project have short payback but low ROI?</h3>
+          <p>Yes. Quick payback does not guarantee high total return. A project can pay back in 1 year but have low ROI if flows stop soon after.</p>
+        </div>
+      </div>
+
+      <section class="related-topics">
+        <h2>Related ROI Topics</h2>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/comparisons/">ROI Comparisons</a></li>
+          <li><a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a></li>
+          <li><a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a></li>
+          <li><a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a></li>
+          <li><a href="/roi-calculator/saas/">SaaS ROI</a></li>
+          <li><a href="/glossary/payback-period.html">Payback Period</a></li>
+        </ul>
+      </section>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

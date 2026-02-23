@@ -224,23 +224,39 @@ th { background: var(--color-bg-alt); font-weight: 600; }
   margin: var(--space-lg) 0;
 }
 
-/* Definition block (glossary) */
+/* Definition block (glossary + snippet engineering) */
 .definition-block {
   background: var(--color-bg-alt);
   border-left: 4px solid var(--color-accent);
   padding: var(--space-md) var(--space-lg);
   margin: var(--space-lg) 0;
 }
+.definition-block p { margin: 0; }
+
+/* Key takeaways (snippet capture) */
+.key-takeaways {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.key-takeaways ul { margin: 0; padding-left: 1.25rem; }
+.key-takeaways li { margin-bottom: var(--space-xs); }
+
+/* Summary table box (comparison/benchmark snippet) */
+.summary-table-box { margin: var(--space-lg) 0; overflow-x: auto; }
+.summary-table-box table { margin: 0; }
 
 /* Glossary index */
 .glossary-index { list-style: none; padding: 0; margin: var(--space-lg) 0; }
 .glossary-index li { margin-bottom: var(--space-sm); }
 .glossary-index a { font-weight: 500; }
 
-/* FAQ */
+/* FAQ (h3 for snippet/FAQPage alignment) */
 .faq-list { margin: var(--space-lg) 0; }
 .faq-item { margin-bottom: var(--space-lg); }
-.faq-item h4 { font-size: 1rem; margin: 0 0 var(--space-xs); }
+.faq-item h3, .faq-item h4 { font-size: 1rem; margin: 0 0 var(--space-xs); font-weight: 600; }
 .faq-item p { margin: 0; }
 
 /* Explore industry */
@@ -253,13 +269,13 @@ th { background: var(--color-bg-alt); font-weight: 600; }
 .explore-industry ul { list-style: none; padding: 0; margin: 0; }
 .explore-industry li { margin-bottom: var(--space-sm); }
 
-/* Related topics */
+/* Related topics (standardized block) */
 .related-topics {
   margin-top: var(--space-2xl);
   padding-top: var(--space-xl);
   border-top: 1px solid var(--color-border);
 }
-.related-topics h3 { margin: 0 0 var(--space-md); }
+.related-topics h2, .related-topics h3 { margin: 0 0 var(--space-md); font-size: 1.25rem; }
 .related-topics ul { list-style: none; padding: 0; margin: 0; }
 .related-topics li { margin-bottom: var(--space-sm); }
 

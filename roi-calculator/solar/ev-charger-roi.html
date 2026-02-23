@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>EV Charger ROI Calculator | Solar &amp; Energy | roicalculator.live</title>
+  <meta name="description" content="Calculate EV charger ROI: installation cost, annual fuel savings, electricity cost, incentives, lifespan. ROI %, break-even, total net gain.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/solar/ev-charger-roi.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/solar/ev-charger-roi.html">
+  <meta property="og:title" content="EV Charger ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="EV charger ROI and break-even.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Solar & Energy ROI","item":"https://roicalculator.live/roi-calculator/solar/"},{"@type":"ListItem","position":3,"name":"EV Charger ROI"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"EV Charger ROI Calculator","description":"Calculate EV charger ROI, break-even, and total net gain.","url":"https://roicalculator.live/roi-calculator/solar/ev-charger-roi.html"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do I calculate EV charger ROI?", "acceptedAnswer": {"@type": "Answer", "text": "ROI = (Total net gain over lifespan − Net investment) / Net investment × 100. Net gain = annual fuel savings minus annual electricity cost for charging; net investment = installation minus incentives."}},
+      {"@type": "Question", "name": "What is break-even for an EV charger?", "acceptedAnswer": {"@type": "Answer", "text": "Break-even is when cumulative net savings (fuel savings minus electricity cost) equal net investment. Depends on usage and rates."}},
+      {"@type": "Question", "name": "Is residential EV charger ROI different from commercial?", "acceptedAnswer": {"@type": "Answer", "text": "Commercial installations often have higher cost (multiple units, trenching, permits) and different usage and rates. Model each case with its own inputs."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a>
+      <span> / </span>
+      <span>EV Charger ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>EV Charger ROI Calculator</h1>
+
+      <p>Estimate EV charger ROI from installation cost, annual fuel savings (vs a gasoline vehicle), electricity cost for charging, incentives, and charger lifespan. Links: <a href="/">ROI calculator</a>, <a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a>, <a href="/comparisons/roi-vs-payback-period.html">ROI vs Payback Period</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="ev-calc-heading">
+        <h2 id="ev-calc-heading">EV Charger ROI Calculator</h2>
+        <form id="ev-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ev-cost">Installation cost ($)</label>
+              <input type="number" id="ev-cost" min="0" step="100" value="1500" required>
+            </div>
+            <div class="form-group">
+              <label for="ev-fuel-savings">Annual fuel savings ($)</label>
+              <input type="number" id="ev-fuel-savings" min="0" step="50" value="1200" required>
+            </div>
+            <div class="form-group">
+              <label for="ev-electricity">Annual electricity cost for charging ($)</label>
+              <input type="number" id="ev-electricity" min="0" step="50" value="400">
+            </div>
+            <div class="form-group">
+              <label for="ev-incentives">Incentives ($)</label>
+              <input type="number" id="ev-incentives" min="0" step="100" value="0">
+            </div>
+            <div class="form-group">
+              <label for="ev-years">Lifespan (years)</label>
+              <input type="number" id="ev-years" min="1" max="25" step="1" value="10" required>
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="ev-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Net investment</span>
+              <span class="value" id="ev-net">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">ROI %</span>
+              <span class="value" id="ev-roi">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Break-even time</span>
+              <span class="value" id="ev-break-even">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Total net gain</span>
+              <span class="value" id="ev-gain">—</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2>Fuel vs Electricity Cost Comparison</h2>
+      <p>Annual fuel savings are the difference between what you would have spent on gasoline (or other fuel) for the same mileage and what you spend on electricity for charging. Estimate fuel savings from prior vehicle fuel cost or from miles driven × fuel economy × fuel price. Electricity cost is the incremental cost of charging the EV (kWh × rate). Net annual savings = fuel savings − electricity cost. This calculator uses constant annual net savings; in practice, fuel and electricity prices change. See <a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a> for escalation options in the solar panel tool; the EV charger model keeps savings flat for simplicity.</p>
+
+      <h2>Residential vs Commercial Installation</h2>
+      <p>Residential charger installation is often a single unit, existing panel capacity, and minimal trenching. Commercial installations may involve multiple chargers, dedicated service, trenching, and permits, so installation cost can be much higher. Usage also differs: commercial may have higher utilization and different rate structures (demand charges, time-of-use). Model each case with its own installation cost, usage, and savings. We do not advise on equipment or permitting; use the calculator for financial comparison once you have cost and savings estimates. See <a href="/glossary/payback-period.html">payback period</a> and <a href="/comparisons/roi-vs-payback-period.html">ROI vs Payback Period</a>.</p>
+
+      <h2>Example Usage Case</h2>
+      <p>Installation $1,500, no incentives, net investment $1,500. Former gasoline cost $1,800/year; electricity for charging $450/year; net savings $1,350/year. Lifespan 10 years. Total net gain = 1,350 × 10 = $13,500. ROI = (13,500 − 1,500) / 1,500 × 100 = 800%. Break-even = 1,500 / 1,350 ≈ 1.1 years. Results depend on driving, rates, and fuel prices; use your own inputs.</p>
+
+      <h2>Limitations</h2>
+      <p>This calculator assumes constant annual net savings. It does not model electricity or fuel price escalation, changes in driving patterns, or charger replacement. Incentives vary by location and program; confirm eligibility separately. The charger itself is only part of EV ownership cost; vehicle purchase, insurance, and maintenance are outside this ROI scope. Use the tool for the incremental ROI of adding a charger versus the alternative (e.g., public charging or no EV). See <a href="/learn/roi-limitations.html">ROI limitations</a> for general caveats.</p>
+
+      <section class="related-topics">
+        <h2>Related ROI Topics</h2>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a></li>
+          <li><a href="/roi-calculator/solar/solar-panel-roi.html">Solar Panel ROI</a></li>
+          <li><a href="/roi-calculator/solar/heat-pump-roi.html">Heat Pump ROI</a></li>
+          <li><a href="/comparisons/">ROI Comparisons</a></li>
+          <li><a href="/comparisons/roi-vs-payback-period.html">ROI vs Payback Period</a></li>
+          <li><a href="/roi-calculator/real-estate/">Real Estate ROI</a></li>
+          <li><a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('ev-form');
+        var parse = window.mktParseNum || function(v){ return parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0; };
+        var fmt = window.mktFormatMoney || function(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:0}); };
+        var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+        function run(){
+          var cost = parse(document.getElementById('ev-cost').value);
+          var fuelSavings = parse(document.getElementById('ev-fuel-savings').value);
+          var electricity = parse(document.getElementById('ev-electricity').value);
+          var incentives = parse(document.getElementById('ev-incentives').value);
+          var years = Math.min(25, Math.max(1, Math.floor(parse(document.getElementById('ev-years').value))));
+          var net = Math.max(0, cost - incentives);
+          var netAnnual = fuelSavings - electricity;
+          if(net <= 0) return;
+          var totalGain = netAnnual * years;
+          var roi = (totalGain - net) / net * 100;
+          var breakEvenYears = netAnnual > 0 ? net / netAnnual : null;
+          document.getElementById('ev-net').textContent = fmt(net);
+          document.getElementById('ev-roi').textContent = fmtPct(roi);
+          document.getElementById('ev-break-even').textContent = breakEvenYears !== null && breakEvenYears > 0 ? breakEvenYears.toFixed(1) + ' years' : '—';
+          document.getElementById('ev-gain').textContent = fmt(totalGain);
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>

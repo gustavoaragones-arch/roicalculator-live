@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>Heat Pump ROI Calculator | Solar &amp; Energy | roicalculator.live</title>
+  <meta name="description" content="Calculate heat pump ROI: installation cost, rebates, annual heating savings, energy inflation, lifespan. Net investment, break-even, total savings.">
+  <link rel="canonical" href="https://roicalculator.live/roi-calculator/solar/heat-pump-roi.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/roi-calculator/solar/heat-pump-roi.html">
+  <meta property="og:title" content="Heat Pump ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Heat pump ROI and break-even.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Solar & Energy ROI","item":"https://roicalculator.live/roi-calculator/solar/"},{"@type":"ListItem","position":3,"name":"Heat Pump ROI"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Heat Pump ROI Calculator","description":"Calculate heat pump ROI, break-even, and total savings.","url":"https://roicalculator.live/roi-calculator/solar/heat-pump-roi.html"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do I calculate heat pump ROI?", "acceptedAnswer": {"@type": "Answer", "text": "ROI = (Total savings over lifespan − Net investment) / Net investment × 100. Net investment = installation cost minus rebates. Savings can be escalated by energy inflation."}},
+      {"@type": "Question", "name": "What is break-even for a heat pump?", "acceptedAnswer": {"@type": "Answer", "text": "Break-even is the year when cumulative savings equal net investment. With inflation, savings grow each year so break-even depends on the escalation rate."}},
+      {"@type": "Question", "name": "How does efficiency compare to fossil heating?", "acceptedAnswer": {"@type": "Answer", "text": "Heat pumps move heat rather than burning fuel; COP (coefficient of performance) often exceeds 1, so one unit of electricity can deliver several units of heat. Compare operating cost (fuel vs electricity) for your rates."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a>
+      <span> / </span>
+      <span>Heat Pump ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Heat Pump ROI Calculator</h1>
+
+      <p>Estimate heat pump ROI from installation cost, rebates, annual heating cost savings, and energy inflation over the system lifespan. Links: <a href="/">ROI calculator</a>, <a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a>, <a href="/comparisons/roi-vs-payback-period.html">ROI vs Payback Period</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+
+      <section class="calculator-module" aria-labelledby="hp-calc-heading">
+        <h2 id="hp-calc-heading">Heat Pump ROI Calculator</h2>
+        <form id="hp-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hp-cost">Installation cost ($)</label>
+              <input type="number" id="hp-cost" min="0" step="500" value="12000" required>
+            </div>
+            <div class="form-group">
+              <label for="hp-rebates">Rebates ($)</label>
+              <input type="number" id="hp-rebates" min="0" step="500" value="2000">
+            </div>
+            <div class="form-group">
+              <label for="hp-savings">Annual heating cost savings ($)</label>
+              <input type="number" id="hp-savings" min="0" step="100" value="900" required>
+            </div>
+            <div class="form-group">
+              <label for="hp-inflation">Energy inflation (%)</label>
+              <input type="number" id="hp-inflation" min="-5" max="20" step="0.5" value="3">
+            </div>
+            <div class="form-group">
+              <label for="hp-years">Lifespan (years)</label>
+              <input type="number" id="hp-years" min="1" max="30" step="1" value="15" required>
+            </div>
+          </div>
+          <div class="calc-buttons">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div class="results-panel" id="hp-results">
+          <h3>Results</h3>
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Net investment</span>
+              <span class="value" id="hp-net">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">ROI %</span>
+              <span class="value" id="hp-roi">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Break-even year</span>
+              <span class="value" id="hp-break-even">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Total savings</span>
+              <span class="value" id="hp-total">—</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2>Efficiency Comparison</h2>
+      <p>Heat pumps move heat rather than converting fuel to heat. Coefficient of performance (COP) indicates how many units of heat are delivered per unit of electricity; COP &gt; 1 means the system delivers more heat than the electrical energy consumed. Efficiency depends on equipment and outdoor temperature. Compare the operating cost of your current heating (fuel or electric resistance) to the estimated cost of running the heat pump at your local electricity and fuel rates. The “annual heating cost savings” input should reflect that difference. See <a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a> for the broader framework.</p>
+
+      <h2>Operating Cost Difference</h2>
+      <p>Savings are the reduction in heating expenditure after the switch. If you previously spent $2,000 per year on heating and the heat pump costs $1,100 in electricity for heating, savings = $900 per year. Actual numbers depend on climate, insulation, equipment size, and rates. Use estimates from a qualified installer or energy model; we do not advise on sizing or technology choice. Include any change in cooling cost if the system also provides cooling. See <a href="/glossary/net-profit.html">net profit</a> for the idea of gain after costs.</p>
+
+      <h2>Payback Interpretation</h2>
+      <p>Break-even year is when cumulative savings equal net investment. Shorter break-even means faster recovery of capital. It does not by itself indicate total ROI, which depends on savings over the full lifespan. Compare break-even to expected system life: if break-even is close to or beyond lifespan, the investment may be marginal. See <a href="/comparisons/roi-vs-payback-period.html">ROI vs Payback Period</a> and <a href="/glossary/payback-period.html">payback period</a>.</p>
+
+      <h2>Example Household Scenario</h2>
+      <p>Installation $12,000, rebates $2,000, net investment $10,000. Annual savings $900, energy inflation 3%, lifespan 15 years. Cumulative savings over 15 years ≈ $17,200. ROI = (17,200 − 10,000) / 10,000 × 100 = 72%. Break-even: cumulative savings reach $10,000 between years 10 and 11. Results are illustrative; use the calculator with your own inputs.</p>
+
+      <section class="related-topics">
+        <h2>Related ROI Topics</h2>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a></li>
+          <li><a href="/roi-calculator/solar/solar-panel-roi.html">Solar Panel ROI</a></li>
+          <li><a href="/roi-calculator/solar/ev-charger-roi.html">EV Charger ROI</a></li>
+          <li><a href="/comparisons/">ROI Comparisons</a></li>
+          <li><a href="/comparisons/roi-vs-payback-period.html">ROI vs Payback Period</a></li>
+          <li><a href="/roi-calculator/real-estate/">Real Estate ROI</a></li>
+          <li><a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+        </ul>
+      </nav>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script defer>
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        var form = document.getElementById('hp-form');
+        var parse = window.mktParseNum || function(v){ return parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0; };
+        var fmt = window.mktFormatMoney || function(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:0}); };
+        var fmtPct = window.mktFormatPct || function(n){ return n.toFixed(2)+'%'; };
+        function run(){
+          var cost = parse(document.getElementById('hp-cost').value);
+          var rebates = parse(document.getElementById('hp-rebates').value);
+          var savingsY1 = parse(document.getElementById('hp-savings').value);
+          var inflation = parse(document.getElementById('hp-inflation').value) / 100;
+          var years = Math.min(30, Math.max(1, Math.floor(parse(document.getElementById('hp-years').value))));
+          var net = Math.max(0, cost - rebates);
+          if(net <= 0 || savingsY1 <= 0) return;
+          var cum = 0;
+          var breakEven = null;
+          for(var y = 1; y <= years; y++){
+            cum += savingsY1 * Math.pow(1 + inflation, y - 1);
+            if(breakEven === null && cum >= net) breakEven = y;
+          }
+          var roi = (cum - net) / net * 100;
+          document.getElementById('hp-net').textContent = fmt(net);
+          document.getElementById('hp-roi').textContent = fmtPct(roi);
+          document.getElementById('hp-break-even').textContent = breakEven !== null ? 'Year ' + breakEven : '—';
+          document.getElementById('hp-total').textContent = fmt(cum);
+        }
+        form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+        run();
+      });
+    })();
+  </script>
+</body>
+</html>

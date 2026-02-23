@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>ROI vs NPV: Formula, Examples &amp; When to Use Each | roicalculator.live</title>
+  <meta name="description" content="ROI vs NPV: net present value formula, discount rate, multi-year example, sensitivity. When to use dollar value vs percentage return.">
+  <link rel="canonical" href="https://roicalculator.live/comparisons/roi-vs-npv.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/comparisons/roi-vs-npv.html">
+  <meta property="og:title" content="ROI vs NPV | roicalculator.live">
+  <meta property="og:description" content="Net present value vs ROI. Discount rate and examples.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"ROI Comparisons","item":"https://roicalculator.live/comparisons/"},{"@type":"ListItem","position":3,"name":"ROI vs NPV"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"ROI vs NPV","description":"Compare ROI and Net Present Value: formulas, discount rate, when to use each.","url":"https://roicalculator.live/comparisons/roi-vs-npv.html"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is NPV?", "acceptedAnswer": {"@type": "Answer", "text": "NPV (Net Present Value) is the sum of all cash flows discounted to today at a chosen rate. NPV = sum of CF_t / (1+r)^t. Positive NPV means the project adds value."}},
+      {"@type": "Question", "name": "What is the discount rate in NPV?", "acceptedAnswer": {"@type": "Answer", "text": "The discount rate is the cost of capital or required return used to convert future cash flows to present value. It reflects opportunity cost and risk."}},
+      {"@type": "Question", "name": "When should I use NPV instead of ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Use NPV when you want to know whether a project adds value in dollars at your cost of capital, and when reinvestment rate or project size matters. Use ROI for simple percentage return."}},
+      {"@type": "Question", "name": "How does NPV relate to IRR?", "acceptedAnswer": {"@type": "Answer", "text": "IRR is the discount rate at which NPV equals zero. At a discount rate below IRR, NPV is positive; above IRR, NPV is negative."}},
+      {"@type": "Question", "name": "Can NPV and ROI conflict?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A project can have high ROI but negative NPV if the discount rate is high, or positive NPV but modest ROI if the initial investment is large. They answer different questions."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/comparisons/">ROI Comparisons</a>
+      <span> / </span>
+      <span>ROI vs NPV</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>ROI vs NPV</h1>
+      <div class="definition-block">
+        <p><strong>ROI vs NPV:</strong> ROI is a percentage return (gain over cost) and does not discount cash flows. NPV (Net Present Value) is the sum of all cash flows discounted to today at a chosen rate; positive NPV means the project adds value. Use ROI for simple percentage comparison; use NPV when dollar value at cost of capital and reinvestment assumptions matter.</p>
+      </div>
+      <div class="summary-table-box">
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Best For</th><th>Limitation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ROI</td><td>Simple percentage return; quick comparison</td><td>Ignores time value of money</td></tr>
+            <tr><td>NPV</td><td>Dollar value added at cost of capital; project size</td><td>Scale-dependent; sensitive to discount rate</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>ROI expresses return as a percentage; NPV (Net Present Value) expresses it in dollars by discounting all cash flows to the present. This page covers the NPV formula, the role of the discount rate, a multi-year example, sensitivity, and when to use each. See <a href="/">ROI calculator</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>, and <a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a> for related concepts.</p>
+      <div class="key-takeaways">
+        <ul>
+          <li>ROI = percentage; NPV = dollar value today at discount rate r.</li>
+          <li>Use NPV when reinvestment rate or project size matters; use ROI for simple comparison.</li>
+          <li>IRR is the rate at which NPV = 0.</li>
+        </ul>
+      </div>
+      <h2>ROI Formula (Recap)</h2>
+      <p class="math-inline">ROI = [(Final Value − Initial Investment) / Initial Investment] × 100</p>
+      <p>ROI is a percentage. It does not discount future cash flows. For multi-year projects, <a href="/glossary/annualized-return.html">annualized ROI</a> is often used for comparison.</p>
+
+      <h2>Net Present Value Formula</h2>
+      <p>NPV is the sum of all cash flows, each discounted to the present at a rate r (the discount rate):</p>
+      <p class="math-inline">NPV = C<sub>0</sub> + C<sub>1</sub>/(1+r) + C<sub>2</sub>/(1+r)<sup>2</sup> + … + C<sub>n</sub>/(1+r)<sup>n</sup></p>
+      <p>Outflows (e.g., initial investment) are negative; inflows are positive. NPV is in currency units (e.g., dollars). A positive NPV means the project adds value over and above the cost of capital; negative NPV means it destroys value. Zero NPV means the project just meets the required return. See <a href="/glossary/net-profit.html">net profit</a> for accounting profit; NPV is a cash-flow-based, discounted measure.</p>
+
+      <h2>Discount Rate Explanation</h2>
+      <p>The discount rate r represents the opportunity cost of capital: the return that could be earned on an alternative investment of similar risk. It is often set to the weighted average cost of capital (WACC), a hurdle rate, or the cost of borrowing. Higher r reduces the present value of future cash flows; lower r increases it. NPV is sensitive to r: a project that is attractive at 8% may have negative NPV at 12%. Sensitivity analysis—recalculating NPV at different rates—is standard practice.</p>
+
+      <h2>Example: Multi-Year Project</h2>
+      <p>Project: invest $200,000 today; receive $60,000 at end of years 1–4 and $80,000 at end of year 5. Total nominal inflow = $320,000. Simple ROI could be (320,000 − 200,000) / 200,000 = 60%, but that ignores timing. At 10% discount rate: NPV = −200,000 + 60,000/1.1 + 60,000/1.1² + 60,000/1.1³ + 60,000/1.1⁴ + 80,000/1.1⁵ ≈ −200,000 + 54,545 + 49,587 + 45,079 + 40,981 + 49,674 ≈ $39,866. NPV is positive, so the project adds value at 10%. At 15%, NPV would be lower; at 20%, it could turn negative. IRR is the rate that makes NPV = 0 (here, roughly 17%). So the project is acceptable for any discount rate below that IRR.</p>
+
+      <h2>Sensitivity Discussion</h2>
+      <p>NPV is sensitive to the discount rate and to the cash flow estimates. Small changes in r can flip NPV from positive to negative for marginal projects. Similarly, overstating inflows or understating outflows overstates NPV. Best practice is to run base, optimistic, and pessimistic cases for both cash flows and discount rate. ROI does not explicitly show this sensitivity; NPV makes the cost-of-capital assumption transparent.</p>
+
+      <h2>Comparison Table</h2>
+      <table>
+        <thead>
+          <tr><th>Aspect</th><th>ROI</th><th>NPV</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Output</td><td>Percentage</td><td>Dollar amount</td></tr>
+          <tr><td>Time value of money</td><td>No (unless annualized)</td><td>Yes, via discounting</td></tr>
+          <tr><td>Discount rate</td><td>Not used</td><td>Central (r)</td></tr>
+          <tr><td>Scale</td><td>Percentage (scale-invariant)</td><td>Absolute (scale-dependent)</td></tr>
+          <tr><td>Decision rule</td><td>ROI &gt; hurdle %</td><td>NPV &gt; 0</td></tr>
+          <tr><td>Reinvestment assumption</td><td>Implicit</td><td>Explicit (at r)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Use-Case Scenarios</h2>
+      <p><strong>Use ROI</strong> when you need a simple, communicable percentage and the investment is a single outlay with a single payoff. <strong>Use NPV</strong> when you need to know whether the project adds value in dollars at your cost of capital, when comparing projects of different size (NPV can be combined with scale), or when the reinvestment rate matters. In corporate finance, NPV is often the primary criterion; ROI is used for reporting and quick checks. See <a href="/roi-calculator/real-estate/">Real Estate ROI</a> and <a href="/roi-calculator/saas/">SaaS ROI</a> for vertical applications.</p>
+
+      <h2>Interpretation</h2>
+      <p>ROI answers: what percentage did I make? NPV answers: how much value (in today’s dollars) did this project create? A project can have high ROI but negative NPV if the discount rate is high enough, or positive NPV but modest ROI if the initial investment is large. For capital budgeting, NPV is generally preferred when the goal is to maximize value; ROI is useful for communication and for comparing returns across projects of similar structure.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>What is NPV?</h3>
+          <p>NPV is the sum of all cash flows discounted to today at a chosen rate. Positive NPV means the project adds value.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the discount rate in NPV?</h3>
+          <p>The discount rate is the cost of capital or required return used to convert future cash flows to present value.</p>
+        </div>
+        <div class="faq-item">
+          <h3>When should I use NPV instead of ROI?</h3>
+          <p>Use NPV when you want dollar value added at your cost of capital and when reinvestment or project size matters. Use ROI for simple percentage return.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How does NPV relate to IRR?</h3>
+          <p>IRR is the discount rate at which NPV equals zero. Below IRR, NPV &gt; 0; above IRR, NPV &lt; 0.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can NPV and ROI conflict?</h3>
+          <p>Yes. High ROI can coincide with negative NPV at a high discount rate; positive NPV can coincide with modest ROI on a large investment.</p>
+        </div>
+      </div>
+
+      <section class="related-topics">
+        <h2>Related ROI Topics</h2>
+        <ul>
+          <li><a href="/">ROI Calculator</a></li>
+          <li><a href="/comparisons/">ROI Comparisons</a></li>
+          <li><a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a></li>
+          <li><a href="/comparisons/roi-vs-payback-period.html">ROI vs Payback Period</a></li>
+          <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
+          <li><a href="/roi-calculator/real-estate/">Real Estate ROI</a></li>
+          <li><a href="/roi-calculator/saas/">SaaS ROI</a></li>
+          <li><a href="/glossary/">Glossary</a></li>
+        </ul>
+      </section>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

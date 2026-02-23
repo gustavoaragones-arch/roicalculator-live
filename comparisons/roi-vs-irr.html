@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e3a8a">
+  <title>ROI vs IRR: Key Differences, Formula, Examples &amp; When to Use Each | roicalculator.live</title>
+  <meta name="description" content="ROI vs IRR: formulas, time value of money, side-by-side example, when ROI misleads and when IRR is preferred. Comparison table and FAQ.">
+  <link rel="canonical" href="https://roicalculator.live/comparisons/roi-vs-irr.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/comparisons/roi-vs-irr.html">
+  <meta property="og:title" content="ROI vs IRR | roicalculator.live">
+  <meta property="og:description" content="When to use ROI vs IRR. Formulas and examples.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"ROI Comparisons","item":"https://roicalculator.live/comparisons/"},{"@type":"ListItem","position":3,"name":"ROI vs IRR"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"ROI vs IRR","description":"Compare ROI and IRR: formulas, time value of money, when each is preferred.","url":"https://roicalculator.live/comparisons/roi-vs-irr.html"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is the main difference between ROI and IRR?", "acceptedAnswer": {"@type": "Answer", "text": "ROI is a simple percentage return (gain over cost) and does not account for when cash flows occur. IRR is the discount rate that makes NPV of all cash flows zero and explicitly incorporates the time value of money."}},
+      {"@type": "Question", "name": "When should I use IRR instead of ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Use IRR when there are multiple or irregular cash flows (e.g., rental income, staged investments, capital calls). Use ROI for a single lump-sum investment and single payoff."}},
+      {"@type": "Question", "name": "Do ROI and IRR ever give the same result?", "acceptedAnswer": {"@type": "Answer", "text": "For a single initial outlay and single terminal value with no intermediate flows, annualized ROI can approximate IRR. They diverge when cash flows are multiple or uneven."}},
+      {"@type": "Question", "name": "What is the time value of money?", "acceptedAnswer": {"@type": "Answer", "text": "Time value of money is the principle that a dollar today is worth more than a dollar in the future, due to opportunity cost and risk. IRR and NPV incorporate it; simple ROI does not."}},
+      {"@type": "Question", "name": "Can IRR be misleading?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Some cash flow patterns yield multiple IRRs or no real IRR. IRR also assumes reinvestment at the same rate. NPV is often preferred for project comparison when reinvestment assumptions matter."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/comparisons/">ROI Comparisons</a>
+      <span> / </span>
+      <span>ROI vs IRR</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>ROI vs IRR</h1>
+      <div class="definition-block">
+        <p><strong>ROI vs IRR:</strong> ROI measures total return as (Gain ÷ Cost) × 100 and ignores when cash flows occur. IRR is the discount rate that makes the net present value of all cash flows zero and incorporates the time value of money. Use ROI for single in/out investments; use IRR for multiple or irregular cash flows (e.g., real estate, PE).</p>
+      </div>
+      <div class="summary-table-box">
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Best For</th><th>Limitation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ROI</td><td>Single investment, single payoff; quick comparison</td><td>Ignores timing; no time value of money</td></tr>
+            <tr><td>IRR</td><td>Multiple cash flows; real estate, PE, project finance</td><td>Can have multiple or no solution; reinvestment assumption</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>ROI and IRR are both used to evaluate investments, but they answer different questions and suit different cash flow structures. This page defines both metrics, gives formulas, explains the time value of money, provides a side-by-side example, and summarizes when ROI misleads and when IRR is preferred. For a concise treatment, see <a href="/learn/roi-vs-irr.html">ROI vs IRR in the Learn section</a>. For the core concept, see <a href="/">ROI calculator</a> and <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+      <div class="key-takeaways">
+        <ul>
+          <li>ROI = (Gain / Cost) × 100; IRR = rate where NPV of all cash flows = 0.</li>
+          <li>Use IRR when cash flows are multiple or irregular (rentals, staged funding).</li>
+          <li>For single in/out, annualized ROI and IRR can match.</li>
+        </ul>
+      </div>
+      <h2>ROI Formula</h2>
+      <p>Return on investment is defined as:</p>
+      <p class="math-inline">ROI = [(Final Value − Initial Investment) / Initial Investment] × 100</p>
+      <p>Equivalently, ROI = (Gain / Cost) × 100. The formula treats the investment as a single outlay at the start and a single value at the end. It does not consider when cash flows occur or whether there are multiple inflows or outflows. For multi-year investments, analysts often report <a href="/glossary/annualized-return.html">annualized ROI</a>: [(Final Value / Initial Investment)^(1/years) − 1] × 100, which allows comparison across different holding periods. See <a href="/learn/roi-formula.html">ROI formula</a> for detail.</p>
+
+      <h2>IRR Definition and Formula</h2>
+      <p>IRR (Internal Rate of Return) is the discount rate at which the net present value (NPV) of all cash flows equals zero. In other words, it is the rate that makes the present value of outflows equal to the present value of inflows. Formally, for cash flows C<sub>0</sub>, C<sub>1</sub>, …, C<sub>n</sub> at times 0, 1, …, n:</p>
+      <p class="math-inline">NPV = C<sub>0</sub> + C<sub>1</sub>/(1+r) + C<sub>2</sub>/(1+r)<sup>2</sup> + … + C<sub>n</sub>/(1+r)<sup>n</sup> = 0</p>
+      <p>IRR is the value r that solves this equation. There is no closed-form algebraic solution for r in general; it is found by iteration or with a financial calculator or spreadsheet. IRR is expressed as an annual (or period) rate and is directly comparable to cost of capital or hurdle rates. See <a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a> for the link between IRR and NPV.</p>
+
+      <h2>Time Value of Money</h2>
+      <p>The time value of money is the principle that a dollar received today is worth more than a dollar received in the future. Reasons include opportunity cost (the dollar could be invested elsewhere) and risk (future cash flows are uncertain). Discounting converts future cash flows into present values using a rate r: PV = CF / (1+r)^t. IRR embeds this: it is the rate at which the project’s cash flows are exactly valued at today’s prices. Simple ROI does not discount; it treats all dollars equally regardless of when they occur. For projects with long horizons or uneven cash flows, that omission can be significant. <a href="/glossary/net-profit.html">Net profit</a> in nominal terms does not indicate whether the return is adequate given the timing of flows.</p>
+
+      <h2>Example: Side-by-Side Project</h2>
+      <p><strong>Project A (simple):</strong> Invest $100,000 today; receive $150,000 in five years. No intermediate flows. ROI = (150,000 − 100,000) / 100,000 × 100 = 50%. Annualized ROI ≈ (1.50^(1/5) − 1) × 100 ≈ 8.45% per year. IRR for this pattern is also about 8.45%, because there are no intermediate cash flows.</p>
+      <p><strong>Project B (multiple flows):</strong> Invest $100,000 at time 0; spend $20,000 in year 1 (renovation); receive $15,000 at end of years 2, 3, 4; receive $140,000 at end of year 5. Total outflow = $120,000; total inflow = 15,000×3 + 140,000 = $185,000. Simple ROI could be computed as (185,000 − 120,000) / 120,000 ≈ 54%, but that ignores when the $20,000 is spent and when the $15,000 amounts are received. IRR accounts for timing: it might be around 12% annually, reflecting that early outflow and earlier inflows. The same project could show a different ROI depending on whether you define "initial" as $100,000 or $120,000; IRR gives a single, timing-aware rate.</p>
+
+      <h2>Comparison Table</h2>
+      <table>
+        <thead>
+          <tr><th>Aspect</th><th>ROI</th><th>IRR</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Formula</td><td>(Gain / Cost) × 100</td><td>Rate r where NPV = 0</td></tr>
+          <tr><td>Cash flow timing</td><td>Ignored</td><td>Incorporated</td></tr>
+          <tr><td>Number of flows</td><td>Best for single in, single out</td><td>Handles multiple flows</td></tr>
+          <tr><td>Output</td><td>Percentage (total or annualized)</td><td>Annual (or period) rate</td></tr>
+          <tr><td>Calculation</td><td>Simple arithmetic</td><td>Iteration / solver</td></tr>
+          <tr><td>Typical use</td><td>Quick comparison, communication</td><td>PE, real estate, project finance</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When ROI Misleads</h2>
+      <p>ROI can be misleading when (1) there are multiple investments or withdrawals—the choice of "initial" and "final" is ambiguous; (2) the holding period differs across investments and you compare total ROI without annualizing; (3) intermediate cash flows are significant, so ignoring timing overstates or understates the true economic return. In such cases, IRR (or NPV) gives a consistent, timing-aware measure. See <a href="/learn/roi-limitations.html">ROI limitations</a> for more.</p>
+
+      <h2>When IRR Is Preferred</h2>
+      <p>IRR is preferred when cash flows are irregular or multiple: staged investments, rental income, development costs, capital calls, dividends. It is standard in private equity, real estate, and infrastructure. Use IRR when you need a single rate to compare against cost of capital or when the timing of flows materially affects the decision. Real estate examples are in the <a href="/roi-calculator/real-estate/">Real Estate ROI</a> hub; subscription and growth economics are in <a href="/roi-calculator/saas/">SaaS ROI</a>.</p>
+
+      <h2>Interpretation</h2>
+      <p>ROI answers: what percentage did I gain on the money I put in? IRR answers: what annual (or period) rate does this stream of cash flows imply? For simple investments, the two align when you annualize ROI. For complex flows, use IRR (or NPV) for decisions and report ROI only when the structure is clearly a single in and single out. Do not mix total ROI with annual IRR when comparing projects with different lives.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>What is the main difference between ROI and IRR?</h3>
+          <p>ROI is a simple percentage return and does not account for when cash flows occur. IRR is the discount rate that makes NPV zero and incorporates the time value of money.</p>
+        </div>
+        <div class="faq-item">
+          <h3>When should I use IRR instead of ROI?</h3>
+          <p>Use IRR when there are multiple or irregular cash flows (e.g., rentals, staged funding). Use ROI for a single lump-sum investment and single payoff.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do ROI and IRR ever give the same result?</h3>
+          <p>For a single initial outlay and single terminal value, annualized ROI can approximate IRR. They diverge when cash flows are multiple or uneven.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the time value of money?</h3>
+          <p>A dollar today is worth more than a dollar in the future due to opportunity cost and risk. IRR and NPV incorporate it; simple ROI does not.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can IRR be misleading?</h3>
+          <p>Yes. Some patterns yield multiple IRRs or no real IRR. IRR assumes reinvestment at the same rate. NPV is often preferred for project comparison when reinvestment matters.</p>
+        </div>
+      </div>
+
+      <section class="related-topics">
+        <h2>Related ROI Topics</h2>
+        <ul>
+          <li><a href="/">ROI calculator</a></li>
+          <li><a href="/comparisons/">ROI comparisons hub</a></li>
+          <li><a href="/comparisons/roi-vs-npv.html">ROI vs NPV comparison</a></li>
+          <li><a href="/comparisons/roi-vs-payback-period.html">ROI vs payback period</a></li>
+          <li><a href="/learn/roi-vs-irr.html">ROI vs IRR (learn guide)</a></li>
+          <li><a href="/roi-calculator/real-estate/">Real estate ROI calculator</a></li>
+          <li><a href="/roi-calculator/saas/">SaaS ROI calculator</a></li>
+          <li><a href="/roi-calculator/solar/">Solar ROI calculator</a></li>
+          <li><a href="/glossary/annualized-return.html">Annualized return (glossary)</a></li>
+        </ul>
+      </section>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+      </nav>
+      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
