@@ -279,6 +279,20 @@ th { background: var(--color-bg-alt); font-weight: 600; }
 .related-topics ul { list-style: none; padding: 0; margin: 0; }
 .related-topics li { margin-bottom: var(--space-sm); }
 
+/* Table of contents (long pages) */
+.table-of-contents {
+  margin: var(--space-lg) 0 var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.table-of-contents h2 { font-size: 1rem; margin: 0 0 var(--space-md); }
+.table-of-contents ul { list-style: none; padding: 0; margin: 0; }
+.table-of-contents li { margin-bottom: var(--space-xs); }
+.table-of-contents a { color: var(--color-accent); text-decoration: none; }
+.table-of-contents a:hover { text-decoration: underline; }
+
 /* Breadcrumb */
 .breadcrumb {
   font-size: 0.875rem;
