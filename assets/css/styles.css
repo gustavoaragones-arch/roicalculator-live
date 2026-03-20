@@ -355,6 +355,7 @@ th { background: var(--color-bg-alt); font-weight: 600; }
   text-align: center;
 }
 .footer-inner p { margin: 0 0 var(--space-md); font-size: 0.875rem; color: var(--color-text-muted); }
+.footer-inner .disclaimer { font-size: 0.8125rem; color: var(--color-text-muted); max-width: 36rem; margin-left: auto; margin-right: auto; }
 .footer-inner .trust-signal { font-size: 0.8125rem; }
 .footer-inner .trust-signal a { color: var(--color-accent); text-decoration: none; }
 .footer-inner .trust-signal a:hover { text-decoration: underline; }
