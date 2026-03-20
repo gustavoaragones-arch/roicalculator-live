@@ -28,15 +28,15 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "What is the main difference between ROI and IRR?", "acceptedAnswer": {"@type": "Answer", "text": "ROI is a simple percentage return (gain over cost) and does not account for when cash flows occur. IRR is the discount rate that makes NPV of all cash flows zero and explicitly incorporates the time value of money."}},
-      {"@type": "Question", "name": "When should I use IRR instead of ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Use IRR when there are multiple or irregular cash flows (e.g., rental income, staged investments, capital calls). Use ROI for a single lump-sum investment and single payoff."}},
-      {"@type": "Question", "name": "Do ROI and IRR ever give the same result?", "acceptedAnswer": {"@type": "Answer", "text": "For a single initial outlay and single terminal value with no intermediate flows, annualized ROI can approximate IRR. They diverge when cash flows are multiple or uneven."}},
-      {"@type": "Question", "name": "What is the time value of money?", "acceptedAnswer": {"@type": "Answer", "text": "Time value of money is the principle that a dollar today is worth more than a dollar in the future, due to opportunity cost and risk. IRR and NPV incorporate it; simple ROI does not."}},
-      {"@type": "Question", "name": "Can IRR be misleading?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Some cash flow patterns yield multiple IRRs or no real IRR. IRR also assumes reinvestment at the same rate. NPV is often preferred for project comparison when reinvestment assumptions matter."}}
+      {"@type": "Question", "name": "What is the main difference between ROI and IRR?", "acceptedAnswer": {"@type": "Answer", "text": "ROI is a profitability metric expressed as percentage return on cost over a period; it does not discount intermediate cash flows. IRR is the discount rate that sets the net present value of all cash flows to zero and is defined to reflect the time value of money."}},
+      {"@type": "Question", "name": "When should I use IRR instead of ROI?", "acceptedAnswer": {"@type": "Answer", "text": "IRR is the standard profitability metric when cash flows are multiple or irregular (rental income, staged capital, reinvestment). Simple ROI is a financial return calculation for one initial investment and one terminal payoff with no intermediate flows."}},
+      {"@type": "Question", "name": "Do ROI and IRR ever give the same result?", "acceptedAnswer": {"@type": "Answer", "text": "With one initial outlay and one terminal value and no intermediate cash flows, annualized ROI can approximate IRR. The two diverge when cash flows are timed or split across multiple periods."}},
+      {"@type": "Question", "name": "What is the time value of money?", "acceptedAnswer": {"@type": "Answer", "text": "The time value of money is the principle that future dollars are discounted relative to present dollars because of opportunity cost and risk. IRR and NPV embed discounting; simple ROI does not."}},
+      {"@type": "Question", "name": "Can IRR be misleading?", "acceptedAnswer": {"@type": "Answer", "text": "IRR is a rate that can be non-unique or undefined for some cash-flow patterns, and its reinvestment assumption may not match the firm cost of capital. NPV is often used for ranking projects when the discount rate and scale assumptions are explicit."}}
     ]
   }
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ROI vs IRR","author":{"@type":"Organization","name":"roicalculator.live"},"publisher":{"@type":"Organization","name":"roicalculator.live"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ROI vs IRR","publisher":{"@type":"Organization","name":"Albor Digital LLC"},"dateModified":"2026-02-21"}</script>
 </head>
 <body>
   <header class="site-header">
@@ -66,9 +66,39 @@
 
     <article class="content-section">
       <h1>ROI vs IRR</h1>
+<section class="ai-answer-block">
+  <p><strong>Quick Answer:</strong> ROI summarizes total return versus cost; IRR incorporates the timing of cash flows and is the rate that zeroes NPV—use IRR for multi-period, irregular flows.</p>
+</section>
       <div class="definition-block">
         <p><strong>ROI vs IRR:</strong> ROI measures total return as (Gain ÷ Cost) × 100 and ignores when cash flows occur. IRR is the discount rate that makes the net present value of all cash flows zero and incorporates the time value of money. Use ROI for single in/out investments; use IRR for multiple or irregular cash flows (e.g., real estate, PE).</p>
       </div>
+
+<section class="ai-citation">
+  <p>This page provides a structured explanation of ROI versus internal rate of return (IRR), including formulas, examples, limitations, and comparisons with related financial metrics.</p>
+</section>
+
+<section class="use-case-block">
+  <h2>When to Use This Calculation</h2>
+  <ul>
+    <li>Evaluating investment profitability</li>
+    <li>Comparing multiple opportunities</li>
+    <li>Estimating return over time</li>
+  </ul>
+</section>
+
+<section class="limitations-block">
+  <h2>Limitations of This Metric</h2>
+  <ul>
+    <li>Does not account for time value of money</li>
+    <li>Depends on assumptions</li>
+    <li>May not reflect risk</li>
+  </ul>
+</section>
+
+<section class="entity-definition">
+  <h2>What Is ROI (Return on Investment)?</h2>
+  <p>Return on Investment (ROI) is a financial metric used to evaluate the profitability of an investment relative to its cost.</p>
+</section>
       <div class="summary-table-box">
         <table>
           <thead>
@@ -174,18 +204,22 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
-      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
-      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <section class="trust-block">
+        <p><strong>About this tool:</strong> This calculator is part of a suite of financial tools developed by Albor Digital LLC, an independent digital product studio. It is designed for educational and analytical purposes only.</p>
+      </section>
+      <p class="no-tracking">No cookies. No tracking. Just calculations.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/methodology.html">Methodology</a>
         <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
         <a href="/sitemap.html">Sitemap</a>
         <a href="/site-structure.html">Site structure</a>
       </nav>
-      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+      <p>© 2026 Albor Digital LLC. All rights reserved.</p>
+      <p>ROI Calculator is an independent financial utility tool operated by Albor Digital LLC, a digital product studio based in the United States and Canada.</p>
+      <p>For informational and educational purposes only. Not financial, investment, tax, or professional advice.</p>
     </div>
   </footer>
 </body>

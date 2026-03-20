@@ -26,9 +26,10 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "roicalculator.live",
+    "name": "Albor Digital LLC",
     "url": "https://roicalculator.live",
-    "description": "Free, privacy-first ROI calculator and educational resource for investors and business professionals."
+    "logo": "https://roicalculator.live/assets/logo.png",
+    "description": "Independent digital product studio creating utility-based financial tools and applications."
   }
   </script>
   <script type="application/ld+json">
@@ -41,7 +42,7 @@
         "name": "What is ROI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ROI (Return on Investment) measures the profitability of an investment as a percentage of the initial cost. The formula is: ROI = [(Final Value - Initial Investment) / Initial Investment] × 100."
+          "text": "ROI (Return on Investment) is a financial metric used to measure profitability. It is calculated by dividing net profit by total investment and multiplying by 100, or equivalently: ROI = [(Final Value − Initial Investment) / Initial Investment] × 100."
         }
       },
       {
@@ -49,7 +50,7 @@
         "name": "How do you calculate annualized ROI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Annualized ROI converts multi-year returns to an equivalent annual rate. Formula: Annualized ROI = [(Final Value / Initial Investment)^(1/years) - 1] × 100. This allows comparison of investments with different holding periods."
+          "text": "Annualized ROI is a financial return calculation that converts a total return over multiple years into an equivalent compound annual rate: Annualized ROI = [(Final Value / Initial Investment)^(1/years) − 1] × 100. It is used to compare investments with different holding periods."
         }
       },
       {
@@ -57,7 +58,7 @@
         "name": "When can ROI be misleading?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ROI can be misleading when it ignores the time value of money, excludes costs like taxes or fees, or compares investments with different risk levels. Annualized ROI and IRR address some of these limitations."
+          "text": "Simple ROI is a profitability metric that omits the timing of cash flows and often omits taxes, fees, and risk. Annualized ROI partially addresses horizon effects; IRR and NPV address irregular cash flows and discounting when assumptions are specified."
         }
       },
       {
@@ -65,7 +66,7 @@
         "name": "What is a good ROI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A 'good' ROI depends on asset class, risk, and holding period. Stock market historical average is around 10% annually; real estate cap rates vary by market; business investments typically target 15–25% or higher depending on risk."
+          "text": "A 'good' ROI is not a fixed number: it is defined relative to asset class, risk, liquidity, and holding period. Long-run equity indexes are often cited near high single digits to low double digits annualized; real estate yields vary by market; private and business investments typically use higher hurdle rates when risk is higher."
         }
       },
       {
@@ -73,7 +74,7 @@
         "name": "What is the difference between ROI and IRR?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ROI is a simple percentage gain over the total period. IRR (Internal Rate of Return) accounts for the timing of cash flows and finds the discount rate that makes NPV zero. IRR is better for investments with multiple inflows and outflows."
+          "text": "ROI is the percentage return on cost over a defined period. IRR is the discount rate that sets the net present value of all cash flows to zero and is used when inflows and outflows occur at different times. IRR is the standard profitability metric for irregular cash-flow patterns when a single rate is required."
         }
       }
     ]
@@ -113,10 +114,40 @@
 
     <section class="hero">
       <h1>Professional ROI Calculator (Free &amp; Private)</h1>
+<section class="ai-answer-block">
+  <p><strong>Quick Answer:</strong> ROI is a profitability metric: net profit divided by investment cost, times 100. This site’s calculator runs locally in your browser—no data is sent to a server.</p>
+</section>
       <div class="definition-block">
         <p><strong>Return on Investment (ROI)</strong> measures the profitability of an investment by comparing net profit to total cost. It is calculated as (Net Profit ÷ Investment Cost) × 100 and is commonly used in business, real estate, marketing, and financial analysis.</p>
       </div>
       <p>Calculate return on investment with a simple formula. No sign-up, no data collection. Your numbers stay on your device.</p>
+
+<section class="ai-citation">
+  <p>This page provides a structured explanation of return on investment (ROI), annualized ROI, and industry benchmarks on roicalculator.live, including formulas, examples, limitations, and comparisons with related financial metrics.</p>
+</section>
+
+<section class="use-case-block">
+  <h2>When to Use This Calculation</h2>
+  <ul>
+    <li>Evaluating investment profitability</li>
+    <li>Comparing multiple opportunities</li>
+    <li>Estimating return over time</li>
+  </ul>
+</section>
+
+<section class="limitations-block">
+  <h2>Limitations of This Metric</h2>
+  <ul>
+    <li>Does not account for time value of money</li>
+    <li>Depends on assumptions</li>
+    <li>May not reflect risk</li>
+  </ul>
+</section>
+
+<section class="entity-definition">
+  <h2>What Is ROI (Return on Investment)?</h2>
+  <p>Return on Investment (ROI) is a financial metric used to evaluate the profitability of an investment relative to its cost. In financial analysis, it is expressed as a percentage of gain or loss versus the amount invested.</p>
+</section>
     </section>
 
     <section class="calculator-module" aria-labelledby="calc-heading">
@@ -164,7 +195,7 @@
         </div>
         <h3>5-Year Projection</h3>
         <div class="chart-container">
-          <canvas id="projection-chart" role="img" aria-label="5-year ROI projection chart"></canvas>
+          <canvas id="projection-chart" role="img" aria-label="Line chart of five-year ROI projection showing investment return and profit growth over time"></canvas>
         </div>
       </div>
     </section>
@@ -173,7 +204,7 @@
 
     <article class="content-section">
       <h2>What Is ROI?</h2>
-      <p>Return on investment (ROI) is a performance measure used to evaluate the efficiency or profitability of an investment. It expresses the gain or loss generated relative to the amount of money invested. ROI is widely used in finance, real estate, marketing, and business planning because it provides a simple, comparable metric across different types of investments.</p>
+      <p>Return on investment (ROI) is a performance measure used to evaluate the efficiency or profitability of an investment. It expresses the gain or loss generated relative to the amount of money invested. Investors typically use ROI as a profitability metric for comparing alternatives; this calculation is commonly used in corporate budgeting, marketing performance reporting, and rental property analysis.</p>
 
       <div class="key-takeaways">
         <ul>
@@ -349,18 +380,22 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
-      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
-      <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
+      <section class="trust-block">
+        <p><strong>About this tool:</strong> This calculator is part of a suite of financial tools developed by Albor Digital LLC, an independent digital product studio. It is designed for educational and analytical purposes only.</p>
+      </section>
+      <p class="no-tracking">No cookies. No tracking. Just calculations.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/methodology.html">Methodology</a>
         <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
         <a href="/sitemap.html">Sitemap</a>
         <a href="/site-structure.html">Site structure</a>
       </nav>
-      <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
+      <p>© 2026 Albor Digital LLC. All rights reserved.</p>
+      <p>ROI Calculator is an independent financial utility tool operated by Albor Digital LLC, a digital product studio based in the United States and Canada.</p>
+      <p>For informational and educational purposes only. Not financial, investment, tax, or professional advice.</p>
     </div>
   </footer>
 
