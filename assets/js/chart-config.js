@@ -66,16 +66,20 @@
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'bottom'
+            position: 'bottom',
+            labels: { color: '#e6edf3' }
           }
         },
         scales: {
           x: {
-            grid: { display: false }
+            grid: { display: false, color: '#1e293b' },
+            ticks: { color: '#9ca3af' }
           },
           y: {
             beginAtZero: false,
+            grid: { color: '#1e293b' },
             ticks: {
+              color: '#9ca3af',
               callback: function (val) {
                 return '$' + (val / 1000).toFixed(0) + 'k';
               }
