@@ -87,7 +87,7 @@ button[type="submit"].btn-primary {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   background: rgba(17, 17, 20, 0.85);
@@ -121,6 +121,98 @@ button[type="submit"].btn-primary {
   text-decoration: none;
 }
 .nav-links a:hover { color: var(--color-link-hover); }
+
+/* Calculators dropdown (primary tool discovery) */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown > a {
+  display: inline-block;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 6px;
+  z-index: 50;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 240px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+.dropdown-group {
+  margin-bottom: 12px;
+}
+.dropdown-group:last-child {
+  margin-bottom: 0;
+}
+.dropdown-group strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 6px;
+  color: var(--color-text-muted);
+}
+.dropdown-menu a {
+  display: block;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--color-text-body);
+}
+.dropdown-menu a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Sticky CTA (homepage — scroll to calculator) */
+.sticky-calc-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  padding: var(--space-sm) var(--space-lg);
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.35);
+}
+.sticky-calc-bar.is-visible {
+  display: flex;
+}
+.sticky-calc-bar span {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+.sticky-calc-bar .btn-sm {
+  padding: 8px 14px;
+  font-size: 0.875rem;
+}
+.sticky-calc-bar a.btn-primary {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
+body.has-sticky-calc-bar {
+  padding-bottom: 56px;
+}
+
 .badge-privacy {
   margin-left: auto;
   font-size: 0.8125rem;
@@ -224,10 +316,18 @@ article.content-section {
 .calculator-section { margin: var(--space-xl) 0; }
 .calculator-section-inner { max-width: var(--max-width); margin: 0 auto; }
 .calculator-card {
-  background: var(--color-bg-alt);
-  border: 1px solid var(--color-border);
+  background: rgba(20, 20, 25, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.calculator-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
 }
 .calculator-card .calculator-module.calculator-box {
   margin: 0;
@@ -246,6 +346,10 @@ article.content-section {
   color: var(--color-text-body);
   margin: var(--space-md) 0;
   max-width: 42rem;
+}
+.page-home main > .hero-quick-answer {
+  margin-top: 0;
+  margin-bottom: var(--space-xl);
 }
 /* AI answer dominance wrapper */
 .ai-answer-dominance {
@@ -364,6 +468,12 @@ article.content-section {
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
 }
+.result-item.result-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
 .result-card {
   background: #161619;
   padding: 12px;
@@ -372,10 +482,132 @@ article.content-section {
 }
 .result-item .label { font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase; }
 .result-item .value { font-size: 1.25rem; font-weight: 600; font-family: var(--font-mono); color: var(--color-accent); }
+
+/* Phase 17.3 — lateral links between programmatic calculator pages */
+.related-calculators {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.02);
+}
+.related-calculators h2 {
+  font-size: 1.25rem;
+  margin: 0 0 var(--space-sm);
+}
+.related-calculators-lede {
+  margin: 0 0 var(--space-md);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+.related-calculators-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-calculators-list li {
+  margin: 0.4rem 0;
+  padding-left: 0;
+}
+.related-calculators-list a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+.related-calculators-list a:hover {
+  text-decoration: underline;
+}
+
 .chart-container {
   position: relative;
   height: 280px;
   margin-top: var(--space-lg);
+}
+
+/* AEO — context above calculator (homepage) */
+.aeo-context-anchor {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0 auto var(--space-md);
+  max-width: var(--max-width-wide);
+  padding: 0 20px;
+  line-height: 1.5;
+}
+.aeo-context-strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* AEO — quotable Q&A block (results) */
+.aeo-calculation-answer {
+  margin-top: 4px;
+}
+.aeo-question {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+.aeo-answer-block {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-left: 3px solid #22c55e;
+  background: rgba(34, 197, 94, 0.08);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+}
+.aeo-calculation-answer .aeo-answer-block {
+  margin-top: 0;
+}
+.aeo-answer-block p {
+  margin: 0;
+  line-height: 1.5;
+}
+.aeo-answer-internal-links {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.aeo-answer-internal-links a {
+  font-weight: 500;
+}
+
+/* Multi-answer static blocks (homepage — below calculator, before FAQ) */
+.aeo-static-answer {
+  margin-top: 32px;
+  max-width: var(--max-width-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+.aeo-static-answer h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+.aeo-static-answer p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: 1.65;
+}
+.aeo-static-answer--secondary {
+  margin-top: var(--space-lg);
+}
+.aeo-raw-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .hub-cta { margin-top: var(--space-md); }
@@ -605,10 +837,10 @@ table.summary-table { margin: var(--space-md) 0; }
 
 /* Print */
 @media print {
-  .site-header .nav-main, .calc-buttons .btn-secondary, .ad-slot { display: none !important; }
+  .site-header .nav-main, .calc-buttons .btn-secondary, .ad-slot, .sticky-calc-bar { display: none !important; }
 }
 
-/* Site footer (index.html variant) */
+/* Site footer */
 .site-footer {
   margin-top: var(--space-3xl);
   padding: var(--space-xl) var(--space-lg) var(--space-2xl);
@@ -617,6 +849,17 @@ table.summary-table { margin: var(--space-md) 0; }
   max-width: var(--max-width-wide);
   margin-left: auto;
   margin-right: auto;
+}
+.site-footer--minimal .footer-copyright {
+  margin: 0 0 var(--space-xs);
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+.site-footer--minimal .footer-edu {
+  margin: 0 0 var(--space-md);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
 }
 .footer-mini {
   margin: 0 0 var(--space-md);
@@ -629,6 +872,10 @@ table.summary-table { margin: var(--space-md) 0; }
   justify-content: center;
   gap: var(--space-md) var(--space-lg);
   margin: var(--space-md) 0;
+}
+.footer-links--compact {
+  gap: var(--space-sm) var(--space-md);
+  margin: 0;
 }
 .footer-links a {
   color: var(--color-accent);

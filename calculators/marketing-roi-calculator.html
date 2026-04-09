@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="2026-04-08">
+  <meta http-equiv="last-modified" content="Wed, 08 Apr 2026 12:00:00 GMT">
+  <title>Marketing ROI Calculator | roicalculator.live</title>
+  <meta name="description" content="Compute marketing ROI from ad spend and revenue attributed to campaigns. Free, private, runs in your browser.">
+  <link rel="canonical" href="https://roicalculator.live/calculators/marketing-roi-calculator.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/calculators/marketing-roi-calculator.html">
+  <meta property="og:title" content="Marketing ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Compute marketing ROI from ad spend and revenue attributed to campaigns. Free, private, runs in your browser.">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Marketing ROI Calculator",
+  "description": "Compute marketing ROI from ad spend and revenue attributed to campaigns. Free, private, runs in your browser.",
+  "url": "https://roicalculator.live/calculators/marketing-roi-calculator.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "roicalculator.live",
+    "url": "https://roicalculator.live/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does this marketing ROI calculator measure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It divides profit (attributed revenue minus ad spend) by ad spend and expresses the result as a percentage. It is a single-period snapshot—use the same definition of “revenue” across campaigns when comparing results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I treat revenue attribution?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the revenue your team agrees is driven by the spend in question (last-touch, modeled, or holdout—be consistent). Mixing attribution rules across rows makes ROI incomparable even when the math is correct."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is marketing ROI misleading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When lifetime value is omitted, when organic and paid overlap is ignored, or when returns arrive quarters later—simple ROI ignores timing. In those cases pair with payback or NPV-style thinking."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="/real-estate/">Calculators</a>
+          <div class="dropdown-menu" role="navigation" aria-label="Calculator tools">
+            <div class="dropdown-group">
+              <strong>Programmatic hubs</strong>
+              <a href="/marketing/">Marketing hub</a>
+              <a href="/finance/">Finance hub</a>
+              <a href="/operations/">Operations hub</a>
+            </div>
+            <div class="dropdown-group">
+              <strong>Real Estate</strong>
+              <a href="/real-estate/roi-calculator.html">Rental ROI</a>
+              <a href="/real-estate/cap-rate-calculator.html">Cap Rate</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/comparisons/">Comparisons</a></li>
+        <li><a href="/benchmarks/">Benchmarks</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/marketing/">Marketing</a>
+      <span> / </span>
+      <span aria-current="page">Marketing ROI</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>Marketing ROI Calculator</h1>
+
+      <section class="ai-answer-block">
+        <p><strong>Quick answer:</strong> Marketing ROI compares profit from attributed revenue to media spend. Pair it with <a href="/learn/roi-vs-irr.html">cash-flow timing</a> when campaigns pay back over uneven periods.</p>
+      </section>
+
+      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
+        <div class="form-group"><label for="factory-inp-adSpend">Ad spend ($)</label><input type="number" id="factory-inp-adSpend" name="adSpend" value="5000" min="0" step="100"></div>
+<div class="form-group"><label for="factory-inp-revenue">Revenue attributed ($)</label><input type="number" id="factory-inp-revenue" name="revenue" value="18000" min="0" step="100"></div>
+        <div class="calc-buttons">
+          <button type="submit" class="btn btn-primary">Calculate</button>
+        </div>
+      </form>
+
+      <div id="factory-results-panel" class="results-panel" hidden>
+        <h3>Results</h3>
+        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Marketing ROI</span><span id="factory-out-roi" class="value">—</span></div>
+<div class="result-item result-card"><span class="label">Profit</span><span id="factory-out-profit" class="value">—</span></div></div>
+      </div>
+
+      <section class="content-section static-answer-block"><h2>How this differs from blended ROAS</h2><div class="static-block-body">Return on ad spend (ROAS) divides revenue by spend without subtracting cost of goods. This tool uses simple profit (revenue minus spend) for a <a href="/comparisons/roas-vs-roi.html">ROAS vs ROI-style</a> lens before overhead.</div></section>
+<section class="content-section static-answer-block"><h2>Benchmarks and next steps</h2><div class="static-block-body">Compare to <a href="/benchmarks/marketing-roi-benchmarks.html">marketing ROI benchmarks</a>. For subscription businesses, also model <a href="/saas/roi-calculator.html">SaaS ROI</a> separately.</div></section>
+
+      <section class="related-calculators content-section" aria-labelledby="related-calculators-heading"><h2 id="related-calculators-heading">Related ROI calculators</h2><p class="related-calculators-lede">More in <strong>Marketing</strong> — lateral links for crawl depth and context.</p><ul class="related-calculators-list"><li><a href="/calculators/content-marketing-roi-calculator.html">Content Marketing ROI Calculator</a></li>
+<li><a href="/calculators/influencer-roi-calculator.html">Influencer Marketing ROI Calculator</a></li>
+<li><a href="/calculators/email-marketing-roi-calculator.html">Email Marketing ROI Calculator</a></li></ul></section>
+
+      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+        <h2 id="related-links-heading">Explore further</h2>
+        <ul>
+          <li><a href="/">ROI calculator (homepage)</a></li>
+          <li><a href="/marketing/">Marketing hub</a> — more calculators in this category</li>
+          <li><a href="/comparisons/">ROI comparisons</a> — how ROI relates to IRR, NPV, payback, and more</li>
+          <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
+        </ul>
+      </section>
+
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>What does this marketing ROI calculator measure?</h3><div class="faq-answer">It divides profit (attributed revenue minus ad spend) by ad spend and expresses the result as a percentage. It is a single-period snapshot—use the same definition of “revenue” across campaigns when comparing results.</div></div>
+<div class="faq-item"><h3>How should I treat revenue attribution?</h3><div class="faq-answer">Use the revenue your team agrees is driven by the spend in question (last-touch, modeled, or holdout—be consistent). Mixing attribution rules across rows makes ROI incomparable even when the math is correct.</div></div>
+<div class="faq-item"><h3>When is marketing ROI misleading?</h3><div class="faq-answer">When lifetime value is omitted, when organic and paid overlap is ignored, or when returns arrive quarters later—simple ROI ignores timing. In those cases pair with payback or <a href="/comparisons/roi-vs-npv.html">NPV-style</a> thinking.</div></div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer site-footer--minimal">
+    <p class="footer-copyright">© 2026 Albor Digital LLC</p>
+    <p class="footer-edu">Educational use only</p>
+    <nav class="footer-links footer-links--compact" aria-label="Footer">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/sitemap.html">Sitemap</a>
+    </nav>
+  </footer>
+
+  <script type="application/json" id="factory-page-config">{"title":"Marketing ROI Calculator","metaDescription":"Compute marketing ROI from ad spend and revenue attributed to campaigns. Free, private, runs in your browser.","formulas":{"profit":"revenue - adSpend","roi":"adSpend > 0 ? (profit / adSpend) * 100 : 0"},"outputs":[{"key":"roi","label":"Marketing ROI","type":"percent"},{"key":"profit","label":"Profit","type":"currency"}]}</script>
+  <script src="/assets/js/calculator-engine.js" defer></script>
+  <script src="/assets/js/calculator-factory-page.js" defer></script>
+</body>
+</html>

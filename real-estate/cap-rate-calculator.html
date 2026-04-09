@@ -18,11 +18,28 @@
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
       <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="/real-estate/">Calculators</a>
+          <div class="dropdown-menu" role="navigation" aria-label="Calculator tools">
+            <div class="dropdown-group">
+              <strong>Real Estate</strong>
+              <a href="/real-estate/roi-calculator.html">Rental ROI</a>
+              <a href="/real-estate/cap-rate-calculator.html">Cap Rate</a>
+              <a href="/real-estate/cash-on-cash-calculator.html">Cash-on-Cash</a>
+              <a href="/real-estate/flip-roi-calculator.html">Flip ROI</a>
+            </div>
+            <div class="dropdown-group">
+              <strong>Other</strong>
+              <a href="/solar/roi-calculator.html">Solar ROI</a>
+              <a href="/saas/roi-calculator.html">SaaS ROI</a>
+            </div>
+          </div>
+        </li>
         <li><a href="/learn/what-is-roi.html">Learn</a></li>
         <li><a href="/glossary/">Glossary</a></li>
         <li><a href="/methodology.html">Methodology</a></li>
         <li><a href="/about.html">About</a></li>
-        <li><a href="/privacy.html">Privacy</a></li>
       </ul>
       <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
     </nav>
@@ -61,15 +78,15 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="re-cap-price">Property price ($)</label>
-                  <input type="number" id="re-cap-price" min="1" step="1000" value="425000" required>
+                  <input type="number" id="re-cap-price" name="price" min="1" step="1000" value="425000" required>
                 </div>
                 <div class="form-group">
                   <label for="re-cap-income">Annual rental income ($)</label>
-                  <input type="number" id="re-cap-income" min="0" step="100" value="42000" required>
+                  <input type="number" id="re-cap-income" name="annualRent" min="0" step="100" value="42000" required>
                 </div>
                 <div class="form-group">
                   <label for="re-cap-exp">Annual operating expenses ($)</label>
-                  <input type="number" id="re-cap-exp" min="0" step="100" value="12000" required>
+                  <input type="number" id="re-cap-exp" name="annualExp" min="0" step="100" value="12000" required>
                 </div>
               </div>
               <div class="calc-buttons">
@@ -122,20 +139,19 @@
     <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
   </main>
 
-  <footer class="site-footer">
-    <p class="footer-mini">ROI Calculator by Albor Digital LLC</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="/terms.html">Terms</a>
+  <footer class="site-footer site-footer--minimal">
+    <p class="footer-copyright">© 2026 Albor Digital LLC</p>
+    <p class="footer-edu">Educational use only</p>
+    <nav class="footer-links footer-links--compact" aria-label="Footer">
       <a href="/privacy.html">Privacy</a>
-      <a href="/methodology.html">Methodology</a>
-      <a href="/about.html">About</a>
+      <a href="/terms.html">Terms</a>
       <a href="/contact.html">Contact</a>
-      <a href="mailto:contact@roicalculator.live">contact@roicalculator.live</a>
       <a href="/sitemap.html">Sitemap</a>
     </nav>
-    <p class="footer-disclaimer">Educational use only. Not financial advice.</p>
   </footer>
 
+  <script src="/assets/js/calculator-engine.js" defer></script>
+  <script src="/assets/js/calculator-bindings.js" defer></script>
   <script src="/assets/js/real-estate-cluster-calculators.js" defer></script>
 </body>
 </html>

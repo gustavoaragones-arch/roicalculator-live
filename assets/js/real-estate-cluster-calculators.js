@@ -18,26 +18,6 @@
     return n.toFixed(2) + '%';
   }
 
-  (function capRate() {
-    var form = document.getElementById('re-cap-form');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var price = parseNum(el('re-cap-price').value);
-      var income = parseNum(el('re-cap-income').value);
-      var exp = parseNum(el('re-cap-exp').value);
-      if (price <= 0) {
-        alert('Property price must be positive.');
-        return;
-      }
-      var noi = income - exp;
-      var cap = price > 0 ? (noi / price) * 100 : 0;
-      el('re-cap-noi').textContent = formatMoney(noi);
-      el('re-cap-result').textContent = formatPct(cap);
-      el('re-cap-panel').hidden = false;
-    });
-  })();
-
   (function coc() {
     var form = document.getElementById('re-coc-form');
     if (!form) return;

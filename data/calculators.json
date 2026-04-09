@@ -1,0 +1,480 @@
+[
+  {
+    "slug": "marketing-roi-calculator",
+    "title": "Marketing ROI Calculator",
+    "category": "marketing",
+    "metaDescription": "Compute marketing ROI from ad spend and revenue attributed to campaigns. Free, private, runs in your browser.",
+    "inputs": [
+      { "name": "adSpend", "label": "Ad spend ($)", "default": 5000, "min": 0, "step": 100 },
+      { "name": "revenue", "label": "Revenue attributed ($)", "default": 18000, "min": 0, "step": 100 }
+    ],
+    "formulas": {
+      "profit": "revenue - adSpend",
+      "roi": "adSpend > 0 ? (profit / adSpend) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Marketing ROI", "type": "percent" },
+      { "key": "profit", "label": "Profit", "type": "currency" }
+    ],
+    "validatePositive": ["adSpend"],
+    "aeoEntry": "Marketing ROI compares profit from attributed revenue to media spend. Pair it with <a href=\"/learn/roi-vs-irr.html\">cash-flow timing</a> when campaigns pay back over uneven periods.",
+    "staticBlocks": [
+      {
+        "angle": "comparisons",
+        "heading": "How this differs from blended ROAS",
+        "html": "Return on ad spend (ROAS) divides revenue by spend without subtracting cost of goods. This tool uses simple profit (revenue minus spend) for a <a href=\"/comparisons/roas-vs-roi.html\">ROAS vs ROI-style</a> lens before overhead."
+      },
+      {
+        "angle": "benchmarks",
+        "heading": "Benchmarks and next steps",
+        "html": "Compare to <a href=\"/benchmarks/marketing-roi-benchmarks.html\">marketing ROI benchmarks</a>. For subscription businesses, also model <a href=\"/saas/roi-calculator.html\">SaaS ROI</a> separately."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What does this marketing ROI calculator measure?",
+        "a": "It divides profit (attributed revenue minus ad spend) by ad spend and expresses the result as a percentage. It is a single-period snapshot—use the same definition of “revenue” across campaigns when comparing results."
+      },
+      {
+        "q": "How should I treat revenue attribution?",
+        "a": "Use the revenue your team agrees is driven by the spend in question (last-touch, modeled, or holdout—be consistent). Mixing attribution rules across rows makes ROI incomparable even when the math is correct."
+      },
+      {
+        "q": "When is marketing ROI misleading?",
+        "a": "When lifetime value is omitted, when organic and paid overlap is ignored, or when returns arrive quarters later—simple ROI ignores timing. In those cases pair with payback or <a href=\"/comparisons/roi-vs-npv.html\">NPV-style</a> thinking."
+      }
+    ]
+  },
+  {
+    "slug": "email-marketing-roi-calculator",
+    "title": "Email Marketing ROI Calculator",
+    "category": "marketing",
+    "metaDescription": "Estimate email marketing ROI from conversions, average order value, and full program cost.",
+    "inputs": [
+      { "name": "conversions", "label": "Attributed conversions (#)", "default": 240, "min": 0, "step": 1 },
+      { "name": "avgOrderValue", "label": "Average order value ($)", "default": 50, "min": 0, "step": 0.01 },
+      { "name": "programCost", "label": "Program cost ($)", "default": 2400, "min": 0, "step": 50 }
+    ],
+    "formulas": {
+      "attributedRevenue": "conversions * avgOrderValue",
+      "profit": "attributedRevenue - programCost",
+      "roi": "programCost > 0 ? (profit / programCost) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Email ROI", "type": "percent" },
+      { "key": "profit", "label": "Profit", "type": "currency" }
+    ],
+    "validatePositive": ["programCost"],
+    "aeoEntry": "Email ROI weighs creative, tooling, and list costs against revenue you credit to the channel—see <a href=\"/roi-calculator/marketing/email-marketing-roi.html\">channel-specific guidance</a> when blending multi-touch journeys.",
+    "staticBlocks": [
+      {
+        "angle": "use_cases",
+        "heading": "When (conversions × AOV) beats raw revenue entry",
+        "html": "Modeling <strong>attributedRevenue = conversions × avgOrderValue</strong> forces explicit assumptions—useful when order mix shifts. Compare to <a href=\"/calculators/marketing-roi-calculator.html\">direct revenue entry</a> for blended campaigns."
+      },
+      {
+        "angle": "benchmarks",
+        "heading": "Industry ranges",
+        "html": "See <a href=\"/benchmarks/marketing-roi-benchmarks.html\">marketing ROI benchmarks</a> and <a href=\"/glossary/churn-rate.html\">churn</a> when repeat purchase behavior dominates."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do you calculate email marketing ROI with conversions and AOV?",
+        "a": "Multiply attributed conversions by average order value to get attributed revenue, subtract program cost, then divide profit by program cost. This matches how many ESPs export conversion counts while finance holds AOV."
+      },
+      {
+        "q": "What costs belong in email program cost?",
+        "a": "Include platform fees, creative production, list hygiene tools, and allocated strategist time. Exclude company-wide overhead unless you deliberately want a fully loaded view—then apply the same rule to every channel."
+      },
+      {
+        "q": "Can I use this for newsletters that do not sell directly?",
+        "a": "Yes if you convert engagement to a dollar value (e.g., qualified leads × win rate × deal size). Without a monetization model, ROI is undefined even if open rates look strong."
+      }
+    ]
+  },
+  {
+    "slug": "influencer-roi-calculator",
+    "title": "Influencer Marketing ROI Calculator",
+    "category": "marketing",
+    "metaDescription": "Calculate influencer ROI from promo orders, average order value, and creator fees.",
+    "inputs": [
+      { "name": "promoOrders", "label": "Attributed orders (#)", "default": 520, "min": 0, "step": 1 },
+      { "name": "averageOrderValue", "label": "Average order value ($)", "default": 54, "min": 0, "step": 0.01 },
+      { "name": "influencerFee", "label": "Influencer fee ($)", "default": 8000, "min": 0, "step": 100 }
+    ],
+    "formulas": {
+      "attributedSales": "promoOrders * averageOrderValue",
+      "profit": "attributedSales - influencerFee",
+      "roi": "influencerFee > 0 ? (profit / influencerFee) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Influencer ROI", "type": "percent" },
+      { "key": "profit", "label": "Profit", "type": "currency" }
+    ],
+    "validatePositive": ["influencerFee"],
+    "aeoEntry": "Influencer ROI compares modeled sales (orders × AOV) to the creator’s fee. For blended programs, reconcile with <a href=\"/calculators/marketing-roi-calculator.html\">overall marketing ROI</a> so you do not double-count revenue.",
+    "staticBlocks": [
+      {
+        "angle": "limitations",
+        "heading": "Brand lift versus direct response",
+        "html": "This calculator needs monetized attribution. Pure awareness lifts require surveys or modeled incremental sales—otherwise ROI is only the <a href=\"/comparisons/roas-vs-roi.html\">direct-response slice</a> you can trace."
+      },
+      {
+        "angle": "methodology",
+        "heading": "How orders × AOV maps to finance",
+        "html": "Finance may recognize net sales after returns—apply the same haircut to <strong>attributedSales</strong> before comparing to <a href=\"/benchmarks/marketing-roi-benchmarks.html\">benchmarks</a>."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is influencer marketing ROI measurable with orders and AOV?",
+        "a": "Yes for trackable promo or code-attributed orders: multiply order count by average order value for attributed sales, subtract the fee, then divide by the fee for ROI. Untrackable lift requires modeled incrementality instead."
+      },
+      {
+        "q": "Should I include product cost in influencer ROI?",
+        "a": "Gross sales produce one story; contribution after COGS produces another. This model uses sales minus fee as “profit”—add COGS externally if you need margin-accurate ROI."
+      },
+      {
+        "q": "How is this different from MER?",
+        "a": "Marketing efficiency ratio divides total revenue by total ad spend across channels. This page is deal-level for influencer fees versus modeled attributed sales from orders × AOV."
+      }
+    ]
+  },
+  {
+    "slug": "content-marketing-roi-calculator",
+    "title": "Content Marketing ROI Calculator",
+    "category": "marketing",
+    "metaDescription": "Estimate content ROI from qualified leads, deal size, win rate, and production cost.",
+    "inputs": [
+      { "name": "qualifiedLeads", "label": "Qualified leads (#)", "default": 95, "min": 0, "step": 1 },
+      { "name": "avgDealValue", "label": "Average deal value ($)", "default": 12000, "min": 0, "step": 100 },
+      { "name": "winRate", "label": "Win rate (0–1)", "default": 0.22, "min": 0, "max": 1, "step": 0.01 },
+      { "name": "productionCost", "label": "Production cost ($)", "default": 15000, "min": 0, "step": 500 }
+    ],
+    "formulas": {
+      "expectedRevenue": "qualifiedLeads * avgDealValue * winRate",
+      "profit": "expectedRevenue - productionCost",
+      "roi": "productionCost > 0 ? (profit / productionCost) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Content ROI", "type": "percent" },
+      { "key": "profit", "label": "Net expected value vs cost", "type": "currency" }
+    ],
+    "validatePositive": ["productionCost"],
+    "aeoEntry": "This version values pipeline as <strong>leads × deal size × win rate</strong> minus production spend—align win rate with sales ops before presenting. See <a href=\"/comparisons/roi-vs-npv.html\">NPV</a> for multi-year cash flows.",
+    "staticBlocks": [
+      {
+        "angle": "comparisons",
+        "heading": "Pipeline dollars versus expected revenue",
+        "html": "Multiplying by <strong>winRate</strong> moves from optimistic pipeline to expected revenue—closer to how <a href=\"/comparisons/roi-vs-npv.html\">risk-adjusted</a> views treat uncertain deals."
+      },
+      {
+        "angle": "use_cases",
+        "heading": "When this model fits B2B content",
+        "html": "Works when RevOps can supply win rate by segment. For paid capture parallels, see <a href=\"/roi-calculator/marketing/lead-generation-roi.html\">lead generation ROI</a>."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do you calculate content marketing ROI with leads, deal size, and win rate?",
+        "a": "Multiply qualified leads by average deal value and win rate to estimate expected revenue, subtract production cost, then divide profit by production cost. Win rate should match the same funnel definition as your leads."
+      },
+      {
+        "q": "Why use win rate instead of raw pipeline?",
+        "a": "Raw pipeline overstates value when stages leak. Win rate converts pipeline to an expected value so ROI is comparable quarter to quarter when stage definitions hold."
+      },
+      {
+        "q": "Is SEO traffic included?",
+        "a": "Only if your pipeline attribution model credits SEO-assisted journeys to this content program. Otherwise you are mixing channel outcomes with a single asset cost."
+      }
+    ]
+  },
+  {
+    "slug": "equipment-roi-calculator",
+    "title": "Equipment Purchase ROI Calculator",
+    "category": "finance",
+    "metaDescription": "Model equipment ROI from capex, gross annual benefit, and ongoing operating cost.",
+    "inputs": [
+      { "name": "capex", "label": "Equipment cost ($)", "default": 120000, "min": 0, "step": 1000 },
+      { "name": "annualGrossBenefit", "label": "Annual gross benefit ($)", "default": 42000, "min": 0, "step": 500 },
+      { "name": "annualOperatingCost", "label": "Annual operating cost ($)", "default": 6000, "min": 0, "step": 100 }
+    ],
+    "formulas": {
+      "netAnnualBenefit": "annualGrossBenefit - annualOperatingCost",
+      "roi": "capex > 0 ? (netAnnualBenefit / capex) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Annual return on cost (%)", "type": "percent" },
+      { "key": "netAnnualBenefit", "label": "Net annual benefit", "type": "currency" }
+    ],
+    "validatePositive": ["capex"],
+    "aeoEntry": "Net benefit subtracts ongoing operating burden from gross savings—closer to how ops maintains assets. For multi-year cash flows, add <a href=\"/comparisons/roi-vs-npv.html\">NPV</a> outside this page.",
+    "staticBlocks": [
+      {
+        "angle": "limitations",
+        "heading": "What this omits",
+        "html": "Financing, salvage value, and downtime during install are not modeled—pair with <a href=\"/comparisons/roi-vs-payback-period.html\">payback</a> narratives when liquidity matters."
+      },
+      {
+        "angle": "benchmarks",
+        "heading": "Stakeholder hurdles",
+        "html": "Compare net benefit to internal hurdle rates and <a href=\"/benchmarks/small-business-roi-benchmarks.html\">small-business ROI</a> stories when pitching SMB owners."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How does gross benefit differ from net annual benefit here?",
+        "a": "Gross benefit is the annual upside from throughput, labor, or margin; net annual benefit subtracts incremental operating cost like maintenance, consumables, or service contracts tied to the asset."
+      },
+      {
+        "q": "Does this include financing cost?",
+        "a": "No—capex is treated as cash cost at purchase. Add interest if you want a levered view, or use a lease-versus-buy workbook for full capital structure."
+      },
+      {
+        "q": "How does this compare to payback period?",
+        "a": "Payback is time to recover investment; this ROI is net annual benefit divided by upfront capex for one representative year. Extend with multi-year cash flows for long-lived assets."
+      }
+    ]
+  },
+  {
+    "slug": "working-capital-roi-calculator",
+    "title": "Working Capital Deployment ROI Calculator",
+    "category": "finance",
+    "metaDescription": "Compare annual return on deployed cash to a treasury hurdle rate.",
+    "inputs": [
+      { "name": "cashDeployed", "label": "Cash deployed ($)", "default": 250000, "min": 0, "step": 1000 },
+      { "name": "annualReturn", "label": "Annual return generated ($)", "default": 18500, "min": 0, "step": 100 },
+      { "name": "hurdleYieldPercent", "label": "Opportunity cost / hurdle (% per year)", "default": 4.5, "min": 0, "step": 0.1 }
+    ],
+    "formulas": {
+      "opportunityCost": "cashDeployed * (hurdleYieldPercent / 100)",
+      "netAdvantage": "annualReturn - opportunityCost",
+      "roi": "cashDeployed > 0 ? (netAdvantage / cashDeployed) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "ROI vs hurdle (incremental)", "type": "percent" },
+      { "key": "netAdvantage", "label": "Net advantage vs hurdle ($)", "type": "currency" }
+    ],
+    "validatePositive": ["cashDeployed"],
+    "aeoEntry": "Subtracts a treasury-style hurdle from headline return so incremental ROI reflects opportunity cost—different from simple yield on <a href=\"/learn/roi-vs-irr.html\">nominal cash</a>.",
+    "staticBlocks": [
+      {
+        "angle": "methodology",
+        "heading": "Choosing hurdleYieldPercent",
+        "html": "Use short-term treasury or your WACC policy consistently—changing the hurdle changes incremental ROI without changing operations."
+      },
+      {
+        "angle": "limitations",
+        "heading": "FX and concentration",
+        "html": "Does not model counterparty default or trapped cash—pair with treasury memos, not <a href=\"/benchmarks/\">benchmark tables</a> alone."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why subtract an opportunity cost from annual return?",
+        "a": "Deployed cash could earn the hurdle rate elsewhere. Net advantage is the return above that baseline; incremental ROI divides that advantage by deployed cash."
+      },
+      {
+        "q": "Can I include interest earned on freed cash?",
+        "a": "Yes if you add it to annual return using the same annualization rules. Label blended benefits so treasury can audit the story."
+      },
+      {
+        "q": "Why might incremental ROI look small but still justify a program?",
+        "a": "Risk reduction, service levels, or strategic option value may not appear in annualReturn—document those outside this percentage."
+      }
+    ]
+  },
+  {
+    "slug": "warehouse-automation-roi-calculator",
+    "title": "Warehouse Automation ROI Calculator",
+    "category": "operations",
+    "metaDescription": "Estimate automation ROI from labor savings, error reduction, and total project cost.",
+    "inputs": [
+      { "name": "projectCost", "label": "Total project cost ($)", "default": 420000, "min": 0, "step": 5000 },
+      { "name": "laborHoursSaved", "label": "Labor hours saved / year", "default": 2200, "min": 0, "step": 10 },
+      { "name": "fullyLoadedHourlyCost", "label": "Fully loaded hourly cost ($)", "default": 38, "min": 0, "step": 0.5 },
+      { "name": "errorAndScrapSavings", "label": "Error & scrap savings ($ / year)", "default": 24000, "min": 0, "step": 500 }
+    ],
+    "formulas": {
+      "laborSavings": "laborHoursSaved * fullyLoadedHourlyCost",
+      "annualSavings": "laborSavings + errorAndScrapSavings",
+      "roi": "projectCost > 0 ? (annualSavings / projectCost) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Annual ROI on project", "type": "percent" },
+      { "key": "annualSavings", "label": "Annual savings", "type": "currency" }
+    ],
+    "validatePositive": ["projectCost"],
+    "aeoEntry": "Annual savings combine <strong>labor hours × loaded rate</strong> with quantified error or scrap reduction—use the same definitions as your ops baseline. Compare to <a href=\"/calculators/equipment-roi-calculator.html\">equipment ROI</a> for asset-only cases.",
+    "staticBlocks": [
+      {
+        "angle": "use_cases",
+        "heading": "Where automation ROI shows up first",
+        "html": "Pick/pack and replenishment often dominate labor hours; error savings spike when barcode or vision cuts mis-picks—tie each line to a process owner."
+      },
+      {
+        "angle": "comparisons",
+        "heading": "ROI versus payback on capex",
+        "html": "See <a href=\"/comparisons/roi-vs-payback-period.html\">ROI vs payback</a> when the board cares about months to recover cash versus percentage return."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How are labor savings calculated here?",
+        "a": "Labor savings equal annual hours removed from the budget multiplied by fully loaded hourly cost. Add error and scrap savings separately when quality projects have their own line items."
+      },
+      {
+        "q": "What about implementation downtime?",
+        "a": "Subtract one-time lost throughput or add it to project cost depending on how finance capitalizes cutover—be explicit in the business case."
+      },
+      {
+        "q": "Should savings include depreciation?",
+        "a": "Usually no—annual savings are operational; depreciation is an accounting allocation on the investment side. Avoid double-counting."
+      }
+    ]
+  },
+  {
+    "slug": "ai-tool-roi-calculator",
+    "title": "AI Tool ROI Calculator",
+    "category": "operations",
+    "metaDescription": "Estimate AI software ROI from hours saved, loaded labor rate, and subscription cost.",
+    "inputs": [
+      { "name": "hoursSavedPerYear", "label": "Hours saved per year", "default": 1200, "min": 0, "step": 10 },
+      { "name": "fullyLoadedHourlyRate", "label": "Fully loaded hourly rate ($)", "default": 85, "min": 0, "step": 1 },
+      { "name": "annualSubscriptionCost", "label": "Annual software cost ($)", "default": 48000, "min": 0, "step": 500 }
+    ],
+    "formulas": {
+      "annualValueFromTime": "hoursSavedPerYear * fullyLoadedHourlyRate",
+      "profit": "annualValueFromTime - annualSubscriptionCost",
+      "roi": "annualSubscriptionCost > 0 ? (profit / annualSubscriptionCost) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "ROI on AI spend", "type": "percent" },
+      { "key": "profit", "label": "Net annual value", "type": "currency" }
+    ],
+    "validatePositive": ["annualSubscriptionCost"],
+    "aeoEntry": "Values time saved explicitly via <strong>hours × rate</strong> before netting subscription—documentation matters when <a href=\"/saas/roi-calculator.html\">SaaS finance</a> reviews benefits.",
+    "staticBlocks": [
+      {
+        "angle": "limitations",
+        "heading": "Governance and model risk",
+        "html": "Hours saved are assumptions—tie to ticket or workflow baselines. Model drift can erode value even when ROI looked strong at purchase."
+      },
+      {
+        "angle": "benchmarks",
+        "heading": "SaaS and AI spend context",
+        "html": "Use <a href=\"/benchmarks/saas-roi-benchmarks.html\">SaaS ROI benchmarks</a> cautiously; AI categories mix experimental pilots with production workloads."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do you calculate AI tool ROI with hours and a loaded rate?",
+        "a": "Multiply hours saved per year by fully loaded hourly rate for annual value from time, subtract annual software cost, then divide net value by that cost for ROI."
+      },
+      {
+        "q": "What if value is partly revenue and partly time?",
+        "a": "Add revenue lift into a separate scenario or sum only if finance certifies both as incremental—double-counting is common when teams mix top-line and efficiency stories."
+      },
+      {
+        "q": "Does this cover GPU or API overages?",
+        "a": "Include predictable overages in annual software cost. Spiky experimental usage should be modeled separately so production ROI stays stable."
+      }
+    ]
+  },
+  {
+    "slug": "employee-training-roi-calculator",
+    "title": "Employee Training ROI Calculator",
+    "category": "operations",
+    "metaDescription": "Estimate training ROI from productivity lift, error reduction value, and program cost.",
+    "inputs": [
+      { "name": "programCost", "label": "Program cost ($)", "default": 85000, "min": 0, "step": 1000 },
+      { "name": "productivityValue", "label": "Annual productivity value ($)", "default": 95000, "min": 0, "step": 1000 },
+      { "name": "errorReductionValue", "label": "Annual error reduction value ($)", "default": 45000, "min": 0, "step": 500 }
+    ],
+    "formulas": {
+      "valueCreated": "productivityValue + errorReductionValue",
+      "profit": "valueCreated - programCost",
+      "roi": "programCost > 0 ? (profit / programCost) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Training ROI", "type": "percent" },
+      { "key": "profit", "label": "Net annual value", "type": "currency" }
+    ],
+    "validatePositive": ["programCost"],
+    "aeoEntry": "Splits value into <strong>productivity</strong> and <strong>error reduction</strong> before netting cost—helps L&amp;D defend assumptions separately. Align with <a href=\"/hr/roi-calculator.html\">HR ROI</a> when retention moves.",
+    "staticBlocks": [
+      {
+        "angle": "use_cases",
+        "heading": "When to separate productivity from quality",
+        "html": "Use separate inputs when operations owns scrap reduction while sales owns throughput—avoids double-counting the same hour twice."
+      },
+      {
+        "angle": "methodology",
+        "heading": "Kirkpatrick and monetization",
+        "html": "Level-4 results require dollarized outcomes; smile sheets alone cannot populate productivity or error fields—see <a href=\"/benchmarks/\">benchmarks</a> only as context."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How is employee training ROI calculated with two value streams?",
+        "a": "Add annual productivity value and annual error reduction value for total value created, subtract program cost, then divide net value by program cost for ROI."
+      },
+      {
+        "q": "Can I include opportunity cost of attendee time?",
+        "a": "Yes—add attendee hours × loaded cost to program cost if those hours would otherwise be billable or productive."
+      },
+      {
+        "q": "What horizon should annual value cover?",
+        "a": "Use a steady-state year after skills land; if benefits ramp, normalize to a run-rate before comparing programs."
+      }
+    ]
+  },
+  {
+    "slug": "logistics-efficiency-roi-calculator",
+    "title": "Logistics Efficiency ROI Calculator",
+    "category": "operations",
+    "metaDescription": "Calculate logistics ROI from annual shipments, savings per shipment, and implementation cost.",
+    "inputs": [
+      { "name": "implementationCost", "label": "Implementation cost ($)", "default": 95000, "min": 0, "step": 1000 },
+      { "name": "annualShipments", "label": "Annual shipments (#)", "default": 180000, "min": 0, "step": 1000 },
+      { "name": "savingsPerShipment", "label": "Savings per shipment ($)", "default": 0.35, "min": 0, "step": 0.01 }
+    ],
+    "formulas": {
+      "annualSavings": "annualShipments * savingsPerShipment",
+      "roi": "implementationCost > 0 ? (annualSavings / implementationCost) * 100 : 0"
+    },
+    "outputs": [
+      { "key": "roi", "label": "Annual ROI", "type": "percent" },
+      { "key": "annualSavings", "label": "Annual savings", "type": "currency" }
+    ],
+    "validatePositive": ["implementationCost"],
+    "aeoEntry": "Scales per-unit savings across shipment volume—ideal for rate shopping, consolidation, or cartonization wins. Cross-check with <a href=\"/calculators/warehouse-automation-roi-calculator.html\">warehouse automation ROI</a> when both apply.",
+    "staticBlocks": [
+      {
+        "angle": "limitations",
+        "heading": "Service levels versus cost",
+        "html": "Cutting cost can raise transit time—ROI here is dollars only; document service trade-offs for commercial teams."
+      },
+      {
+        "angle": "comparisons",
+        "heading": "Network design choices",
+        "html": "Compare against <a href=\"/comparisons/roi-vs-payback-period.html\">payback framing</a> when carriers require annual minimums or volume commits."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do annual shipments affect logistics ROI?",
+        "a": "Annual savings equal shipments times savings per shipment; ROI divides that annual savings by implementation cost. Volume assumptions must match the lanes you actually tender."
+      },
+      {
+        "q": "Do savings include inventory carrying cost?",
+        "a": "Only if you allocate them to this initiative and avoid double-counting with warehouse projects—document the split with finance."
+      },
+      {
+        "q": "Can I annualize a pilot?",
+        "a": "Scale pilot savings using shipment volume ratios; pilots often overstate ROI if seasonality is ignored."
+      }
+    ]
+  }
+]

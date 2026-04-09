@@ -4,6 +4,13 @@
   var form = document.getElementById('sp-roi-form');
   if (!form) return;
 
+  var hasInteracted = false;
+  var hasInjectedStructuredData = false;
+
+  if (window.CalculatorEngine) {
+    window.CalculatorEngine.loadFromURL(form);
+  }
+
   function el(id) {
     return document.getElementById(id);
   }
@@ -119,10 +126,66 @@
     }
 
     el('sp-results-panel').hidden = false;
+
+    if (window.CalculatorEngine) {
+      if (hasInteracted) {
+        window.CalculatorEngine.updateURL({
+          systemCost: systemCost,
+          taxCreditPct: taxCreditPct,
+          kwh: kwh,
+          rate: rate,
+          rateIncreasePct: rateIncreasePct,
+          lifespan: lifespan
+        });
+      }
+      if (hasInteracted && !hasInjectedStructuredData) {
+        window.CalculatorEngine.injectDatasetJsonLd(
+          {
+            name: 'Solar ROI Calculator',
+            description: 'Payback, 20-year and lifetime ROI from net cost and escalating bill savings.'
+          },
+          {
+            systemCost: systemCost,
+            taxCreditPct: taxCreditPct,
+            kwh: kwh,
+            rate: rate,
+            rateIncreasePct: rateIncreasePct,
+            lifespan: lifespan
+          },
+          {
+            netCost: netCost,
+            annualSavingsYear1: annualSaveY1,
+            paybackYears: pb,
+            roi20Percent: roi20,
+            roiLifetimePercent: roiLife,
+            totalSavings20Year: total20,
+            totalSavingsLifetime: totalLife,
+            horizonYears20: 20,
+            horizonYearsLife: lifeYears
+          }
+        );
+        hasInjectedStructuredData = true;
+      }
+    }
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    hasInteracted = true;
     run();
   });
+
+  var spInputs = form.querySelectorAll('input, select, textarea');
+  for (var i = 0; i < spInputs.length; i++) {
+    spInputs[i].addEventListener('input', function () {
+      hasInteracted = true;
+    });
+    spInputs[i].addEventListener('change', function () {
+      hasInteracted = true;
+    });
+  }
+
+  if (window.location.search && window.location.search.length > 1) {
+    run();
+  }
 })();

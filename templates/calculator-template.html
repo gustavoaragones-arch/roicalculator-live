@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="__LASTMOD__">
+  <meta http-equiv="last-modified" content="__LASTMOD_HTTP__">
+  <title>__TITLE__ | roicalculator.live</title>
+  <meta name="description" content="__META_DESC__">
+  <link rel="canonical" href="__CANONICAL__">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="__CANONICAL__">
+  <meta property="og:title" content="__TITLE__ | roicalculator.live">
+  <meta property="og:description" content="__META_DESC__">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">
+  __WEBPAGE_JSONLD__
+  </script>
+  <script type="application/ld+json">
+  __FAQ_JSONLD__
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="/real-estate/">Calculators</a>
+          <div class="dropdown-menu" role="navigation" aria-label="Calculator tools">
+            <div class="dropdown-group">
+              <strong>Programmatic hubs</strong>
+              <a href="/marketing/">Marketing hub</a>
+              <a href="/finance/">Finance hub</a>
+              <a href="/operations/">Operations hub</a>
+            </div>
+            <div class="dropdown-group">
+              <strong>Real Estate</strong>
+              <a href="/real-estate/roi-calculator.html">Rental ROI</a>
+              <a href="/real-estate/cap-rate-calculator.html">Cap Rate</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/comparisons/">Comparisons</a></li>
+        <li><a href="/benchmarks/">Benchmarks</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="__HUB_PATH__">__CATEGORY_LABEL__</a>
+      <span> / </span>
+      <span aria-current="page">__SHORT_TITLE__</span>
+    </nav>
+
+    <article class="content-section">
+      <h1>__TITLE__</h1>
+
+      <section class="ai-answer-block">
+        <p><strong>Quick answer:</strong> __AEO_ENTRY__</p>
+      </section>
+
+      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
+        __INPUTS_HTML__
+        <div class="calc-buttons">
+          <button type="submit" class="btn btn-primary">Calculate</button>
+        </div>
+      </form>
+
+      <div id="factory-results-panel" class="results-panel" hidden>
+        <h3>Results</h3>
+        __OUTPUTS_HTML__
+      </div>
+
+      __STATIC_BLOCKS__
+
+      __RELATED_CALCULATORS__
+
+      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+        <h2 id="related-links-heading">Explore further</h2>
+        <ul>
+          <li><a href="/">ROI calculator (homepage)</a></li>
+          <li><a href="__HUB_PATH__">__CATEGORY_LABEL__ hub</a> — more calculators in this category</li>
+          <li><a href="/comparisons/">ROI comparisons</a> — how ROI relates to IRR, NPV, payback, and more</li>
+          <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
+        </ul>
+      </section>
+
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        __FAQ_HTML__
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer site-footer--minimal">
+    <p class="footer-copyright">© 2026 Albor Digital LLC</p>
+    <p class="footer-edu">Educational use only</p>
+    <nav class="footer-links footer-links--compact" aria-label="Footer">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/sitemap.html">Sitemap</a>
+    </nav>
+  </footer>
+
+  <script type="application/json" id="factory-page-config">__CONFIG_JSON__</script>
+  <script src="/assets/js/calculator-engine.js" defer></script>
+  <script src="/assets/js/calculator-factory-page.js" defer></script>
+</body>
+</html>
