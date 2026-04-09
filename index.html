@@ -113,89 +113,98 @@
     </nav>
 
     <section class="hero">
-      <div class="hero-content">
-        <h1>Professional ROI Calculator</h1>
-        <p class="hero-sub">Calculate return on investment instantly. No tracking. No sign-up.</p>
+      <h1>ROI Calculator (Free &amp; Private)</h1>
+      <p class="subtitle">Calculate return on investment instantly. No signup. No data tracking.</p>
+      <p class="hero-quick-answer">Quick answer: ROI is net profit divided by investment cost, times 100; this calculator runs in your browser and does not send your inputs to a server.</p>
+    </section>
 
-        <div class="hero-grid">
-          <div class="hero-calculator">
-            <section class="calculator-module calculator-box" aria-labelledby="calc-heading">
-              <h2 id="calc-heading">ROI Calculator</h2>
-              <form id="roi-form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="initial-investment">Initial Investment ($)</label>
-                    <input type="number" id="initial-investment" min="0" step="0.01" value="10000" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="final-value">Final Value ($)</label>
-                    <input type="number" id="final-value" min="0" step="0.01" value="15000" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="period-years">Investment Period (years)</label>
-                    <input type="number" id="period-years" min="0.01" step="0.25" value="5" required>
-                  </div>
+    <section class="calculator-section" aria-label="ROI calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="calc-heading">
+            <h2 id="calc-heading">ROI Calculator</h2>
+            <form id="roi-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="initial-investment">Initial Investment ($)</label>
+                  <input type="number" id="initial-investment" min="0" step="0.01" value="10000" required>
                 </div>
-                <div class="toggle-row">
-                  <input type="checkbox" id="reverse-mode" aria-describedby="reverse-desc">
-                  <label for="reverse-mode" id="reverse-desc">Target ROI mode: calculate required final value from target ROI %</label>
+                <div class="form-group">
+                  <label for="final-value">Final Value ($)</label>
+                  <input type="number" id="final-value" min="0" step="0.01" value="15000" required>
                 </div>
-                <div class="calc-buttons">
-                  <button type="submit" class="btn btn-primary">Calculate</button>
-                  <button type="button" class="btn btn-secondary" id="btn-pdf">Download PDF</button>
-                </div>
-              </form>
-
-              <div class="results-panel" id="results-panel" hidden>
-                <h3>Results</h3>
-                <div class="results-grid results-box">
-                  <div class="result-item result-card">
-                    <span class="label">ROI</span>
-                    <span class="value" id="result-roi">—</span>
-                  </div>
-                  <div class="result-item result-card">
-                    <span class="label">Annualized ROI</span>
-                    <span class="value" id="result-annualized">—</span>
-                  </div>
-                  <div class="result-item result-card">
-                    <span class="label">Total Profit</span>
-                    <span class="value" id="result-profit">—</span>
-                  </div>
-                </div>
-                <h3>5-Year Projection</h3>
-                <div class="chart-container">
-                  <canvas id="projection-chart" role="img" aria-label="Line chart of five-year ROI projection showing investment return and profit growth over time"></canvas>
+                <div class="form-group">
+                  <label for="period-years">Investment Period (years)</label>
+                  <input type="number" id="period-years" min="0.01" step="0.25" value="5" required>
                 </div>
               </div>
-            </section>
-          </div>
+              <div class="toggle-row">
+                <input type="checkbox" id="reverse-mode" aria-describedby="reverse-desc">
+                <label for="reverse-mode" id="reverse-desc">Target ROI mode: calculate required final value from target ROI %</label>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf">Download PDF</button>
+              </div>
+            </form>
 
-          <div class="hero-info">
-            <div class="quick-answer">
-              <strong>Quick Answer:</strong>
-              ROI = (Net Profit ÷ Investment) × 100
+            <div class="results-panel" id="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">ROI</span>
+                  <span class="value" id="result-roi">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Annualized ROI</span>
+                  <span class="value" id="result-annualized">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total Profit</span>
+                  <span class="value" id="result-profit">—</span>
+                </div>
+              </div>
+              <h3>5-Year Projection</h3>
+              <div class="chart-container">
+                <canvas id="projection-chart" role="img" aria-label="Line chart of five-year ROI projection showing investment return and profit growth over time"></canvas>
+              </div>
             </div>
-            <ul class="hero-points">
-              <li>Works for SaaS, real estate, marketing</li>
-              <li>Includes annualized ROI</li>
-              <li>Instant visual projections</li>
-            </ul>
-          </div>
+          </section>
         </div>
       </div>
     </section>
 
-    <section class="home-seo-blocks" aria-label="Structured summary for search">
-      <section class="ai-answer-block">
-        <p><strong>Quick Answer:</strong> ROI is a profitability metric: net profit divided by investment cost, times 100. This site’s calculator runs locally in your browser—no data is sent to a server.</p>
+    <section class="ai-answer-dominance" aria-label="Direct answers to common questions">
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">What is ROI?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">Return on investment (ROI) is a profitability ratio: net gain divided by capital invested, expressed as a percentage. It tells you how much return you produced for each dollar put at risk.</p>
+          <p class="ai-answer-expanded">People use the ROI metric in marketing, operations, and property because it is easy to quote. Simple ROI does not, by itself, state how long you held the asset—pair it with a time period or annualized ROI when horizons differ.</p>
+        </div>
       </section>
-      <div class="definition-block">
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">How do you calculate ROI?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">With one starting outlay and one ending value, ROI = [(final value − initial cost) ÷ initial cost] × 100. If you already know net profit, use (net profit ÷ investment) × 100 instead.</p>
+          <p class="ai-answer-expanded">Annualized ROI converts a multi-year investment return into an equivalent yearly rate so you can compare different time spans. When cash moves in and out at uneven dates, internal rate of return (IRR) often fits better than a single ROI percentage.</p>
+        </div>
+      </section>
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">What is a good ROI?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">A “good” ROI is not one number—it depends on asset class, risk, liquidity, fees, taxes, and your required hurdle rate. Judge any investment return against realistic alternatives and the same profit definition.</p>
+          <p class="ai-answer-expanded">Public equities are often discussed with long-run annualized figures; private projects and paid media may show higher headline percentages to offset illiquidity or attribution noise. Always state whether ROI is pretax and whether all-in costs are included.</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="home-aeo" aria-label="Context and limitations">
+      <section class="definition-block" aria-label="Definition of ROI">
         <p><strong>Return on Investment (ROI)</strong> measures the profitability of an investment by comparing net profit to total cost. It is calculated as (Net Profit ÷ Investment Cost) × 100 and is commonly used in business, real estate, marketing, and financial analysis.</p>
-      </div>
-      <p>Calculate return on investment with a simple formula. No sign-up, no data collection. Your numbers stay on your device.</p>
+      </section>
 
       <section class="ai-citation">
-        <p>This page provides a structured explanation of return on investment (ROI), annualized ROI, and industry benchmarks on roicalculator.live, including formulas, examples, limitations, and comparisons with related financial metrics.</p>
+        <p>This page explains return on investment (ROI), annualized ROI, and benchmarks on roicalculator.live, with formulas, examples, limitations, and links to related metrics.</p>
       </section>
 
       <section class="use-case-block">
@@ -215,29 +224,19 @@
           <li>May not reflect risk</li>
         </ul>
       </section>
-
-      <section class="entity-definition">
-        <h2>What Is ROI (Return on Investment)?</h2>
-        <p>Return on Investment (ROI) is a financial metric used to evaluate the profitability of an investment relative to its cost. In financial analysis, it is expressed as a percentage of gain or loss versus the amount invested.</p>
-      </section>
     </section>
 
     <div class="ad-slot ad-middle" role="presentation" aria-hidden="true"></div>
 
     <article class="content-section">
-      <section class="trust-block">
-        <p><strong>About this tool:</strong> This calculator is part of a suite of financial tools developed by Albor Digital LLC, an independent digital product studio. It is designed for educational and analytical purposes only.</p>
-      </section>
-
       <h2>What Is ROI?</h2>
-      <p>Return on investment (ROI) is a performance measure used to evaluate the efficiency or profitability of an investment. It expresses the gain or loss generated relative to the amount of money invested. Investors typically use ROI as a profitability metric for comparing alternatives; this calculation is commonly used in corporate budgeting, marketing performance reporting, and rental property analysis.</p>
+      <p>Use the calculator above for numbers; below is how to interpret ROI, annualize it, and when to pair it with other metrics (IRR, NPV) for decisions.</p>
 
       <div class="key-takeaways">
         <ul>
-          <li>ROI = (Net Profit ÷ Investment Cost) × 100; use it to compare investments.</li>
-          <li>Annualized ROI converts multi-year returns to an equivalent annual rate.</li>
-          <li>ROI ignores time value of money and risk; use IRR for complex cash flows.</li>
-          <li>Benchmarks vary by asset class—stocks, real estate, and marketing use different norms.</li>
+          <li>Annualized ROI converts multi-year returns to a comparable yearly rate.</li>
+          <li>ROI ignores timing of cash flows and risk—IRR helps with irregular flows.</li>
+          <li>Benchmarks differ by asset class; always align comparisons to horizon and risk.</li>
         </ul>
       </div>
 
@@ -357,7 +356,6 @@
 
       <section class="explore-industry">
         <h3>Industry ROI Benchmarks</h3>
-        <p>Reference ranges for ROI by sector. Benchmarks are estimates for comparison, not guarantees.</p>
         <ul>
           <li><a href="/benchmarks/">ROI Benchmarks Hub</a></li>
           <li><a href="/benchmarks/average-roi-by-industry.html">Average ROI by Industry</a></li>
@@ -371,7 +369,6 @@
 
       <section class="explore-industry">
         <h3>Compare ROI to Other Metrics</h3>
-        <p>ROI alone is not always enough. See when to use IRR, NPV, payback period, ROAS, cap rate, and cash-on-cash.</p>
         <ul>
           <li><a href="/comparisons/">ROI Comparisons Hub</a></li>
           <li><a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a></li>
@@ -404,17 +401,18 @@
     <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
   </main>
 
-  <footer class="footer">
-    <p>© 2026 Albor Digital LLC</p>
-    <nav aria-label="Footer navigation">
-      <a href="/about.html">About</a>
-      <a href="/methodology.html">Methodology</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/privacy.html">Privacy</a>
+  <footer class="site-footer">
+    <p class="footer-mini">ROI Calculator by Albor Digital LLC</p>
+    <nav class="footer-links" aria-label="Footer navigation">
       <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="mailto:contact@roicalculator.live">contact@roicalculator.live</a>
       <a href="/sitemap.html">Sitemap</a>
     </nav>
-    <p class="footer-note">Educational use only.</p>
+    <p class="footer-disclaimer">Educational use only. Not financial advice.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
