@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="2026-04-08">
+  <meta http-equiv="last-modified" content="Wed, 08 Apr 2026 12:00:00 GMT">
+  <title>HVAC ROI Calculator | Payback on Efficiency Upgrade | roicalculator.live</title>
+  <meta name="description" content="HVAC payback from annual energy spend, old vs new efficiency (AFUE/SEER-style %), and upgrade cost.">
+  <link rel="canonical" href="https://roicalculator.live/hvac/roi-calculator.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/hvac/roi-calculator.html">
+  <meta property="og:title" content="HVAC ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Estimate payback when you upgrade equipment efficiency and know annual energy cost.">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Solar & Energy ROI","item":"https://roicalculator.live/roi-calculator/solar/"},{"@type":"ListItem","position":3,"name":"HVAC ROI Calculator","item":"https://roicalculator.live/hvac/roi-calculator.html"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"HVAC ROI Calculator","description":"Payback period from efficiency gain and energy spend.","url":"https://roicalculator.live/hvac/roi-calculator.html"}
+  </script>
+</head>
+<body class="page-home">
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/roi-calculator/solar/">Solar &amp; Energy ROI</a>
+      <span> / </span>
+      <span>HVAC payback</span>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>HVAC ROI Calculator</h1>
+        <p class="hero-sub">Payback when useful output is unchanged: fuel or kWh in drops proportionally with higher equipment efficiency.</p>
+      </div>
+    </section>
+
+    <section class="calculator-section" aria-label="HVAC payback calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="hvac-calc-heading">
+            <h2 id="hvac-calc-heading">Inputs</h2>
+            <p class="vertical-calc-note"><strong>Model:</strong> For the same heating or cooling load, new annual energy bill ≈ old bill × (η<sub>old</sub> / η<sub>new</sub>). Savings fraction = 1 − η<sub>old</sub>/η<sub>new</sub>. Enter AFUE, SEER, or HSPF as comparable percentages—do not mix unrelated scales without converting.</p>
+            <form id="hvac-roi-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hvac-bill">Annual HVAC energy cost ($)</label>
+                  <input type="number" id="hvac-bill" min="1" step="50" value="1400" required>
+                </div>
+                <div class="form-group">
+                  <label for="hvac-old">Old system efficiency (%)</label>
+                  <input type="number" id="hvac-old" min="1" max="99" step="1" value="80" required>
+                </div>
+                <div class="form-group">
+                  <label for="hvac-new">New system efficiency (%)</label>
+                  <input type="number" id="hvac-new" min="1" max="100" step="1" value="96" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hvac-upgrade">Upgrade installed cost ($)</label>
+                  <input type="number" id="hvac-upgrade" min="1" step="100" value="6500" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div class="results-panel" id="hvac-results-panel" hidden>
+              <h3>Results</h3>
+              <div class="results-grid results-box" id="hvac-results-box">
+                <div class="result-item result-card">
+                  <span class="label">Payback period</span>
+                  <span class="value" id="hvac-result-payback">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Annual energy savings</span>
+                  <span class="value" id="hvac-result-save">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Bill reduction</span>
+                  <span class="value" id="hvac-result-pct">—</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-answer-dominance" aria-label="Direct answers">
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">What is HVAC upgrade ROI?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">Here <strong>ROI</strong> is summarized as <strong>payback</strong>: years until cumulative energy savings equal the installed upgrade cost. Higher efficiency reduces input energy for the same comfort output.</p>
+          <p class="ai-answer-expanded">This is a nominal energy model—maintenance, rebates, and rate changes sit outside the formula. See <a href="/solar/roi-calculator.html">solar ROI</a> for bill-side generation math.</p>
+        </div>
+      </section>
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">How is payback calculated for a new furnace or heat pump?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text"><strong>Payback</strong> = upgrade cost ÷ (old annual bill − new annual bill). We derive new bill from old bill × (η<sub>old</sub>/η<sub>new</sub>) when load is unchanged.</p>
+          <p class="ai-answer-expanded">If you only know kWh or therms, convert to dollars with your tariff first. Compare <a href="/comparisons/roi-vs-payback-period.html">ROI vs payback</a> when you also care about total return over life.</p>
+        </div>
+      </section>
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">When does efficiency pay for itself?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">When <strong>annual savings × years you keep the system</strong> exceeds the premium you pay—often 5–15 years for residential retrofits, highly sensitive to utility rates and install price.</p>
+          <p class="ai-answer-expanded">Stress-test with +20% install cost and −10% savings before you rely on the number. <a href="/roi-calculator/solar/heat-pump-roi.html">Heat pump ROI</a> adds fuel-vs-electric specifics.</p>
+        </div>
+      </section>
+    </section>
+
+    <article class="content-section">
+      <p><a href="/roi-calculator/solar/heat-pump-roi.html">Heat pump ROI</a> · <a href="/solar/roi-calculator.html">Solar ROI</a> · <a href="/">Main calculator</a> · <a href="/glossary/payback-period.html">Payback period</a></p>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-mini">ROI Calculator by Albor Digital LLC</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="mailto:contact@roicalculator.live">contact@roicalculator.live</a>
+      <a href="/sitemap.html">Sitemap</a>
+    </nav>
+    <p class="footer-disclaimer">Educational use only. Not financial advice.</p>
+  </footer>
+
+  <script src="/assets/js/vertical-roi-calculators.js" defer></script>
+</body>
+</html>

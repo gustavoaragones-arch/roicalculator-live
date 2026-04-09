@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="2026-04-08">
+  <meta http-equiv="last-modified" content="Wed, 08 Apr 2026 12:00:00 GMT">
+  <title>Rental Property ROI Calculator | Cash Flow &amp; Return | roicalculator.live</title>
+  <meta name="description" content="Free rental property ROI calculator: purchase price, down payment, rent, expenses, vacancy, appreciation, holding period. Cash-on-cash, total ROI, 5-year chart.">
+  <link rel="canonical" href="https://roicalculator.live/real-estate/roi-calculator.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/real-estate/roi-calculator.html">
+  <meta property="og:title" content="Rental Property ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Estimate cash flow, cash-on-cash, and total ROI for rental properties.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Real Estate ROI","item":"https://roicalculator.live/real-estate/"},{"@type":"ListItem","position":3,"name":"Rental Property ROI Calculator"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Rental Property ROI Calculator","description":"Estimate rental cash flow, cash-on-cash return, total ROI, and property value projection.","url":"https://roicalculator.live/real-estate/roi-calculator.html"}
+  </script>
+</head>
+<body class="page-home">
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/real-estate/">Real Estate ROI</a>
+      <span> / </span>
+      <span>Rental Property ROI Calculator</span>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Rental Property ROI Calculator</h1>
+        <p class="hero-sub">Annual cash flow after vacancy, operating costs, and mortgage; total profit adds sale proceeds net of loan; ROI uses your down payment as cash invested.</p>
+      </div>
+    </section>
+
+    <section class="ai-answer-block">
+      <h2>What is rental property ROI?</h2>
+      <p><strong>Short answer:</strong> Rental property ROI measures the return generated from a real estate investment relative to its total cost, including cash flow and property appreciation.</p>
+    </section>
+
+    <section class="example-block">
+      <h2>Example Rental ROI Calculation</h2>
+      <p>
+        A $300,000 property generating $2,000/month in rent with $800 monthly expenses produces $14,400 annual cash flow. Over 5 years, including appreciation, ROI can exceed 50% depending on financing and market growth.
+      </p>
+    </section>
+
+    <section class="calculator-section" aria-label="Rental property ROI calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="rp-calc-heading">
+            <h2 id="rp-calc-heading">Inputs</h2>
+            <p class="rp-calc-note">Effective rent = monthly rent × (1 − vacancy). Annual cash flow = effective rent − operating expenses − P&amp;I (all monthly × 12). Total profit = cumulative cash flow + sale proceeds − down payment. Equity gained = ending equity (value − loan balance) − down. Closing costs and sale fees not modeled.</p>
+            <form id="rp-roi-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="rp-purchase">Purchase price ($)</label>
+                  <input type="number" id="rp-purchase" min="1" step="1000" value="350000" required>
+                </div>
+                <div class="form-group">
+                  <label for="rp-down">Down payment ($)</label>
+                  <input type="number" id="rp-down" min="0" step="1000" value="70000" required>
+                </div>
+                <div class="form-group">
+                  <label for="rp-rent">Monthly rent ($)</label>
+                  <input type="number" id="rp-rent" min="0" step="50" value="2800" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="rp-expenses">Monthly operating expenses ($)</label>
+                  <input type="number" id="rp-expenses" min="0" step="25" value="650" required>
+                </div>
+                <div class="form-group">
+                  <label for="rp-vacancy">Vacancy rate (%)</label>
+                  <input type="number" id="rp-vacancy" min="0" max="100" step="0.5" value="5" required>
+                </div>
+                <div class="form-group">
+                  <label for="rp-appreciation">Annual appreciation (%)</label>
+                  <input type="number" id="rp-appreciation" min="-20" max="30" step="0.5" value="3" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="rp-years">Holding period (years)</label>
+                  <input type="number" id="rp-years" min="0.5" step="0.5" value="5" required>
+                </div>
+                <div class="form-group">
+                  <label for="rp-rate">Mortgage interest rate (% annual)</label>
+                  <input type="number" id="rp-rate" min="0" max="20" step="0.125" value="6.5" required>
+                </div>
+                <div class="form-group">
+                  <label for="rp-term">Loan term (years)</label>
+                  <input type="number" id="rp-term" min="1" max="40" step="1" value="30" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div class="results-panel" id="rp-results-panel" hidden>
+              <h3>Results</h3>
+              <div class="results-grid results-box" id="rp-results-box">
+                <div class="result-item result-card">
+                  <span class="label">ROI (%)</span>
+                  <span class="value" id="rp-result-roi">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Annual cash flow</span>
+                  <span class="value" id="rp-result-annual-cf">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total profit</span>
+                  <span class="value" id="rp-result-profit">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Equity gained (at sale)</span>
+                  <span class="value" id="rp-result-equity">—</span>
+                </div>
+              </div>
+              <h3>Projection chart</h3>
+              <div class="chart-container">
+                <canvas id="rp-projection-chart" role="img" aria-label="Chart of cumulative cash flow and property value by year"></canvas>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-answer-dominance" aria-label="Direct answers">
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">What is ROI in real estate?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">Real estate ROI compares total return on your cash invested—typically the down payment—to rent collected, operating costs, loan paydown, and change in property value over your hold.</p>
+          <p class="ai-answer-expanded">It is broader than <a href="/glossary/cap-rate.html">cap rate</a> (income ÷ price) or <a href="/roi-calculator/real-estate/cash-on-cash-return.html">cash-on-cash</a> (annual cash ÷ cash in) alone; total ROI usually includes sale assumptions.</p>
+        </div>
+      </section>
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">How do you calculate rental property ROI?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">Estimate annual cash flow after vacancy and operating costs minus the mortgage, sum it over the hold, then add sale proceeds net of the remaining loan and subtract your initial cash to get total profit.</p>
+          <p class="ai-answer-expanded">Divide total profit by cash invested and multiply by 100 for ROI (%). This calculator automates that path using your rent, expenses, rate, and appreciation inputs.</p>
+        </div>
+      </section>
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">What is a good ROI for rental property?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">Many investors target roughly 8–15% cash-on-cash on leveraged rentals when markets are stable, but “good” depends on risk, leverage, and whether appreciation is conservative.</p>
+          <p class="ai-answer-expanded">Compare any outcome to <a href="/benchmarks/real-estate-roi-benchmarks.html">real estate ROI benchmarks</a> and your alternative investments—not to headline numbers that ignore vacancy or capex.</p>
+        </div>
+      </section>
+    </section>
+
+    <article class="content-section">
+      <p><a href="/real-estate/">Real Estate ROI hub</a> · <a href="/real-estate/cap-rate-calculator.html">Cap rate</a> · <a href="/real-estate/cash-on-cash-calculator.html">Cash-on-cash</a> · <a href="/real-estate/flip-roi-calculator.html">Flip ROI</a> · <a href="/benchmarks/real-estate-roi-benchmarks.html">Benchmarks</a> · <a href="/roi-calculator/real-estate/">Legacy tools</a></p>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-mini">ROI Calculator by Albor Digital LLC</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="mailto:contact@roicalculator.live">contact@roicalculator.live</a>
+      <a href="/sitemap.html">Sitemap</a>
+    </nav>
+    <p class="footer-disclaimer">Educational use only. Not financial advice.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="/assets/js/rental-ecosystem-calculator.js" defer></script>
+</body>
+</html>

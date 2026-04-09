@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="2026-03-25">
+  <meta http-equiv="last-modified" content="Tue, 25 Mar 2026 12:00:00 GMT">
+  <title>Solar ROI Calculator | Payback, 20-Year &amp; Lifetime ROI | roicalculator.live</title>
+  <meta name="description" content="Solar ROI calculator: payback period, 20-year and lifetime ROI, total savings. System cost, tax credit, kWh, rate, escalation, lifespan.">
+  <link rel="canonical" href="https://roicalculator.live/solar/roi-calculator.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/solar/roi-calculator.html">
+  <meta property="og:title" content="Solar ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Payback, 20-year and lifetime ROI, and cumulative savings from your inputs.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Solar ROI","item":"https://roicalculator.live/solar/"},{"@type":"ListItem","position":3,"name":"Solar ROI Calculator","item":"https://roicalculator.live/solar/roi-calculator.html"}]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Solar ROI Calculator","description":"Solar payback, 20-year and lifetime ROI, cumulative savings.","url":"https://roicalculator.live/solar/roi-calculator.html"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is solar ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Solar ROI is return on net installed cost after incentives, measured against cumulative bill savings over a fixed horizon (e.g. 20 years) or system lifespan."}},
+      {"@type": "Question", "name": "How long does solar take to pay off?", "acceptedAnswer": {"@type": "Answer", "text": "Payback is when cumulative savings equal net cost after credits; typical models land roughly 6–12 years depending on cost, savings, and rate growth."}},
+      {"@type": "Question", "name": "Is solar worth it financially?", "acceptedAnswer": {"@type": "Answer", "text": "It is worth modeling if lifetime savings exceed net cost and payback fits your horizon; compare results to alternatives and validate production and rates for your site."}}
+    ]
+  }
+  </script>
+</head>
+<body class="page-home">
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <ul class="nav-links">
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
+    </nav>
+  </header>
+
+  <div class="ad-slot ad-top" role="presentation" aria-hidden="true"></div>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="/solar/">Solar ROI</a>
+      <span> / </span>
+      <span>Calculator</span>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Solar ROI Calculator</h1>
+        <p class="hero-sub">Payback, 20-year and lifetime ROI, and cumulative savings—same inputs; two comparison horizons.</p>
+      </div>
+    </section>
+
+    <section class="calculator-section" aria-label="Solar ROI calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="sp-calc-heading">
+            <h2 id="sp-calc-heading">Inputs</h2>
+            <p class="sp-calc-note">Year‑1 savings = annual kWh × $/kWh (100% offset). Savings grow each year with your rate escalation. Panel degradation, maintenance, and time-of-use rates are not modeled.</p>
+            <form id="sp-roi-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sp-cost">System cost ($)</label>
+                  <input type="number" id="sp-cost" min="1" step="500" value="28000" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-credit">Tax credit (% of system cost)</label>
+                  <input type="number" id="sp-credit" min="0" max="100" step="1" value="30" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-kwh">Annual electricity usage (kWh)</label>
+                  <input type="number" id="sp-kwh" min="0" step="100" value="11000" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sp-rate">Electricity rate ($/kWh)</label>
+                  <input type="number" id="sp-rate" min="0" step="0.001" value="0.16" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-escalation">Annual rate increase (%)</label>
+                  <input type="number" id="sp-escalation" min="-10" max="15" step="0.5" value="3" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-lifespan">System lifespan (years)</label>
+                  <input type="number" id="sp-lifespan" min="1" max="40" step="1" value="25" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div class="results-panel" id="sp-results-panel" hidden>
+              <h3>Results</h3>
+              <p class="sp-calc-note" id="sp-horizon-note" hidden></p>
+              <div class="results-grid results-box" id="sp-results-box">
+                <div class="result-item result-card">
+                  <span class="label">Payback period</span>
+                  <span class="value" id="sp-result-payback">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">ROI (20-year)</span>
+                  <span class="value" id="sp-result-roi-20">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label" id="sp-roi-life-label">ROI (lifetime)</span>
+                  <span class="value" id="sp-result-roi-life">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total savings (20-year)</span>
+                  <span class="value" id="sp-result-save-20">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total savings (lifetime)</span>
+                  <span class="value" id="sp-result-save-life">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Annual savings (year 1)</span>
+                  <span class="value" id="sp-result-annual">—</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-answer-dominance" aria-label="Direct answers">
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">What is solar ROI?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">Solar ROI is the percentage return on <strong>net cost</strong> (after the tax credit) versus cumulative utility savings over a stated period. This calculator shows both <strong>20-year</strong> and <strong>lifetime</strong> ROI so you can match common benchmarks and full ownership.</p>
+        </div>
+      </section>
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">How long does solar take to pay off?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">Payoff is <strong>payback</strong>: cumulative savings reaching net cost. Many U.S. residential installs fall in a <strong>roughly 6–12 year</strong> range after incentives; your bill, kWh offset, and escalation drive the result.</p>
+        </div>
+      </section>
+      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
+        <h2 itemprop="name">Is solar worth it financially?</h2>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p class="ai-answer-direct" itemprop="text">It can be when <strong>lifetime savings</strong> clearly exceed net cost and payback fits your plans—compare scenarios with lower production or higher cost before deciding. Use <a href="/solar/">Solar ROI guide</a> and <a href="/benchmarks/solar-roi-benchmarks.html">benchmarks</a> for context, not a guarantee.</p>
+        </div>
+      </section>
+    </section>
+
+    <article class="content-section">
+      <p><a href="/solar/">Solar ROI guide</a> · <a href="/roi-calculator/solar/">Solar &amp; energy tools</a> · <a href="/benchmarks/solar-roi-benchmarks.html">Benchmarks</a> · <a href="/">Main ROI calculator</a></p>
+    </article>
+
+    <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-mini">ROI Calculator by Albor Digital LLC</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="mailto:contact@roicalculator.live">contact@roicalculator.live</a>
+      <a href="/sitemap.html">Sitemap</a>
+    </nav>
+    <p class="footer-disclaimer">Educational use only. Not financial advice.</p>
+  </footer>
+
+  <script src="/assets/js/solar-ecosystem-calculator.js" defer></script>
+</body>
+</html>
