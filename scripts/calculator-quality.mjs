@@ -79,32 +79,38 @@ export function validateConfigs(calculators) {
       }
     }
 
-    if (!calc.formulas || typeof calc.formulas !== 'object') {
-      errors.push(prefix + 'missing formulas object');
-    } else {
-      var fp = fingerprintFormulas(calc.formulas);
-      if (formulaFingerprints.has(fp)) {
-        warnings.push(
-          prefix +
-            'formulas identical to "' +
-            formulaFingerprints.get(fp) +
-            '"; Phase 17.2 requires different variables or formula structure per calculator.'
-        );
-      } else {
-        formulaFingerprints.set(fp, calc.slug);
+    if (calc.isArticlePage === true) {
+      if (!calc.metaDescription || !String(calc.metaDescription).trim()) {
+        errors.push(prefix + 'article page: metaDescription is required');
       }
-    }
-
-    if (!calc.inputs || !Array.isArray(calc.inputs) || calc.inputs.length < 2) {
-      warnings.push(prefix + 'inputs: prefer at least two distinct drivers (or three for funnel-style models).');
     } else {
-      var ifp = fingerprintInputNames(calc);
-      if (inputFingerprints.has(ifp)) {
-        warnings.push(
-          prefix + 'input names match "' + inputFingerprints.get(ifp) + '"; consider distinct variable names for intent.'
-        );
+      if (!calc.formulas || typeof calc.formulas !== 'object') {
+        errors.push(prefix + 'missing formulas object');
       } else {
-        inputFingerprints.set(ifp, calc.slug);
+        var fp0 = fingerprintFormulas(calc.formulas);
+        if (formulaFingerprints.has(fp0)) {
+          warnings.push(
+            prefix +
+              'formulas identical to "' +
+              formulaFingerprints.get(fp0) +
+              '"; Phase 17.2 requires different variables or formula structure per calculator.'
+          );
+        } else {
+          formulaFingerprints.set(fp0, calc.slug);
+        }
+      }
+
+      if (!calc.inputs || !Array.isArray(calc.inputs) || calc.inputs.length < 2) {
+        warnings.push(prefix + 'inputs: prefer at least two distinct drivers (or three for funnel-style models).');
+      } else {
+        var ifp0 = fingerprintInputNames(calc);
+        if (inputFingerprints.has(ifp0)) {
+          warnings.push(
+            prefix + 'input names match "' + inputFingerprints.get(ifp0) + '"; consider distinct variable names for intent.'
+          );
+        } else {
+          inputFingerprints.set(ifp0, calc.slug);
+        }
       }
     }
 

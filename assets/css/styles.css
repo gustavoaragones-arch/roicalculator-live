@@ -125,9 +125,48 @@ button[type="submit"].btn-primary {
 /* Calculators dropdown (primary tool discovery) */
 .nav-dropdown {
   position: relative;
+  cursor: pointer;
 }
 .nav-dropdown > a {
   display: inline-block;
+}
+.nav-links .nav-dropdown > span {
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+.nav-links .nav-dropdown:hover > span,
+.nav-links .nav-dropdown:focus-within > span {
+  color: var(--color-link-hover);
+}
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 200px;
+  z-index: 100;
+  margin-top: 6px;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 6px 10px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+.nav-dropdown-menu a:hover {
+  color: #fff;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+  display: block;
 }
 .dropdown-menu {
   display: none;
@@ -483,38 +522,53 @@ article.content-section {
 .result-item .label { font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase; }
 .result-item .value { font-size: 1.25rem; font-weight: 600; font-family: var(--font-mono); color: var(--color-accent); }
 
-/* Phase 17.3 — lateral links between programmatic calculator pages */
+/* Phase 17.3 / 17.7 — related calculator lateral links (programmatic pages) */
 .related-calculators {
-  margin-top: var(--space-xl);
-  padding: var(--space-lg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.02);
+  margin-top: 40px;
+  max-width: var(--max-width-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--space-lg);
 }
 .related-calculators h2 {
-  font-size: 1.25rem;
-  margin: 0 0 var(--space-sm);
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 0;
 }
-.related-calculators-lede {
-  margin: 0 0 var(--space-md);
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  line-height: 1.35;
-}
-.related-calculators-list {
+.related-calculators ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
-.related-calculators-list li {
-  margin: 0.4rem 0;
-  padding-left: 0;
+.related-calculators li {
+  margin: 6px 0;
 }
-.related-calculators-list a {
+.related-calculators a {
   color: var(--color-accent);
   text-decoration: none;
 }
-.related-calculators-list a:hover {
+.related-calculators a:hover {
+  text-decoration: underline;
+}
+
+/* Phase 17.7 — homepage sticky-style calculator strip (horizontal scroll on small screens) */
+.calculator-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 16px;
+  border-bottom: 1px solid #222;
+  background: #0b0b0b;
+  -webkit-overflow-scrolling: touch;
+}
+.calculator-strip a {
+  white-space: nowrap;
+  font-size: 13px;
+  color: #6ee7b7;
+  text-decoration: none;
+}
+.calculator-strip a:hover {
+  color: #a7f3d0;
   text-decoration: underline;
 }
 
@@ -842,14 +896,52 @@ table.summary-table { margin: var(--space-md) 0; }
 
 /* Site footer */
 .site-footer {
-  margin-top: var(--space-3xl);
-  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
-  border-top: 1px solid var(--color-border);
+  margin-top: 60px;
+  padding: 40px 20px;
+  border-top: 1px solid #222;
   text-align: center;
   max-width: var(--max-width-wide);
   margin-left: auto;
   margin-right: auto;
 }
+.footer-mini {
+  color: #aaa;
+  margin-bottom: 12px;
+  margin-top: 0;
+  font-size: 0.875rem;
+}
+.site-footer .footer-links,
+.site-footer .footer-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+.site-footer .footer-links a,
+.site-footer .footer-secondary a {
+  color: #6ee7b7;
+  font-size: 14px;
+  text-decoration: none;
+}
+.site-footer .footer-links a:hover,
+.site-footer .footer-secondary a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+.footer-disclaimer {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #777;
+}
+.footer-copy {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #555;
+}
+/* Legacy minimal footer (if any page still uses utilities) */
 .site-footer--minimal .footer-copyright {
   margin: 0 0 var(--space-xs);
   font-size: 0.9375rem;
@@ -861,32 +953,9 @@ table.summary-table { margin: var(--space-md) 0; }
   font-size: 0.8125rem;
   color: var(--color-text-muted);
 }
-.footer-mini {
-  margin: 0 0 var(--space-md);
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-md) var(--space-lg);
-  margin: var(--space-md) 0;
-}
 .footer-links--compact {
   gap: var(--space-sm) var(--space-md);
   margin: 0;
-}
-.footer-links a {
-  color: var(--color-accent);
-  text-decoration: none;
-  font-size: 0.875rem;
-}
-.footer-links a:hover { color: var(--color-link-hover); text-decoration: underline; }
-.footer-disclaimer {
-  margin: var(--space-md) 0 0;
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
 }
 /* Hero subtitle */
 .subtitle {
@@ -894,4 +963,14 @@ table.summary-table { margin: var(--space-md) 0; }
   font-size: 1.05rem;
   margin: 0 0 var(--space-md);
   max-width: 42rem;
+}
+.hero-proof {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #9ca3af;
+  max-width: 520px;
+}
+.explore-industry .industry-list {
+  list-style: disc;
+  padding-left: 1.25rem;
 }

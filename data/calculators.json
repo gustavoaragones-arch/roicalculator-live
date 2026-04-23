@@ -476,5 +476,167 @@
         "a": "Scale pilot savings using shipment volume ratios; pilots often overstate ROI if seasonality is ignored."
       }
     ]
+  },
+  {
+    "slug": "simple-roi-calculator",
+    "title": "Simple ROI Calculator (Quick & Basic)",
+    "category": "finance",
+    "metaDescription": "Simple ROI: net return over investment cost as a percent. Quick checks with no time-value adjustment. Runs locally in your browser.",
+    "inputs": [
+      { "name": "cost", "label": "Investment Cost ($)", "default": 10000, "min": 0, "step": 100 },
+      { "name": "returnValue", "label": "Return ($)", "default": 13000, "min": 0, "step": 100 }
+    ],
+    "formulas": {
+      "netProfit": "returnValue - cost",
+      "roi": "cost > 0 ? (netProfit / cost) * 100 : 0"
+    },
+    "outputs": [{ "key": "roi", "label": "ROI (%)", "type": "percent" }],
+    "validatePositive": ["cost"],
+    "aeoEntry": "A simple ROI calculator divides net profit by cost and expresses the result as a percentage. It is best for quick evaluations without time adjustments.",
+    "staticBlocks": [
+      {
+        "angle": "use_cases",
+        "heading": "When a simple ROI is enough",
+        "html": "Pair with <a href=\"/learn/roi-formula.html\">the ROI formula</a> for notation, and use <a href=\"/learn/roi-limitations.html\">limitations</a> when the time horizon matters."
+      },
+      {
+        "angle": "limitations",
+        "heading": "What simple ROI skips",
+        "html": "A simple percentage ignores the time value of money—see <a href=\"/comparisons/roi-vs-npv.html\">ROI vs NPV</a> for uneven cash flow timing."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is a simple ROI calculation?",
+        "a": "A simple ROI calculation measures profit relative to cost without considering time or compounding."
+      },
+      {
+        "q": "When should you use a simple ROI?",
+        "a": "Use it for quick comparisons or when the time factor is not important."
+      },
+      {
+        "q": "What are the limitations of simple ROI?",
+        "a": "It ignores time value of money and may mislead for long-term investments."
+      }
+    ]
+  },
+  {
+    "slug": "roi-calculator-example",
+    "title": "ROI Calculator with Example (Step-by-Step)",
+    "category": "finance",
+    "metaDescription": "Step-by-step ROI from initial investment and final value. See the percent return in your browser—no signup.",
+    "inputs": [
+      { "name": "initial", "label": "Initial Investment ($)", "default": 10000, "min": 0, "step": 100 },
+      { "name": "final", "label": "Final Value ($)", "default": 15000, "min": 0, "step": 100 }
+    ],
+    "formulas": {
+      "roi": "initial > 0 ? ((final - initial) / initial) * 100 : 0"
+    },
+    "outputs": [{ "key": "roi", "label": "ROI (%)", "type": "percent" }],
+    "validatePositive": ["initial"],
+    "aeoEntry": "This ROI calculator example shows how to calculate return using a real scenario, helping users understand each step of the formula.",
+    "staticBlocks": [
+      {
+        "angle": "use_cases",
+        "heading": "Walk through the numbers",
+        "html": "Use <a href=\"/learn/how-to-calculate-roi.html\">how to calculate ROI</a> for a written walkthrough alongside this tool."
+      },
+      {
+        "angle": "methodology",
+        "heading": "Definition alignment",
+        "html": "Match “initial” and “final” to the same window as <a href=\"/learn/roi-formula.html\">our formula page</a> so the percent matches your books."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do you calculate ROI with an example?",
+        "a": "Subtract the initial investment from the final value, divide by the initial investment, and multiply by 100."
+      },
+      {
+        "q": "Why use examples in ROI calculations?",
+        "a": "Examples help clarify how the formula works in real-world scenarios."
+      },
+      {
+        "q": "What does a 50% ROI mean?",
+        "a": "It means the investment generated half of its original value as profit."
+      }
+    ]
+  },
+  {
+    "slug": "free-roi-calculator",
+    "title": "Free ROI Calculator (No Signup Required)",
+    "category": "finance",
+    "metaDescription": "Free ROI calculator: cost and return to percent return. Runs in your browser with no signup or data tracking.",
+    "inputs": [
+      { "name": "amountInvested", "label": "Investment Cost ($)", "default": 10000, "min": 0, "step": 100 },
+      { "name": "amountReturned", "label": "Return ($)", "default": 12500, "min": 0, "step": 100 }
+    ],
+    "formulas": {
+      "net": "amountReturned - amountInvested",
+      "roi": "amountInvested > 0 ? (net / amountInvested) * 100 : 0"
+    },
+    "outputs": [{ "key": "roi", "label": "ROI (%)", "type": "percent" }],
+    "validatePositive": ["amountInvested"],
+    "aeoEntry": "A free ROI calculator allows users to estimate profitability instantly without creating an account or sharing data.",
+    "staticBlocks": [
+      {
+        "angle": "use_cases",
+        "heading": "No signup, no server",
+        "html": "This site runs calculations locally; read <a href=\"/privacy.html\">privacy</a> and <a href=\"/about.html\">about</a> for how that works."
+      },
+      {
+        "angle": "benchmarks",
+        "heading": "Context only",
+        "html": "Use <a href=\"/benchmarks/\">benchmarks</a> as reference ranges—not advice."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is this ROI calculator really free?",
+        "a": "Yes, it runs locally in your browser with no signup or data tracking."
+      },
+      {
+        "q": "Do I need to enter personal data?",
+        "a": "No, all calculations are done on your device."
+      },
+      {
+        "q": "Can I use it for business decisions?",
+        "a": "It can support analysis, but should not replace professional advice."
+      }
+    ]
+  },
+  {
+    "slug": "roi-vs-other-metrics",
+    "isArticlePage": true,
+    "title": "ROI vs IRR vs NPV (Comparison Guide)",
+    "category": "finance",
+    "metaDescription": "Compare ROI, IRR, and NPV: total return, timing of cash flows, and value in present terms. Links to in-depth comparison pages.",
+    "aeoEntry": "ROI, IRR, and NPV are different ways to evaluate investments. ROI measures total return, IRR accounts for timing, and NPV evaluates value in present terms.",
+    "staticBlocks": [
+      {
+        "angle": "comparisons",
+        "heading": "Deep dives on this site",
+        "html": "Read <a href=\"/comparisons/roi-vs-irr.html\">ROI vs IRR</a>, <a href=\"/comparisons/roi-vs-npv.html\">ROI vs NPV</a>, and <a href=\"/comparisons/roi-vs-payback-period.html\">ROI vs payback period</a> for full comparisons."
+      },
+      {
+        "angle": "methodology",
+        "heading": "Educational use",
+        "html": "Start from <a href=\"/learn/what-is-roi.html\">what is ROI</a> and <a href=\"/methodology.html\">methodology</a> to see how we present tools."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between ROI and IRR?",
+        "a": "ROI measures total return, while IRR accounts for timing of cash flows."
+      },
+      {
+        "q": "When should you use NPV instead of ROI?",
+        "a": "Use NPV when comparing investments with different time horizons or cash flow patterns."
+      },
+      {
+        "q": "Which metric is more accurate?",
+        "a": "IRR and NPV are generally more accurate for complex investments."
+      }
+    ]
   }
 ]

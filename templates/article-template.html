@@ -4,22 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0b0f14">
-  <meta name="last-modified" content="2026-04-08">
-  <meta http-equiv="last-modified" content="Wed, 08 Apr 2026 12:00:00 GMT">
-  <title>Finance &amp; capital calculators | roicalculator.live</title>
-  <meta name="description" content="Finance-focused ROI views for equipment and working-capital style deployments. Pair with comparisons and benchmarks when you present to stakeholders.">
-  <link rel="canonical" href="https://roicalculator.live/finance/">
+  <meta name="last-modified" content="__LASTMOD__">
+  <meta http-equiv="last-modified" content="__LASTMOD_HTTP__">
+  <title>__TITLE__ | roicalculator.live</title>
+  <meta name="description" content="__META_DESC__">
+  <link rel="canonical" href="__CANONICAL__">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="__CANONICAL__">
+  <meta property="og:title" content="__TITLE__ | roicalculator.live">
+  <meta property="og:description" content="__META_DESC__">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Finance & capital calculators",
-  "description": "Finance-focused ROI views for equipment and working-capital style deployments. Pair with comparisons and benchmarks when you present to stakeholders.",
-  "url": "https://roicalculator.live/finance/"
-}
+  __WEBPAGE_JSONLD__
+  </script>
+  <script type="application/ld+json">
+  __FAQ_JSONLD__
   </script>
 </head>
 <body>
@@ -50,23 +52,49 @@
       <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
     </nav>
   </header>
+
   <main>
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span> / </span> <span aria-current="page">Finance hub</span></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span> / </span>
+      <a href="__HUB_PATH__">__CATEGORY_LABEL__</a>
+      <span> / </span>
+      <span aria-current="page">__SHORT_TITLE__</span>
+    </nav>
+
     <article class="content-section">
-      <h1>Finance &amp; capital calculators</h1>
-      <section class="ai-answer-block"><p><strong>Quick answer:</strong> Finance-focused ROI views for equipment and working-capital style deployments. Pair with comparisons and benchmarks when you present to stakeholders. Also see <a href="/comparisons/">ROI comparisons</a> and <a href="/benchmarks/">benchmarks</a>.</p></section>
-      <h2>Calculators in this category</h2>
-      <ul class="hub-calculator-list">
-<li><a href="/calculators/equipment-roi-calculator.html">Equipment Purchase ROI Calculator</a> — Model equipment ROI from capex, gross annual benefit, and ongoing operating cost.</li>
-<li><a href="/calculators/working-capital-roi-calculator.html">Working Capital Deployment ROI Calculator</a> — Compare annual return on deployed cash to a treasury hurdle rate.</li>
-<li><a href="/calculators/simple-roi-calculator.html">Simple ROI Calculator (Quick &amp; Basic)</a> — Simple ROI: net return over investment cost as a percent. Quick checks with no time-value adjustment. Runs locally in your browser.</li>
-<li><a href="/calculators/roi-calculator-example.html">ROI Calculator with Example (Step-by-Step)</a> — Step-by-step ROI from initial investment and final value. See the percent return in your browser—no signup.</li>
-<li><a href="/calculators/free-roi-calculator.html">Free ROI Calculator (No Signup Required)</a> — Free ROI calculator: cost and return to percent return. Runs in your browser with no signup or data tracking.</li>
-<li><a href="/calculators/roi-vs-other-metrics.html">ROI vs IRR vs NPV (Comparison Guide)</a> — Compare ROI, IRR, and NPV: total return, timing of cash flows, and value in present terms. Links to in-depth comparison pages.</li>
-      </ul>
-      <p><a href="/">← Main ROI calculator</a> · <a href="/sitemap.html">Sitemap</a></p>
+      <h1>__TITLE__</h1>
+
+      <section class="ai-answer-block">
+        <p><strong>Quick answer:</strong> __AEO_ENTRY__</p>
+      </section>
+
+      __STATIC_BLOCKS__
+
+      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+        <h2 id="related-links-heading">Explore further</h2>
+        <ul>
+          <li><a href="/">ROI calculator (homepage)</a></li>
+          <li><a href="/learn/what-is-roi.html">What is ROI?</a></li>
+          <li><a href="/comparisons/">ROI comparisons</a> — IRR, NPV, payback, and more</li>
+          <li><a href="/benchmarks/">ROI benchmarks</a></li>
+        </ul>
+      </section>
+
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        __FAQ_HTML__
+      </section>
     </article>
+
+    <section class="related-calculators" aria-labelledby="related-calc-h2">
+      <h2 id="related-calc-h2">Related ROI Calculators</h2>
+      <ul>
+        __RELATED_LINKS__
+      </ul>
+    </section>
   </main>
+
   <footer class="site-footer">
 
   <p class="footer-mini">
@@ -99,6 +127,7 @@
   </p>
 
 </footer>
+
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

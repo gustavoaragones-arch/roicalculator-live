@@ -30,26 +30,24 @@
       <a href="/" class="logo">roicalculator.live</a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
+        <li><a href="/real-estate/index.html">Real Estate</a></li>
+        <li><a href="/solar/roi-calculator.html">Solar</a></li>
+        <li><a href="/saas/index.html">SaaS</a></li>
         <li class="nav-dropdown">
-          <a href="/real-estate/">Calculators</a>
-          <div class="dropdown-menu" role="navigation" aria-label="Calculator tools">
-            <div class="dropdown-group">
-              <strong>Programmatic hubs</strong>
-              <a href="/marketing/">Marketing hub</a>
-              <a href="/finance/">Finance hub</a>
-              <a href="/operations/">Operations hub</a>
-            </div>
-            <div class="dropdown-group">
-              <strong>Real Estate</strong>
-              <a href="/real-estate/roi-calculator.html">Rental ROI</a>
-              <a href="/real-estate/cap-rate-calculator.html">Cap Rate</a>
-            </div>
+          <span>Calculators</span>
+          <div class="nav-dropdown-menu" role="navigation" aria-label="Calculator tools">
+            <a href="/marketing/index.html">Marketing ROI</a>
+            <a href="/real-estate/index.html">Real Estate ROI</a>
+            <a href="/saas/index.html">SaaS ROI</a>
+            <a href="/solar/roi-calculator.html">Solar ROI</a>
+            <a href="/hvac/roi-calculator.html">HVAC ROI</a>
+            <a href="/hr/roi-calculator.html">Employee ROI</a>
           </div>
         </li>
         <li><a href="/learn/what-is-roi.html">Learn</a></li>
-        <li><a href="/comparisons/">Comparisons</a></li>
-        <li><a href="/benchmarks/">Benchmarks</a></li>
         <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
       </ul>
       <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>
     </nav>
@@ -85,8 +83,6 @@
 
       __STATIC_BLOCKS__
 
-      __RELATED_CALCULATORS__
-
       <section class="semantic-links content-section" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
@@ -102,21 +98,51 @@
         __FAQ_HTML__
       </section>
     </article>
+
+    <section class="related-calculators" aria-labelledby="related-calc-h2">
+      <h2 id="related-calc-h2">Related ROI Calculators</h2>
+      <ul>
+        __RELATED_LINKS__
+      </ul>
+    </section>
   </main>
 
-  <footer class="site-footer site-footer--minimal">
-    <p class="footer-copyright">© 2026 Albor Digital LLC</p>
-    <p class="footer-edu">Educational use only</p>
-    <nav class="footer-links footer-links--compact" aria-label="Footer">
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/sitemap.html">Sitemap</a>
-    </nav>
-  </footer>
+  <footer class="site-footer">
+
+  <p class="footer-mini">
+    Private ROI calculators for financial and operational analysis.
+  </p>
+
+  <nav class="footer-links">
+    <a href="/marketing/index.html">Marketing ROI</a>
+    <a href="/real-estate/index.html">Real Estate ROI</a>
+    <a href="/saas/index.html">SaaS ROI</a>
+    <a href="/solar/roi-calculator.html">Solar ROI</a>
+    <a href="/benchmarks/index.html">Benchmarks</a>
+    <a href="/comparisons/index.html">Comparisons</a>
+  </nav>
+
+  <nav class="footer-secondary">
+    <a href="/methodology.html">Methodology</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+
+  <p class="footer-disclaimer">
+    For informational purposes only. Not financial or investment advice.
+  </p>
+
+  <p class="footer-copy">
+    © 2026 Albor Digital LLC
+  </p>
+
+</footer>
 
   <script type="application/json" id="factory-page-config">__CONFIG_JSON__</script>
   <script src="/assets/js/calculator-engine.js" defer></script>
   <script src="/assets/js/calculator-factory-page.js" defer></script>
+  <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

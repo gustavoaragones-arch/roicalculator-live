@@ -6,24 +6,24 @@
   <meta name="theme-color" content="#0b0f14">
   <meta name="last-modified" content="2026-04-08">
   <meta http-equiv="last-modified" content="Wed, 08 Apr 2026 12:00:00 GMT">
-  <title>Working Capital Deployment ROI Calculator | roicalculator.live</title>
-  <meta name="description" content="Compare annual return on deployed cash to a treasury hurdle rate.">
-  <link rel="canonical" href="https://roicalculator.live/calculators/working-capital-roi-calculator.html">
+  <title>Free ROI Calculator (No Signup Required) | roicalculator.live</title>
+  <meta name="description" content="Free ROI calculator: cost and return to percent return. Runs in your browser with no signup or data tracking.">
+  <link rel="canonical" href="https://roicalculator.live/calculators/free-roi-calculator.html">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://roicalculator.live/calculators/working-capital-roi-calculator.html">
-  <meta property="og:title" content="Working Capital Deployment ROI Calculator | roicalculator.live">
-  <meta property="og:description" content="Compare annual return on deployed cash to a treasury hurdle rate.">
+  <meta property="og:url" content="https://roicalculator.live/calculators/free-roi-calculator.html">
+  <meta property="og:title" content="Free ROI Calculator (No Signup Required) | roicalculator.live">
+  <meta property="og:description" content="Free ROI calculator: cost and return to percent return. Runs in your browser with no signup or data tracking.">
   <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Working Capital Deployment ROI Calculator",
-  "description": "Compare annual return on deployed cash to a treasury hurdle rate.",
-  "url": "https://roicalculator.live/calculators/working-capital-roi-calculator.html",
+  "name": "Free ROI Calculator (No Signup Required)",
+  "description": "Free ROI calculator: cost and return to percent return. Runs in your browser with no signup or data tracking.",
+  "url": "https://roicalculator.live/calculators/free-roi-calculator.html",
   "isPartOf": {
     "@type": "WebSite",
     "name": "roicalculator.live",
@@ -38,26 +38,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Why subtract an opportunity cost from annual return?",
+      "name": "Is this ROI calculator really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Deployed cash could earn the hurdle rate elsewhere. Net advantage is the return above that baseline; incremental ROI divides that advantage by deployed cash."
+        "text": "Yes, it runs locally in your browser with no signup or data tracking."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I include interest earned on freed cash?",
+      "name": "Do I need to enter personal data?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes if you add it to annual return using the same annualization rules. Label blended benefits so treasury can audit the story."
+        "text": "No, all calculations are done on your device."
       }
     },
     {
       "@type": "Question",
-      "name": "Why might incremental ROI look small but still justify a program?",
+      "name": "Can I use it for business decisions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Risk reduction, service levels, or strategic option value may not appear in annualReturn—document those outside this percentage."
+        "text": "It can support analysis, but should not replace professional advice."
       }
     }
   ]
@@ -99,20 +99,19 @@
       <span> / </span>
       <a href="/finance/">Finance</a>
       <span> / </span>
-      <span aria-current="page">Working Capital Deployment ROI</span>
+      <span aria-current="page">Free ROI Calculator (No Signup Required)</span>
     </nav>
 
     <article class="content-section">
-      <h1>Working Capital Deployment ROI Calculator</h1>
+      <h1>Free ROI Calculator (No Signup Required)</h1>
 
       <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Subtracts a treasury-style hurdle from headline return so incremental ROI reflects opportunity cost—different from simple yield on <a href="/learn/roi-vs-irr.html">nominal cash</a>.</p>
+        <p><strong>Quick answer:</strong> A free ROI calculator allows users to estimate profitability instantly without creating an account or sharing data.</p>
       </section>
 
       <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-cashDeployed">Cash deployed ($)</label><input type="number" id="factory-inp-cashDeployed" name="cashDeployed" value="250000" min="0" step="1000"></div>
-<div class="form-group"><label for="factory-inp-annualReturn">Annual return generated ($)</label><input type="number" id="factory-inp-annualReturn" name="annualReturn" value="18500" min="0" step="100"></div>
-<div class="form-group"><label for="factory-inp-hurdleYieldPercent">Opportunity cost / hurdle (% per year)</label><input type="number" id="factory-inp-hurdleYieldPercent" name="hurdleYieldPercent" value="4.5" min="0" step="0.1"></div>
+        <div class="form-group"><label for="factory-inp-amountInvested">Investment Cost ($)</label><input type="number" id="factory-inp-amountInvested" name="amountInvested" value="10000" min="0" step="100"></div>
+<div class="form-group"><label for="factory-inp-amountReturned">Return ($)</label><input type="number" id="factory-inp-amountReturned" name="amountReturned" value="12500" min="0" step="100"></div>
         <div class="calc-buttons">
           <button type="submit" class="btn btn-primary">Calculate</button>
         </div>
@@ -120,12 +119,11 @@
 
       <div id="factory-results-panel" class="results-panel" hidden>
         <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">ROI vs hurdle (incremental)</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Net advantage vs hurdle ($)</span><span id="factory-out-netAdvantage" class="value">—</span></div></div>
+        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">ROI (%)</span><span id="factory-out-roi" class="value">—</span></div></div>
       </div>
 
-      <section class="content-section static-answer-block"><h2>Choosing hurdleYieldPercent</h2><div class="static-block-body">Use short-term treasury or your WACC policy consistently—changing the hurdle changes incremental ROI without changing operations.</div></section>
-<section class="content-section static-answer-block"><h2>FX and concentration</h2><div class="static-block-body">Does not model counterparty default or trapped cash—pair with treasury memos, not <a href="/benchmarks/">benchmark tables</a> alone.</div></section>
+      <section class="content-section static-answer-block"><h2>No signup, no server</h2><div class="static-block-body">This site runs calculations locally; read <a href="/privacy.html">privacy</a> and <a href="/about.html">about</a> for how that works.</div></section>
+<section class="content-section static-answer-block"><h2>Context only</h2><div class="static-block-body">Use <a href="/benchmarks/">benchmarks</a> as reference ranges—not advice.</div></section>
 
       <section class="semantic-links content-section" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
@@ -139,18 +137,20 @@
 
       <section class="faq-block" aria-labelledby="faq-heading">
         <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>Why subtract an opportunity cost from annual return?</h3><div class="faq-answer">Deployed cash could earn the hurdle rate elsewhere. Net advantage is the return above that baseline; incremental ROI divides that advantage by deployed cash.</div></div>
-<div class="faq-item"><h3>Can I include interest earned on freed cash?</h3><div class="faq-answer">Yes if you add it to annual return using the same annualization rules. Label blended benefits so treasury can audit the story.</div></div>
-<div class="faq-item"><h3>Why might incremental ROI look small but still justify a program?</h3><div class="faq-answer">Risk reduction, service levels, or strategic option value may not appear in annualReturn—document those outside this percentage.</div></div>
+        <div class="faq-item"><h3>Is this ROI calculator really free?</h3><div class="faq-answer">Yes, it runs locally in your browser with no signup or data tracking.</div></div>
+<div class="faq-item"><h3>Do I need to enter personal data?</h3><div class="faq-answer">No, all calculations are done on your device.</div></div>
+<div class="faq-item"><h3>Can I use it for business decisions?</h3><div class="faq-answer">It can support analysis, but should not replace professional advice.</div></div>
       </section>
     </article>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>
       <ul>
-        <li><a href="/calculators/simple-roi-calculator.html">Simple ROI Calculator (Quick &amp; Basic)</a></li>
-<li><a href="/calculators/free-roi-calculator.html">Free ROI Calculator (No Signup Required)</a></li>
-<li><a href="/calculators/roi-vs-other-metrics.html">ROI vs IRR vs NPV (Comparison Guide)</a></li>
+        <li><a href="/calculators/roi-vs-other-metrics.html">ROI vs IRR vs NPV (Comparison Guide)</a></li>
+<li><a href="/calculators/equipment-roi-calculator.html">Equipment Purchase ROI Calculator</a></li>
+<li><a href="/calculators/working-capital-roi-calculator.html">Working Capital Deployment ROI Calculator</a></li>
+<li><a href="/calculators/simple-roi-calculator.html">Simple ROI Calculator (Quick &amp; Basic)</a></li>
+<li><a href="/calculators/roi-calculator-example.html">ROI Calculator with Example (Step-by-Step)</a></li>
       </ul>
     </section>
   </main>
@@ -188,7 +188,7 @@
 
 </footer>
 
-  <script type="application/json" id="factory-page-config">{"title":"Working Capital Deployment ROI Calculator","metaDescription":"Compare annual return on deployed cash to a treasury hurdle rate.","formulas":{"opportunityCost":"cashDeployed * (hurdleYieldPercent / 100)","netAdvantage":"annualReturn - opportunityCost","roi":"cashDeployed > 0 ? (netAdvantage / cashDeployed) * 100 : 0"},"outputs":[{"key":"roi","label":"ROI vs hurdle (incremental)","type":"percent"},{"key":"netAdvantage","label":"Net advantage vs hurdle ($)","type":"currency"}]}</script>
+  <script type="application/json" id="factory-page-config">{"title":"Free ROI Calculator (No Signup Required)","metaDescription":"Free ROI calculator: cost and return to percent return. Runs in your browser with no signup or data tracking.","formulas":{"net":"amountReturned - amountInvested","roi":"amountInvested > 0 ? (net / amountInvested) * 100 : 0"},"outputs":[{"key":"roi","label":"ROI (%)","type":"percent"}]}</script>
   <script src="/assets/js/calculator-engine.js" defer></script>
   <script src="/assets/js/calculator-factory-page.js" defer></script>
   <script src="/assets/js/navigation.js" defer></script>

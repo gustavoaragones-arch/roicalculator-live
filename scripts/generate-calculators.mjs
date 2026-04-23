@@ -12,6 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const DATA_PATH = path.join(ROOT, 'data', 'calculators.json');
 const TEMPLATE_PATH = path.join(ROOT, 'templates', 'calculator-template.html');
+const ARTICLE_TEMPLATE_PATH = path.join(ROOT, 'templates', 'article-template.html');
 const OUT_DIR = path.join(ROOT, 'calculators');
 const SITEMAP_XML = path.join(ROOT, 'sitemap.xml');
 const SITEMAP_HTML = path.join(ROOT, 'sitemap.html');
@@ -19,6 +20,70 @@ const SITEMAP_HTML = path.join(ROOT, 'sitemap.html');
 const SITE = 'https://roicalculator.live';
 const LASTMOD = '2026-04-08';
 const LASTMOD_HTTP = 'Wed, 08 Apr 2026 12:00:00 GMT';
+
+/** Phase 17.6 — same header/footer as the rest of the static site (keep in sync with partials/ and patch-phase176). */
+const HTML_SITE_HEADER =
+  '  <header class="site-header">\n' +
+  '    <nav class="nav-main" aria-label="Main navigation">\n' +
+  '      <a href="/" class="logo">roicalculator.live</a>\n' +
+  '      <ul class="nav-links">\n' +
+  '        <li><a href="/">Home</a></li>\n' +
+  '        <li><a href="/real-estate/index.html">Real Estate</a></li>\n' +
+  '        <li><a href="/solar/roi-calculator.html">Solar</a></li>\n' +
+  '        <li><a href="/saas/index.html">SaaS</a></li>\n' +
+  '        <li class="nav-dropdown">\n' +
+  '          <span>Calculators</span>\n' +
+  '          <div class="nav-dropdown-menu" role="navigation" aria-label="Calculator tools">\n' +
+  '            <a href="/marketing/index.html">Marketing ROI</a>\n' +
+  '            <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
+  '            <a href="/saas/index.html">SaaS ROI</a>\n' +
+  '            <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
+  '            <a href="/hvac/roi-calculator.html">HVAC ROI</a>\n' +
+  '            <a href="/hr/roi-calculator.html">Employee ROI</a>\n' +
+  '          </div>\n' +
+  '        </li>\n' +
+  '        <li><a href="/learn/what-is-roi.html">Learn</a></li>\n' +
+  '        <li><a href="/glossary/">Glossary</a></li>\n' +
+  '        <li><a href="/methodology.html">Methodology</a></li>\n' +
+  '        <li><a href="/about.html">About</a></li>\n' +
+  '      </ul>\n' +
+  '      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>\n' +
+  '    </nav>\n' +
+  '  </header>\n';
+
+const HTML_SITE_FOOTER =
+  '  <footer class="site-footer">\n' +
+  '\n' +
+  '  <p class="footer-mini">\n' +
+  '    Private ROI calculators for financial and operational analysis.\n' +
+  '  </p>\n' +
+  '\n' +
+  '  <nav class="footer-links">\n' +
+  '    <a href="/marketing/index.html">Marketing ROI</a>\n' +
+  '    <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
+  '    <a href="/saas/index.html">SaaS ROI</a>\n' +
+  '    <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
+  '    <a href="/benchmarks/index.html">Benchmarks</a>\n' +
+  '    <a href="/comparisons/index.html">Comparisons</a>\n' +
+  '  </nav>\n' +
+  '\n' +
+  '  <nav class="footer-secondary">\n' +
+  '    <a href="/methodology.html">Methodology</a>\n' +
+  '    <a href="/about.html">About</a>\n' +
+  '    <a href="/privacy.html">Privacy</a>\n' +
+  '    <a href="/terms.html">Terms</a>\n' +
+  '    <a href="/contact.html">Contact</a>\n' +
+  '  </nav>\n' +
+  '\n' +
+  '  <p class="footer-disclaimer">\n' +
+  '    For informational purposes only. Not financial or investment advice.\n' +
+  '  </p>\n' +
+  '\n' +
+  '  <p class="footer-copy">\n' +
+  '    © 2026 Albor Digital LLC\n' +
+  '  </p>\n' +
+  '\n' +
+  '</footer>\n';
 
 const CATEGORY = {
   marketing: {
@@ -199,12 +264,21 @@ function hashSlug(str) {
   return Math.abs(h);
 }
 
-function buildRelatedCalculatorsHtml(calc, allCalculators) {
+/** Phase 17.7 — list items only for __RELATED_LINKS__ in template. */
+function buildRelatedLinksHtml(calc, allCalculators) {
+  var cat = CATEGORY[calc.category] || CATEGORY.marketing;
+  var hub = hubPathForCategory(calc.category);
   var peers = allCalculators.filter(function (c) {
     return c.category === calc.category && c.slug !== calc.slug;
   });
   if (peers.length === 0) {
-    return '';
+    return (
+      '<li><a href="' +
+      hub +
+      '">More ' +
+      escapeHtml(cat.label) +
+      ' ROI calculators</a></li>'
+    );
   }
 
   var h = hashSlug(calc.slug);
@@ -225,8 +299,7 @@ function buildRelatedCalculatorsHtml(calc, allCalculators) {
   }
 
   var picked = arr.slice(0, count);
-  var cat = CATEGORY[calc.category] || CATEGORY.marketing;
-  var items = picked
+  return picked
     .map(function (p) {
       return (
         '<li><a href="/calculators/' +
@@ -237,18 +310,6 @@ function buildRelatedCalculatorsHtml(calc, allCalculators) {
       );
     })
     .join('\n');
-
-  return (
-    '<section class="related-calculators content-section" aria-labelledby="related-calculators-heading">' +
-    '<h2 id="related-calculators-heading">Related ROI calculators</h2>' +
-    '<p class="related-calculators-lede">More in <strong>' +
-    escapeHtml(cat.label) +
-    '</strong> — lateral links for crawl depth and context.</p>' +
-    '<ul class="related-calculators-list">' +
-    items +
-    '</ul>' +
-    '</section>'
-  );
 }
 
 function generateCalculatorPage(template, calc, allCalculators) {
@@ -284,7 +345,44 @@ function generateCalculatorPage(template, calc, allCalculators) {
     __WEBPAGE_JSONLD__: jsonLdStringify(webpageLd),
     __FAQ_JSONLD__: jsonLdStringify(buildFaqJsonLd(calc.faq)),
     __CONFIG_JSON__: embedConfig(calc),
-    __RELATED_CALCULATORS__: buildRelatedCalculatorsHtml(calc, allCalculators || [])
+    __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || [])
+  };
+
+  return replaceAll(template, map);
+}
+
+/** Phase 18 — AEO article pages in /calculators/ (no interactive math, FAQ + static blocks). */
+function generateArticlePage(template, calc, allCalculators) {
+  var cat = CATEGORY[calc.category] || CATEGORY.finance;
+  var canonical = SITE + '/calculators/' + calc.slug + '.html';
+  var webpageLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: calc.title,
+    description: calc.metaDescription,
+    url: canonical,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'roicalculator.live',
+      url: SITE + '/'
+    }
+  };
+
+  var map = {
+    __LASTMOD__: LASTMOD,
+    __LASTMOD_HTTP__: LASTMOD_HTTP,
+    __TITLE__: escapeHtml(calc.title),
+    __META_DESC__: escapeHtml(calc.metaDescription),
+    __CANONICAL__: canonical,
+    __HUB_PATH__: hubPathForCategory(calc.category),
+    __CATEGORY_LABEL__: escapeHtml(cat.label),
+    __SHORT_TITLE__: escapeHtml(shortTitle(calc.title)),
+    __AEO_ENTRY__: calc.aeoEntry || '',
+    __STATIC_BLOCKS__: buildStaticBlocks(calc.staticBlocks),
+    __FAQ_HTML__: buildFaqHtml(calc.faq),
+    __WEBPAGE_JSONLD__: jsonLdStringify(webpageLd),
+    __FAQ_JSONLD__: jsonLdStringify(buildFaqJsonLd(calc.faq)),
+    __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || [])
   };
 
   return replaceAll(template, map);
@@ -348,18 +446,7 @@ function generateHubPage(categoryKey, calculators) {
     '\n  </script>\n' +
     '</head>\n' +
     '<body>\n' +
-    '  <header class="site-header">\n' +
-    '    <nav class="nav-main" aria-label="Main navigation">\n' +
-    '      <a href="/" class="logo">roicalculator.live</a>\n' +
-    '      <ul class="nav-links">\n' +
-    '        <li><a href="/">Home</a></li>\n' +
-    '        <li><a href="/comparisons/">Comparisons</a></li>\n' +
-    '        <li><a href="/benchmarks/">Benchmarks</a></li>\n' +
-    '        <li><a href="/learn/what-is-roi.html">Learn</a></li>\n' +
-    '      </ul>\n' +
-    '      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>\n' +
-    '    </nav>\n' +
-    '  </header>\n' +
+    HTML_SITE_HEADER +
     '  <main>\n' +
     '    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span> / </span> <span aria-current="page">' +
     escapeHtml(cat.label) +
@@ -378,15 +465,8 @@ function generateHubPage(categoryKey, calculators) {
     '      <p><a href="/">← Main ROI calculator</a> · <a href="/sitemap.html">Sitemap</a></p>\n' +
     '    </article>\n' +
     '  </main>\n' +
-    '  <footer class="site-footer site-footer--minimal">\n' +
-    '    <p class="footer-copyright">© 2026 Albor Digital LLC</p>\n' +
-    '    <p class="footer-edu">Educational use only</p>\n' +
-    '    <nav class="footer-links footer-links--compact" aria-label="Footer">\n' +
-    '      <a href="/privacy.html">Privacy</a>\n' +
-    '      <a href="/terms.html">Terms</a>\n' +
-    '      <a href="/sitemap.html">Sitemap</a>\n' +
-    '    </nav>\n' +
-    '  </footer>\n' +
+    HTML_SITE_FOOTER +
+    '  <script src="/assets/js/navigation.js" defer></script>\n' +
     '</body>\n' +
     '</html>\n'
   );
@@ -508,10 +588,14 @@ function main() {
   }
 
   var template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
+  var articleTemplate = fs.readFileSync(ARTICLE_TEMPLATE_PATH, 'utf8');
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   calculators.forEach(function (calc) {
-    var html = generateCalculatorPage(template, calc, calculators);
+    var html =
+      calc.isArticlePage === true
+        ? generateArticlePage(articleTemplate, calc, calculators)
+        : generateCalculatorPage(template, calc, calculators);
     var outFile = path.join(OUT_DIR, calc.slug + '.html');
     fs.writeFileSync(outFile, html, 'utf8');
     console.log('Wrote', path.relative(ROOT, outFile));
