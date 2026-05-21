@@ -10,7 +10,7 @@ FOOTER_INNER = """    <div class="footer-inner">
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
-        <a href="/methodology.html">Methodology</a>
+        <a href="/methodology/">Methodology</a>
         <a href="/about.html">About</a>
         <a href="/contact.html">Contact</a>
         <a href="/sitemap.html">Sitemap</a>

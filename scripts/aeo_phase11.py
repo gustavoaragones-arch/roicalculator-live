@@ -139,7 +139,7 @@ SPECIAL: dict[str, tuple] = {
         ["Understanding limitations of use", "Reviewing disclaimers before relying on outputs", "Clarifying intellectual property"],
         ["Not a substitute for professional advice", "Jurisdiction-specific rules may apply", "Examples are illustrative"],
     ),
-    "methodology.html": (
+    "methodology/index.html": (
         "The methodology explains how ROI, annualized ROI, and related figures are defined and computed across this site’s tools and tables.",
         "methodology for ROI and related metrics on roicalculator.live",
         "What Is ROI (Return on Investment)?",

@@ -12,7 +12,7 @@ FOOTER_LONG = """    <div class="footer-inner">
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
-        <a href="/methodology.html">Methodology</a>
+        <a href="/methodology/">Methodology</a>
         <a href="/about.html">About</a>
         <a href="/contact.html">Contact</a>
         <a href="/sitemap.html">Sitemap</a>
@@ -25,12 +25,12 @@ FOOTER_LONG = """    <div class="footer-inner">
 
 OLD_LONG = """    <div class="footer-inner">
       <p class="disclaimer">This site provides educational content and calculators for informational purposes only. It is not financial, investment, or tax advice. Consult a qualified professional for decisions affecting your finances.</p>
-      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology.html">methodology</a> for formula details.</p>
+      <p class="trust-signal">Calculations run locally in your browser. We do not store or track your financial data. See our <a href="/methodology/">methodology</a> for formula details.</p>
       <p class="privacy-statement">Privacy-first: We do not collect, store, or share personal data. No cookies. No tracking.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
-        <a href="/methodology.html">Methodology</a>
+        <a href="/methodology/">Methodology</a>
         <a href="/about.html">About</a>
         <a href="/sitemap.html">Sitemap</a>
         <a href="/site-structure.html">Site structure</a>
@@ -43,7 +43,7 @@ OLD_404 = """    <div class="footer-inner">
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
-        <a href="/methodology.html">Methodology</a>
+        <a href="/methodology/">Methodology</a>
         <a href="/about.html">About</a>
         <a href="/sitemap.html">Sitemap</a>
         <a href="/site-structure.html">Site structure</a>
@@ -57,7 +57,7 @@ OLD_PARTIAL = """  <div class="footer-inner">
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
-      <a href="/methodology.html">Methodology</a>
+      <a href="/methodology/">Methodology</a>
       <a href="/about.html">About</a>
     </nav>
     <p class="copyright">&copy; 2025 roicalculator.live. All rights reserved.</p>
@@ -71,7 +71,7 @@ PARTIAL_NEW = """  <div class="footer-inner">
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
-      <a href="/methodology.html">Methodology</a>
+      <a href="/methodology/">Methodology</a>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
     </nav>

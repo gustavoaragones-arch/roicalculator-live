@@ -497,7 +497,7 @@
       {
         "angle": "use_cases",
         "heading": "When a simple ROI is enough",
-        "html": "Pair with <a href=\"/learn/roi-formula.html\">the ROI formula</a> for notation, and use <a href=\"/learn/roi-limitations.html\">limitations</a> when the time horizon matters."
+        "html": "Pair with <a href=\"/comparisons/best-roi-calculator.html\">which ROI method to use</a>, <a href=\"/learn/roi-formula.html\">the ROI formula</a>, and <a href=\"/learn/roi-limitations.html\">limitations</a> when the time horizon matters."
       },
       {
         "angle": "limitations",
@@ -539,7 +539,7 @@
       {
         "angle": "use_cases",
         "heading": "Walk through the numbers",
-        "html": "Use <a href=\"/learn/how-to-calculate-roi.html\">how to calculate ROI</a> for a written walkthrough alongside this tool."
+        "html": "Use <a href=\"/learn/how-to-calculate-roi.html\">how to calculate ROI</a> and <a href=\"/comparisons/best-roi-calculator.html\">best ROI calculator guide</a> alongside this tool."
       },
       {
         "angle": "methodology",
@@ -582,7 +582,7 @@
       {
         "angle": "use_cases",
         "heading": "No signup, no server",
-        "html": "This site runs calculations locally; read <a href=\"/privacy.html\">privacy</a> and <a href=\"/about.html\">about</a> for how that works."
+        "html": "This site runs calculations locally; see <a href=\"/comparisons/best-roi-calculator.html\">which ROI method fits</a>, plus <a href=\"/privacy.html\">privacy</a> and <a href=\"/about.html\">about</a>."
       },
       {
         "angle": "benchmarks",
@@ -621,7 +621,7 @@
       {
         "angle": "methodology",
         "heading": "Educational use",
-        "html": "Start from <a href=\"/learn/what-is-roi.html\">what is ROI</a> and <a href=\"/methodology.html\">methodology</a> to see how we present tools."
+        "html": "Start from <a href=\"/learn/what-is-roi.html\">what is ROI</a> and <a href=\"/methodology/\">methodology</a> to see how we present tools."
       }
     ],
     "faq": [

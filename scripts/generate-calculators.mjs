@@ -5,8 +5,16 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { validateConfigs } from './calculator-quality.mjs';
+import { CANONICAL_ORIGIN, canonicalUrl, METHODOLOGY_PATH } from './site-config.mjs';
+import { syncRedirects } from './sync-redirects.mjs';
+import {
+  POPULAR_TOOLS_FOOTER_HTML,
+  calculatorBreadcrumbJsonLd,
+  hubBreadcrumbJsonLd
+} from './site-chrome.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -17,7 +25,8 @@ const OUT_DIR = path.join(ROOT, 'calculators');
 const SITEMAP_XML = path.join(ROOT, 'sitemap.xml');
 const SITEMAP_HTML = path.join(ROOT, 'sitemap.html');
 
-const SITE = 'https://roicalculator.live';
+/** Phase 18.1 — apex HTTPS only; never www in generated URLs */
+const SITE = CANONICAL_ORIGIN;
 const LASTMOD = '2026-04-08';
 const LASTMOD_HTTP = 'Wed, 08 Apr 2026 12:00:00 GMT';
 
@@ -44,7 +53,7 @@ const HTML_SITE_HEADER =
   '        </li>\n' +
   '        <li><a href="/learn/what-is-roi.html">Learn</a></li>\n' +
   '        <li><a href="/glossary/">Glossary</a></li>\n' +
-  '        <li><a href="/methodology.html">Methodology</a></li>\n' +
+  '        <li><a href="' + METHODOLOGY_PATH + '">Methodology</a></li>\n' +
   '        <li><a href="/about.html">About</a></li>\n' +
   '      </ul>\n' +
   '      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>\n' +
@@ -67,8 +76,9 @@ const HTML_SITE_FOOTER =
   '    <a href="/comparisons/index.html">Comparisons</a>\n' +
   '  </nav>\n' +
   '\n' +
+  POPULAR_TOOLS_FOOTER_HTML +
   '  <nav class="footer-secondary">\n' +
-  '    <a href="/methodology.html">Methodology</a>\n' +
+  '    <a href="' + METHODOLOGY_PATH + '">Methodology</a>\n' +
   '    <a href="/about.html">About</a>\n' +
   '    <a href="/privacy.html">Privacy</a>\n' +
   '    <a href="/terms.html">Terms</a>\n' +
@@ -314,7 +324,7 @@ function buildRelatedLinksHtml(calc, allCalculators) {
 
 function generateCalculatorPage(template, calc, allCalculators) {
   var cat = CATEGORY[calc.category] || CATEGORY.marketing;
-  var canonical = SITE + '/calculators/' + calc.slug + '.html';
+  var canonical = canonicalUrl('/calculators/' + calc.slug + '.html');
   var webpageLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -344,6 +354,7 @@ function generateCalculatorPage(template, calc, allCalculators) {
     __FAQ_HTML__: buildFaqHtml(calc.faq),
     __WEBPAGE_JSONLD__: jsonLdStringify(webpageLd),
     __FAQ_JSONLD__: jsonLdStringify(buildFaqJsonLd(calc.faq)),
+    __BREADCRUMB_JSONLD__: calculatorBreadcrumbJsonLd(calc, cat),
     __CONFIG_JSON__: embedConfig(calc),
     __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || [])
   };
@@ -354,7 +365,7 @@ function generateCalculatorPage(template, calc, allCalculators) {
 /** Phase 18 — AEO article pages in /calculators/ (no interactive math, FAQ + static blocks). */
 function generateArticlePage(template, calc, allCalculators) {
   var cat = CATEGORY[calc.category] || CATEGORY.finance;
-  var canonical = SITE + '/calculators/' + calc.slug + '.html';
+  var canonical = canonicalUrl('/calculators/' + calc.slug + '.html');
   var webpageLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -382,6 +393,7 @@ function generateArticlePage(template, calc, allCalculators) {
     __FAQ_HTML__: buildFaqHtml(calc.faq),
     __WEBPAGE_JSONLD__: jsonLdStringify(webpageLd),
     __FAQ_JSONLD__: jsonLdStringify(buildFaqJsonLd(calc.faq)),
+    __BREADCRUMB_JSONLD__: calculatorBreadcrumbJsonLd(calc, cat),
     __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || [])
   };
 
@@ -391,7 +403,7 @@ function generateArticlePage(template, calc, allCalculators) {
 function generateHubPage(categoryKey, calculators) {
   var cat = CATEGORY[categoryKey];
   if (!cat) return '';
-  var canonical = SITE + hubPathForCategory(categoryKey);
+  var canonical = canonicalUrl(hubPathForCategory(categoryKey));
   var items = calculators
     .filter(function (c) {
       return c.category === categoryKey;
@@ -432,9 +444,25 @@ function generateHubPage(categoryKey, calculators) {
     '  <link rel="canonical" href="' +
     canonical +
     '">\n' +
+    '  <meta property="og:type" content="website">\n' +
+    '  <meta property="og:url" content="' +
+    canonical +
+    '">\n' +
+    '  <meta property="og:title" content="' +
+    escapeHtml(cat.hubTitle) +
+    ' | roicalculator.live">\n' +
+    '  <meta property="og:description" content="' +
+    escapeHtml(cat.hubDescription) +
+    '">\n' +
+    '  <meta property="og:image" content="' +
+    CANONICAL_ORIGIN +
+    '/assets/og-placeholder.svg">\n' +
     '  <link rel="icon" href="data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'><text y=\'.9em\' font-size=\'24\'>📊</text></svg>" type="image/svg+xml">\n' +
     '  <link rel="manifest" href="/manifest.json">\n' +
     '  <link rel="stylesheet" href="/assets/css/styles.css">\n' +
+    '  <script type="application/ld+json">\n' +
+    hubBreadcrumbJsonLd(categoryKey, cat) +
+    '\n  </script>\n' +
     '  <script type="application/ld+json">\n' +
     jsonLdStringify({
       '@context': 'https://schema.org',
@@ -612,6 +640,16 @@ function main() {
   patchSitemapXml(calculators);
   patchSitemapHtml(calculators);
   console.log('Updated sitemap.xml and sitemap.html');
+
+  syncRedirects().forEach(function (f) {
+    console.log('Wrote', path.relative(ROOT, f));
+  });
+
+  var patch = spawnSync(process.execPath, [path.join(__dirname, 'patch-site-chrome.mjs')], {
+    cwd: ROOT,
+    stdio: 'inherit'
+  });
+  if (patch.status !== 0) process.exit(patch.status || 1);
 }
 
 main();
