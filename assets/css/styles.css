@@ -337,8 +337,68 @@ article.content-section {
   max-width: 42rem;
 }
 .hero-content {
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin: 0 auto;
+}
+
+/* Phase 7C — Internal pages share the homepage content column (760px):
+   breadcrumb, hero, methodology, and lateral links align with calculator/article. */
+body:not(.page-home) .breadcrumb {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-bottom: var(--space-sm);
+}
+
+body:not(.page-home) .hero {
+  text-align: left;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 40px 0 24px;
+}
+
+body:not(.page-home) .hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  margin: 0 0 var(--space-md);
+  color: #f0f0f2;
+}
+
+body:not(.page-home) .hero-sub {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+body:not(.page-home) .hero-content {
+  max-width: none;
+  margin: 0;
+}
+
+body:not(.page-home) .methodology-section {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+body:not(.page-home) .methodology-section h2 {
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-sm);
+}
+
+body:not(.page-home) .methodology-section .vertical-calc-note {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 .hero-grid {
   display: grid;
@@ -602,10 +662,10 @@ article.content-section {
 /* Phase 17.3 / 17.7 — related calculator lateral links (programmatic pages) */
 .related-calculators {
   margin-top: 40px;
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
-  padding: 0 var(--space-lg);
+  padding: 0;
 }
 .related-calculators h2 {
   font-size: 18px;
@@ -1019,13 +1079,9 @@ table.summary-table { margin: var(--space-md) 0; }
   padding-left: 1.25rem;
 }
 
-/* Phase 7 — sitewide visual/UX reference architecture, Stage A (SaaS only).
-   Scoped entirely under body.ref-page, applied only to saas/index.html.
-   Every selector here is a body.ref-page descendant rule so it cannot affect
-   any other page sharing base classes (.hero, .calculator-card,
-   .calculator-section, .page-home, .content-section, .site-footer are used
-   by index.html, solar/roi-calculator.html, 4 real-estate pages,
-   hvac/roi-calculator.html and hr/roi-calculator.html). */
+/* Phase 7 — SaaS reference architecture (legacy opt-in via body.ref-page).
+   Sitewide column alignment lives in Phase 7C (body:not(.page-home)) above.
+   Scoped under body.ref-page so it cannot affect pages that do not opt in. */
 
 /* Compact header + top-of-page spacing so the calculator surfaces sooner. */
 body.ref-page .ad-slot.ad-top { margin-bottom: var(--space-md); min-height: 60px; }

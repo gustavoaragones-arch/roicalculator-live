@@ -428,16 +428,15 @@ function generateHubPage(categoryKey, calculators) {
     '<body>\n' +
     HTML_SITE_HEADER +
     '  <main>\n' +
-    '    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span> / </span> <span aria-current="page">' +
-    escapeHtml(cat.label) +
-    ' hub</span></nav>\n' +
-    '    <article class="content-section">\n' +
+    '    <section class="hero">\n' +
     '      <h1>' +
     escapeHtml(cat.hubTitle) +
     '</h1>\n' +
-    '      <section class="ai-answer-block"><p><strong>Quick answer:</strong> ' +
+    '      <p class="hero-sub">' +
     escapeHtml(cat.hubDescription) +
-    ' Also see <a href="/comparisons/">ROI comparisons</a> and <a href="/benchmarks/">benchmarks</a>.</p></section>\n' +
+    ' Also see <a href="/comparisons/">ROI comparisons</a> and <a href="/benchmarks/">benchmarks</a>.</p>\n' +
+    '    </section>\n' +
+    '    <article class="content-section">\n' +
     '      <h2>Calculators in this category</h2>\n' +
     '      <ul class="hub-calculator-list">\n' +
     items +

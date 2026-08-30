@@ -51,7 +51,6 @@ export const SITE_HEADER_HTML =
   '        <li><a href="/methodology/">Methodology</a></li>\n' +
   '        <li><a href="/about.html">About</a></li>\n' +
   '      </ul>\n' +
-  '      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>\n' +
   '    </nav>\n' +
   '  </header>';
 
