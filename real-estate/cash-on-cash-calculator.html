@@ -17,7 +17,8 @@
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
-      <ul class="nav-links">
+      <button type="button" class="nav-mobile-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+      <ul class="nav-links" id="site-nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/real-estate/index.html">Real Estate</a></li>
         <li><a href="/solar/roi-calculator.html">Solar</a></li>
@@ -79,7 +80,7 @@
                 </div>
                 <div class="form-group">
                   <label for="re-coc-cash">Total cash invested ($)</label>
-                  <input type="number" id="re-coc-cash" min="1" step="1000" value="80000" required>
+                  <input type="number" id="re-coc-cash" min="1000" step="1000" value="80000" required>
                 </div>
               </div>
               <div class="calc-buttons">

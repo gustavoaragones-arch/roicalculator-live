@@ -29,7 +29,8 @@ export const SITE_HEADER_HTML =
   '<header class="site-header">\n' +
   '    <nav class="nav-main" aria-label="Main navigation">\n' +
   '      <a href="/" class="logo">roicalculator.live</a>\n' +
-  '      <ul class="nav-links">\n' +
+  '      <button type="button" class="nav-mobile-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>\n' +
+  '      <ul class="nav-links" id="site-nav-links">\n' +
   '        <li><a href="/">Home</a></li>\n' +
   '        <li><a href="/real-estate/index.html">Real Estate</a></li>\n' +
   '        <li><a href="/solar/roi-calculator.html">Solar</a></li>\n' +

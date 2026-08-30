@@ -41,4 +41,20 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+
+  /**
+   * Phase 4A — mobile navigation toggle. Independent of the Calculators
+   * disclosure above: this only shows/hides the shared .nav-links list at
+   * narrow viewports (see assets/css/styles.css @media max-width: 760px).
+   * The Calculators dropdown nested inside .nav-links keeps working exactly
+   * as it does on desktop once the list is expanded.
+   */
+  var mobileToggle = document.querySelector('.nav-mobile-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('mobile-open');
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
 });
