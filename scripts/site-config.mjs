@@ -57,4 +57,18 @@ http://roicalculator.live/* https://roicalculator.live/:splat 301
 /roi-calculator/solar/ /solar/roi-calculator.html 301!
 /roi-calculator/solar/index.html /solar/roi-calculator.html 301!
 /roi-calculator/solar/solar-panel-roi.html /solar/roi-calculator.html 301!
+
+# Phase 5 — Marketing reference implementation consolidation.
+# /marketing/ (generator-controlled category hub) plus the 4 factory
+# calculators under /calculators/ are already the canonical Marketing
+# architecture — this phase did not create a new hub. The legacy
+# /roi-calculator/marketing/ hub duplicates /marketing/'s intent, and its
+# email-marketing-roi.html duplicates the factory's
+# email-marketing-roi-calculator.html; both are consolidated. roas-calculator.html
+# and lead-generation-roi.html remain distinct child tools at their existing
+# /roi-calculator/marketing/ paths (genuinely different metrics/spend
+# categories, no factory equivalent). See reports/audits/MASTER-DIAGNOSTIC.md.
+/roi-calculator/marketing/ /marketing/ 301!
+/roi-calculator/marketing/index.html /marketing/ 301!
+/roi-calculator/marketing/email-marketing-roi.html /calculators/email-marketing-roi-calculator.html 301!
 `;

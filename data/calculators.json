@@ -65,7 +65,7 @@
       { "key": "profit", "label": "Profit", "type": "currency" }
     ],
     "validatePositive": ["programCost"],
-    "aeoEntry": "Email ROI weighs creative, tooling, and list costs against revenue you credit to the channel—see <a href=\"/roi-calculator/marketing/email-marketing-roi.html\">channel-specific guidance</a> when blending multi-touch journeys.",
+    "aeoEntry": "Email ROI weighs creative, tooling, and list costs against revenue you credit to the channel—see the <a href=\"/marketing/\">Marketing hub</a> for other channel-specific tools when blending multi-touch journeys.",
     "staticBlocks": [
       {
         "angle": "use_cases",
