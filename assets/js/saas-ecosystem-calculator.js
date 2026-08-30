@@ -29,6 +29,39 @@
     return (m / 12).toFixed(1) + ' yr';
   }
 
+  /**
+   * Dynamically generated interpretation sentence. Describes the calculation
+   * result — it does not recommend a business decision or apply an
+   * unsupported quality threshold (e.g. "excellent ROI"), since this
+   * calculator has no defensible threshold model. See
+   * reports/audits/MASTER-DIAGNOSTIC.md and the Phase 2 brief, Step 6.
+   */
+  function buildInterpretation(roiPct, netProfit, paybackMonths) {
+    if (!isFinite(roiPct)) {
+      return 'At the assumptions entered, this investment’s return cannot be computed because the modeled total cost is zero.';
+    }
+    var base =
+      'At the assumptions entered, this investment produces an estimated ' +
+      formatPct(roiPct) +
+      ' return relative to its modeled cost.';
+    var extension;
+    if (netProfit < 0) {
+      extension =
+        ' The modeled result over this horizon is a net loss of ' +
+        formatMoney(Math.abs(netProfit)) +
+        '.';
+    } else if (paybackMonths === null || paybackMonths === undefined || !isFinite(paybackMonths) || paybackMonths < 0) {
+      extension =
+        ' Based on these inputs, the ongoing subscription cost offsets enough of the modeled monthly benefit that the implementation cost is not recovered from net benefit.';
+    } else {
+      extension =
+        ' At this rate, the implementation cost is modeled to be recovered (payback) in ' +
+        formatPaybackMonths(paybackMonths) +
+        '.';
+    }
+    return base + extension;
+  }
+
   var chartInstance = null;
 
   function toggleMode() {
@@ -86,15 +119,36 @@
     var netProfit = totalValue - totalCost;
     var roiPct = totalCost > 0 ? (netProfit / totalCost) * 100 : NaN;
 
+    // Payback = time to recover the one-time implementation cost from NET
+    // monthly benefit, i.e. gross monthly value created minus the ongoing
+    // monthly subscription cost paid during that same window. Netting out
+    // the subscription cost (rather than dividing implementation by gross
+    // monthly value alone) is required for this to be a true payback period
+    // — see reports/audits/AUDIT-03-CALCULATOR-PRODUCT.md §4.1.
     var monthlyValue = annualValue / 12;
-    var paybackMonths =
-      implementation > 0 && monthlyValue > 0 ? implementation / monthlyValue : implementation <= 0 ? 0 : null;
+    var netMonthlyBenefit = monthlyValue - monthly;
+    var paybackMonths;
+    if (implementation <= 0) {
+      paybackMonths = 0;
+    } else if (netMonthlyBenefit > 0) {
+      paybackMonths = implementation / netMonthlyBenefit;
+    } else {
+      // Ongoing subscription cost consumes all (or more than all) of the
+      // gross monthly value created, so the implementation cost is never
+      // recovered from net benefit under these assumptions.
+      paybackMonths = null;
+    }
 
     el('saas-res-roi').textContent = isFinite(roiPct) ? formatPct(roiPct) : '—';
     el('saas-res-annual-value').textContent = formatMoney(annualValue);
     el('saas-res-total-cost').textContent = formatMoney(totalCost);
     el('saas-res-net').textContent = formatMoney(netProfit);
     el('saas-res-payback').textContent = formatPaybackMonths(paybackMonths);
+
+    var interpretationEl = el('saas-res-interpretation');
+    if (interpretationEl) {
+      interpretationEl.textContent = buildInterpretation(roiPct, netProfit, paybackMonths);
+    }
 
     el('saas-cluster-results').hidden = false;
 

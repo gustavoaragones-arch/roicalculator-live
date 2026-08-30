@@ -4,24 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0b0f14">
-  <meta name="last-modified" content="2026-04-08">
-  <meta http-equiv="last-modified" content="Wed, 08 Apr 2026 12:00:00 GMT">
-  <title>SaaS ROI Guide &amp; Calculator | roicalculator.live</title>
-  <meta name="description" content="SaaS ROI: definition, how to justify software purchases, mistakes, ROI vs savings vs revenue. Links to calculator and benchmarks.">
+  <meta name="last-modified" content="2026-08-30">
+  <meta http-equiv="last-modified" content="Sun, 30 Aug 2026 12:00:00 GMT">
+  <title>SaaS ROI Calculator | roicalculator.live</title>
+  <meta name="description" content="Free SaaS ROI calculator: model time saved or revenue gained against subscription and implementation cost. Includes payback period and links to CAC/LTV, growth, and time-to-value tools.">
   <link rel="canonical" href="https://roicalculator.live/saas/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://roicalculator.live/saas/">
-  <meta property="og:title" content="SaaS ROI Guide &amp; Calculator | roicalculator.live">
+  <meta property="og:title" content="SaaS ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Model SaaS ROI from time saved or revenue gained versus subscription and implementation cost.">
   <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"SaaS ROI","item":"https://roicalculator.live/saas/"}]}</script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"SaaS ROI Guide & Calculator","description":"SaaS purchase justification, ROI vs cost savings vs revenue.","url":"https://roicalculator.live/saas/","author":{"@type":"Organization","name":"Albor Digital LLC"}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"SaaS ROI Calculator","description":"Model SaaS ROI from time saved or revenue gained versus subscription and implementation cost.","url":"https://roicalculator.live/saas/","author":{"@type":"Organization","name":"Albor Digital LLC"}}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What does this SaaS ROI calculator measure?", "acceptedAnswer": {"@type": "Answer", "text": "It compares the value a piece of software creates — either time saved at a wage or an increase in revenue — against its total cost, meaning subscription fees over the time horizon plus a one-time implementation cost."}},
+      {"@type": "Question", "name": "How is SaaS ROI calculated here?", "acceptedAnswer": {"@type": "Answer", "text": "Annual value equals employees times hourly wage times hours saved per week times 52 (or an entered annual revenue increase in revenue mode). Total cost equals monthly subscription cost times 12 times the time horizon in years, plus the one-time implementation cost. ROI equals (total value minus total cost) divided by total cost, times 100."}}
+    ]
+  }
   </script>
 </head>
-<body>
+<body class="page-home">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -56,26 +69,132 @@
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a>
       <span> / </span>
-      <span>SaaS ROI</span>
+      <span aria-current="page">SaaS ROI</span>
     </nav>
 
+    <section class="hero">
+      <div class="hero-content">
+        <h1>SaaS ROI Calculator</h1>
+        <p class="hero-sub">Estimate the return on a software purchase from time saved or revenue gained, against its subscription and implementation cost.</p>
+      </div>
+    </section>
+
+    <section class="calculator-section" aria-label="SaaS ROI calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="saas-calc-heading">
+            <h2 id="saas-calc-heading">Inputs</h2>
+            <p class="vertical-calc-note"><strong>Time mode:</strong> Annual value = employees × hourly wage × hours saved/week × 52. <strong>Total cost</strong> = (monthly × 12 × years) + implementation. <strong>ROI</strong> = [(total value − total cost) ÷ total cost] × 100. <strong>Payback period</strong> = implementation ÷ [(annual value ÷ 12) − monthly cost], i.e. months of <em>net</em> monthly benefit (after the ongoing subscription cost) needed to recover the one-time implementation cost. Chart shows first 5 years or your horizon, whichever is shorter.</p>
+            <form id="saas-cluster-form">
+              <div class="toggle-row">
+                <input type="checkbox" id="saas-revenue-mode" name="saas-revenue-mode" aria-describedby="saas-mode-help">
+                <label for="saas-revenue-mode">Revenue mode (use annual revenue increase instead of time saved)</label>
+              </div>
+              <p id="saas-mode-help" class="vertical-calc-note">When enabled, enter expected <strong>annual revenue increase</strong> from the tool; employee and hour fields are ignored.</p>
+              <div class="form-row" id="saas-time-fields">
+                <div class="form-group">
+                  <label for="saas-employees">Number of employees affected</label>
+                  <input type="number" id="saas-employees" min="1" step="1" value="25" required>
+                </div>
+                <div class="form-group">
+                  <label for="saas-wage">Average hourly wage ($)</label>
+                  <input type="number" id="saas-wage" min="0" step="1" value="42" required>
+                </div>
+                <div class="form-group">
+                  <label for="saas-hours-week">Hours saved per week (per employee)</label>
+                  <input type="number" id="saas-hours-week" min="0" step="0.25" value="1.5" required>
+                </div>
+              </div>
+              <div class="form-row" id="saas-revenue-field" hidden>
+                <div class="form-group">
+                  <label for="saas-revenue-annual">Annual revenue increase ($)</label>
+                  <input type="number" id="saas-revenue-annual" min="0" step="1000" value="120000">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="saas-monthly">Monthly SaaS cost ($)</label>
+                  <input type="number" id="saas-monthly" min="0" step="50" value="2500" required>
+                </div>
+                <div class="form-group">
+                  <label for="saas-impl">Implementation cost ($)</label>
+                  <input type="number" id="saas-impl" min="0" step="100" value="18000" required>
+                </div>
+                <div class="form-group">
+                  <label for="saas-years">Time horizon (years)</label>
+                  <input type="number" id="saas-years" min="0.5" step="0.5" value="3" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div class="results-panel" id="saas-cluster-results" hidden>
+              <h3>Results</h3>
+
+              <div class="result-dominant">
+                <span class="result-dominant-label">Estimated ROI</span>
+                <span class="result-dominant-value" id="saas-res-roi">—</span>
+              </div>
+              <p class="result-interpretation" id="saas-res-interpretation" aria-live="polite"></p>
+
+              <div class="results-grid results-box" id="saas-cluster-results-box">
+                <div class="result-item result-card">
+                  <span class="label">Annual value created</span>
+                  <span class="value" id="saas-res-annual-value">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total cost</span>
+                  <span class="value" id="saas-res-total-cost">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Net profit</span>
+                  <span class="value" id="saas-res-net">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Payback period</span>
+                  <span class="value" id="saas-res-payback">—</span>
+                </div>
+              </div>
+              <h3>3–5 year projection (cumulative)</h3>
+              <div class="chart-container">
+                <canvas id="saas-projection-chart" role="img" aria-label="Cumulative value versus cumulative cost by year"></canvas>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
     <article class="content-section">
-      <h1>SaaS ROI Guide &amp; Calculator</h1>
-      <p class="hub-cta"><a href="/saas/roi-calculator.html" class="btn btn-primary">Open SaaS ROI Calculator</a></p>
+      <h2>How to use this for a purchase decision</h2>
+      <p>Build one table: your <strong>assumptions</strong> (who is affected, hours or dollars), the <strong>annual value</strong> those assumptions produce, the <strong>all-in cost</strong> (license, services, and internal project time if material), and the resulting <strong>payback</strong> on the upfront implementation spend. Compare the result to doing nothing and to your next-best alternative.</p>
+      <p>Teams commonly overestimate time savings before adoption stabilizes. Consider cutting a first estimate by 30–50% for ramp-up and exceptions, or running a small pilot for one month and measuring actual hours before scaling the model to the full team.</p>
+      <p>If you're modeling cost savings (time already being spent) versus new revenue, keep the numerator consistent: use either fully loaded labor value or attributable revenue, not a mix of both, against the same total-cost denominator.</p>
 
-      <h2>What is SaaS ROI?</h2>
-      <p>For buyers, <strong>SaaS ROI</strong> is the return on subscription plus implementation versus the value you expect—usually time saved at a wage, or incremental revenue, net of ongoing fees over your analysis horizon.</p>
+      <h3>Limitations of this model</h3>
+      <ul>
+        <li>Assumes the entered wage, hours saved (or revenue increase), and subscription cost stay constant for the full time horizon.</li>
+        <li>Payback and ROI are only as reliable as the assumptions entered — a pilot-measured estimate is more defensible than a theoretical one.</li>
+        <li>Does not model contract-length discounts, usage-based pricing tiers, or mid-term price increases.</li>
+      </ul>
 
-      <h2>How to justify software purchases</h2>
-      <p>Build a single table: <strong>assumptions</strong> (who is affected, hours or dollars), <strong>annual value</strong>, <strong>all-in cost</strong> (license, services, internal PM time if material), and <strong>payback</strong> on upfront implementation. Compare to doing nothing and to the next-best alternative.</p>
+      <h2 id="saas-unit-economics">SaaS unit-economics tools</h2>
+      <p>The calculator above models <strong>buyer-side ROI</strong> — the value a team gets from adopting a tool, versus what it costs. If you're evaluating a subscription business's own economics instead — acquisition cost, lifetime value, growth, and retention — use these related, distinct tools:</p>
+      <ul class="industry-list">
+        <li><a href="/roi-calculator/saas/cac-ltv-roi.html">CAC vs LTV ROI</a> — compare customer acquisition cost to lifetime value, LTV:CAC ratio, and payback period.</li>
+        <li><a href="/roi-calculator/saas/subscription-growth-roi.html">Subscription Growth ROI</a> — project subscriber count and revenue under monthly growth and churn assumptions.</li>
+        <li><a href="/roi-calculator/saas/time-to-value-roi.html">Time-to-Value ROI</a> — estimate break-even from tool and implementation cost against a monthly efficiency gain.</li>
+      </ul>
 
-      <h2>Common mistakes (overestimating time savings)</h2>
-      <p>Teams often plug in “theoretical” hours saved before adoption stabilizes. Cut the first estimate by <strong>30–50%</strong> for ramp and exceptions, or run a pilot cohort and measure actual hours for one month before scaling the model.</p>
-
-      <h2>ROI vs cost savings vs revenue impact</h2>
-      <p><strong>Cost savings</strong> reduce spend you already have. <strong>Revenue impact</strong> adds new margin—often harder to prove. <strong>ROI</strong> should use one consistent numerator (either fully loaded labor value or attributable revenue) and the same denominator (total cost of ownership), or finance will reject the story.</p>
-
-      <p><a href="/saas/roi-calculator.html">SaaS ROI Calculator</a> · <a href="/benchmarks/saas-roi-benchmarks.html">SaaS ROI benchmarks</a> · <a href="/roi-calculator/saas/">More SaaS tools (CAC/LTV, etc.)</a></p>
+      <h2>Explore further</h2>
+      <ul>
+        <li><a href="/">ROI calculator</a> — the general-purpose version of this calculation.</li>
+        <li><a href="/benchmarks/saas-roi-benchmarks.html">SaaS ROI benchmarks</a> — reference ranges for SaaS unit economics.</li>
+        <li><a href="/comparisons/">ROI comparisons</a> — how ROI relates to IRR, NPV, and payback period.</li>
+        <li><a href="/glossary/cac.html">CAC</a> and <a href="/glossary/ltv.html">LTV</a> — term definitions used by the unit-economics tools above.</li>
+      </ul>
     </article>
 
     <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>
@@ -123,6 +242,9 @@
   </p>
 
 </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="/assets/js/saas-ecosystem-calculator.js" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>
