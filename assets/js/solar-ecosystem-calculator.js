@@ -66,6 +66,30 @@
     return n.toFixed(1) + '%';
   }
 
+  /**
+   * Dynamically generated interpretation sentence. Describes the modeled
+   * result only — no evaluative language ("worth it", "great investment")
+   * since this calculator has no defensible quality threshold. See the
+   * Phase 4 brief, Section 8.
+   */
+  function buildInterpretation(pb, roi20, totalSave20) {
+    if (pb === -1) {
+      return 'At the assumptions entered, this system generates no first-year savings, so payback cannot be computed.';
+    }
+    if (pb === null || pb > 149.5) {
+      return 'At the assumptions entered, cumulative savings do not recover net cost within a 150-year horizon; the modeled 20-year return is ' + formatPct(roi20) + '.';
+    }
+    return (
+      'At the assumptions entered, this system is estimated to pay back its net cost in ' +
+      formatYears(pb) +
+      ', with a modeled ' +
+      formatPct(roi20) +
+      ' return and ' +
+      formatMoney(totalSave20) +
+      ' in cumulative savings over 20 years.'
+    );
+  }
+
   function run() {
     var systemCost = parseNum(el('sp-cost').value);
     var taxCreditPct = parseNum(el('sp-credit').value);
@@ -110,6 +134,11 @@
     el('sp-result-save-20').textContent = formatMoney(total20);
     el('sp-result-save-life').textContent = formatMoney(totalLife);
     el('sp-result-annual').textContent = formatMoney(annualSaveY1);
+
+    var interpretationEl = el('sp-result-interpretation');
+    if (interpretationEl) {
+      interpretationEl.textContent = buildInterpretation(pb, roi20, total20);
+    }
 
     var lifeLabel = el('sp-roi-life-label');
     if (lifeLabel) {

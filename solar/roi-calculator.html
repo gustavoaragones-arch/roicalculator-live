@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Solar ROI","item":"https://roicalculator.live/solar/"},{"@type":"ListItem","position":3,"name":"Solar ROI Calculator","item":"https://roicalculator.live/solar/roi-calculator.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://roicalculator.live/"},{"@type":"ListItem","position":2,"name":"Solar ROI Calculator","item":"https://roicalculator.live/solar/roi-calculator.html"}]}</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Solar ROI Calculator","description":"Solar payback, 20-year and lifetime ROI, cumulative savings.","url":"https://roicalculator.live/solar/roi-calculator.html"}
   </script>
@@ -70,9 +70,7 @@
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a>
       <span> / </span>
-      <a href="/solar/">Solar ROI</a>
-      <span> / </span>
-      <span>Calculator</span>
+      <span aria-current="page">Solar ROI Calculator</span>
     </nav>
 
     <section class="hero">
@@ -124,12 +122,15 @@
 
             <div class="results-panel" id="sp-results-panel" hidden>
               <h3>Results</h3>
+
+              <div class="result-dominant">
+                <span class="result-dominant-label">Payback period</span>
+                <span class="result-dominant-value" id="sp-result-payback">—</span>
+              </div>
+              <p class="result-interpretation" id="sp-result-interpretation" aria-live="polite"></p>
+
               <p class="sp-calc-note" id="sp-horizon-note" hidden></p>
               <div class="results-grid results-box" id="sp-results-box">
-                <div class="result-item result-card">
-                  <span class="label">Payback period</span>
-                  <span class="value" id="sp-result-payback">—</span>
-                </div>
                 <div class="result-item result-card">
                   <span class="label">ROI (20-year)</span>
                   <span class="value" id="sp-result-roi-20">—</span>
@@ -157,13 +158,15 @@
       </div>
     </section>
 
+    <article class="content-section">
+      <h2>Solar-specific assumptions</h2>
+      <ul>
+        <li><strong>Electricity rate</strong> — use your actual tariff ($/kWh), not a national average; this drives the dollar value of every kWh offset.</li>
+        <li><strong>Tax credit</strong> — reduces net cost as a percentage of system price; eligibility and basis rules vary and change over time, so confirm your situation separately before relying on the number.</li>
+      </ul>
+    </article>
+
     <section class="ai-answer-dominance" aria-label="Direct answers">
-      <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
-        <h2 itemprop="name">What is solar ROI?</h2>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p class="ai-answer-direct" itemprop="text">Solar ROI is the percentage return on <strong>net cost</strong> (after the tax credit) versus cumulative utility savings over a stated period. This calculator shows both <strong>20-year</strong> and <strong>lifetime</strong> ROI so you can match common benchmarks and full ownership.</p>
-        </div>
-      </section>
       <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
         <h2 itemprop="name">How long does solar take to pay off?</h2>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
@@ -173,13 +176,19 @@
       <section class="ai-answer-block" itemscope itemtype="https://schema.org/Question">
         <h2 itemprop="name">Is solar worth it financially?</h2>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p class="ai-answer-direct" itemprop="text">It can be when <strong>lifetime savings</strong> clearly exceed net cost and payback fits your plans—compare scenarios with lower production or higher cost before deciding. Use <a href="/solar/">Solar ROI guide</a> and <a href="/benchmarks/solar-roi-benchmarks.html">benchmarks</a> for context, not a guarantee.</p>
+          <p class="ai-answer-direct" itemprop="text">It can be when <strong>lifetime savings</strong> clearly exceed net cost and payback fits your plans—compare scenarios with lower production or higher cost before deciding. See <a href="/benchmarks/solar-roi-benchmarks.html">benchmarks</a> for context, not a guarantee.</p>
         </div>
       </section>
     </section>
 
     <article class="content-section">
-      <p><a href="/solar/">Solar ROI guide</a> · <a href="/roi-calculator/solar/">Solar &amp; energy tools</a> · <a href="/benchmarks/solar-roi-benchmarks.html">Benchmarks</a> · <a href="/">Main ROI calculator</a></p>
+      <h2>Other energy ROI calculators</h2>
+      <p>This calculator models <strong>solar panels</strong>. For a different equipment type, use one of these related, distinct tools:</p>
+      <ul class="industry-list">
+        <li><a href="/roi-calculator/solar/heat-pump-roi.html">Heat pump ROI calculator</a> — installation cost, rebates, and annual heating savings vs fossil-fuel heating.</li>
+        <li><a href="/roi-calculator/solar/ev-charger-roi.html">EV charger ROI calculator</a> — installation cost against fuel savings net of charging electricity cost.</li>
+      </ul>
+      <p><a href="/benchmarks/solar-roi-benchmarks.html">Solar ROI benchmarks</a> · <a href="/comparisons/roi-vs-payback-period.html">ROI vs payback period</a> · <a href="/">Main ROI calculator</a></p>
     </article>
 
     <div class="ad-slot ad-bottom" role="presentation" aria-hidden="true"></div>

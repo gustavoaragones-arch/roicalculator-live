@@ -27,3 +27,17 @@ http://roicalculator.live/* https://roicalculator.live/:splat 301
 /roi-calculator/real-estate/rental-property-roi.html /real-estate/ 301!
 /roi-calculator/real-estate/cash-on-cash-return.html /real-estate/cash-on-cash-calculator.html 301!
 /roi-calculator/real-estate/fix-and-flip-roi.html /real-estate/flip-roi-calculator.html 301!
+
+# Phase 4 — Solar reference implementation consolidation.
+# /solar/roi-calculator.html is the single canonical Solar ROI page (already
+# the deeply-linked destination from site-wide nav/footer/homepage). The
+# links-only guide hub at /solar/, the legacy /roi-calculator/solar/ hub, and
+# its duplicate solar-panel-roi.html calculator are consolidated into it.
+# heat-pump-roi.html and ev-charger-roi.html remain distinct child tools at
+# their existing /roi-calculator/solar/ paths (genuinely different equipment
+# and inputs). See reports/audits/MASTER-DIAGNOSTIC.md.
+/solar/ /solar/roi-calculator.html 301!
+/solar/index.html /solar/roi-calculator.html 301!
+/roi-calculator/solar/ /solar/roi-calculator.html 301!
+/roi-calculator/solar/index.html /solar/roi-calculator.html 301!
+/roi-calculator/solar/solar-panel-roi.html /solar/roi-calculator.html 301!
