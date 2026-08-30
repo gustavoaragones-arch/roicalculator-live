@@ -47,9 +47,11 @@
       var totalCost = buy + reno + hold;
       var profit = sell - totalCost;
       var roi = totalCost > 0 ? (profit / totalCost) * 100 : 0;
+      var margin = sell > 0 ? (profit / sell) * 100 : 0;
       el('re-flip-profit').textContent = formatMoney(profit);
       el('re-flip-roi').textContent = formatPct(roi);
       el('re-flip-cost').textContent = formatMoney(totalCost);
+      el('re-flip-margin').textContent = formatPct(margin);
       el('re-flip-panel').hidden = false;
     });
   })();

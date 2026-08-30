@@ -29,4 +29,18 @@ http://roicalculator.live/* https://roicalculator.live/:splat 301
 /saas/roi-calculator.html /saas/ 301!
 /roi-calculator/saas/ /saas/ 301!
 /roi-calculator/saas/index.html /saas/ 301!
+
+# Phase 3 — Real Estate reference implementation consolidation.
+# /real-estate/ is now the single canonical Real Estate ROI hub with the
+# rental property ROI calculator on-page; the standalone calculator page and
+# the entire legacy /roi-calculator/real-estate/ subtree (hub + 3 duplicate
+# child calculators) are consolidated into /real-estate/ and its 3 retained,
+# genuinely distinct child tools. See reports/audits/MASTER-DIAGNOSTIC.md and
+# AUDIT-02-CONTENT-IA.md §3.4 (Real Estate near-duplicate pairs).
+/real-estate/roi-calculator.html /real-estate/ 301!
+/roi-calculator/real-estate/ /real-estate/ 301!
+/roi-calculator/real-estate/index.html /real-estate/ 301!
+/roi-calculator/real-estate/rental-property-roi.html /real-estate/ 301!
+/roi-calculator/real-estate/cash-on-cash-return.html /real-estate/cash-on-cash-calculator.html 301!
+/roi-calculator/real-estate/fix-and-flip-roi.html /real-estate/flip-roi-calculator.html 301!
 `;

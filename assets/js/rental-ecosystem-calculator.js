@@ -41,6 +41,26 @@
     return n.toFixed(2) + '%';
   }
 
+  /**
+   * Dynamically generated interpretation sentence. Describes the modeled
+   * result only — no evaluative language ("great investment", "you should
+   * buy") since this calculator has no defensible quality threshold. See
+   * reports/audits/MASTER-DIAGNOSTIC.md and the Phase 3 brief, Step 7.
+   */
+  function buildInterpretation(roiPct, annualCF, totalProfit, equityGained) {
+    var base =
+      'At the assumptions entered, this property produces an estimated ' +
+      formatPct(roiPct) +
+      ' return relative to the modeled investment.';
+    var cfClause = annualCF >= 0
+      ? ' Modeled annual cash flow is positive at ' + formatMoney(annualCF) + '.'
+      : ' Modeled annual cash flow is negative at ' + formatMoney(annualCF) + ', before any sale proceeds.';
+    var profitClause = totalProfit >= 0
+      ? ' Total profit over the holding period, including sale proceeds, is ' + formatMoney(totalProfit) + ', with ' + formatMoney(equityGained) + ' in equity gained beyond the down payment.'
+      : ' Total profit over the holding period, including sale proceeds, is a modeled loss of ' + formatMoney(Math.abs(totalProfit)) + '.';
+    return base + cfClause + profitClause;
+  }
+
   var chartInstance = null;
 
   function run() {
@@ -89,6 +109,11 @@
     el('rp-result-annual-cf').textContent = formatMoney(annualCF);
     el('rp-result-profit').textContent = formatMoney(totalProfit);
     if (el('rp-result-equity')) el('rp-result-equity').textContent = formatMoney(equityGained);
+
+    var interpretationEl = el('rp-result-interpretation');
+    if (interpretationEl) {
+      interpretationEl.textContent = buildInterpretation(roiPct, annualCF, totalProfit, equityGained);
+    }
 
     var panel = el('rp-results-panel');
     if (panel) panel.hidden = false;
