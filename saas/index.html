@@ -34,7 +34,7 @@
   }
   </script>
 </head>
-<body class="page-home">
+<body class="page-home ref-page">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -85,7 +85,6 @@
         <div class="calculator-card">
           <section class="calculator-module calculator-box" aria-labelledby="saas-calc-heading">
             <h2 id="saas-calc-heading">Inputs</h2>
-            <p class="vertical-calc-note"><strong>Time mode:</strong> Annual value = employees × hourly wage × hours saved/week × 52. <strong>Total cost</strong> = (monthly × 12 × years) + implementation. <strong>ROI</strong> = [(total value − total cost) ÷ total cost] × 100. <strong>Payback period</strong> = implementation ÷ [(annual value ÷ 12) − monthly cost], i.e. months of <em>net</em> monthly benefit (after the ongoing subscription cost) needed to recover the one-time implementation cost. Chart shows first 5 years or your horizon, whichever is shorter.</p>
             <form id="saas-cluster-form">
               <div class="toggle-row">
                 <input type="checkbox" id="saas-revenue-mode" name="saas-revenue-mode" aria-describedby="saas-mode-help">
@@ -168,6 +167,11 @@
       </div>
     </section>
 
+    <section class="methodology-section" aria-labelledby="saas-methodology-heading">
+      <h2 id="saas-methodology-heading">Methodology</h2>
+      <p class="vertical-calc-note"><strong>Time mode:</strong> Annual value = employees × hourly wage × hours saved/week × 52. <strong>Total cost</strong> = (monthly × 12 × years) + implementation. <strong>ROI</strong> = [(total value − total cost) ÷ total cost] × 100. <strong>Payback period</strong> = implementation ÷ [(annual value ÷ 12) − monthly cost], i.e. months of <em>net</em> monthly benefit (after the ongoing subscription cost) needed to recover the one-time implementation cost. Chart shows first 5 years or your horizon, whichever is shorter.</p>
+    </section>
+
     <article class="content-section">
       <h2>How to use this for a purchase decision</h2>
       <p>Build one table: your <strong>assumptions</strong> (who is affected, hours or dollars), the <strong>annual value</strong> those assumptions produce, the <strong>all-in cost</strong> (license, services, and internal project time if material), and the resulting <strong>payback</strong> on the upfront implementation spend. Compare the result to doing nothing and to your next-best alternative.</p>
@@ -180,7 +184,9 @@
         <li>Payback and ROI are only as reliable as the assumptions entered — a pilot-measured estimate is more defensible than a theoretical one.</li>
         <li>Does not model contract-length discounts, usage-based pricing tiers, or mid-term price increases.</li>
       </ul>
+    </article>
 
+    <article class="content-section tertiary">
       <h2 id="saas-unit-economics">SaaS unit-economics tools</h2>
       <p>The calculator above models <strong>buyer-side ROI</strong> — the value a team gets from adopting a tool, versus what it costs. If you're evaluating a subscription business's own economics instead — acquisition cost, lifetime value, growth, and retention — use these related, distinct tools:</p>
       <ul class="industry-list">
