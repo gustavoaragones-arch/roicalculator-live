@@ -8,10 +8,11 @@ import path from 'path';
 import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { validateConfigs } from './calculator-quality.mjs';
-import { CANONICAL_ORIGIN, canonicalUrl, METHODOLOGY_PATH } from './site-config.mjs';
+import { CANONICAL_ORIGIN, canonicalUrl } from './site-config.mjs';
 import { syncRedirects } from './sync-redirects.mjs';
 import {
-  POPULAR_TOOLS_FOOTER_HTML,
+  SITE_HEADER_HTML,
+  SITE_FOOTER_HTML,
   calculatorBreadcrumbJsonLd,
   hubBreadcrumbJsonLd
 } from './site-chrome.mjs';
@@ -30,70 +31,17 @@ const SITE = CANONICAL_ORIGIN;
 const LASTMOD = '2026-04-08';
 const LASTMOD_HTTP = 'Wed, 08 Apr 2026 12:00:00 GMT';
 
-/** Phase 17.6 — same header/footer as the rest of the static site (keep in sync with partials/ and patch-phase176). */
-const HTML_SITE_HEADER =
-  '  <header class="site-header">\n' +
-  '    <nav class="nav-main" aria-label="Main navigation">\n' +
-  '      <a href="/" class="logo">roicalculator.live</a>\n' +
-  '      <ul class="nav-links">\n' +
-  '        <li><a href="/">Home</a></li>\n' +
-  '        <li><a href="/real-estate/index.html">Real Estate</a></li>\n' +
-  '        <li><a href="/solar/roi-calculator.html">Solar</a></li>\n' +
-  '        <li><a href="/saas/index.html">SaaS</a></li>\n' +
-  '        <li class="nav-dropdown">\n' +
-  '          <span>Calculators</span>\n' +
-  '          <div class="nav-dropdown-menu" role="navigation" aria-label="Calculator tools">\n' +
-  '            <a href="/marketing/index.html">Marketing ROI</a>\n' +
-  '            <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
-  '            <a href="/saas/index.html">SaaS ROI</a>\n' +
-  '            <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
-  '            <a href="/hvac/roi-calculator.html">HVAC ROI</a>\n' +
-  '            <a href="/hr/roi-calculator.html">Employee ROI</a>\n' +
-  '          </div>\n' +
-  '        </li>\n' +
-  '        <li><a href="/learn/what-is-roi.html">Learn</a></li>\n' +
-  '        <li><a href="/glossary/">Glossary</a></li>\n' +
-  '        <li><a href="' + METHODOLOGY_PATH + '">Methodology</a></li>\n' +
-  '        <li><a href="/about.html">About</a></li>\n' +
-  '      </ul>\n' +
-  '      <span class="badge-privacy" aria-label="Privacy statement">🔒 No cookies. No tracking.</span>\n' +
-  '    </nav>\n' +
-  '  </header>\n';
-
-const HTML_SITE_FOOTER =
-  '  <footer class="site-footer">\n' +
-  '\n' +
-  '  <p class="footer-mini">\n' +
-  '    Private ROI calculators for financial and operational analysis.\n' +
-  '  </p>\n' +
-  '\n' +
-  '  <nav class="footer-links">\n' +
-  '    <a href="/marketing/index.html">Marketing ROI</a>\n' +
-  '    <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
-  '    <a href="/saas/index.html">SaaS ROI</a>\n' +
-  '    <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
-  '    <a href="/benchmarks/index.html">Benchmarks</a>\n' +
-  '    <a href="/comparisons/index.html">Comparisons</a>\n' +
-  '  </nav>\n' +
-  '\n' +
-  POPULAR_TOOLS_FOOTER_HTML +
-  '  <nav class="footer-secondary">\n' +
-  '    <a href="' + METHODOLOGY_PATH + '">Methodology</a>\n' +
-  '    <a href="/about.html">About</a>\n' +
-  '    <a href="/privacy.html">Privacy</a>\n' +
-  '    <a href="/terms.html">Terms</a>\n' +
-  '    <a href="/contact.html">Contact</a>\n' +
-  '  </nav>\n' +
-  '\n' +
-  '  <p class="footer-disclaimer">\n' +
-  '    For informational purposes only. Not financial or investment advice.\n' +
-  '  </p>\n' +
-  '\n' +
-  '  <p class="footer-copy">\n' +
-  '    © 2026 Albor Digital LLC\n' +
-  '  </p>\n' +
-  '\n' +
-  '</footer>\n';
+/**
+ * Phase 1 remediation: header/footer markup is no longer duplicated here.
+ * It is sourced from scripts/site-chrome.mjs, the single authoritative
+ * chrome source (see reports/audits/AUDIT-05-ARCHITECTURE.md and
+ * reports/audits/MASTER-DIAGNOSTIC.md). The local names are kept (with the
+ * same leading-indent/trailing-newline shape the rest of this file already
+ * expects) purely so the string-concatenation code below doesn't need to
+ * change.
+ */
+const HTML_SITE_HEADER = '  ' + SITE_HEADER_HTML + '\n';
+const HTML_SITE_FOOTER = '  ' + SITE_FOOTER_HTML + '\n';
 
 const CATEGORY = {
   marketing: {
@@ -356,7 +304,9 @@ function generateCalculatorPage(template, calc, allCalculators) {
     __FAQ_JSONLD__: jsonLdStringify(buildFaqJsonLd(calc.faq)),
     __BREADCRUMB_JSONLD__: calculatorBreadcrumbJsonLd(calc, cat),
     __CONFIG_JSON__: embedConfig(calc),
-    __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || [])
+    __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || []),
+    __HEADER__: SITE_HEADER_HTML,
+    __FOOTER__: SITE_FOOTER_HTML
   };
 
   return replaceAll(template, map);
@@ -394,7 +344,9 @@ function generateArticlePage(template, calc, allCalculators) {
     __WEBPAGE_JSONLD__: jsonLdStringify(webpageLd),
     __FAQ_JSONLD__: jsonLdStringify(buildFaqJsonLd(calc.faq)),
     __BREADCRUMB_JSONLD__: calculatorBreadcrumbJsonLd(calc, cat),
-    __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || [])
+    __RELATED_LINKS__: buildRelatedLinksHtml(calc, allCalculators || []),
+    __HEADER__: SITE_HEADER_HTML,
+    __FOOTER__: SITE_FOOTER_HTML
   };
 
   return replaceAll(template, map);

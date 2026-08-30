@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Minimal footer + trust-block moved from footer into main content (first article)."""
+"""Minimal footer + trust-block moved from footer into main content (first article).
+
+RETIRED — Phase 1 remediation. This script's exact-string target
+(`<div class="footer-inner">...`) describes a footer structure that no longer
+exists anywhere in the repository — the live footer (scripts/site-chrome.mjs,
+the current single source of truth) uses a different markup shape entirely.
+Running this script today would already be a harmless no-op (no matches), but
+it is disabled explicitly rather than left as an ambiguous dead script per
+reports/audits/AUDIT-05-ARCHITECTURE.md §5.5.
+"""
 import re
 from pathlib import Path
 
@@ -83,4 +92,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(
+        "RETIRED: scripts/_retired/patch_footer_simplify.py has been "
+        "permanently disabled (superseded by scripts/site-chrome.mjs). "
+        "See module docstring."
+    )

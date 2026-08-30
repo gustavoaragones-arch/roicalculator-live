@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Replace site footers with Albor Digital LLC trust footer."""
+"""Replace site footers with Albor Digital LLC trust footer.
+
+RETIRED — Phase 1 remediation. This script's exact-string targets (OLD_LONG,
+OLD_404, OLD_PARTIAL) describe a footer generation that no longer exists
+anywhere in the repository — the site has moved through at least one further
+footer revision since (see scripts/site-chrome.mjs, the current single source
+of truth for the footer). Running this script today would already be a
+harmless no-op (no matches), but it is disabled explicitly rather than left as
+an ambiguous dead script per reports/audits/AUDIT-05-ARCHITECTURE.md §5.5.
+"""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,4 +114,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(
+        "RETIRED: scripts/_retired/patch_albor_footer.py has been permanently "
+        "disabled (superseded by scripts/site-chrome.mjs). See module docstring."
+    )

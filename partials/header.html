@@ -1,3 +1,6 @@
+<!-- Reference copy of scripts/site-chrome.mjs's SITE_HEADER_HTML. Do not hand-edit
+     this file's markup independently of that module — see scripts/sync-site-chrome.mjs
+     and reports/audits/AUDIT-05-ARCHITECTURE.md. -->
 <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -7,8 +10,8 @@
         <li><a href="/solar/roi-calculator.html">Solar</a></li>
         <li><a href="/saas/index.html">SaaS</a></li>
         <li class="nav-dropdown">
-          <span>Calculators</span>
-          <div class="nav-dropdown-menu" role="navigation" aria-label="Calculator tools">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="calculators-menu">Calculators</button>
+          <div class="nav-dropdown-menu" id="calculators-menu" role="navigation" aria-label="Calculator tools">
             <a href="/marketing/index.html">Marketing ROI</a>
             <a href="/real-estate/index.html">Real Estate ROI</a>
             <a href="/saas/index.html">SaaS ROI</a>

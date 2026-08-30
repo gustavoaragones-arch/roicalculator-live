@@ -1,6 +1,22 @@
 #!/usr/bin/env node
 /**
  * Phase 17.6 — replace site-header and site-footer blocks sitewide (static HTML).
+ *
+ * RETIRED — Phase 1 remediation (see reports/audits/AUDIT-05-ARCHITECTURE.md §5.2
+ * and reports/audits/MASTER-DIAGNOSTIC.md).
+ *
+ * This script did a blind, content-unaware regex replace of every page's
+ * <header class="site-header">...</header> block and an exact-string swap of
+ * one specific old footer. It had no way to distinguish a page whose header
+ * was intentionally customized from one that simply hadn't been migrated yet,
+ * and it hardcoded its own private copy of the header/footer markup rather
+ * than consuming scripts/site-chrome.mjs (the current single source of truth).
+ *
+ * It has been moved to scripts/_retired/ and is no longer part of any build or
+ * generation path. Its sanctioned replacement is scripts/sync-site-chrome.mjs,
+ * which sources the header from scripts/site-chrome.mjs instead of a private
+ * hardcoded copy. The guard below prevents this file from executing even if
+ * invoked directly.
  */
 import fs from 'fs';
 import path from 'path';
@@ -134,4 +150,10 @@ function main() {
   console.log('Phase 17.6 patch: headers updated in', nH, 'files, footers in', nF, 'files (of', files.length, 'html).');
 }
 
+throw new Error(
+  'RETIRED: scripts/_retired/patch-phase176.mjs has been permanently disabled ' +
+  '(superseded by scripts/sync-site-chrome.mjs + scripts/site-chrome.mjs). ' +
+  'See the file header comment for details.'
+);
+// eslint-disable-next-line no-unreachable
 main();

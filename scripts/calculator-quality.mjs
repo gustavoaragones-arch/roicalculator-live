@@ -20,8 +20,44 @@ function normQ(s) {
     .trim();
 }
 
-function fingerprintFormulas(f) {
-  return JSON.stringify(f || {});
+var STRUCTURAL_KEYWORDS = new Set(['Math', 'true', 'false', 'null', 'undefined', 'NaN', 'Infinity']);
+
+/**
+ * Phase 1 remediation (reports/audits/AUDIT-05-ARCHITECTURE.md §2,
+ * reports/audits/AUDIT-01-FULL-UX-UI.md §5.7): the previous implementation
+ * (`JSON.stringify(f || {})`) fingerprinted formulas by their literal text,
+ * which meant two calculators computing the exact same thing with renamed
+ * variables (e.g. `returnValue - cost` vs. `amountReturned - amountInvested`)
+ * produced different fingerprints and were never flagged as duplicates —
+ * this is precisely how simple-roi-calculator and free-roi-calculator (both
+ * `(return - cost) / cost * 100`) went undetected by this existing check.
+ *
+ * This version normalizes variable identifiers (but not property names like
+ * `.pow`, and not known structural keywords like `Math`) to positional
+ * placeholders before comparing, so it fingerprints formula *shape* rather
+ * than variable spelling.
+ */
+export function normalizeExpr(expr) {
+  var seen = new Map();
+  var counter = 0;
+  var IDENT_NOT_AFTER_DOT = /(^|[^.\w$])([A-Za-z_$][A-Za-z0-9_$]*)/g;
+  return String(expr || '')
+    .replace(IDENT_NOT_AFTER_DOT, function (whole, pre, tok) {
+      if (STRUCTURAL_KEYWORDS.has(tok)) return pre + tok;
+      if (!seen.has(tok)) seen.set(tok, 'V' + counter++);
+      return pre + seen.get(tok);
+    })
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function fingerprintFormulas(f) {
+  var formulas = f || {};
+  return Object.keys(formulas)
+    .map(function (k) {
+      return normalizeExpr(formulas[k]);
+    })
+    .join(' | ');
 }
 
 function fingerprintInputNames(calc) {

@@ -1,5 +1,30 @@
 #!/usr/bin/env python3
-"""Phase 11 AEO: inject answer-first blocks, citation, use-case, limitations, entity; Organization JSON-LD; Article publisher-only."""
+"""Phase 11 AEO: inject answer-first blocks, citation, use-case, limitations, entity; Organization JSON-LD; Article publisher-only.
+
+================================================================================
+RETIRED — DO NOT RUN — Phase 1 remediation (see reports/audits/AUDIT-05-ARCHITECTURE.md
+and reports/audits/MASTER-DIAGNOSTIC.md).
+
+This script is the confirmed, traced source of the site-wide generic-boilerplate
+duplication documented in Audit 02 (42/31/30/51-page contamination, including
+404.html, privacy.html, terms.html, and sitemap.html). Its only historical
+idempotency guard was "does this page already contain .ai-answer-block", which
+means it will SILENTLY REINJECT any manually-removed boilerplate the next time
+it runs, and it never excluded templates/ from its walk.
+
+It has been moved to scripts/_retired/ and is no longer part of any build or
+generation path (verified: not referenced by package.json, any CI config, or
+any other script in this repository as of the Phase 1 remediation pass).
+
+The `main()` guard immediately below refuses to execute even if this file is
+invoked directly, so it cannot mutate any file by accident. Do not remove that
+guard to "just run it one more time" — the page-type boundary model in
+scripts/page-types.mjs and the validator in scripts/validate-generation-safety.mjs
+are the sanctioned replacements for reasoning about where explanatory content
+belongs. If page-specific AEO content is genuinely needed on a page, author it
+by hand for that page, consistent with the page-type policy in page-types.mjs.
+================================================================================
+"""
 from __future__ import annotations
 
 import re
@@ -609,4 +634,11 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(
+        "RETIRED: scripts/_retired/aeo_phase11.py has been permanently disabled.\n"
+        "It was the confirmed source of the site-wide generic-boilerplate\n"
+        "contamination documented in Audit 02 / Audit 05 / MASTER-DIAGNOSTIC.md.\n"
+        "It must not be run. See the module docstring for details and the\n"
+        "sanctioned replacement (scripts/page-types.mjs + "
+        "scripts/validate-generation-safety.mjs)."
+    )
