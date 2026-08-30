@@ -288,46 +288,6 @@ button[type="submit"].btn-primary {
   }
 }
 
-/* Sticky CTA (homepage — scroll to calculator) */
-.sticky-calc-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-  padding: var(--space-sm) var(--space-lg);
-  background: rgba(15, 23, 42, 0.95);
-  border-top: 1px solid var(--color-border);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.35);
-}
-.sticky-calc-bar.is-visible {
-  display: flex;
-}
-.sticky-calc-bar span {
-  font-size: 0.9375rem;
-  color: var(--color-text);
-  font-weight: 500;
-}
-.sticky-calc-bar .btn-sm {
-  padding: 8px 14px;
-  font-size: 0.875rem;
-}
-.sticky-calc-bar a.btn-primary {
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-}
-body.has-sticky-calc-bar {
-  padding-bottom: 56px;
-}
-
 .badge-privacy {
   margin-left: auto;
   font-size: 0.8125rem;
@@ -350,7 +310,18 @@ article.content-section {
 /* Hero (home: calculator-first) */
 .page-home .hero {
   text-align: left;
-  padding: 60px 0 40px;
+  padding: 40px 0 24px;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.page-home .hero .subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  max-width: 42rem;
 }
 .page-home .hero h1 {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
@@ -428,7 +399,7 @@ article.content-section {
   margin: var(--space-2xl) 0;
 }
 /* Calculator wrapper (index.html) */
-.calculator-section { margin: var(--space-xl) 0; }
+.calculator-section { margin: var(--space-lg) 0 var(--space-xl); }
 .calculator-section-inner { max-width: var(--max-width); margin: 0 auto; }
 .calculator-card {
   background: rgba(20, 20, 25, 0.6);
@@ -451,7 +422,7 @@ article.content-section {
   border-radius: 0;
   padding: 0;
 }
-/* Hero quick answer */
+/* Hero quick answer — used on vertical calculator pages */
 .hero-quick-answer {
   background: var(--color-bg-alt);
   border-left: 3px solid var(--color-accent);
@@ -461,10 +432,6 @@ article.content-section {
   color: var(--color-text-body);
   margin: var(--space-md) 0;
   max-width: 42rem;
-}
-.page-home main > .hero-quick-answer {
-  margin-top: 0;
-  margin-bottom: var(--space-xl);
 }
 /* AI answer dominance wrapper */
 .ai-answer-dominance {
@@ -486,7 +453,7 @@ article.content-section {
   font-size: 0.95rem;
   margin: 0;
 }
-/* Home AEO wrapper */
+/* Home AEO wrapper — vertical pages only */
 .home-aeo {
   max-width: var(--max-width);
   margin: 0 auto var(--space-2xl);
@@ -661,45 +628,12 @@ article.content-section {
   text-decoration: underline;
 }
 
-/* Phase 17.7 — homepage sticky-style calculator strip (horizontal scroll on small screens) */
-.calculator-strip {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 10px 16px;
-  border-bottom: 1px solid #222;
-  background: #0b0b0b;
-  -webkit-overflow-scrolling: touch;
-}
-.calculator-strip a {
-  white-space: nowrap;
-  font-size: 13px;
-  color: #6ee7b7;
-  text-decoration: none;
-}
-.calculator-strip a:hover {
-  color: #a7f3d0;
-  text-decoration: underline;
-}
+/* Phase 7B-01 — calculator-strip removed from homepage */
 
 .chart-container {
   position: relative;
   height: 280px;
   margin-top: var(--space-lg);
-}
-
-/* AEO — context above calculator (homepage) */
-.aeo-context-anchor {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  margin: 0 auto var(--space-md);
-  max-width: var(--max-width-wide);
-  padding: 0 20px;
-  line-height: 1.5;
-}
-.aeo-context-strong {
-  color: var(--color-text);
-  font-weight: 600;
 }
 
 /* AEO — quotable Q&A block (results) */
@@ -738,30 +672,6 @@ article.content-section {
   font-weight: 500;
 }
 
-/* Multi-answer static blocks (homepage — below calculator, before FAQ) */
-.aeo-static-answer {
-  margin-top: 32px;
-  max-width: var(--max-width-wide);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
-}
-.aeo-static-answer h2 {
-  font-size: 18px;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: var(--color-text);
-  line-height: 1.3;
-}
-.aeo-static-answer p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--color-text-body);
-  line-height: 1.65;
-}
-.aeo-static-answer--secondary {
-  margin-top: var(--space-lg);
-}
 .aeo-raw-hidden {
   position: absolute;
   width: 1px;
@@ -1103,12 +1013,6 @@ table.summary-table { margin: var(--space-md) 0; }
   font-size: 1.05rem;
   margin: 0 0 var(--space-md);
   max-width: 42rem;
-}
-.hero-proof {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #9ca3af;
-  max-width: 520px;
 }
 .explore-industry .industry-list {
   list-style: disc;
