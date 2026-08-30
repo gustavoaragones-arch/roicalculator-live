@@ -1,0 +1,13 @@
+{
+  "name": "roicalculator-live-qa-tooling",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dev-only Playwright browser QA tooling for the static roicalculator.live site. This package.json exists solely to support rendered-browser visual QA scripts under scripts/qa/. It is NOT a build system and is NOT required to serve or deploy the production site.",
+  "scripts": {
+    "qa": "node scripts/qa/example-domain-check.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  },
+  "license": "UNLICENSED"
+}

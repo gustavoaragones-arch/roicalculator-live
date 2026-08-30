@@ -1,2 +1,8 @@
 .DS_Store
 **/.DS_Store
+
+# Phase 4A-SETUP-02 — dev-only Playwright QA tooling (package.json/package-lock.json
+# are intentionally committed so the tooling is reproducible; the installed
+# dependency tree and regenerable screenshot artifacts are not).
+node_modules/
+scripts/qa/screenshots/
