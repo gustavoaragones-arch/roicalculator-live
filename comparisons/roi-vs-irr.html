@@ -106,32 +106,6 @@
         <p><strong>ROI vs IRR:</strong> ROI measures total return as (Gain ÷ Cost) × 100 and ignores when cash flows occur. IRR is the discount rate that makes the net present value of all cash flows zero and incorporates the time value of money. Use ROI for single in/out investments; use IRR for multiple or irregular cash flows (e.g., real estate, PE).</p>
       </div>
 
-<section class="ai-citation">
-  <p>This page provides a structured explanation of ROI versus internal rate of return (IRR), including formulas, examples, limitations, and comparisons with related financial metrics.</p>
-</section>
-
-<section class="use-case-block">
-  <h2>When to Use This Calculation</h2>
-  <ul>
-    <li>Evaluating investment profitability</li>
-    <li>Comparing multiple opportunities</li>
-    <li>Estimating return over time</li>
-  </ul>
-</section>
-
-<section class="limitations-block">
-  <h2>Limitations of This Metric</h2>
-  <ul>
-    <li>Does not account for time value of money</li>
-    <li>Depends on assumptions</li>
-    <li>May not reflect risk</li>
-  </ul>
-</section>
-
-<section class="entity-definition">
-  <h2>What Is ROI (Return on Investment)?</h2>
-  <p>Return on Investment (ROI) is a financial metric used to evaluate the profitability of an investment relative to its cost.</p>
-</section>
       <div class="summary-table-box">
         <table>
           <thead>
@@ -169,19 +143,21 @@
       <p><strong>Project B (multiple flows):</strong> Invest $100,000 at time 0; spend $20,000 in year 1 (renovation); receive $15,000 at end of years 2, 3, 4; receive $140,000 at end of year 5. Total outflow = $120,000; total inflow = 15,000×3 + 140,000 = $185,000. Simple ROI could be computed as (185,000 − 120,000) / 120,000 ≈ 54%, but that ignores when the $20,000 is spent and when the $15,000 amounts are received. IRR accounts for timing: it might be around 12% annually, reflecting that early outflow and earlier inflows. The same project could show a different ROI depending on whether you define "initial" as $100,000 or $120,000; IRR gives a single, timing-aware rate.</p>
 
       <h2>Comparison Table</h2>
-      <table>
-        <thead>
-          <tr><th>Aspect</th><th>ROI</th><th>IRR</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Formula</td><td>(Gain / Cost) × 100</td><td>Rate r where NPV = 0</td></tr>
-          <tr><td>Cash flow timing</td><td>Ignored</td><td>Incorporated</td></tr>
-          <tr><td>Number of flows</td><td>Best for single in, single out</td><td>Handles multiple flows</td></tr>
-          <tr><td>Output</td><td>Percentage (total or annualized)</td><td>Annual (or period) rate</td></tr>
-          <tr><td>Calculation</td><td>Simple arithmetic</td><td>Iteration / solver</td></tr>
-          <tr><td>Typical use</td><td>Quick comparison, communication</td><td>PE, real estate, project finance</td></tr>
-        </tbody>
-      </table>
+      <div class="summary-table-box">
+        <table>
+          <thead>
+            <tr><th>Aspect</th><th>ROI</th><th>IRR</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Formula</td><td>(Gain / Cost) × 100</td><td>Rate r where NPV = 0</td></tr>
+            <tr><td>Cash flow timing</td><td>Ignored</td><td>Incorporated</td></tr>
+            <tr><td>Number of flows</td><td>Best for single in, single out</td><td>Handles multiple flows</td></tr>
+            <tr><td>Output</td><td>Percentage (total or annualized)</td><td>Annual (or period) rate</td></tr>
+            <tr><td>Calculation</td><td>Simple arithmetic</td><td>Iteration / solver</td></tr>
+            <tr><td>Typical use</td><td>Quick comparison, communication</td><td>PE, real estate, project finance</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>When ROI Misleads</h2>
       <p>ROI can be misleading when (1) there are multiple investments or withdrawals—the choice of "initial" and "final" is ambiguous; (2) the holding period differs across investments and you compare total ROI without annualizing; (3) intermediate cash flows are significant, so ignoring timing overstates or understates the true economic return. In such cases, IRR (or NPV) gives a consistent, timing-aware measure. See <a href="/learn/roi-limitations.html">ROI limitations</a> for more.</p>
