@@ -44,6 +44,7 @@ export const SITE_HEADER_HTML =
   '            <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
   '            <a href="/hvac/roi-calculator.html">HVAC ROI</a>\n' +
   '            <a href="/hr/roi-calculator.html">Employee ROI</a>\n' +
+  '            <a href="/3d-printing/">3D Printing Calculators</a>\n' +
   '          </div>\n' +
   '        </li>\n' +
   '        <li><a href="/learn/what-is-roi.html">Learn</a></li>\n' +
