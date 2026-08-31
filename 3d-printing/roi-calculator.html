@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="2026-08-30">
+  <meta http-equiv="last-modified" content="Sun, 30 Aug 2026 12:00:00 GMT">
+  <title>3D Printing Business ROI Calculator | roicalculator.live</title>
+  <meta name="description" content="Free 3D printing business ROI calculator: printer cost, material, electricity, labor, failure rate, and marketplace fees. Get monthly profit, payback period, and ROI.">
+  <link rel="canonical" href="https://roicalculator.live/3d-printing/roi-calculator.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/3d-printing/roi-calculator.html">
+  <meta property="og:title" content="3D Printing Business ROI Calculator | roicalculator.live">
+  <meta property="og:description" content="Free 3D printing business ROI calculator: printer cost, material, electricity, labor, failure rate, and marketplace fees. Get monthly profit, payback period, and ROI.">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=7b02">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"3D Printing Business ROI Calculator","description":"Free 3D printing business ROI calculator: printer cost, material, electricity, labor, failure rate, and marketplace fees. Get monthly profit, payback period, and ROI.","url":"https://roicalculator.live/3d-printing/roi-calculator.html","author":{"@type":"Organization","name":"Albor Digital LLC"}}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Why does the payback period add depreciation back instead of just using monthly profit?", "acceptedAnswer": {"@type": "Answer", "text": "Depreciation spreads the printer's purchase price across its useful life as an accounting cost, but you already paid that cost once, up front. Adding it back gives the actual cash coming in each month, which is what pays back your initial investment — using monthly accounting profit instead would effectively subtract the printer's cost twice."}},
+      {"@type": "Question", "name": "How does the failure rate affect my cost per print?", "acceptedAnswer": {"@type": "Answer", "text": "Failure rate is applied to the full cost of an attempt — material, electricity, depreciation, and labor — not just the wasted material, because a failed print also consumes machine time and hands-on time. At a 10% failure rate, for example, cost per successful print rises by about 11%, not a flat 10%, since on average you need slightly more than one attempt to get one success."}},
+      {"@type": "Question", "name": "What's the difference between the margin and markup shown in the results?", "acceptedAnswer": {"@type": "Answer", "text": "Markup is profit as a percentage of cost; margin is profit as a percentage of price. A 100% markup on a $10 cost sets a $20 price, which is only a 50% margin — the two numbers describe the same profit in different ways, and this calculator shows both so pricing decisions use whichever framing you're used to."}},
+      {"@type": "Question", "name": "Why is my printer investment excluded from monthly operating profit?", "acceptedAnswer": {"@type": "Answer", "text": "Monthly operating profit reflects ongoing running costs, including a depreciation charge for the printer, so it already accounts for the printer wearing out over time. The upfront purchase price itself is tracked separately, in payback and ROI, so it is not subtracted a second time from monthly profit."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="/" class="logo">roicalculator.live</a>
+      <button type="button" class="nav-mobile-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/real-estate/index.html">Real Estate</a></li>
+        <li><a href="/solar/roi-calculator.html">Solar</a></li>
+        <li><a href="/saas/index.html">SaaS</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="calculators-menu">Calculators</button>
+          <div class="nav-dropdown-menu" id="calculators-menu" role="navigation" aria-label="Calculator tools">
+            <a href="/marketing/index.html">Marketing ROI</a>
+            <a href="/real-estate/index.html">Real Estate ROI</a>
+            <a href="/saas/index.html">SaaS ROI</a>
+            <a href="/solar/roi-calculator.html">Solar ROI</a>
+            <a href="/hvac/roi-calculator.html">HVAC ROI</a>
+            <a href="/hr/roi-calculator.html">Employee ROI</a>
+          </div>
+        </li>
+        <li><a href="/learn/what-is-roi.html">Learn</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li><a href="/methodology/">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>3D Printing Business ROI Calculator</h1>
+        <p class="hero-sub">Calculate monthly profit, payback period, and ROI for a 3D printing side business from printer cost, per-print economics, and sales volume.</p>
+      </div>
+    </section>
+
+    <section class="calculator-section" aria-label="3D printing business ROI calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="tdp-calc-heading">
+            <h2 id="tdp-calc-heading">Inputs</h2>
+            <form id="tdp-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tdp-printer-cost">Printer cost ($)</label>
+                  <input type="number" id="tdp-printer-cost" min="0" step="25" value="400" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-setup-cost">Setup cost ($)</label>
+                  <input type="number" id="tdp-setup-cost" min="0" step="5" value="50" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-useful-life">Useful life (hours)</label>
+                  <input type="number" id="tdp-useful-life" min="100" step="100" value="2500" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tdp-residual">Residual value ($)</label>
+                  <input type="number" id="tdp-residual" min="0" step="10" value="0" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-price">Average selling price ($/print)</label>
+                  <input type="number" id="tdp-price" min="0" step="1" value="28" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-units">Units sold per month</label>
+                  <input type="number" id="tdp-units" min="0" step="1" value="20" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tdp-filament-price">Filament price ($/kg)</label>
+                  <input type="number" id="tdp-filament-price" min="0" step="1" value="22" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-material-grams">Material used (g)</label>
+                  <input type="number" id="tdp-material-grams" min="0" step="1" value="35" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-print-time">Print time (hours)</label>
+                  <input type="number" id="tdp-print-time" min="0" step="0.1" value="3" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tdp-wattage">Printer power draw (W)</label>
+                  <input type="number" id="tdp-wattage" min="0" step="10" value="150" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-electricity-rate">Electricity rate ($/kWh)</label>
+                  <input type="number" id="tdp-electricity-rate" min="0" step="0.01" value="0.18" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-failure-rate">Failure/reprint rate (%)</label>
+                  <input type="number" id="tdp-failure-rate" min="0" max="99" step="1" value="8" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tdp-labor-minutes">Hands-on labor per print (min)</label>
+                  <input type="number" id="tdp-labor-minutes" min="0" step="1" value="15" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-labor-rate">Labor value ($/hour)</label>
+                  <input type="number" id="tdp-labor-rate" min="0" step="1" value="18" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-platform-fee">Marketplace fee (%)</label>
+                  <input type="number" id="tdp-platform-fee" min="0" max="100" step="0.1" value="6.5" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tdp-payment-fee">Payment processing fee (%)</label>
+                  <input type="number" id="tdp-payment-fee" min="0" max="100" step="0.1" value="3" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-shipping">Shipping & packaging ($/order)</label>
+                  <input type="number" id="tdp-shipping" min="0" step="0.5" value="4.50" required>
+                </div>
+                <div class="form-group">
+                  <label for="tdp-fixed-costs">Other monthly costs ($)</label>
+                  <input type="number" id="tdp-fixed-costs" min="0" step="5" value="35" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div class="results-panel" id="tdp-results" hidden>
+              <h3>Results</h3>
+
+              <div class="result-dominant">
+                <span class="result-dominant-label">24-Month ROI</span>
+                <span class="result-dominant-value" id="tdp-res-roi24">—</span>
+              </div>
+              <p class="result-interpretation" id="tdp-res-interpretation" aria-live="polite"></p>
+
+              <div class="results-grid results-box" id="tdp-results-box">
+                <div class="result-item result-card">
+                  <span class="label">Payback period</span>
+                  <span class="value" id="tdp-res-payback">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Monthly operating profit</span>
+                  <span class="value" id="tdp-res-monthly-profit">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Profit per successful print</span>
+                  <span class="value" id="tdp-res-profit-per-print">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Break-even units/month</span>
+                  <span class="value" id="tdp-res-breakeven">—</span>
+                </div>
+              </div>
+
+              <h3>Additional context</h3>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">12-month ROI</span>
+                  <span class="value" id="tdp-res-roi12">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">36-month ROI</span>
+                  <span class="value" id="tdp-res-roi36">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Gross margin</span>
+                  <span class="value" id="tdp-res-margin">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Markup</span>
+                  <span class="value" id="tdp-res-markup">—</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="methodology-section" aria-labelledby="tdp-methodology-heading">
+      <h2 id="tdp-methodology-heading">Methodology</h2>
+      <p class="vertical-calc-note">Cost per successful print = (material + electricity + depreciation + labor) ÷ (1 − failure rate), plus platform fees, payment processing, and shipping/packaging on each sold print. Depreciation = (printer cost − residual value) ÷ useful-life hours × print time. Monthly operating profit = (selling price − cost per successful print) × units sold, minus fixed monthly costs. Payback and ROI use cash flow — depreciation is added back, since the printer's cost is already counted once as the initial investment — which avoids counting the printer price twice. ROI = (cumulative cash profit over the period − initial investment) ÷ initial investment × 100.</p>
+    </section>
+
+    <article class="content-section">
+      <h2>How to use this for a purchase or scaling decision</h2>
+      <p>Enter your printer's actual cost and useful life, your typical print's material and time, and what you actually charge and sell per month. The dominant result — 24-month ROI — is the clearest single number for judging whether the investment is worthwhile; the payback period tells you when the printer's cost stops being at risk. Compare the result to your next-best use of the same cash before deciding to buy, or before adding a second printer.</p>
+
+      <h3>Limitations of this model</h3>
+      <ul>
+        <li>This model assumes steady, consistent monthly sales at the volume entered — it does not model the ramp-up time typically needed to build a customer base, seasonality, or one-time promotional pricing.</li>
+        <li>Failed prints are assumed to have no recoverable material value.</li>
+        <li>Results are estimates for planning purposes only, not financial or investment advice.</li>
+      </ul>
+    </article>
+
+    <article class="content-section">
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Why does the payback period add depreciation back instead of just using monthly profit?</h3>
+          <p>Depreciation spreads the printer's purchase price across its useful life as an accounting cost, but you already paid that cost once, up front. Adding it back gives the actual cash coming in each month, which is what pays back your initial investment — using monthly accounting profit instead would effectively subtract the printer's cost twice.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How does the failure rate affect my cost per print?</h3>
+          <p>Failure rate is applied to the full cost of an attempt — material, electricity, depreciation, and labor — not just the wasted material, because a failed print also consumes machine time and hands-on time. At a 10% failure rate, for example, cost per successful print rises by about 11%, not a flat 10%, since on average you need slightly more than one attempt to get one success.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What's the difference between the margin and markup shown in the results?</h3>
+          <p>Markup is profit as a percentage of cost; margin is profit as a percentage of price. A 100% markup on a $10 cost sets a $20 price, which is only a 50% margin — the two numbers describe the same profit in different ways, and this calculator shows both so pricing decisions use whichever framing you're used to.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why is my printer investment excluded from monthly operating profit?</h3>
+          <p>Monthly operating profit reflects ongoing running costs, including a depreciation charge for the printer, so it already accounts for the printer wearing out over time. The upfront purchase price itself is tracked separately, in payback and ROI, so it is not subtracted a second time from monthly profit.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="content-section tertiary">
+      <h2>Explore further</h2>
+      <ul>
+        <li><a href="/">ROI calculator</a> — the general-purpose version of this calculation.</li>
+        <li><a href="/comparisons/">ROI comparisons</a> — how ROI relates to IRR, NPV, and payback period.</li>
+        <li><a href="/methodology/">Methodology</a> — how calculators on this site compute results.</li>
+      </ul>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+
+  <p class="footer-mini">
+    Private ROI calculators for financial and operational analysis.
+  </p>
+
+  <nav class="footer-links">
+    <a href="/marketing/index.html">Marketing ROI</a>
+    <a href="/real-estate/index.html">Real Estate ROI</a>
+    <a href="/saas/index.html">SaaS ROI</a>
+    <a href="/solar/roi-calculator.html">Solar ROI</a>
+    <a href="/benchmarks/index.html">Benchmarks</a>
+    <a href="/comparisons/index.html">Comparisons</a>
+  </nav>
+
+  <nav class="footer-popular" aria-label="Popular tools">
+    <p class="footer-popular-label">Popular Tools</p>
+    <a href="/learn/how-to-calculate-roi.html">How to Calculate ROI</a>
+    <a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a>
+    <a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a>
+    <a href="/real-estate/index.html">Real Estate ROI</a>
+    <a href="/solar/roi-calculator.html">Solar ROI</a>
+    <a href="/saas/index.html">SaaS ROI</a>
+  </nav>
+
+  <nav class="footer-secondary">
+    <a href="/methodology/">Methodology</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+
+  <p class="footer-disclaimer">
+    For informational purposes only. Not financial or investment advice.
+  </p>
+
+  <p class="footer-copy">
+    © 2026 Albor Digital LLC
+  </p>
+
+</footer>
+
+  <script src="/assets/js/3d-printing-roi-calculator.js" defer></script>
+  <script src="/assets/js/navigation.js" defer></script>
+</body>
+</html>
