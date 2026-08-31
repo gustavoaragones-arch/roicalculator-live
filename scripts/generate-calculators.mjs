@@ -8,7 +8,7 @@ import path from 'path';
 import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { validateConfigs } from './calculator-quality.mjs';
-import { CANONICAL_ORIGIN, canonicalUrl } from './site-config.mjs';
+import { CANONICAL_ORIGIN, canonicalUrl, STYLESHEET_HREF } from './site-config.mjs';
 import { syncRedirects } from './sync-redirects.mjs';
 import {
   SITE_HEADER_HTML,
@@ -411,7 +411,7 @@ function generateHubPage(categoryKey, calculators) {
     '/assets/og-placeholder.svg">\n' +
     '  <link rel="icon" href="data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'><text y=\'.9em\' font-size=\'24\'>📊</text></svg>" type="image/svg+xml">\n' +
     '  <link rel="manifest" href="/manifest.json">\n' +
-    '  <link rel="stylesheet" href="/assets/css/styles.css">\n' +
+    '  <link rel="stylesheet" href="' + STYLESHEET_HREF + '">\n' +
     '  <script type="application/ld+json">\n' +
     hubBreadcrumbJsonLd(categoryKey, cat) +
     '\n  </script>\n' +

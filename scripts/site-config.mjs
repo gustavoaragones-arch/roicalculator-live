@@ -4,6 +4,9 @@
  */
 export const CANONICAL_ORIGIN = 'https://roicalculator.live';
 
+/** Bust CDN/browser cache when shared CSS changes (Phase 7B-02). */
+export const STYLESHEET_HREF = '/assets/css/styles.css?v=7b02';
+
 /** @param {string} pathname Path starting with / (e.g. /calculators/foo.html or /finance/) */
 export function canonicalUrl(pathname) {
   const p = pathname.startsWith('/') ? pathname : '/' + pathname;
