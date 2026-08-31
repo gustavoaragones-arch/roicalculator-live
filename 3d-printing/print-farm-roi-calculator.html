@@ -18,6 +18,31 @@
   <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="/assets/css/styles.css?v=7b02">
+  <style>
+    /* Phase 8D — page-scoped only, not added to assets/css/styles.css.
+       Establishes result-hierarchy grouping (key metrics vs. secondary
+       economics) within this page's results panel only; does not touch the
+       shared .result-item/.results-grid rules used by any other calculator. */
+    .results-group-heading {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+    .results-secondary .result-item.result-card {
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid var(--color-border);
+    }
+    .results-secondary .result-item .value {
+      font-size: 1rem;
+    }
+    .results-secondary .result-item .label {
+      font-size: 0.6875rem;
+    }
+  </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"3D Print Farm ROI Calculator","description":"Free 3D print farm ROI calculator for printer count, utilization, print time, material cost, labor, failure rate, pricing, and monthly sales. Estimate profit, payback, and ROI.","url":"https://roicalculator.live/3d-printing/print-farm-roi-calculator.html","author":{"@type":"Organization","name":"Albor Digital LLC"}}
   </script>
@@ -185,6 +210,7 @@
               </div>
               <p class="result-interpretation" id="pf-res-interpretation" aria-live="polite"></p>
 
+              <h4 class="results-group-heading">Key Farm Metrics</h4>
               <div class="results-grid results-box" id="pf-results-box">
                 <div class="result-item result-card">
                   <span class="label">Payback period</span>
@@ -195,12 +221,8 @@
                   <span class="value" id="pf-res-monthly-profit">—</span>
                 </div>
                 <div class="result-item result-card">
-                  <span class="label">Monthly successful prints sold</span>
-                  <span class="value" id="pf-res-monthly-prints">—</span>
-                </div>
-                <div class="result-item result-card">
-                  <span class="label">Capacity utilization</span>
-                  <span class="value" id="pf-res-capacity-utilization">—</span>
+                  <span class="label">Profit per successful print</span>
+                  <span class="value" id="pf-res-profit-per-print">—</span>
                 </div>
                 <div class="result-item result-card">
                   <span class="label">Break-even prints/month</span>
@@ -208,20 +230,32 @@
                 </div>
               </div>
 
-              <h3>Additional context</h3>
-              <div class="results-grid results-box">
+              <h4 class="results-group-heading">Fleet Economics</h4>
+              <div class="results-grid results-box results-secondary">
+                <div class="result-item result-card">
+                  <span class="label">Monthly successful prints sold</span>
+                  <span class="value" id="pf-res-monthly-prints">—</span>
+                </div>
                 <div class="result-item result-card">
                   <span class="label">Theoretical successful-print capacity/month</span>
                   <span class="value" id="pf-res-capacity">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Capacity utilization</span>
+                  <span class="value" id="pf-res-capacity-utilization">—</span>
                 </div>
                 <div class="result-item result-card">
                   <span class="label">Monthly revenue</span>
                   <span class="value" id="pf-res-revenue">—</span>
                 </div>
                 <div class="result-item result-card">
-                  <span class="label">Profit per successful print</span>
-                  <span class="value" id="pf-res-profit-per-print">—</span>
+                  <span class="label">Monthly cash profit</span>
+                  <span class="value" id="pf-res-cash-profit">—</span>
                 </div>
+              </div>
+
+              <h4 class="results-group-heading">Additional context</h4>
+              <div class="results-grid results-box results-secondary">
                 <div class="result-item result-card">
                   <span class="label">12-month ROI</span>
                   <span class="value" id="pf-res-roi12">—</span>

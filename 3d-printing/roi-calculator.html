@@ -18,6 +18,31 @@
   <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="/assets/css/styles.css?v=7b02">
+  <style>
+    /* Phase 8D — page-scoped only, not added to assets/css/styles.css.
+       Establishes result-hierarchy grouping (key metrics vs. secondary
+       economics) within this page's results panel only; does not touch the
+       shared .result-item/.results-grid rules used by any other calculator. */
+    .results-group-heading {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+    .results-secondary .result-item.result-card {
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid var(--color-border);
+    }
+    .results-secondary .result-item .value {
+      font-size: 1rem;
+    }
+    .results-secondary .result-item .label {
+      font-size: 0.6875rem;
+    }
+  </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"3D Printing Business ROI Calculator","description":"Free 3D printing business ROI calculator: printer cost, material, electricity, labor, failure rate, and marketplace fees. Get monthly profit, payback period, and ROI.","url":"https://roicalculator.live/3d-printing/roi-calculator.html","author":{"@type":"Organization","name":"Albor Digital LLC"}}
   </script>
@@ -175,6 +200,7 @@
               </div>
               <p class="result-interpretation" id="tdp-res-interpretation" aria-live="polite"></p>
 
+              <h4 class="results-group-heading">Key Business Metrics</h4>
               <div class="results-grid results-box" id="tdp-results-box">
                 <div class="result-item result-card">
                   <span class="label">Payback period</span>
@@ -194,15 +220,15 @@
                 </div>
               </div>
 
-              <h3>Additional context</h3>
-              <div class="results-grid results-box">
+              <h4 class="results-group-heading">Cost Economics</h4>
+              <div class="results-grid results-box results-secondary">
                 <div class="result-item result-card">
-                  <span class="label">12-month ROI</span>
-                  <span class="value" id="tdp-res-roi12">—</span>
+                  <span class="label">Cost per successful print</span>
+                  <span class="value" id="tdp-res-cost-per-success">—</span>
                 </div>
                 <div class="result-item result-card">
-                  <span class="label">36-month ROI</span>
-                  <span class="value" id="tdp-res-roi36">—</span>
+                  <span class="label">Total cost per print</span>
+                  <span class="value" id="tdp-res-total-cost">—</span>
                 </div>
                 <div class="result-item result-card">
                   <span class="label">Gross margin</span>
@@ -211,6 +237,18 @@
                 <div class="result-item result-card">
                   <span class="label">Markup</span>
                   <span class="value" id="tdp-res-markup">—</span>
+                </div>
+              </div>
+
+              <h4 class="results-group-heading">Additional context</h4>
+              <div class="results-grid results-box results-secondary">
+                <div class="result-item result-card">
+                  <span class="label">12-month ROI</span>
+                  <span class="value" id="tdp-res-roi12">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">36-month ROI</span>
+                  <span class="value" id="tdp-res-roi36">—</span>
                 </div>
               </div>
             </div>

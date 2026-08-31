@@ -156,7 +156,7 @@
       [
         'pf-res-payback', 'pf-res-monthly-profit', 'pf-res-monthly-prints', 'pf-res-capacity-utilization',
         'pf-res-breakeven', 'pf-res-capacity', 'pf-res-revenue', 'pf-res-profit-per-print',
-        'pf-res-roi12', 'pf-res-roi36', 'pf-res-margin', 'pf-res-markup'
+        'pf-res-roi12', 'pf-res-roi36', 'pf-res-margin', 'pf-res-markup', 'pf-res-cash-profit'
       ].forEach(function (id) {
         el(id).textContent = '—';
       });
@@ -235,6 +235,7 @@
     el('pf-res-roi36').textContent = formatPct(roi36);
     el('pf-res-margin').textContent = formatPct(grossMarginPct);
     el('pf-res-markup').textContent = formatPct(markupPct);
+    el('pf-res-cash-profit').textContent = formatMoney(monthlyCashProfit);
 
     el('pf-res-interpretation').textContent = buildInterpretation(
       roi24,

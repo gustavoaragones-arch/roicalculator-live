@@ -121,7 +121,7 @@
       el('tdp-res-roi24').textContent = '—';
       el('tdp-res-interpretation').textContent =
         'No successful prints are modeled at this failure rate — reduce the failure rate below 100% to see results.';
-      ['tdp-res-payback', 'tdp-res-monthly-profit', 'tdp-res-profit-per-print', 'tdp-res-breakeven', 'tdp-res-roi12', 'tdp-res-roi36', 'tdp-res-margin', 'tdp-res-markup'].forEach(function (id) {
+      ['tdp-res-payback', 'tdp-res-monthly-profit', 'tdp-res-profit-per-print', 'tdp-res-breakeven', 'tdp-res-roi12', 'tdp-res-roi36', 'tdp-res-margin', 'tdp-res-markup', 'tdp-res-cost-per-success', 'tdp-res-total-cost'].forEach(function (id) {
         el(id).textContent = '—';
       });
       el('tdp-results').hidden = false;
@@ -169,6 +169,8 @@
     el('tdp-res-roi36').textContent = formatPct(roi36);
     el('tdp-res-margin').textContent = formatPct(grossMarginPct);
     el('tdp-res-markup').textContent = formatPct(markupPct);
+    el('tdp-res-cost-per-success').textContent = formatMoney(costPerSuccess, 2);
+    el('tdp-res-total-cost').textContent = formatMoney(totalCostPerPrint, 2);
 
     el('tdp-res-interpretation').textContent = buildInterpretation(roi24, initialInvestment, paybackMonths, monthlyOperatingProfit, units);
 
