@@ -111,10 +111,17 @@ All formulas, input names/IDs, and `factory-page-config` contracts unchanged.
 
 ## 11. Production verification
 
-Run after push: `node scripts/qa/phase7d-production-verify.mjs`
+**Commit:** `fd4d3e5`  
+**HEAD == origin/main:** verified  
+**Production (cache-busted):** PASS after ~30s deploy propagation
+
+- Marketing factory calculator: `page-factory`, hero, dominant result, no pre-calc quick answer
+- Operations (`equipment-roi-calculator`): PASS
+- General (`simple-roi-calculator`): PASS
+- Reference pages (/, /saas/, /real-estate/, /solar/, /marketing/): PASS — no regression
 
 ---
 
 ## 12. Commit
 
-`Phase 7D: factory calculator architecture`
+`fd4d3e5` — Phase 7D: factory calculator architecture
