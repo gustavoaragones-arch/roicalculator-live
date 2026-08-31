@@ -58,9 +58,9 @@ export const TRENDING_TOOLS_SECTION_HTML =
   '      <section class="explore-industry trending-tools">\n' +
   '        <h3>Trending ROI Tools</h3>\n' +
   '        <ul class="industry-list">\n' +
-  '          <li><a href="/calculators/simple-roi-calculator.html">Simple ROI Calculator</a></li>\n' +
-  '          <li><a href="/calculators/free-roi-calculator.html">Free ROI Calculator</a></li>\n' +
-  '          <li><a href="/calculators/roi-calculator-example.html">ROI Calculator Example</a></li>\n' +
+  '          <li><a href="/learn/how-to-calculate-roi.html">How to Calculate ROI</a></li>\n' +
+  '          <li><a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a></li>\n' +
+  '          <li><a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a></li>\n' +
   '          <li><a href="/real-estate/index.html">Real Estate ROI</a></li>\n' +
   '          <li><a href="/solar/roi-calculator.html">Solar ROI</a></li>\n' +
   '          <li><a href="/saas/index.html">SaaS ROI</a></li>\n' +
@@ -70,9 +70,9 @@ export const TRENDING_TOOLS_SECTION_HTML =
 export const POPULAR_TOOLS_FOOTER_HTML =
   '  <nav class="footer-popular" aria-label="Popular tools">\n' +
   '    <p class="footer-popular-label">Popular Tools</p>\n' +
-  '    <a href="/calculators/simple-roi-calculator.html">Simple ROI Calculator</a>\n' +
-  '    <a href="/calculators/free-roi-calculator.html">Free ROI Calculator</a>\n' +
-  '    <a href="/calculators/roi-calculator-example.html">ROI Calculator Example</a>\n' +
+  '    <a href="/learn/how-to-calculate-roi.html">How to Calculate ROI</a>\n' +
+  '    <a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a>\n' +
+  '    <a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a>\n' +
   '    <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
   '    <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
   '    <a href="/saas/index.html">SaaS ROI</a>\n' +

@@ -83,4 +83,20 @@ http://roicalculator.live/* https://roicalculator.live/:splat 301
 /roi-calculator/marketing/ /marketing/ 301
 /roi-calculator/marketing/index.html /marketing/ 301
 /roi-calculator/marketing/email-marketing-roi.html /calculators/email-marketing-roi-calculator.html 301
+
+# Phase 7G — generic-ROI content consolidation per
+# reports/audits/PHASE-7F-CONTENT-SEO-AEO-AUDIT.md. simple-roi-calculator.html,
+# free-roi-calculator.html, and roi-calculator-example.html were a thin,
+# mathematically-duplicate (identical formula shape to the homepage and to
+# each other, confirmed by validate-generation-safety.mjs Check D),
+# doorway-page-shaped cluster targeting keyword variants of the same head
+# term. Director decision: consolidate into the homepage, the canonical
+# generic ROI Calculator destination. roi-vs-other-metrics.html was the
+# weakest member of the ROI-vs-IRR/NPV content cluster (262 words, generic
+# FAQ) versus the two deep, canonical comparison articles; consolidated into
+# the comparisons hub rather than duplicating either article.
+/calculators/simple-roi-calculator.html / 301
+/calculators/free-roi-calculator.html / 301
+/calculators/roi-calculator-example.html / 301
+/calculators/roi-vs-other-metrics.html /comparisons/ 301
 `;
