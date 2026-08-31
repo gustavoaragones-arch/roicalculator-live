@@ -119,7 +119,7 @@
       config: {
         question:
           'What ROI and annualized return does this scenario produce?',
-        buildQuickAnswerParagraph: function (p, v, r) {
+        buildInterpretationParagraph: function (p, v, r) {
           var roiNum = typeof r.roi === 'number' && isFinite(r.roi) ? r.roi : NaN;
           var roi =
             typeof r.roi === 'number' && isFinite(r.roi) ? r.roi.toFixed(2) : '—';

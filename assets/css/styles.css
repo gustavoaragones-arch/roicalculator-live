@@ -585,9 +585,58 @@ body:not(.page-home) .methodology-section .vertical-calc-note {
   margin-top: var(--space-xl);
   padding-top: var(--space-xl);
   border-top: 1px solid var(--color-border);
-  min-height: 400px;
 }
-.results-panel h3 { font-size: 1rem; margin: 0 0 var(--space-md); }
+.results-panel > h3,
+.results-panel > .results-panel-heading {
+  font-size: 1rem;
+  margin: 0 0 var(--space-md);
+}
+.results-panel .results-grid,
+.results-panel .results-box {
+  margin-bottom: var(--space-lg);
+}
+.results-panel .result-dominant {
+  padding-bottom: 0;
+}
+.results-panel .result-interpretation {
+  margin: var(--space-sm) auto var(--space-lg);
+}
+.results-panel .calc-result-explanation {
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+.results-panel .calc-result-explanation-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+  line-height: 1.35;
+}
+.results-panel .calc-result-explanation-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text-body);
+}
+.results-panel .calc-result-internal-links {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.results-panel .calc-result-internal-links a {
+  font-weight: 500;
+}
+.results-panel .calc-projection-block {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+.results-panel .calc-projection-heading {
+  font-size: 1rem;
+  margin: 0 0 var(--space-md);
+}
+.results-panel .calc-projection-block .chart-container {
+  margin-top: 0;
+}
 .results-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -696,35 +745,30 @@ body:not(.page-home) .methodology-section .vertical-calc-note {
   margin-top: var(--space-lg);
 }
 
-/* AEO — quotable Q&A block (results) */
-.aeo-calculation-answer {
-  margin-top: 4px;
+/* Legacy AEO class names — plain prose, no SEO callout chrome */
+.aeo-calculation-answer,
+.aeo-answer-block {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
 }
 .aeo-question {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
-  margin: 0 0 6px;
+  margin: 0 0 var(--space-sm);
   color: var(--color-text);
   line-height: 1.35;
 }
-.aeo-answer-block {
-  margin-top: 20px;
-  padding: 14px 16px;
-  border-left: 3px solid #22c55e;
-  background: rgba(34, 197, 94, 0.08);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: var(--color-text-body);
-}
-.aeo-calculation-answer .aeo-answer-block {
-  margin-top: 0;
-}
 .aeo-answer-block p {
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .aeo-answer-internal-links {
-  margin: 10px 0 0;
+  margin: var(--space-sm) 0 0;
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -790,13 +834,13 @@ th { background: var(--color-bg-alt); font-weight: 600; color: var(--color-text)
 }
 .definition-block p { margin: 0; }
 
-/* AEO / AI Engine Optimization — extractable, quotable blocks */
+/* Content Q&A blocks — semantic structure without card chrome (Phase 7E) */
 .ai-answer-block {
-  background: #161619;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--space-md) var(--space-lg);
-  margin: var(--space-lg) 0 var(--space-md);
+  margin: var(--space-lg) 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
 }
 .ai-answer-block h2 {
   font-size: 1.125rem;
@@ -804,7 +848,8 @@ th { background: var(--color-bg-alt); font-weight: 600; color: var(--color-text)
   margin: 0 0 var(--space-sm);
   color: var(--color-text);
 }
-.ai-answer-block p { margin: 0; font-size: 1.05rem; line-height: 1.5; color: var(--color-text-body); }
+.ai-answer-block p { margin: 0 0 var(--space-sm); font-size: 1.05rem; line-height: 1.5; color: var(--color-text-body); }
+.ai-answer-block p:last-child { margin-bottom: 0; }
 
 /* Scenario example (trust / E-E-A-T) */
 .example-block {
@@ -1109,6 +1154,14 @@ body.page-factory .calculator-form .form-group {
 
 body.page-factory .calculator-module.calculator-box {
   margin: 0;
+}
+
+body.page-factory .results-panel .result-interpretation {
+  margin: var(--space-sm) auto var(--space-lg);
+}
+
+body.page-factory .results-panel .results-grid {
+  margin-bottom: 0;
 }
 
 /* Phase 7 — SaaS reference architecture (legacy opt-in via body.ref-page).
