@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,32 +106,46 @@
       <span aria-current="page">Working Capital Deployment ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Working Capital Deployment ROI Calculator</h1>
+      <p class="hero-sub">Subtracts a treasury-style hurdle from headline return so incremental ROI reflects opportunity cost—different from simple yield on <a href="/learn/roi-vs-irr.html">nominal cash</a>.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Subtracts a treasury-style hurdle from headline return so incremental ROI reflects opportunity cost—different from simple yield on <a href="/learn/roi-vs-irr.html">nominal cash</a>.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-cashDeployed">Cash deployed ($)</label><input type="number" id="factory-inp-cashDeployed" name="cashDeployed" value="250000" min="0" step="1000"></div>
+    <section class="calculator-section" aria-label="Working Capital Deployment ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-cashDeployed">Cash deployed ($)</label><input type="number" id="factory-inp-cashDeployed" name="cashDeployed" value="250000" min="0" step="1000"></div>
 <div class="form-group"><label for="factory-inp-annualReturn">Annual return generated ($)</label><input type="number" id="factory-inp-annualReturn" name="annualReturn" value="18500" min="0" step="100"></div>
 <div class="form-group"><label for="factory-inp-hurdleYieldPercent">Opportunity cost / hurdle (% per year)</label><input type="number" id="factory-inp-hurdleYieldPercent" name="hurdleYieldPercent" value="4.5" min="0" step="0.1"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">ROI vs hurdle (incremental)</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Net advantage vs hurdle ($)</span><span id="factory-out-netAdvantage" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">ROI vs hurdle (incremental)</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Net advantage vs hurdle ($)</span><span id="factory-out-netAdvantage" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>Choosing hurdleYieldPercent</h2><div class="static-block-body">Use short-term treasury or your WACC policy consistently—changing the hurdle changes incremental ROI without changing operations.</div></section>
-<section class="content-section static-answer-block"><h2>FX and concentration</h2><div class="static-block-body">Does not model counterparty default or trapped cash—pair with treasury memos, not <a href="/benchmarks/">benchmark tables</a> alone.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>Choosing hurdleYieldPercent</h2><div class="static-block-body">Use short-term treasury or your WACC policy consistently—changing the hurdle changes incremental ROI without changing operations.</div></section>
+<section class="static-answer-block"><h2>FX and concentration</h2><div class="static-block-body">Does not model counterparty default or trapped cash—pair with treasury memos, not <a href="/benchmarks/">benchmark tables</a> alone.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>Why subtract an opportunity cost from annual return?</h3><div class="faq-answer">Deployed cash could earn the hurdle rate elsewhere. Net advantage is the return above that baseline; incremental ROI divides that advantage by deployed cash.</div></div>
+<div class="faq-item"><h3>Can I include interest earned on freed cash?</h3><div class="faq-answer">Yes if you add it to annual return using the same annualization rules. Label blended benefits so treasury can audit the story.</div></div>
+<div class="faq-item"><h3>Why might incremental ROI look small but still justify a program?</h3><div class="faq-answer">Risk reduction, service levels, or strategic option value may not appear in annualReturn—document those outside this percentage.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -140,14 +154,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>Why subtract an opportunity cost from annual return?</h3><div class="faq-answer">Deployed cash could earn the hurdle rate elsewhere. Net advantage is the return above that baseline; incremental ROI divides that advantage by deployed cash.</div></div>
-<div class="faq-item"><h3>Can I include interest earned on freed cash?</h3><div class="faq-answer">Yes if you add it to annual return using the same annualization rules. Label blended benefits so treasury can audit the story.</div></div>
-<div class="faq-item"><h3>Why might incremental ROI look small but still justify a program?</h3><div class="faq-answer">Risk reduction, service levels, or strategic option value may not appear in annualReturn—document those outside this percentage.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

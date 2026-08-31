@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,33 +106,47 @@
       <span aria-current="page">Content Marketing ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Content Marketing ROI Calculator</h1>
+      <p class="hero-sub">This version values pipeline as <strong>leads × deal size × win rate</strong> minus production spend—align win rate with sales ops before presenting. See <a href="/comparisons/roi-vs-npv.html">NPV</a> for multi-year cash flows.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> This version values pipeline as <strong>leads × deal size × win rate</strong> minus production spend—align win rate with sales ops before presenting. See <a href="/comparisons/roi-vs-npv.html">NPV</a> for multi-year cash flows.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-qualifiedLeads">Qualified leads (#)</label><input type="number" id="factory-inp-qualifiedLeads" name="qualifiedLeads" value="95" min="0" step="1"></div>
+    <section class="calculator-section" aria-label="Content Marketing ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-qualifiedLeads">Qualified leads (#)</label><input type="number" id="factory-inp-qualifiedLeads" name="qualifiedLeads" value="95" min="0" step="1"></div>
 <div class="form-group"><label for="factory-inp-avgDealValue">Average deal value ($)</label><input type="number" id="factory-inp-avgDealValue" name="avgDealValue" value="12000" min="0" step="100"></div>
 <div class="form-group"><label for="factory-inp-winRate">Win rate (0–1)</label><input type="number" id="factory-inp-winRate" name="winRate" value="0.22" min="0" max="1" step="0.01"></div>
 <div class="form-group"><label for="factory-inp-productionCost">Production cost ($)</label><input type="number" id="factory-inp-productionCost" name="productionCost" value="15000" min="0" step="500"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">Content ROI</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Net expected value vs cost</span><span id="factory-out-profit" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Content ROI</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Net expected value vs cost</span><span id="factory-out-profit" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>Pipeline dollars versus expected revenue</h2><div class="static-block-body">Multiplying by <strong>winRate</strong> moves from optimistic pipeline to expected revenue—closer to how <a href="/comparisons/roi-vs-npv.html">risk-adjusted</a> views treat uncertain deals.</div></section>
-<section class="content-section static-answer-block"><h2>When this model fits B2B content</h2><div class="static-block-body">Works when RevOps can supply win rate by segment. For paid capture parallels, see <a href="/roi-calculator/marketing/lead-generation-roi.html">lead generation ROI</a>.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>Pipeline dollars versus expected revenue</h2><div class="static-block-body">Multiplying by <strong>winRate</strong> moves from optimistic pipeline to expected revenue—closer to how <a href="/comparisons/roi-vs-npv.html">risk-adjusted</a> views treat uncertain deals.</div></section>
+<section class="static-answer-block"><h2>When this model fits B2B content</h2><div class="static-block-body">Works when RevOps can supply win rate by segment. For paid capture parallels, see <a href="/roi-calculator/marketing/lead-generation-roi.html">lead generation ROI</a>.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>How do you calculate content marketing ROI with leads, deal size, and win rate?</h3><div class="faq-answer">Multiply qualified leads by average deal value and win rate to estimate expected revenue, subtract production cost, then divide profit by production cost. Win rate should match the same funnel definition as your leads.</div></div>
+<div class="faq-item"><h3>Why use win rate instead of raw pipeline?</h3><div class="faq-answer">Raw pipeline overstates value when stages leak. Win rate converts pipeline to an expected value so ROI is comparable quarter to quarter when stage definitions hold.</div></div>
+<div class="faq-item"><h3>Is SEO traffic included?</h3><div class="faq-answer">Only if your pipeline attribution model credits SEO-assisted journeys to this content program. Otherwise you are mixing channel outcomes with a single asset cost.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -141,14 +155,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>How do you calculate content marketing ROI with leads, deal size, and win rate?</h3><div class="faq-answer">Multiply qualified leads by average deal value and win rate to estimate expected revenue, subtract production cost, then divide profit by production cost. Win rate should match the same funnel definition as your leads.</div></div>
-<div class="faq-item"><h3>Why use win rate instead of raw pipeline?</h3><div class="faq-answer">Raw pipeline overstates value when stages leak. Win rate converts pipeline to an expected value so ROI is comparable quarter to quarter when stage definitions hold.</div></div>
-<div class="faq-item"><h3>Is SEO traffic included?</h3><div class="faq-answer">Only if your pipeline attribution model credits SEO-assisted journeys to this content program. Otherwise you are mixing channel outcomes with a single asset cost.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

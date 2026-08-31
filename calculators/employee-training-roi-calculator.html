@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,32 +106,46 @@
       <span aria-current="page">Employee Training ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Employee Training ROI Calculator</h1>
+      <p class="hero-sub">Splits value into <strong>productivity</strong> and <strong>error reduction</strong> before netting cost—helps L&amp;D defend assumptions separately. Align with <a href="/hr/roi-calculator.html">HR ROI</a> when retention moves.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Splits value into <strong>productivity</strong> and <strong>error reduction</strong> before netting cost—helps L&amp;D defend assumptions separately. Align with <a href="/hr/roi-calculator.html">HR ROI</a> when retention moves.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-programCost">Program cost ($)</label><input type="number" id="factory-inp-programCost" name="programCost" value="85000" min="0" step="1000"></div>
+    <section class="calculator-section" aria-label="Employee Training ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-programCost">Program cost ($)</label><input type="number" id="factory-inp-programCost" name="programCost" value="85000" min="0" step="1000"></div>
 <div class="form-group"><label for="factory-inp-productivityValue">Annual productivity value ($)</label><input type="number" id="factory-inp-productivityValue" name="productivityValue" value="95000" min="0" step="1000"></div>
 <div class="form-group"><label for="factory-inp-errorReductionValue">Annual error reduction value ($)</label><input type="number" id="factory-inp-errorReductionValue" name="errorReductionValue" value="45000" min="0" step="500"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">Training ROI</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Net annual value</span><span id="factory-out-profit" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Training ROI</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Net annual value</span><span id="factory-out-profit" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>When to separate productivity from quality</h2><div class="static-block-body">Use separate inputs when operations owns scrap reduction while sales owns throughput—avoids double-counting the same hour twice.</div></section>
-<section class="content-section static-answer-block"><h2>Kirkpatrick and monetization</h2><div class="static-block-body">Level-4 results require dollarized outcomes; smile sheets alone cannot populate productivity or error fields—see <a href="/benchmarks/">benchmarks</a> only as context.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>When to separate productivity from quality</h2><div class="static-block-body">Use separate inputs when operations owns scrap reduction while sales owns throughput—avoids double-counting the same hour twice.</div></section>
+<section class="static-answer-block"><h2>Kirkpatrick and monetization</h2><div class="static-block-body">Level-4 results require dollarized outcomes; smile sheets alone cannot populate productivity or error fields—see <a href="/benchmarks/">benchmarks</a> only as context.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>How is employee training ROI calculated with two value streams?</h3><div class="faq-answer">Add annual productivity value and annual error reduction value for total value created, subtract program cost, then divide net value by program cost for ROI.</div></div>
+<div class="faq-item"><h3>Can I include opportunity cost of attendee time?</h3><div class="faq-answer">Yes—add attendee hours × loaded cost to program cost if those hours would otherwise be billable or productive.</div></div>
+<div class="faq-item"><h3>What horizon should annual value cover?</h3><div class="faq-answer">Use a steady-state year after skills land; if benefits ramp, normalize to a run-rate before comparing programs.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -140,14 +154,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>How is employee training ROI calculated with two value streams?</h3><div class="faq-answer">Add annual productivity value and annual error reduction value for total value created, subtract program cost, then divide net value by program cost for ROI.</div></div>
-<div class="faq-item"><h3>Can I include opportunity cost of attendee time?</h3><div class="faq-answer">Yes—add attendee hours × loaded cost to program cost if those hours would otherwise be billable or productive.</div></div>
-<div class="faq-item"><h3>What horizon should annual value cover?</h3><div class="faq-answer">Use a steady-state year after skills land; if benefits ramp, normalize to a run-rate before comparing programs.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

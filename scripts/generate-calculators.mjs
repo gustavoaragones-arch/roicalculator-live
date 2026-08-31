@@ -116,7 +116,24 @@ function buildInputs(inputs) {
 }
 
 function buildOutputs(outputs) {
-  var inner = (outputs || [])
+  var list = outputs || [];
+  if (!list.length) return '';
+
+  var primary = list[0];
+  var secondary = list.slice(1);
+
+  var dominant =
+    '<div class="result-dominant">' +
+    '<span class="result-dominant-label">' +
+    escapeHtml(primary.label || primary.key) +
+    '</span>' +
+    '<span class="result-dominant-value" id="factory-out-' +
+    escapeHtml(primary.key) +
+    '">—</span>' +
+    '</div>' +
+    '<p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p>';
+
+  var gridInner = secondary
     .map(function (o) {
       return (
         '<div class="result-item result-card">' +
@@ -130,14 +147,16 @@ function buildOutputs(outputs) {
       );
     })
     .join('\n');
-  return '<div class="results-grid results-box">' + inner + '</div>';
+
+  var grid = secondary.length ? '<div class="results-grid results-box">' + gridInner + '</div>' : '';
+  return dominant + grid;
 }
 
 function buildStaticBlocks(blocks) {
   return (blocks || [])
     .map(function (b) {
       return (
-        '<section class="content-section static-answer-block">' +
+        '<section class="static-answer-block">' +
         '<h2>' +
         escapeHtml(b.heading || '') +
         '</h2>' +
@@ -296,6 +315,7 @@ function generateCalculatorPage(template, calc, allCalculators) {
     __HUB_PATH__: hubPathForCategory(calc.category),
     __CATEGORY_LABEL__: escapeHtml(cat.label),
     __SHORT_TITLE__: escapeHtml(shortTitle(calc.title)),
+    __HERO_SUB__: calc.aeoEntry || escapeHtml(calc.metaDescription || ''),
     __AEO_ENTRY__: calc.aeoEntry || '',
     __INPUTS_HTML__: buildInputs(calc.inputs),
     __OUTPUTS_HTML__: buildOutputs(calc.outputs),
@@ -340,6 +360,7 @@ function generateArticlePage(template, calc, allCalculators) {
     __HUB_PATH__: hubPathForCategory(calc.category),
     __CATEGORY_LABEL__: escapeHtml(cat.label),
     __SHORT_TITLE__: escapeHtml(shortTitle(calc.title)),
+    __HERO_SUB__: calc.aeoEntry || escapeHtml(calc.metaDescription || ''),
     __AEO_ENTRY__: calc.aeoEntry || '',
     __STATIC_BLOCKS__: buildStaticBlocks(calc.staticBlocks),
     __FAQ_HTML__: buildFaqHtml(calc.faq),

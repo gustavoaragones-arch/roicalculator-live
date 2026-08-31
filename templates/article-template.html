@@ -28,7 +28,7 @@
   __FAQ_JSONLD__
   </script>
 </head>
-<body>
+<body class="page-factory">
   __HEADER__
 
   <main>
@@ -40,16 +40,15 @@
       <span aria-current="page">__SHORT_TITLE__</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>__TITLE__</h1>
+      <p class="hero-sub">__HERO_SUB__</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> __AEO_ENTRY__</p>
-      </section>
-
+    <div class="factory-supporting">
       __STATIC_BLOCKS__
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -63,7 +62,7 @@
         <h2 id="faq-heading">Frequently asked questions</h2>
         __FAQ_HTML__
       </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,32 +106,46 @@
       <span aria-current="page">Influencer Marketing ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Influencer Marketing ROI Calculator</h1>
+      <p class="hero-sub">Influencer ROI compares modeled sales (orders × AOV) to the creator’s fee. For blended programs, reconcile with <a href="/calculators/marketing-roi-calculator.html">overall marketing ROI</a> so you do not double-count revenue.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Influencer ROI compares modeled sales (orders × AOV) to the creator’s fee. For blended programs, reconcile with <a href="/calculators/marketing-roi-calculator.html">overall marketing ROI</a> so you do not double-count revenue.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-promoOrders">Attributed orders (#)</label><input type="number" id="factory-inp-promoOrders" name="promoOrders" value="520" min="0" step="1"></div>
+    <section class="calculator-section" aria-label="Influencer Marketing ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-promoOrders">Attributed orders (#)</label><input type="number" id="factory-inp-promoOrders" name="promoOrders" value="520" min="0" step="1"></div>
 <div class="form-group"><label for="factory-inp-averageOrderValue">Average order value ($)</label><input type="number" id="factory-inp-averageOrderValue" name="averageOrderValue" value="54" min="0" step="0.01"></div>
 <div class="form-group"><label for="factory-inp-influencerFee">Influencer fee ($)</label><input type="number" id="factory-inp-influencerFee" name="influencerFee" value="8000" min="0" step="100"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">Influencer ROI</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Profit</span><span id="factory-out-profit" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Influencer ROI</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Profit</span><span id="factory-out-profit" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>Brand lift versus direct response</h2><div class="static-block-body">This calculator needs monetized attribution. Pure awareness lifts require surveys or modeled incremental sales—otherwise ROI is only the <a href="/comparisons/roas-vs-roi.html">direct-response slice</a> you can trace.</div></section>
-<section class="content-section static-answer-block"><h2>How orders × AOV maps to finance</h2><div class="static-block-body">Finance may recognize net sales after returns—apply the same haircut to <strong>attributedSales</strong> before comparing to <a href="/benchmarks/marketing-roi-benchmarks.html">benchmarks</a>.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>Brand lift versus direct response</h2><div class="static-block-body">This calculator needs monetized attribution. Pure awareness lifts require surveys or modeled incremental sales—otherwise ROI is only the <a href="/comparisons/roas-vs-roi.html">direct-response slice</a> you can trace.</div></section>
+<section class="static-answer-block"><h2>How orders × AOV maps to finance</h2><div class="static-block-body">Finance may recognize net sales after returns—apply the same haircut to <strong>attributedSales</strong> before comparing to <a href="/benchmarks/marketing-roi-benchmarks.html">benchmarks</a>.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>Is influencer marketing ROI measurable with orders and AOV?</h3><div class="faq-answer">Yes for trackable promo or code-attributed orders: multiply order count by average order value for attributed sales, subtract the fee, then divide by the fee for ROI. Untrackable lift requires modeled incrementality instead.</div></div>
+<div class="faq-item"><h3>Should I include product cost in influencer ROI?</h3><div class="faq-answer">Gross sales produce one story; contribution after COGS produces another. This model uses sales minus fee as “profit”—add COGS externally if you need margin-accurate ROI.</div></div>
+<div class="faq-item"><h3>How is this different from MER?</h3><div class="faq-answer">Marketing efficiency ratio divides total revenue by total ad spend across channels. This page is deal-level for influencer fees versus modeled attributed sales from orders × AOV.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -140,14 +154,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>Is influencer marketing ROI measurable with orders and AOV?</h3><div class="faq-answer">Yes for trackable promo or code-attributed orders: multiply order count by average order value for attributed sales, subtract the fee, then divide by the fee for ROI. Untrackable lift requires modeled incrementality instead.</div></div>
-<div class="faq-item"><h3>Should I include product cost in influencer ROI?</h3><div class="faq-answer">Gross sales produce one story; contribution after COGS produces another. This model uses sales minus fee as “profit”—add COGS externally if you need margin-accurate ROI.</div></div>
-<div class="faq-item"><h3>How is this different from MER?</h3><div class="faq-answer">Marketing efficiency ratio divides total revenue by total ad spend across channels. This page is deal-level for influencer fees versus modeled attributed sales from orders × AOV.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

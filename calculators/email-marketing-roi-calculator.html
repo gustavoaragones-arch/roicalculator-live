@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,32 +106,46 @@
       <span aria-current="page">Email Marketing ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Email Marketing ROI Calculator</h1>
+      <p class="hero-sub">Email ROI weighs creative, tooling, and list costs against revenue you credit to the channel—see the <a href="/marketing/">Marketing hub</a> for other channel-specific tools when blending multi-touch journeys.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Email ROI weighs creative, tooling, and list costs against revenue you credit to the channel—see the <a href="/marketing/">Marketing hub</a> for other channel-specific tools when blending multi-touch journeys.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-conversions">Attributed conversions (#)</label><input type="number" id="factory-inp-conversions" name="conversions" value="240" min="0" step="1"></div>
+    <section class="calculator-section" aria-label="Email Marketing ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-conversions">Attributed conversions (#)</label><input type="number" id="factory-inp-conversions" name="conversions" value="240" min="0" step="1"></div>
 <div class="form-group"><label for="factory-inp-avgOrderValue">Average order value ($)</label><input type="number" id="factory-inp-avgOrderValue" name="avgOrderValue" value="50" min="0" step="0.01"></div>
 <div class="form-group"><label for="factory-inp-programCost">Program cost ($)</label><input type="number" id="factory-inp-programCost" name="programCost" value="2400" min="0" step="50"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">Email ROI</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Profit</span><span id="factory-out-profit" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Email ROI</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Profit</span><span id="factory-out-profit" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>When (conversions × AOV) beats raw revenue entry</h2><div class="static-block-body">Modeling <strong>attributedRevenue = conversions × avgOrderValue</strong> forces explicit assumptions—useful when order mix shifts. Compare to <a href="/calculators/marketing-roi-calculator.html">direct revenue entry</a> for blended campaigns.</div></section>
-<section class="content-section static-answer-block"><h2>Industry ranges</h2><div class="static-block-body">See <a href="/benchmarks/marketing-roi-benchmarks.html">marketing ROI benchmarks</a> and <a href="/glossary/churn-rate.html">churn</a> when repeat purchase behavior dominates.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>When (conversions × AOV) beats raw revenue entry</h2><div class="static-block-body">Modeling <strong>attributedRevenue = conversions × avgOrderValue</strong> forces explicit assumptions—useful when order mix shifts. Compare to <a href="/calculators/marketing-roi-calculator.html">direct revenue entry</a> for blended campaigns.</div></section>
+<section class="static-answer-block"><h2>Industry ranges</h2><div class="static-block-body">See <a href="/benchmarks/marketing-roi-benchmarks.html">marketing ROI benchmarks</a> and <a href="/glossary/churn-rate.html">churn</a> when repeat purchase behavior dominates.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>How do you calculate email marketing ROI with conversions and AOV?</h3><div class="faq-answer">Multiply attributed conversions by average order value to get attributed revenue, subtract program cost, then divide profit by program cost. This matches how many ESPs export conversion counts while finance holds AOV.</div></div>
+<div class="faq-item"><h3>What costs belong in email program cost?</h3><div class="faq-answer">Include platform fees, creative production, list hygiene tools, and allocated strategist time. Exclude company-wide overhead unless you deliberately want a fully loaded view—then apply the same rule to every channel.</div></div>
+<div class="faq-item"><h3>Can I use this for newsletters that do not sell directly?</h3><div class="faq-answer">Yes if you convert engagement to a dollar value (e.g., qualified leads × win rate × deal size). Without a monetization model, ROI is undefined even if open rates look strong.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -140,14 +154,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>How do you calculate email marketing ROI with conversions and AOV?</h3><div class="faq-answer">Multiply attributed conversions by average order value to get attributed revenue, subtract program cost, then divide profit by program cost. This matches how many ESPs export conversion counts while finance holds AOV.</div></div>
-<div class="faq-item"><h3>What costs belong in email program cost?</h3><div class="faq-answer">Include platform fees, creative production, list hygiene tools, and allocated strategist time. Exclude company-wide overhead unless you deliberately want a fully loaded view—then apply the same rule to every channel.</div></div>
-<div class="faq-item"><h3>Can I use this for newsletters that do not sell directly?</h3><div class="faq-answer">Yes if you convert engagement to a dollar value (e.g., qualified leads × win rate × deal size). Without a monetization model, ROI is undefined even if open rates look strong.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

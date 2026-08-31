@@ -1079,6 +1079,38 @@ table.summary-table { margin: var(--space-md) 0; }
   padding-left: 1.25rem;
 }
 
+/* Phase 7D — factory calculator pages (scoped; does not affect reference verticals). */
+body.page-factory .factory-supporting {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-2xl);
+}
+
+body.page-factory .factory-supporting .static-answer-block {
+  margin: 0 0 var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+body.page-factory .factory-supporting .static-answer-block:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+body.page-factory .factory-supporting .faq-block,
+body.page-factory .factory-supporting .semantic-links {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+body.page-factory .calculator-form .form-group {
+  margin-bottom: var(--space-md);
+}
+
+body.page-factory .calculator-module.calculator-box {
+  margin: 0;
+}
+
 /* Phase 7 — SaaS reference architecture (legacy opt-in via body.ref-page).
    Sitewide column alignment lives in Phase 7C (body:not(.page-home)) above.
    Scoped under body.ref-page so it cannot affect pages that do not opt in. */

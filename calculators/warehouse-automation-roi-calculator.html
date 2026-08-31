@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,33 +106,47 @@
       <span aria-current="page">Warehouse Automation ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Warehouse Automation ROI Calculator</h1>
+      <p class="hero-sub">Annual savings combine <strong>labor hours × loaded rate</strong> with quantified error or scrap reduction—use the same definitions as your ops baseline. Compare to <a href="/calculators/equipment-roi-calculator.html">equipment ROI</a> for asset-only cases.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Annual savings combine <strong>labor hours × loaded rate</strong> with quantified error or scrap reduction—use the same definitions as your ops baseline. Compare to <a href="/calculators/equipment-roi-calculator.html">equipment ROI</a> for asset-only cases.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-projectCost">Total project cost ($)</label><input type="number" id="factory-inp-projectCost" name="projectCost" value="420000" min="0" step="5000"></div>
+    <section class="calculator-section" aria-label="Warehouse Automation ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-projectCost">Total project cost ($)</label><input type="number" id="factory-inp-projectCost" name="projectCost" value="420000" min="0" step="5000"></div>
 <div class="form-group"><label for="factory-inp-laborHoursSaved">Labor hours saved / year</label><input type="number" id="factory-inp-laborHoursSaved" name="laborHoursSaved" value="2200" min="0" step="10"></div>
 <div class="form-group"><label for="factory-inp-fullyLoadedHourlyCost">Fully loaded hourly cost ($)</label><input type="number" id="factory-inp-fullyLoadedHourlyCost" name="fullyLoadedHourlyCost" value="38" min="0" step="0.5"></div>
 <div class="form-group"><label for="factory-inp-errorAndScrapSavings">Error &amp; scrap savings ($ / year)</label><input type="number" id="factory-inp-errorAndScrapSavings" name="errorAndScrapSavings" value="24000" min="0" step="500"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">Annual ROI on project</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Annual savings</span><span id="factory-out-annualSavings" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Annual ROI on project</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Annual savings</span><span id="factory-out-annualSavings" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>Where automation ROI shows up first</h2><div class="static-block-body">Pick/pack and replenishment often dominate labor hours; error savings spike when barcode or vision cuts mis-picks—tie each line to a process owner.</div></section>
-<section class="content-section static-answer-block"><h2>ROI versus payback on capex</h2><div class="static-block-body">See <a href="/comparisons/roi-vs-payback-period.html">ROI vs payback</a> when the board cares about months to recover cash versus percentage return.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>Where automation ROI shows up first</h2><div class="static-block-body">Pick/pack and replenishment often dominate labor hours; error savings spike when barcode or vision cuts mis-picks—tie each line to a process owner.</div></section>
+<section class="static-answer-block"><h2>ROI versus payback on capex</h2><div class="static-block-body">See <a href="/comparisons/roi-vs-payback-period.html">ROI vs payback</a> when the board cares about months to recover cash versus percentage return.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>How are labor savings calculated here?</h3><div class="faq-answer">Labor savings equal annual hours removed from the budget multiplied by fully loaded hourly cost. Add error and scrap savings separately when quality projects have their own line items.</div></div>
+<div class="faq-item"><h3>What about implementation downtime?</h3><div class="faq-answer">Subtract one-time lost throughput or add it to project cost depending on how finance capitalizes cutover—be explicit in the business case.</div></div>
+<div class="faq-item"><h3>Should savings include depreciation?</h3><div class="faq-answer">Usually no—annual savings are operational; depreciation is an accounting allocation on the investment side. Avoid double-counting.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -141,14 +155,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>How are labor savings calculated here?</h3><div class="faq-answer">Labor savings equal annual hours removed from the budget multiplied by fully loaded hourly cost. Add error and scrap savings separately when quality projects have their own line items.</div></div>
-<div class="faq-item"><h3>What about implementation downtime?</h3><div class="faq-answer">Subtract one-time lost throughput or add it to project cost depending on how finance capitalizes cutover—be explicit in the business case.</div></div>
-<div class="faq-item"><h3>Should savings include depreciation?</h3><div class="faq-answer">Usually no—annual savings are operational; depreciation is an accounting allocation on the investment side. Avoid double-counting.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

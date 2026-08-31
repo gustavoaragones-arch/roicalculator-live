@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,32 +106,46 @@
       <span aria-current="page">Equipment Purchase ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Equipment Purchase ROI Calculator</h1>
+      <p class="hero-sub">Net benefit subtracts ongoing operating burden from gross savings—closer to how ops maintains assets. For multi-year cash flows, add <a href="/comparisons/roi-vs-npv.html">NPV</a> outside this page.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Net benefit subtracts ongoing operating burden from gross savings—closer to how ops maintains assets. For multi-year cash flows, add <a href="/comparisons/roi-vs-npv.html">NPV</a> outside this page.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-capex">Equipment cost ($)</label><input type="number" id="factory-inp-capex" name="capex" value="120000" min="0" step="1000"></div>
+    <section class="calculator-section" aria-label="Equipment Purchase ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-capex">Equipment cost ($)</label><input type="number" id="factory-inp-capex" name="capex" value="120000" min="0" step="1000"></div>
 <div class="form-group"><label for="factory-inp-annualGrossBenefit">Annual gross benefit ($)</label><input type="number" id="factory-inp-annualGrossBenefit" name="annualGrossBenefit" value="42000" min="0" step="500"></div>
 <div class="form-group"><label for="factory-inp-annualOperatingCost">Annual operating cost ($)</label><input type="number" id="factory-inp-annualOperatingCost" name="annualOperatingCost" value="6000" min="0" step="100"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">Annual return on cost (%)</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Net annual benefit</span><span id="factory-out-netAnnualBenefit" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Annual return on cost (%)</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Net annual benefit</span><span id="factory-out-netAnnualBenefit" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>What this omits</h2><div class="static-block-body">Financing, salvage value, and downtime during install are not modeled—pair with <a href="/comparisons/roi-vs-payback-period.html">payback</a> narratives when liquidity matters.</div></section>
-<section class="content-section static-answer-block"><h2>Stakeholder hurdles</h2><div class="static-block-body">Compare net benefit to internal hurdle rates and <a href="/benchmarks/small-business-roi-benchmarks.html">small-business ROI</a> stories when pitching SMB owners.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>What this omits</h2><div class="static-block-body">Financing, salvage value, and downtime during install are not modeled—pair with <a href="/comparisons/roi-vs-payback-period.html">payback</a> narratives when liquidity matters.</div></section>
+<section class="static-answer-block"><h2>Stakeholder hurdles</h2><div class="static-block-body">Compare net benefit to internal hurdle rates and <a href="/benchmarks/small-business-roi-benchmarks.html">small-business ROI</a> stories when pitching SMB owners.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>How does gross benefit differ from net annual benefit here?</h3><div class="faq-answer">Gross benefit is the annual upside from throughput, labor, or margin; net annual benefit subtracts incremental operating cost like maintenance, consumables, or service contracts tied to the asset.</div></div>
+<div class="faq-item"><h3>Does this include financing cost?</h3><div class="faq-answer">No—capex is treated as cash cost at purchase. Add interest if you want a levered view, or use a lease-versus-buy workbook for full capital structure.</div></div>
+<div class="faq-item"><h3>How does this compare to payback period?</h3><div class="faq-answer">Payback is time to recover investment; this ROI is net annual benefit divided by upfront capex for one representative year. Extend with multi-year cash flows for long-lived assets.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -140,14 +154,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>How does gross benefit differ from net annual benefit here?</h3><div class="faq-answer">Gross benefit is the annual upside from throughput, labor, or margin; net annual benefit subtracts incremental operating cost like maintenance, consumables, or service contracts tied to the asset.</div></div>
-<div class="faq-item"><h3>Does this include financing cost?</h3><div class="faq-answer">No—capex is treated as cash cost at purchase. Add interest if you want a levered view, or use a lease-versus-buy workbook for full capital structure.</div></div>
-<div class="faq-item"><h3>How does this compare to payback period?</h3><div class="faq-answer">Payback is time to recover investment; this ROI is net annual benefit divided by upfront capex for one representative year. Extend with multi-year cash flows for long-lived assets.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

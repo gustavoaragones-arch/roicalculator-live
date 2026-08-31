@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,32 +106,46 @@
       <span aria-current="page">AI Tool ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>AI Tool ROI Calculator</h1>
+      <p class="hero-sub">Values time saved explicitly via <strong>hours × rate</strong> before netting subscription—documentation matters when <a href="/saas/roi-calculator.html">SaaS finance</a> reviews benefits.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Values time saved explicitly via <strong>hours × rate</strong> before netting subscription—documentation matters when <a href="/saas/roi-calculator.html">SaaS finance</a> reviews benefits.</p>
-      </section>
-
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-hoursSavedPerYear">Hours saved per year</label><input type="number" id="factory-inp-hoursSavedPerYear" name="hoursSavedPerYear" value="1200" min="0" step="10"></div>
+    <section class="calculator-section" aria-label="AI Tool ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-hoursSavedPerYear">Hours saved per year</label><input type="number" id="factory-inp-hoursSavedPerYear" name="hoursSavedPerYear" value="1200" min="0" step="10"></div>
 <div class="form-group"><label for="factory-inp-fullyLoadedHourlyRate">Fully loaded hourly rate ($)</label><input type="number" id="factory-inp-fullyLoadedHourlyRate" name="fullyLoadedHourlyRate" value="85" min="0" step="1"></div>
 <div class="form-group"><label for="factory-inp-annualSubscriptionCost">Annual software cost ($)</label><input type="number" id="factory-inp-annualSubscriptionCost" name="annualSubscriptionCost" value="48000" min="0" step="500"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">ROI on AI spend</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Net annual value</span><span id="factory-out-profit" class="value">—</span></div></div>
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">ROI on AI spend</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Net annual value</span><span id="factory-out-profit" class="value">—</span></div></div>
       </div>
+    </section>
 
-      <section class="content-section static-answer-block"><h2>Governance and model risk</h2><div class="static-block-body">Hours saved are assumptions—tie to ticket or workflow baselines. Model drift can erode value even when ROI looked strong at purchase.</div></section>
-<section class="content-section static-answer-block"><h2>SaaS and AI spend context</h2><div class="static-block-body">Use <a href="/benchmarks/saas-roi-benchmarks.html">SaaS ROI benchmarks</a> cautiously; AI categories mix experimental pilots with production workloads.</div></section>
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>Governance and model risk</h2><div class="static-block-body">Hours saved are assumptions—tie to ticket or workflow baselines. Model drift can erode value even when ROI looked strong at purchase.</div></section>
+<section class="static-answer-block"><h2>SaaS and AI spend context</h2><div class="static-block-body">Use <a href="/benchmarks/saas-roi-benchmarks.html">SaaS ROI benchmarks</a> cautiously; AI categories mix experimental pilots with production workloads.</div></section>
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>How do you calculate AI tool ROI with hours and a loaded rate?</h3><div class="faq-answer">Multiply hours saved per year by fully loaded hourly rate for annual value from time, subtract annual software cost, then divide net value by that cost for ROI.</div></div>
+<div class="faq-item"><h3>What if value is partly revenue and partly time?</h3><div class="faq-answer">Add revenue lift into a separate scenario or sum only if finance certifies both as incremental—double-counting is common when teams mix top-line and efficiency stories.</div></div>
+<div class="faq-item"><h3>Does this cover GPU or API overages?</h3><div class="faq-answer">Include predictable overages in annual software cost. Spiky experimental usage should be modeled separately so production ROI stays stable.</div></div>
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -140,14 +154,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>How do you calculate AI tool ROI with hours and a loaded rate?</h3><div class="faq-answer">Multiply hours saved per year by fully loaded hourly rate for annual value from time, subtract annual software cost, then divide net value by that cost for ROI.</div></div>
-<div class="faq-item"><h3>What if value is partly revenue and partly time?</h3><div class="faq-answer">Add revenue lift into a separate scenario or sum only if finance certifies both as incremental—double-counting is common when teams mix top-line and efficiency stories.</div></div>
-<div class="faq-item"><h3>Does this cover GPU or API overages?</h3><div class="faq-answer">Include predictable overages in annual software cost. Spiky experimental usage should be modeled separately so production ROI stays stable.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

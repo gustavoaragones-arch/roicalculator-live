@@ -28,7 +28,7 @@
   __FAQ_JSONLD__
   </script>
 </head>
-<body>
+<body class="page-factory">
   __HEADER__
 
   <main>
@@ -40,28 +40,41 @@
       <span aria-current="page">__SHORT_TITLE__</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>__TITLE__</h1>
+      <p class="hero-sub">__HERO_SUB__</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> __AEO_ENTRY__</p>
-      </section>
+    <section class="calculator-section" aria-label="__TITLE__">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              __INPUTS_HTML__
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
 
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        __INPUTS_HTML__
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              __OUTPUTS_HTML__
+            </div>
+          </section>
         </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        __OUTPUTS_HTML__
       </div>
+    </section>
 
+    <div class="factory-supporting">
       __STATIC_BLOCKS__
 
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        __FAQ_HTML__
+      </section>
+
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -70,12 +83,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        __FAQ_HTML__
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>

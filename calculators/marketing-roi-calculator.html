@@ -68,7 +68,7 @@
 }
   </script>
 </head>
-<body>
+<body class="page-factory">
   <header class="site-header">
     <nav class="nav-main" aria-label="Main navigation">
       <a href="/" class="logo">roicalculator.live</a>
@@ -106,31 +106,45 @@
       <span aria-current="page">Marketing ROI</span>
     </nav>
 
-    <article class="content-section">
+    <section class="hero">
       <h1>Marketing ROI Calculator</h1>
+      <p class="hero-sub">Marketing ROI compares profit from attributed revenue to media spend. Pair it with <a href="/learn/roi-vs-irr.html">cash-flow timing</a> when campaigns pay back over uneven periods.</p>
+    </section>
 
-      <section class="ai-answer-block">
-        <p><strong>Quick answer:</strong> Marketing ROI compares profit from attributed revenue to media spend. Pair it with <a href="/learn/roi-vs-irr.html">cash-flow timing</a> when campaigns pay back over uneven periods.</p>
+    <section class="calculator-section" aria-label="Marketing ROI Calculator">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="factory-calc-heading">
+            <h2 id="factory-calc-heading">Inputs</h2>
+            <form id="factory-calc-form" class="calculator-form" novalidate>
+              <div class="form-group"><label for="factory-inp-adSpend">Ad spend ($)</label><input type="number" id="factory-inp-adSpend" name="adSpend" value="5000" min="0" step="100"></div>
+<div class="form-group"><label for="factory-inp-revenue">Revenue attributed ($)</label><input type="number" id="factory-inp-revenue" name="revenue" value="18000" min="0" step="100"></div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+
+            <div id="factory-results-panel" class="results-panel" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant"><span class="result-dominant-label">Marketing ROI</span><span class="result-dominant-value" id="factory-out-roi">—</span></div><p class="result-interpretation" id="factory-result-interpretation" aria-live="polite"></p><div class="results-grid results-box"><div class="result-item result-card"><span class="label">Profit</span><span id="factory-out-profit" class="value">—</span></div></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <div class="factory-supporting">
+      <section class="static-answer-block"><h2>How this differs from blended ROAS</h2><div class="static-block-body">Return on ad spend (ROAS) divides revenue by spend without subtracting cost of goods. This tool uses simple profit (revenue minus spend) for a <a href="/comparisons/roas-vs-roi.html">ROAS vs ROI-style</a> lens before overhead.</div></section>
+<section class="static-answer-block"><h2>Benchmarks and next steps</h2><div class="static-block-body">Compare to <a href="/benchmarks/marketing-roi-benchmarks.html">marketing ROI benchmarks</a>. For subscription businesses, also model <a href="/saas/roi-calculator.html">SaaS ROI</a> separately.</div></section>
+
+      <section class="faq-block" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item"><h3>What does this marketing ROI calculator measure?</h3><div class="faq-answer">It divides profit (attributed revenue minus ad spend) by ad spend and expresses the result as a percentage. It is a single-period snapshot—use the same definition of “revenue” across campaigns when comparing results.</div></div>
+<div class="faq-item"><h3>How should I treat revenue attribution?</h3><div class="faq-answer">Use the revenue your team agrees is driven by the spend in question (last-touch, modeled, or holdout—be consistent). Mixing attribution rules across rows makes ROI incomparable even when the math is correct.</div></div>
+<div class="faq-item"><h3>When is marketing ROI misleading?</h3><div class="faq-answer">When lifetime value is omitted, when organic and paid overlap is ignored, or when returns arrive quarters later—simple ROI ignores timing. In those cases pair with payback or <a href="/comparisons/roi-vs-npv.html">NPV-style</a> thinking.</div></div>
       </section>
 
-      <form id="factory-calc-form" class="calculator-form calculator-module" novalidate>
-        <div class="form-group"><label for="factory-inp-adSpend">Ad spend ($)</label><input type="number" id="factory-inp-adSpend" name="adSpend" value="5000" min="0" step="100"></div>
-<div class="form-group"><label for="factory-inp-revenue">Revenue attributed ($)</label><input type="number" id="factory-inp-revenue" name="revenue" value="18000" min="0" step="100"></div>
-        <div class="calc-buttons">
-          <button type="submit" class="btn btn-primary">Calculate</button>
-        </div>
-      </form>
-
-      <div id="factory-results-panel" class="results-panel" hidden>
-        <h3>Results</h3>
-        <div class="results-grid results-box"><div class="result-item result-card"><span class="label">Marketing ROI</span><span id="factory-out-roi" class="value">—</span></div>
-<div class="result-item result-card"><span class="label">Profit</span><span id="factory-out-profit" class="value">—</span></div></div>
-      </div>
-
-      <section class="content-section static-answer-block"><h2>How this differs from blended ROAS</h2><div class="static-block-body">Return on ad spend (ROAS) divides revenue by spend without subtracting cost of goods. This tool uses simple profit (revenue minus spend) for a <a href="/comparisons/roas-vs-roi.html">ROAS vs ROI-style</a> lens before overhead.</div></section>
-<section class="content-section static-answer-block"><h2>Benchmarks and next steps</h2><div class="static-block-body">Compare to <a href="/benchmarks/marketing-roi-benchmarks.html">marketing ROI benchmarks</a>. For subscription businesses, also model <a href="/saas/roi-calculator.html">SaaS ROI</a> separately.</div></section>
-
-      <section class="semantic-links content-section" aria-labelledby="related-links-heading">
+      <section class="semantic-links" aria-labelledby="related-links-heading">
         <h2 id="related-links-heading">Explore further</h2>
         <ul>
           <li><a href="/">ROI calculator (homepage)</a></li>
@@ -139,14 +153,7 @@
           <li><a href="/benchmarks/">ROI benchmarks</a> — industry and channel reference ranges</li>
         </ul>
       </section>
-
-      <section class="faq-block" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <div class="faq-item"><h3>What does this marketing ROI calculator measure?</h3><div class="faq-answer">It divides profit (attributed revenue minus ad spend) by ad spend and expresses the result as a percentage. It is a single-period snapshot—use the same definition of “revenue” across campaigns when comparing results.</div></div>
-<div class="faq-item"><h3>How should I treat revenue attribution?</h3><div class="faq-answer">Use the revenue your team agrees is driven by the spend in question (last-touch, modeled, or holdout—be consistent). Mixing attribution rules across rows makes ROI incomparable even when the math is correct.</div></div>
-<div class="faq-item"><h3>When is marketing ROI misleading?</h3><div class="faq-answer">When lifetime value is omitted, when organic and paid overlap is ignored, or when returns arrive quarters later—simple ROI ignores timing. In those cases pair with payback or <a href="/comparisons/roi-vs-npv.html">NPV-style</a> thinking.</div></div>
-      </section>
-    </article>
+    </div>
 
     <section class="related-calculators" aria-labelledby="related-calc-h2">
       <h2 id="related-calc-h2">Related ROI Calculators</h2>
