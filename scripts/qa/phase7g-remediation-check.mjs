@@ -7,6 +7,15 @@ import fs from 'fs';
 const BASE = process.env.PHASE7G_BASE || 'http://127.0.0.1:8791';
 const results = [];
 
+// Cloudflare Pages' `_headers` rules cache extensionless/root HTML under a
+// broad long-TTL rule (documented in REPAIR_REDIRECTS-01 / Phase 7). A plain
+// request right after deploy can therefore return a stale cached copy even
+// though the deploy itself succeeded. Append a unique query string to every
+// production content check so we always read the live edge copy.
+function cb(url) {
+  return url + (url.includes('?') ? '&' : '?') + 'cb=' + Date.now() + Math.random().toString(36).slice(2);
+}
+
 function check(name, pass, detail) {
   results.push({ name, pass, detail });
   console.log((pass ? 'PASS' : 'FAIL') + '  ' + name + (detail ? ' — ' + detail : ''));
@@ -17,7 +26,7 @@ try {
   // 1-3: homepage FAQ + subtitle
   {
     const page = await browser.newPage();
-    await page.goto(`${BASE}/`, { waitUntil: 'load' });
+    await page.goto(cb(`${BASE}/`), { waitUntil: 'load' });
     const faqQuestions = await page.$$eval('.faq-list .faq-item h3', (els) => els.map((e) => e.textContent.trim()));
     check('1. homepage has no FAQ question "What is ROI?"', !faqQuestions.includes('What is ROI?'), JSON.stringify(faqQuestions));
     const expectedRemaining = [
@@ -64,7 +73,7 @@ try {
     ];
     for (const t of targets) {
       const page = await browser.newPage();
-      await page.goto(`${BASE}${t}`, { waitUntil: 'load' });
+      await page.goto(cb(`${BASE}${t}`), { waitUntil: 'load' });
       const html = await page.content();
       const hasFaqPage = html.includes('"FAQPage"') || html.includes('"@type": "FAQPage"') || html.includes('"@type":"FAQPage"');
       check(`4. ${t} has no FAQPage JSON-LD`, !hasFaqPage);
@@ -90,7 +99,7 @@ try {
     ];
     for (const [from, to] of redirectCases) {
       const page = await browser.newPage();
-      const resp = await page.goto(`${BASE}${from}`, { waitUntil: 'load' });
+      const resp = await page.goto(cb(`${BASE}${from}`), { waitUntil: 'load' });
       const finalUrl = new URL(page.url()).pathname;
       const expected = to === '/' ? '/' : to;
       if (isProd) {
@@ -121,7 +130,7 @@ try {
   // 10: no internal production navigation intentionally links to redirected URLs
   {
     const page = await browser.newPage();
-    await page.goto(`${BASE}/`, { waitUntil: 'load' });
+    await page.goto(cb(`${BASE}/`), { waitUntil: 'load' });
     const staleLinks = await page.$$eval('a[href]', (as) =>
       as
         .map((a) => a.getAttribute('href'))
@@ -134,13 +143,13 @@ try {
   // 11-12: real estate headings
   {
     const page = await browser.newPage();
-    await page.goto(`${BASE}/real-estate/cap-rate-calculator.html`, { waitUntil: 'load' });
+    await page.goto(cb(`${BASE}/real-estate/cap-rate-calculator.html`), { waitUntil: 'load' });
     const heading = await page.textContent('[itemprop="name"]');
     check('11. cap-rate second heading is "Cap Rate in Detail"', heading.trim() === 'Cap Rate in Detail', heading.trim());
     await page.close();
 
     const page2 = await browser.newPage();
-    await page2.goto(`${BASE}/real-estate/cash-on-cash-calculator.html`, { waitUntil: 'load' });
+    await page2.goto(cb(`${BASE}/real-estate/cash-on-cash-calculator.html`), { waitUntil: 'load' });
     const heading2 = await page2.textContent('[itemprop="name"]');
     check('12. cash-on-cash second heading is "Cash-on-Cash Return in Detail"', heading2.trim() === 'Cash-on-Cash Return in Detail', heading2.trim());
     await page2.close();
@@ -156,7 +165,7 @@ try {
     ];
     for (const [path, text] of expected) {
       const page = await browser.newPage();
-      await page.goto(`${BASE}${path}`, { waitUntil: 'load' });
+      await page.goto(cb(`${BASE}${path}`), { waitUntil: 'load' });
       const sub = await page.textContent('.hero-sub');
       check(`13. ${path} hero-sub exact match`, sub.trim() === text, sub.trim());
       await page.close();
@@ -167,7 +176,7 @@ try {
   {
     const page = await browser.newPage();
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto(`${BASE}/saas/`, { waitUntil: 'load' });
+    await page.goto(cb(`${BASE}/saas/`), { waitUntil: 'load' });
     const toggle = page.locator('.nav-mobile-toggle');
     const navLinks = page.locator('#site-nav-links');
     await toggle.click();
@@ -179,7 +188,7 @@ try {
   // 19-20: no ad slots / no AdSense scripts introduced
   {
     const page = await browser.newPage();
-    await page.goto(`${BASE}/`, { waitUntil: 'load' });
+    await page.goto(cb(`${BASE}/`), { waitUntil: 'load' });
     const html = await page.content();
     check('19. no ad slots introduced (homepage)', !html.includes('class="ad-slot'));
     check('20. no AdSense scripts introduced (homepage)', !html.includes('pagead2.googlesyndication') && !html.includes('adsbygoogle'));
