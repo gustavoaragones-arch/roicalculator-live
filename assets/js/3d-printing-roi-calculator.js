@@ -175,10 +175,49 @@
     el('tdp-res-interpretation').textContent = buildInterpretation(roi24, initialInvestment, paybackMonths, monthlyOperatingProfit, units);
 
     el('tdp-results').hidden = false;
+    var pdfBtn = el('btn-pdf');
+    if (pdfBtn) pdfBtn.disabled = false;
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     run();
   });
+
+  window.getCalculatorPdfData = function () {
+    return {
+      title: '3D Printing Business ROI Calculator Results',
+      sections: [
+        {
+          heading: 'Inputs',
+          rows: [
+            { label: 'Printer cost', value: el('tdp-printer-cost').value },
+            { label: 'Setup cost', value: el('tdp-setup-cost').value },
+            { label: 'Useful life (hours)', value: el('tdp-useful-life').value },
+            { label: 'Residual value', value: el('tdp-residual').value },
+            { label: 'Price per print', value: el('tdp-price').value },
+            { label: 'Units sold/month', value: el('tdp-units').value },
+            { label: 'Failure/reprint rate (%)', value: el('tdp-failure-rate').value }
+          ]
+        },
+        {
+          heading: 'Results',
+          rows: [
+            { label: '24-Month ROI', value: el('tdp-res-roi24').textContent },
+            { label: 'Payback period', value: el('tdp-res-payback').textContent },
+            { label: 'Monthly operating profit', value: el('tdp-res-monthly-profit').textContent },
+            { label: 'Profit per successful print', value: el('tdp-res-profit-per-print').textContent },
+            { label: 'Break-even units/month', value: el('tdp-res-breakeven').textContent },
+            { label: 'Cost per successful print', value: el('tdp-res-cost-per-success').textContent },
+            { label: 'Total cost per print', value: el('tdp-res-total-cost').textContent },
+            { label: 'Gross margin', value: el('tdp-res-margin').textContent },
+            { label: 'Markup', value: el('tdp-res-markup').textContent },
+            { label: '12-month ROI', value: el('tdp-res-roi12').textContent },
+            { label: '36-month ROI', value: el('tdp-res-roi36').textContent }
+          ]
+        }
+      ],
+      disclaimer: 'For informational purposes only. Not financial or investment advice.'
+    };
+  };
 })();

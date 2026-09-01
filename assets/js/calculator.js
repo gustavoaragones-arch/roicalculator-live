@@ -271,14 +271,31 @@
   window.calculateROI = calculateROI;
   window.calculateAnnualizedROI = calculateAnnualizedROI;
   window.calculateReverseROI = calculateReverseROI;
-  window.getCalculatorData = function () {
+  window.getCalculatorPdfData = function () {
+    var initial = parseNum(initialInput.value);
+    var finalValue = parseNum(finalInput.value);
+    var years = parseNum(periodInput.value);
     return {
-      initial: parseNum(initialInput.value),
-      finalValue: parseNum(finalInput.value),
-      years: parseNum(periodInput.value),
-      roi: resultRoi.textContent,
-      annualizedRoi: resultAnnualized.textContent,
-      profit: resultProfit.textContent
+      title: 'ROI Calculator Results',
+      sections: [
+        {
+          heading: 'Inputs',
+          rows: [
+            { label: 'Initial Investment', value: '$' + initial.toLocaleString(undefined, { minimumFractionDigits: 2 }) },
+            { label: 'Final Value', value: '$' + finalValue.toLocaleString(undefined, { minimumFractionDigits: 2 }) },
+            { label: 'Period (years)', value: years }
+          ]
+        },
+        {
+          heading: 'Results',
+          rows: [
+            { label: 'ROI', value: resultRoi.textContent },
+            { label: 'Annualized ROI', value: resultAnnualized.textContent },
+            { label: 'Total Profit', value: resultProfit.textContent }
+          ]
+        }
+      ],
+      disclaimer: 'For educational purposes only. Not financial advice.'
     };
   };
 })();

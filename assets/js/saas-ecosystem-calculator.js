@@ -151,6 +151,8 @@
     }
 
     el('saas-cluster-results').hidden = false;
+    var pdfBtn = el('btn-pdf');
+    if (pdfBtn) pdfBtn.disabled = false;
 
     var chartYears = Math.min(5, Math.max(1, Math.ceil(years)));
     var labels = [];
@@ -216,4 +218,37 @@
     e.preventDefault();
     run();
   });
+
+  window.getCalculatorPdfData = function () {
+    var revenueMode = el('saas-revenue-mode') && el('saas-revenue-mode').checked;
+    var inputRows = revenueMode
+      ? [{ label: 'Annual revenue increase', value: el('saas-revenue-annual').value }]
+      : [
+          { label: 'Number of employees affected', value: el('saas-employees').value },
+          { label: 'Average hourly wage', value: el('saas-wage').value },
+          { label: 'Hours saved per week (per employee)', value: el('saas-hours-week').value }
+        ];
+    inputRows.push(
+      { label: 'Monthly SaaS cost', value: el('saas-monthly').value },
+      { label: 'Implementation cost', value: el('saas-impl').value },
+      { label: 'Time horizon (years)', value: el('saas-years').value }
+    );
+    return {
+      title: 'SaaS ROI Calculator Results',
+      sections: [
+        { heading: 'Inputs', rows: inputRows },
+        {
+          heading: 'Results',
+          rows: [
+            { label: 'Estimated ROI', value: el('saas-res-roi').textContent },
+            { label: 'Annual value created', value: el('saas-res-annual-value').textContent },
+            { label: 'Total cost', value: el('saas-res-total-cost').textContent },
+            { label: 'Net profit', value: el('saas-res-net').textContent },
+            { label: 'Payback period', value: el('saas-res-payback').textContent }
+          ]
+        }
+      ],
+      disclaimer: 'For informational purposes only. Not financial or investment advice.'
+    };
+  };
 })();

@@ -87,18 +87,20 @@
               </div>
               <div class="calc-buttons">
                 <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
               </div>
             </form>
             <div class="results-panel" id="re-cap-panel" hidden>
               <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">Cap Rate</span>
+                <span class="result-dominant-value" id="re-cap-result">—</span>
+              </div>
+              <p class="result-interpretation" id="re-cap-interpretation" aria-live="polite"></p>
               <div class="results-grid results-box">
                 <div class="result-item result-card">
                   <span class="label">NOI</span>
                   <span class="value" id="re-cap-noi">—</span>
-                </div>
-                <div class="result-item result-card">
-                  <span class="label">Cap rate</span>
-                  <span class="value" id="re-cap-result">—</span>
                 </div>
               </div>
             </div>
@@ -180,6 +182,7 @@
   <script src="/assets/js/calculator-engine.js" defer></script>
   <script src="/assets/js/calculator-bindings.js" defer></script>
   <script src="/assets/js/real-estate-cluster-calculators.js" defer></script>
+  <script src="/assets/js/pdf-export.js" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

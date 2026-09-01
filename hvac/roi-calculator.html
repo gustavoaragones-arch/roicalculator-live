@@ -78,7 +78,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="hvac-bill">Annual HVAC energy cost ($)</label>
-                  <input type="number" id="hvac-bill" min="1" step="50" value="1400" required>
+                  <input type="number" id="hvac-bill" min="0" step="50" value="1400" required>
                 </div>
                 <div class="form-group">
                   <label for="hvac-old">Old system efficiency (%)</label>
@@ -92,21 +92,23 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="hvac-upgrade">Upgrade installed cost ($)</label>
-                  <input type="number" id="hvac-upgrade" min="1" step="100" value="6500" required>
+                  <input type="number" id="hvac-upgrade" min="0" step="100" value="6500" required>
                 </div>
               </div>
               <div class="calc-buttons">
                 <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
               </div>
             </form>
 
             <div class="results-panel" id="hvac-results-panel" hidden>
               <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">Payback Period</span>
+                <span class="result-dominant-value" id="hvac-result-payback">—</span>
+              </div>
+              <p class="result-interpretation" id="hvac-result-interpretation" aria-live="polite"></p>
               <div class="results-grid results-box" id="hvac-results-box">
-                <div class="result-item result-card">
-                  <span class="label">Payback period</span>
-                  <span class="value" id="hvac-result-payback">—</span>
-                </div>
                 <div class="result-item result-card">
                   <span class="label">Annual energy savings</span>
                   <span class="value" id="hvac-result-save">—</span>
@@ -196,6 +198,7 @@
 </footer>
 
   <script src="/assets/js/vertical-roi-calculators.js" defer></script>
+  <script src="/assets/js/pdf-export.js" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

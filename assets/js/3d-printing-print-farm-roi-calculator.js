@@ -246,10 +246,51 @@
     );
 
     el('pf-results').hidden = false;
+    var pdfBtn = el('btn-pdf');
+    if (pdfBtn) pdfBtn.disabled = false;
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     run();
   });
+
+  window.getCalculatorPdfData = function () {
+    return {
+      title: '3D Print Farm ROI Calculator Results',
+      sections: [
+        {
+          heading: 'Inputs',
+          rows: [
+            { label: 'Number of printers', value: el('pf-printer-count').value },
+            { label: 'Printer cost', value: el('pf-printer-cost').value },
+            { label: 'Utilization (%)', value: el('pf-utilization').value },
+            { label: 'Orders/month', value: el('pf-orders').value },
+            { label: 'Price per print', value: el('pf-price').value },
+            { label: 'Failure/reprint rate (%)', value: el('pf-failure-rate').value }
+          ]
+        },
+        {
+          heading: 'Results',
+          rows: [
+            { label: '24-Month ROI', value: el('pf-res-roi24').textContent },
+            { label: 'Payback period', value: el('pf-res-payback').textContent },
+            { label: 'Monthly operating profit', value: el('pf-res-monthly-profit').textContent },
+            { label: 'Profit per successful print', value: el('pf-res-profit-per-print').textContent },
+            { label: 'Break-even prints/month', value: el('pf-res-breakeven').textContent },
+            { label: 'Monthly successful prints', value: el('pf-res-monthly-prints').textContent },
+            { label: 'Theoretical capacity/month', value: el('pf-res-capacity').textContent },
+            { label: 'Capacity utilization', value: el('pf-res-capacity-utilization').textContent },
+            { label: 'Monthly revenue', value: el('pf-res-revenue').textContent },
+            { label: 'Monthly cash profit', value: el('pf-res-cash-profit').textContent },
+            { label: '12-month ROI', value: el('pf-res-roi12').textContent },
+            { label: '36-month ROI', value: el('pf-res-roi36').textContent },
+            { label: 'Gross margin', value: el('pf-res-margin').textContent },
+            { label: 'Markup', value: el('pf-res-markup').textContent }
+          ]
+        }
+      ],
+      disclaimer: 'For informational purposes only. Not financial or investment advice.'
+    };
+  };
 })();

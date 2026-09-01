@@ -164,10 +164,44 @@
     setBreakdownCell('sp-bd-price', formatMoney(recommendedPrice));
 
     el('sp-results').hidden = false;
+    var pdfBtn = el('btn-pdf');
+    if (pdfBtn) pdfBtn.disabled = false;
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     run();
   });
+
+  window.getCalculatorPdfData = function () {
+    return {
+      title: '3D Print Service Pricing Calculator Results',
+      sections: [
+        {
+          heading: 'Inputs',
+          rows: [
+            { label: 'Material used (grams)', value: el('sp-material-grams').value },
+            { label: 'Material price ($/kg)', value: el('sp-material-price').value },
+            { label: 'Print time (hours)', value: el('sp-print-time').value },
+            { label: 'Printed parts', value: el('sp-printed-parts').value },
+            { label: 'Target profit margin (%)', value: el('sp-target-margin').value },
+            { label: 'Platform fee (%)', value: el('sp-platform-fee').value }
+          ]
+        },
+        {
+          heading: 'Results',
+          rows: [
+            { label: 'Recommended price', value: el('sp-res-price').textContent },
+            { label: 'Minimum viable price', value: el('sp-res-min-price').textContent },
+            { label: 'Expected profit', value: el('sp-res-profit').textContent },
+            { label: 'Profit margin', value: el('sp-res-margin').textContent },
+            { label: 'Effective hourly earnings', value: el('sp-res-hourly').textContent },
+            { label: 'Price per printed hour', value: el('sp-res-price-per-hour').textContent },
+            { label: 'Price per part', value: el('sp-res-price-per-part').textContent }
+          ]
+        }
+      ],
+      disclaimer: 'For informational purposes only. Not financial or investment advice.'
+    };
+  };
 })();

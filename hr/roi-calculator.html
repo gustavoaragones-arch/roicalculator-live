@@ -99,16 +99,18 @@
               </div>
               <div class="calc-buttons">
                 <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
               </div>
             </form>
 
             <div class="results-panel" id="hr-results-panel" hidden>
               <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">Annual Addressable Cost</span>
+                <span class="result-dominant-value" id="hr-result-saved">—</span>
+              </div>
+              <p class="result-interpretation" id="hr-result-interpretation" aria-live="polite"></p>
               <div class="results-grid results-box" id="hr-results-box">
-                <div class="result-item result-card">
-                  <span class="label">Annual cost (addressable)</span>
-                  <span class="value" id="hr-result-saved">—</span>
-                </div>
                 <div class="result-item result-card">
                   <span class="label">Expected exits / year</span>
                   <span class="value" id="hr-result-exits">—</span>
@@ -198,6 +200,7 @@
 </footer>
 
   <script src="/assets/js/vertical-roi-calculators.js" defer></script>
+  <script src="/assets/js/pdf-export.js" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

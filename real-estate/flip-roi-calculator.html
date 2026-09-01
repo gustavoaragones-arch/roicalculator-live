@@ -93,10 +93,16 @@
               </div>
               <div class="calc-buttons">
                 <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
               </div>
             </form>
             <div class="results-panel" id="re-flip-panel" hidden>
               <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">Flip ROI</span>
+                <span class="result-dominant-value" id="re-flip-roi">—</span>
+              </div>
+              <p class="result-interpretation" id="re-flip-interpretation" aria-live="polite"></p>
               <div class="results-grid results-box">
                 <div class="result-item result-card">
                   <span class="label">Total cost</span>
@@ -105,10 +111,6 @@
                 <div class="result-item result-card">
                   <span class="label">Profit</span>
                   <span class="value" id="re-flip-profit">—</span>
-                </div>
-                <div class="result-item result-card">
-                  <span class="label">ROI %</span>
-                  <span class="value" id="re-flip-roi">—</span>
                 </div>
                 <div class="result-item result-card">
                   <span class="label">Profit margin</span>
@@ -194,6 +196,7 @@
   <script src="/assets/js/calculator-engine.js" defer></script>
   <script src="/assets/js/calculator-bindings.js" defer></script>
   <script src="/assets/js/real-estate-cluster-calculators.js" defer></script>
+  <script src="/assets/js/pdf-export.js" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

@@ -155,6 +155,8 @@
     }
 
     el('sp-results-panel').hidden = false;
+    var pdfBtn = el('btn-pdf');
+    if (pdfBtn) pdfBtn.disabled = false;
 
     if (window.CalculatorEngine) {
       if (hasInteracted) {
@@ -217,4 +219,35 @@
   if (window.location.search && window.location.search.length > 1) {
     run();
   }
+
+  window.getCalculatorPdfData = function () {
+    return {
+      title: 'Solar ROI Calculator Results',
+      sections: [
+        {
+          heading: 'Inputs',
+          rows: [
+            { label: 'System cost', value: el('sp-cost').value },
+            { label: 'Tax credit (% of system cost)', value: el('sp-credit').value },
+            { label: 'Annual electricity usage (kWh)', value: el('sp-kwh').value },
+            { label: 'Electricity rate ($/kWh)', value: el('sp-rate').value },
+            { label: 'Annual rate increase (%)', value: el('sp-escalation').value },
+            { label: 'System lifespan (years)', value: el('sp-lifespan').value }
+          ]
+        },
+        {
+          heading: 'Results',
+          rows: [
+            { label: 'Payback period', value: el('sp-result-payback').textContent },
+            { label: 'ROI (20-year)', value: el('sp-result-roi-20').textContent },
+            { label: el('sp-roi-life-label').textContent, value: el('sp-result-roi-life').textContent },
+            { label: 'Total savings (20-year)', value: el('sp-result-save-20').textContent },
+            { label: 'Total savings (lifetime)', value: el('sp-result-save-life').textContent },
+            { label: 'Annual savings (year 1)', value: el('sp-result-annual').textContent }
+          ]
+        }
+      ],
+      disclaimer: 'For informational purposes only. Not financial or investment advice.'
+    };
+  };
 })();
