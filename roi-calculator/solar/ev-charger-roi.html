@@ -63,62 +63,74 @@
       <span>EV Charger ROI</span>
     </nav>
 
-    <article class="content-section">
-      <h1>EV Charger ROI Calculator</h1>
-      <p>Estimate EV charger ROI from installation cost, annual fuel savings (vs a gasoline vehicle), electricity cost for charging, incentives, and charger lifespan.</p>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>EV Charger ROI Calculator</h1>
+        <p class="hero-sub">Estimate EV charger ROI from installation cost, annual fuel savings (vs a gasoline vehicle), electricity cost for charging, incentives, and charger lifespan.</p>
+      </div>
+    </section>
 
-      <section class="calculator-module" aria-labelledby="ev-calc-heading">
-        <h2 id="ev-calc-heading">EV Charger ROI Calculator</h2>
-        <form id="ev-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="ev-cost">Installation cost ($)</label>
-              <input type="number" id="ev-cost" min="0" step="100" value="1500" required>
+    <section class="calculator-section">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="ev-calc-heading">
+            <h2 id="ev-calc-heading">EV Charger ROI Calculator</h2>
+            <form id="ev-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ev-cost">Installation cost ($)</label>
+                  <input type="number" id="ev-cost" min="0" step="100" value="1500" required>
+                </div>
+                <div class="form-group">
+                  <label for="ev-fuel-savings">Annual fuel savings ($)</label>
+                  <input type="number" id="ev-fuel-savings" min="0" step="50" value="1200" required>
+                </div>
+                <div class="form-group">
+                  <label for="ev-electricity">Annual electricity cost for charging ($)</label>
+                  <input type="number" id="ev-electricity" min="0" step="50" value="400">
+                </div>
+                <div class="form-group">
+                  <label for="ev-incentives">Incentives ($)</label>
+                  <input type="number" id="ev-incentives" min="0" step="100" value="0">
+                </div>
+                <div class="form-group">
+                  <label for="ev-years">Lifespan (years)</label>
+                  <input type="number" id="ev-years" min="1" max="25" step="1" value="10" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
+              </div>
+            </form>
+            <div class="results-panel" id="ev-results" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">ROI</span>
+                <span class="result-dominant-value" id="ev-roi">—</span>
+              </div>
+              <p class="result-interpretation" id="ev-interpretation" aria-live="polite"></p>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">Net investment</span>
+                  <span class="value" id="ev-net">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Break-even time</span>
+                  <span class="value" id="ev-break-even">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total net gain</span>
+                  <span class="value" id="ev-gain">—</span>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="ev-fuel-savings">Annual fuel savings ($)</label>
-              <input type="number" id="ev-fuel-savings" min="0" step="50" value="1200" required>
-            </div>
-            <div class="form-group">
-              <label for="ev-electricity">Annual electricity cost for charging ($)</label>
-              <input type="number" id="ev-electricity" min="0" step="50" value="400">
-            </div>
-            <div class="form-group">
-              <label for="ev-incentives">Incentives ($)</label>
-              <input type="number" id="ev-incentives" min="0" step="100" value="0">
-            </div>
-            <div class="form-group">
-              <label for="ev-years">Lifespan (years)</label>
-              <input type="number" id="ev-years" min="1" max="25" step="1" value="10" required>
-            </div>
-          </div>
-          <div class="calc-buttons">
-            <button type="submit" class="btn btn-primary">Calculate</button>
-          </div>
-        </form>
-        <div class="results-panel" id="ev-results">
-          <h3>Results</h3>
-          <div class="results-grid">
-            <div class="result-item">
-              <span class="label">Net investment</span>
-              <span class="value" id="ev-net">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">ROI %</span>
-              <span class="value" id="ev-roi">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Break-even time</span>
-              <span class="value" id="ev-break-even">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Total net gain</span>
-              <span class="value" id="ev-gain">—</span>
-            </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <article class="content-section">
       <h2>Fuel vs electricity cost comparison</h2>
       <p>Annual fuel savings are the difference between what you would have spent on gasoline (or other fuel) for the same mileage and what you spend on electricity for charging. Net annual savings = fuel savings − electricity cost. This calculator uses constant annual net savings and does not model fuel or electricity price escalation.</p>
 
@@ -202,14 +214,48 @@
           var breakEvenYears = netAnnual > 0 ? net / netAnnual : null;
           document.getElementById('ev-net').textContent = fmt(net);
           document.getElementById('ev-roi').textContent = fmtPct(roi);
-          document.getElementById('ev-break-even').textContent = breakEvenYears !== null && breakEvenYears > 0 ? breakEvenYears.toFixed(1) + ' years' : '—';
+          var breakEvenText = breakEvenYears !== null && breakEvenYears > 0 ? breakEvenYears.toFixed(1) + ' years' : '—';
+          document.getElementById('ev-break-even').textContent = breakEvenText;
           document.getElementById('ev-gain').textContent = fmt(totalGain);
+          document.getElementById('ev-interpretation').textContent = 'At these assumptions, the ' + fmt(net) + ' net investment returns ' + fmtPct(roi) + ' over ' + years + ' years, with break-even at ' + breakEvenText + '.';
+          var pdfBtn = document.getElementById('btn-pdf');
+          if (pdfBtn) pdfBtn.disabled = false;
+          document.getElementById('ev-results').hidden = false;
         }
         form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
         run();
+
+        window.getCalculatorPdfData = function () {
+          return {
+            title: 'EV Charger ROI Calculator Results',
+            sections: [
+              {
+                heading: 'Inputs',
+                rows: [
+                  { label: 'Installation cost', value: document.getElementById('ev-cost').value },
+                  { label: 'Annual fuel savings', value: document.getElementById('ev-fuel-savings').value },
+                  { label: 'Annual electricity cost for charging', value: document.getElementById('ev-electricity').value },
+                  { label: 'Incentives', value: document.getElementById('ev-incentives').value },
+                  { label: 'Lifespan (years)', value: document.getElementById('ev-years').value }
+                ]
+              },
+              {
+                heading: 'Results',
+                rows: [
+                  { label: 'ROI %', value: document.getElementById('ev-roi').textContent },
+                  { label: 'Net investment', value: document.getElementById('ev-net').textContent },
+                  { label: 'Break-even time', value: document.getElementById('ev-break-even').textContent },
+                  { label: 'Total net gain', value: document.getElementById('ev-gain').textContent }
+                ]
+              }
+            ],
+            disclaimer: 'For informational purposes only. Not financial or investment advice.'
+          };
+        };
       });
     })();
   </script>
+  <script src="/assets/js/pdf-export.js?v=10" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

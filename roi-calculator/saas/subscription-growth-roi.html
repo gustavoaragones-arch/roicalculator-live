@@ -66,75 +66,89 @@
       <span>Subscription Growth ROI</span>
     </nav>
 
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Subscription Growth ROI Calculator</h1>
+        <p class="hero-sub">Model how subscriber growth, churn, and recurring revenue affect the projected return from a SaaS growth investment.</p>
+      </div>
+    </section>
+
     <article class="content-section">
-      <h1>Subscription Growth ROI Calculator</h1>
-      <p class="hero-sub">Model how subscriber growth, churn, and recurring revenue affect the projected return from a SaaS growth investment.</p>
-
       <p>Project subscriber count and revenue over time using monthly growth and <a href="/glossary/churn-rate.html">churn rate</a>. Links: <a href="/">ROI calculator</a>, <a href="/saas/">SaaS ROI</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/glossary/ltv.html">LTV</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+    </article>
 
-      <section class="calculator-module" aria-labelledby="sub-calc-heading">
-        <h2 id="sub-calc-heading">Subscription Growth ROI Calculator</h2>
-        <form id="sub-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="sub-initial">Initial subscriber count</label>
-              <input type="number" id="sub-initial" min="0" step="1" value="1000" required>
+    <section class="calculator-section">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="sub-calc-heading">
+            <h2 id="sub-calc-heading">Subscription Growth ROI Calculator</h2>
+            <form id="sub-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sub-initial">Initial subscriber count</label>
+                  <input type="number" id="sub-initial" min="0" step="1" value="1000" required>
+                </div>
+                <div class="form-group">
+                  <label for="sub-growth">Monthly growth rate (%)</label>
+                  <input type="number" id="sub-growth" min="-20" max="50" step="0.5" value="5">
+                </div>
+                <div class="form-group">
+                  <label for="sub-churn">Monthly churn rate (%)</label>
+                  <input type="number" id="sub-churn" min="0" max="50" step="0.25" value="2">
+                </div>
+                <div class="form-group">
+                  <label for="sub-arpu">ARPU ($/month)</label>
+                  <input type="number" id="sub-arpu" min="0" step="1" value="50" required>
+                </div>
+                <div class="form-group">
+                  <label for="sub-horizon">Time horizon (months)</label>
+                  <input type="number" id="sub-horizon" min="1" max="120" step="1" value="24" required>
+                </div>
+                <div class="form-group">
+                  <label for="sub-spend">Total growth spend ($, optional)</label>
+                  <input type="number" id="sub-spend" min="0" step="1000" value="0" placeholder="For ROI %">
+                </div>
+                <div class="form-group">
+                  <label for="sub-margin">Gross margin (%)</label>
+                  <input type="number" id="sub-margin" min="0" max="100" step="1" value="75">
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
+              </div>
+            </form>
+            <div class="results-panel" id="sub-results" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">Projected Subscribers</span>
+                <span class="result-dominant-value" id="sub-projected">—</span>
+              </div>
+              <p class="result-interpretation" id="sub-interpretation" aria-live="polite"></p>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">Revenue growth %</span>
+                  <span class="value" id="sub-rev-growth">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Monthly revenue (end)</span>
+                  <span class="value" id="sub-mrr">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">ROI %</span>
+                  <span class="value" id="sub-roi">—</span>
+                </div>
+              </div>
+              <div class="chart-container" style="height:260px;">
+                <canvas id="sub-chart" role="img" aria-label="Chart projecting subscriber count and revenue growth for subscription ROI modeling"></canvas>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="sub-growth">Monthly growth rate (%)</label>
-              <input type="number" id="sub-growth" min="-20" max="50" step="0.5" value="5">
-            </div>
-            <div class="form-group">
-              <label for="sub-churn">Monthly churn rate (%)</label>
-              <input type="number" id="sub-churn" min="0" max="50" step="0.25" value="2">
-            </div>
-            <div class="form-group">
-              <label for="sub-arpu">ARPU ($/month)</label>
-              <input type="number" id="sub-arpu" min="0" step="1" value="50" required>
-            </div>
-            <div class="form-group">
-              <label for="sub-horizon">Time horizon (months)</label>
-              <input type="number" id="sub-horizon" min="1" max="120" step="1" value="24" required>
-            </div>
-            <div class="form-group">
-              <label for="sub-spend">Total growth spend ($, optional)</label>
-              <input type="number" id="sub-spend" min="0" step="1000" value="0" placeholder="For ROI %">
-            </div>
-            <div class="form-group">
-              <label for="sub-margin">Gross margin (%)</label>
-              <input type="number" id="sub-margin" min="0" max="100" step="1" value="75">
-            </div>
-          </div>
-          <div class="calc-buttons">
-            <button type="submit" class="btn btn-primary">Calculate</button>
-          </div>
-        </form>
-        <div class="results-panel" id="sub-results">
-          <h3>Results</h3>
-          <div class="results-grid">
-            <div class="result-item">
-              <span class="label">Projected subscribers</span>
-              <span class="value" id="sub-projected">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Revenue growth %</span>
-              <span class="value" id="sub-rev-growth">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Monthly revenue (end)</span>
-              <span class="value" id="sub-mrr">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">ROI %</span>
-              <span class="value" id="sub-roi">—</span>
-            </div>
-          </div>
-          <div class="chart-container" style="height:260px;">
-            <canvas id="sub-chart" role="img" aria-label="Chart projecting subscriber count and revenue growth for subscription ROI modeling"></canvas>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <article class="content-section">
       <h2>Compounding Growth</h2>
       <p>Subscriber count in each period depends on the prior period: net growth rate = growth rate − churn rate. So subscribers evolve as a compound curve: Sub_t ≈ Sub_0 × (1 + g − c)^t, where g is monthly growth and c is monthly churn. Small changes in g or c have large effects over long horizons. Positive net growth (g > c) yields expansion; negative net growth leads to decline. See <a href="/learn/roi-formula.html">ROI formula</a> for return concepts.</p>
 
@@ -162,7 +176,7 @@
           <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
           <li><a href="/glossary/churn-rate.html">Churn Rate</a></li>
         </ul>
-      </nav>
+      </section>
     </article>
 
   </main>
@@ -247,6 +261,9 @@
           document.getElementById('sub-rev-growth').textContent = fmtPct(revGrowth);
           document.getElementById('sub-mrr').textContent = fmt(revEnd);
           document.getElementById('sub-roi').textContent = roi !== null ? fmtPct(roi) : '—';
+          document.getElementById('sub-interpretation').textContent = 'At these assumptions, subscribers are projected to reach ' + projected.toLocaleString() + ' after ' + horizon + ' months, with monthly revenue growing ' + fmtPct(revGrowth) + ' to ' + fmt(revEnd) + '.' + (roi !== null ? ' ROI on the ' + fmt(spend) + ' growth spend is modeled at ' + fmtPct(roi) + '.' : '');
+          var pdfBtn = document.getElementById('btn-pdf');
+          if (pdfBtn) pdfBtn.disabled = false;
           var labels = []; for(var i = 0; i <= horizon; i++) labels.push(i);
           var revPath = subsPath.map(function(s){ return s * arpu; });
           var canvas = document.getElementById('sub-chart');
@@ -254,12 +271,44 @@
             if(subChart) subChart.destroy();
             subChart = new Chart(canvas, { type: 'line', data: { labels: labels, datasets: [{ label: 'Subscribers', data: subsPath, borderColor: '#2563eb', yAxisID: 'y', fill: false }, { label: 'Monthly revenue ($)', data: revPath, borderColor: '#16a34a', yAxisID: 'y1', fill: false }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { x: { title: { display: true, text: 'Month' } }, y: { type: 'linear', position: 'left', title: { display: true, text: 'Subscribers' } }, y1: { type: 'linear', position: 'right', title: { display: true, text: 'MRR ($)' }, grid: { drawOnChartArea: false }, ticks: { callback: function(v){ return (v/1000)+'k'; } } } } } });
           }
+          document.getElementById('sub-results').hidden = false;
         }
         form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
         run();
+
+        window.getCalculatorPdfData = function () {
+          return {
+            title: 'Subscription Growth ROI Calculator Results',
+            sections: [
+              {
+                heading: 'Inputs',
+                rows: [
+                  { label: 'Initial subscriber count', value: document.getElementById('sub-initial').value },
+                  { label: 'Monthly growth rate (%)', value: document.getElementById('sub-growth').value },
+                  { label: 'Monthly churn rate (%)', value: document.getElementById('sub-churn').value },
+                  { label: 'ARPU ($/month)', value: document.getElementById('sub-arpu').value },
+                  { label: 'Time horizon (months)', value: document.getElementById('sub-horizon').value },
+                  { label: 'Total growth spend ($, optional)', value: document.getElementById('sub-spend').value },
+                  { label: 'Gross margin (%)', value: document.getElementById('sub-margin').value }
+                ]
+              },
+              {
+                heading: 'Results',
+                rows: [
+                  { label: 'Projected subscribers', value: document.getElementById('sub-projected').textContent },
+                  { label: 'Revenue growth %', value: document.getElementById('sub-rev-growth').textContent },
+                  { label: 'Monthly revenue (end)', value: document.getElementById('sub-mrr').textContent },
+                  { label: 'ROI %', value: document.getElementById('sub-roi').textContent }
+                ]
+              }
+            ],
+            disclaimer: 'For informational purposes only. Not financial or investment advice.'
+          };
+        };
       });
     })();
   </script>
+  <script src="/assets/js/pdf-export.js?v=10" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

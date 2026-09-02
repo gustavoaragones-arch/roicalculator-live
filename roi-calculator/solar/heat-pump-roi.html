@@ -63,62 +63,74 @@
       <span>Heat Pump ROI</span>
     </nav>
 
-    <article class="content-section">
-      <h1>Heat Pump ROI Calculator</h1>
-      <p>Estimate heat pump ROI from installation cost, rebates, annual heating cost savings, and energy inflation over the system lifespan.</p>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Heat Pump ROI Calculator</h1>
+        <p class="hero-sub">Estimate heat pump ROI from installation cost, rebates, annual heating cost savings, and energy inflation over the system lifespan.</p>
+      </div>
+    </section>
 
-      <section class="calculator-module" aria-labelledby="hp-calc-heading">
-        <h2 id="hp-calc-heading">Heat Pump ROI Calculator</h2>
-        <form id="hp-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="hp-cost">Installation cost ($)</label>
-              <input type="number" id="hp-cost" min="0" step="500" value="12000" required>
+    <section class="calculator-section">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="hp-calc-heading">
+            <h2 id="hp-calc-heading">Heat Pump ROI Calculator</h2>
+            <form id="hp-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hp-cost">Installation cost ($)</label>
+                  <input type="number" id="hp-cost" min="0" step="500" value="12000" required>
+                </div>
+                <div class="form-group">
+                  <label for="hp-rebates">Rebates ($)</label>
+                  <input type="number" id="hp-rebates" min="0" step="500" value="2000">
+                </div>
+                <div class="form-group">
+                  <label for="hp-savings">Annual heating cost savings ($)</label>
+                  <input type="number" id="hp-savings" min="0" step="100" value="900" required>
+                </div>
+                <div class="form-group">
+                  <label for="hp-inflation">Energy inflation (%)</label>
+                  <input type="number" id="hp-inflation" min="-5" max="20" step="0.5" value="3">
+                </div>
+                <div class="form-group">
+                  <label for="hp-years">Lifespan (years)</label>
+                  <input type="number" id="hp-years" min="1" max="30" step="1" value="15" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
+              </div>
+            </form>
+            <div class="results-panel" id="hp-results" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">ROI</span>
+                <span class="result-dominant-value" id="hp-roi">—</span>
+              </div>
+              <p class="result-interpretation" id="hp-interpretation" aria-live="polite"></p>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">Net investment</span>
+                  <span class="value" id="hp-net">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Break-even year</span>
+                  <span class="value" id="hp-break-even">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total savings</span>
+                  <span class="value" id="hp-total">—</span>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="hp-rebates">Rebates ($)</label>
-              <input type="number" id="hp-rebates" min="0" step="500" value="2000">
-            </div>
-            <div class="form-group">
-              <label for="hp-savings">Annual heating cost savings ($)</label>
-              <input type="number" id="hp-savings" min="0" step="100" value="900" required>
-            </div>
-            <div class="form-group">
-              <label for="hp-inflation">Energy inflation (%)</label>
-              <input type="number" id="hp-inflation" min="-5" max="20" step="0.5" value="3">
-            </div>
-            <div class="form-group">
-              <label for="hp-years">Lifespan (years)</label>
-              <input type="number" id="hp-years" min="1" max="30" step="1" value="15" required>
-            </div>
-          </div>
-          <div class="calc-buttons">
-            <button type="submit" class="btn btn-primary">Calculate</button>
-          </div>
-        </form>
-        <div class="results-panel" id="hp-results">
-          <h3>Results</h3>
-          <div class="results-grid">
-            <div class="result-item">
-              <span class="label">Net investment</span>
-              <span class="value" id="hp-net">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">ROI %</span>
-              <span class="value" id="hp-roi">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Break-even year</span>
-              <span class="value" id="hp-break-even">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Total savings</span>
-              <span class="value" id="hp-total">—</span>
-            </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <article class="content-section">
       <h2>Efficiency comparison</h2>
       <p>Heat pumps move heat rather than converting fuel to heat. Coefficient of performance (COP) indicates how many units of heat are delivered per unit of electricity; COP &gt; 1 means the system delivers more heat than the electrical energy consumed. Compare the operating cost of your current heating (fuel or electric resistance) to the estimated cost of running the heat pump at your local electricity and fuel rates — the "annual heating cost savings" input should reflect that difference.</p>
 
@@ -205,14 +217,48 @@
           var roi = (cum - net) / net * 100;
           document.getElementById('hp-net').textContent = fmt(net);
           document.getElementById('hp-roi').textContent = fmtPct(roi);
-          document.getElementById('hp-break-even').textContent = breakEven !== null ? 'Year ' + breakEven : '—';
+          var breakEvenText = breakEven !== null ? 'Year ' + breakEven : '—';
+          document.getElementById('hp-break-even').textContent = breakEvenText;
           document.getElementById('hp-total').textContent = fmt(cum);
+          document.getElementById('hp-interpretation').textContent = 'At these assumptions, the ' + fmt(net) + ' net investment returns ' + fmtPct(roi) + ' over ' + years + ' years, breaking even in ' + breakEvenText + ' with total savings of ' + fmt(cum) + '.';
+          var pdfBtn = document.getElementById('btn-pdf');
+          if (pdfBtn) pdfBtn.disabled = false;
+          document.getElementById('hp-results').hidden = false;
         }
         form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
         run();
+
+        window.getCalculatorPdfData = function () {
+          return {
+            title: 'Heat Pump ROI Calculator Results',
+            sections: [
+              {
+                heading: 'Inputs',
+                rows: [
+                  { label: 'Installation cost', value: document.getElementById('hp-cost').value },
+                  { label: 'Rebates', value: document.getElementById('hp-rebates').value },
+                  { label: 'Annual heating cost savings', value: document.getElementById('hp-savings').value },
+                  { label: 'Energy inflation (%)', value: document.getElementById('hp-inflation').value },
+                  { label: 'Lifespan (years)', value: document.getElementById('hp-years').value }
+                ]
+              },
+              {
+                heading: 'Results',
+                rows: [
+                  { label: 'ROI %', value: document.getElementById('hp-roi').textContent },
+                  { label: 'Net investment', value: document.getElementById('hp-net').textContent },
+                  { label: 'Break-even year', value: document.getElementById('hp-break-even').textContent },
+                  { label: 'Total savings', value: document.getElementById('hp-total').textContent }
+                ]
+              }
+            ],
+            disclaimer: 'For informational purposes only. Not financial or investment advice.'
+          };
+        };
       });
     })();
   </script>
+  <script src="/assets/js/pdf-export.js?v=10" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

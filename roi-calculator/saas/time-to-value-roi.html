@@ -65,60 +65,74 @@
       <span>Time-to-Value ROI</span>
     </nav>
 
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Time-to-Value ROI Calculator</h1>
+        <p class="hero-sub">Estimate how faster time-to-value changes the economic return of a SaaS investment over the selected period.</p>
+      </div>
+    </section>
+
     <article class="content-section">
-      <h1>Time-to-Value ROI Calculator</h1>
-      <p class="hero-sub">Estimate how faster time-to-value changes the economic return of a SaaS investment over the selected period.</p>
-
       <p>Estimate break-even and ROI when investing in a tool and implementation: total cost vs expected monthly efficiency gain. Links: <a href="/">ROI calculator</a>, <a href="/saas/">SaaS ROI</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/glossary/payback-period.html">payback period</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+    </article>
 
-      <section class="calculator-module" aria-labelledby="ttv-calc-heading">
-        <h2 id="ttv-calc-heading">Time-to-Value ROI Calculator</h2>
-        <form id="ttv-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="ttv-tool">Tool cost ($)</label>
-              <input type="number" id="ttv-tool" min="0" step="100" value="5000" required>
+    <section class="calculator-section">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="ttv-calc-heading">
+            <h2 id="ttv-calc-heading">Time-to-Value ROI Calculator</h2>
+            <form id="ttv-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ttv-tool">Tool cost ($)</label>
+                  <input type="number" id="ttv-tool" min="0" step="100" value="5000" required>
+                </div>
+                <div class="form-group">
+                  <label for="ttv-impl">Implementation cost ($)</label>
+                  <input type="number" id="ttv-impl" min="0" step="100" value="3000">
+                </div>
+                <div class="form-group">
+                  <label for="ttv-gain">Expected monthly efficiency gain ($)</label>
+                  <input type="number" id="ttv-gain" min="0" step="50" value="800" required>
+                </div>
+                <div class="form-group">
+                  <label for="ttv-months">Time to implementation (months)</label>
+                  <input type="number" id="ttv-months" min="0" step="0.5" value="2">
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
+              </div>
+            </form>
+            <div class="results-panel" id="ttv-results" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">ROI (12 months)</span>
+                <span class="result-dominant-value" id="ttv-roi">—</span>
+              </div>
+              <p class="result-interpretation" id="ttv-interpretation" aria-live="polite"></p>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">Total investment</span>
+                  <span class="value" id="ttv-total">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Break-even time</span>
+                  <span class="value" id="ttv-break-even">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Total gain after 12 months</span>
+                  <span class="value" id="ttv-gain12">—</span>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="ttv-impl">Implementation cost ($)</label>
-              <input type="number" id="ttv-impl" min="0" step="100" value="3000">
-            </div>
-            <div class="form-group">
-              <label for="ttv-gain">Expected monthly efficiency gain ($)</label>
-              <input type="number" id="ttv-gain" min="0" step="50" value="800" required>
-            </div>
-            <div class="form-group">
-              <label for="ttv-months">Time to implementation (months)</label>
-              <input type="number" id="ttv-months" min="0" step="0.5" value="2">
-            </div>
-          </div>
-          <div class="calc-buttons">
-            <button type="submit" class="btn btn-primary">Calculate</button>
-          </div>
-        </form>
-        <div class="results-panel" id="ttv-results">
-          <h3>Results</h3>
-          <div class="results-grid">
-            <div class="result-item">
-              <span class="label">Total investment</span>
-              <span class="value" id="ttv-total">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Break-even time</span>
-              <span class="value" id="ttv-break-even">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">ROI % (12 months)</span>
-              <span class="value" id="ttv-roi">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Total gain after 12 months</span>
-              <span class="value" id="ttv-gain12">—</span>
-            </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <article class="content-section">
       <h2>What Time-to-Value Means</h2>
       <p>Time-to-value (TTV) is the period from the start of an investment (e.g., buying a tool, starting implementation) until the point when the investment has generated enough benefit to offset its cost. Here we treat “value” as the expected monthly efficiency gain—savings or incremental profit from using the tool. Break-even is when cumulative gain equals total investment. Shorter TTV reduces risk and improves <a href="/learn/roi-formula.html">ROI</a>. See <a href="/glossary/payback-period.html">payback period</a> for the same concept in other contexts.</p>
 
@@ -143,7 +157,7 @@
           <li><a href="/learn/what-is-roi.html">What Is ROI?</a></li>
           <li><a href="/glossary/payback-period.html">Payback Period</a></li>
         </ul>
-      </nav>
+      </section>
     </article>
 
   </main>
@@ -213,12 +227,44 @@
           document.getElementById('ttv-break-even').textContent = breakEvenMonths.toFixed(1) + ' months from first gain';
           document.getElementById('ttv-roi').textContent = fmtPct(roi12);
           document.getElementById('ttv-gain12').textContent = fmt(gain12);
+          document.getElementById('ttv-interpretation').textContent = 'At these assumptions, the ' + fmt(total) + ' investment breaks even in ' + breakEvenMonths.toFixed(1) + ' months from first gain, returning ' + fmtPct(roi12) + ' over the first 12 months of benefit.';
+          var pdfBtn = document.getElementById('btn-pdf');
+          if (pdfBtn) pdfBtn.disabled = false;
+          document.getElementById('ttv-results').hidden = false;
         }
         form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
         run();
+
+        window.getCalculatorPdfData = function () {
+          return {
+            title: 'Time-to-Value ROI Calculator Results',
+            sections: [
+              {
+                heading: 'Inputs',
+                rows: [
+                  { label: 'Tool cost', value: document.getElementById('ttv-tool').value },
+                  { label: 'Implementation cost', value: document.getElementById('ttv-impl').value },
+                  { label: 'Expected monthly efficiency gain', value: document.getElementById('ttv-gain').value },
+                  { label: 'Time to implementation (months)', value: document.getElementById('ttv-months').value }
+                ]
+              },
+              {
+                heading: 'Results',
+                rows: [
+                  { label: 'ROI % (12 months)', value: document.getElementById('ttv-roi').textContent },
+                  { label: 'Total investment', value: document.getElementById('ttv-total').textContent },
+                  { label: 'Break-even time', value: document.getElementById('ttv-break-even').textContent },
+                  { label: 'Total gain after 12 months', value: document.getElementById('ttv-gain12').textContent }
+                ]
+              }
+            ],
+            disclaimer: 'For informational purposes only. Not financial or investment advice.'
+          };
+        };
       });
     })();
   </script>
+  <script src="/assets/js/pdf-export.js?v=10" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>

@@ -78,63 +78,77 @@
       <span>CAC vs LTV ROI</span>
     </nav>
 
+    <section class="hero">
+      <div class="hero-content">
+        <h1>CAC vs LTV ROI Calculator</h1>
+        <p class="hero-sub">Compare customer acquisition cost with customer lifetime value to estimate the return from acquiring and retaining a SaaS customer.</p>
+      </div>
+    </section>
+
     <article class="content-section">
-      <h1>CAC vs LTV ROI Calculator</h1>
-      <p class="hero-sub">Compare customer acquisition cost with customer lifetime value to estimate the return from acquiring and retaining a SaaS customer.</p>
-
       <p>Model SaaS unit economics: <a href="/glossary/cac.html">CAC</a>, <a href="/glossary/ltv.html">LTV</a>, LTV:CAC ratio, ROI, and payback period. Links: <a href="/">ROI calculator</a>, <a href="/saas/">SaaS ROI</a>, <a href="/roi-calculator/marketing/">Marketing ROI</a>, <a href="/roi-calculator/real-estate/">Real Estate ROI</a>, <a href="/glossary/gross-margin.html">gross margin</a>, <a href="/learn/what-is-roi.html">What Is ROI?</a>.</p>
+    </article>
 
-      <section class="calculator-module" aria-labelledby="cac-ltv-calc-heading">
-        <h2 id="cac-ltv-calc-heading">CAC vs LTV ROI Calculator</h2>
-        <form id="cac-ltv-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cac">Customer Acquisition Cost (CAC) ($)</label>
-              <input type="number" id="cac" min="0" step="10" value="2000" required>
+    <section class="calculator-section">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="cac-ltv-calc-heading">
+            <h2 id="cac-ltv-calc-heading">CAC vs LTV ROI Calculator</h2>
+            <form id="cac-ltv-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cac">Customer Acquisition Cost (CAC) ($)</label>
+                  <input type="number" id="cac" min="0" step="10" value="2000" required>
+                </div>
+                <div class="form-group">
+                  <label for="arpu">Average Monthly Revenue per User (ARPU) ($)</label>
+                  <input type="number" id="arpu" min="0" step="1" value="100" required>
+                </div>
+                <div class="form-group">
+                  <label for="margin">Gross Margin (%)</label>
+                  <input type="number" id="margin" min="0" max="100" step="1" value="75">
+                </div>
+                <div class="form-group">
+                  <label for="lifespan">Average Customer Lifespan (months)</label>
+                  <input type="number" id="lifespan" min="1" step="1" value="36" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Download PDF</button>
+              </div>
+            </form>
+            <div class="results-panel" id="cac-ltv-results" hidden>
+              <h3>Results</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">ROI</span>
+                <span class="result-dominant-value" id="roi">—</span>
+              </div>
+              <p class="result-interpretation" id="cac-ltv-interpretation" aria-live="polite"></p>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">LTV</span>
+                  <span class="value" id="ltv">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">LTV:CAC ratio</span>
+                  <span class="value" id="ratio">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Payback period (months)</span>
+                  <span class="value" id="payback">—</span>
+                </div>
+              </div>
+              <div class="chart-container" style="height:260px;">
+                <canvas id="cac-ltv-chart" role="img" aria-label="Line chart of cumulative subscription revenue versus customer acquisition cost over time for ROI analysis"></canvas>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="arpu">Average Monthly Revenue per User (ARPU) ($)</label>
-              <input type="number" id="arpu" min="0" step="1" value="100" required>
-            </div>
-            <div class="form-group">
-              <label for="margin">Gross Margin (%)</label>
-              <input type="number" id="margin" min="0" max="100" step="1" value="75">
-            </div>
-            <div class="form-group">
-              <label for="lifespan">Average Customer Lifespan (months)</label>
-              <input type="number" id="lifespan" min="1" step="1" value="36" required>
-            </div>
-          </div>
-          <div class="calc-buttons">
-            <button type="submit" class="btn btn-primary">Calculate</button>
-          </div>
-        </form>
-        <div class="results-panel" id="cac-ltv-results">
-          <h3>Results</h3>
-          <div class="results-grid">
-            <div class="result-item">
-              <span class="label">LTV</span>
-              <span class="value" id="ltv">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">LTV:CAC ratio</span>
-              <span class="value" id="ratio">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">ROI %</span>
-              <span class="value" id="roi">—</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Payback period (months)</span>
-              <span class="value" id="payback">—</span>
-            </div>
-          </div>
-          <div class="chart-container" style="height:260px;">
-            <canvas id="cac-ltv-chart" role="img" aria-label="Line chart of cumulative subscription revenue versus customer acquisition cost over time for ROI analysis"></canvas>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <article class="content-section">
       <h2>LTV Formula</h2>
       <p class="math-inline">LTV = ARPU × (Gross Margin / 100) × Average Lifespan (months)</p>
       <p>This is margin-adjusted LTV: the total gross profit expected from one customer over their lifetime. Revenue-only LTV would omit the margin term; for ROI and payback, use gross profit. Average lifespan can be estimated from <a href="/glossary/churn-rate.html">churn rate</a>: if monthly churn is 2%, average lifespan ≈ 1 / 0.02 = 50 months. See <a href="/glossary/ltv.html">LTV</a> and <a href="/saas/">SaaS ROI</a> for context.</p>
@@ -260,6 +274,9 @@
           document.getElementById('ratio').textContent = ratio.toFixed(2) + ':1';
           document.getElementById('roi').textContent = fmtPct(roi);
           document.getElementById('payback').textContent = payback.toFixed(1);
+          document.getElementById('cac-ltv-interpretation').textContent = 'At these assumptions, LTV is ' + fmt(ltv) + ' against a CAC of ' + fmt(cac) + ' — an LTV:CAC ratio of ' + ratio.toFixed(2) + ':1 and an ROI of ' + fmtPct(roi) + ', with payback in ' + payback.toFixed(1) + ' months.';
+          var pdfBtn = document.getElementById('btn-pdf');
+          if (pdfBtn) pdfBtn.disabled = false;
           var months = Math.min(60, Math.max(lifespan + 6, 24));
           var labels = []; var revLine = []; var costLine = [];
           for(var i = 0; i <= months; i++){
@@ -272,12 +289,41 @@
             if(cacLtvChart) cacLtvChart.destroy();
             cacLtvChart = new Chart(canvas, { type: 'line', data: { labels: labels, datasets: [{ label: 'Cumulative gross profit', data: revLine, borderColor: '#2563eb', fill: true, backgroundColor: 'rgba(37,99,235,0.1)' }, { label: 'CAC', data: costLine, borderColor: '#94a3b8', borderDash: [5,5], fill: false }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { x: { title: { display: true, text: 'Months' } }, y: { beginAtZero: true, ticks: { callback: function(v){ return '$'+(v/1000)+'k'; } } } } } });
           }
+          document.getElementById('cac-ltv-results').hidden = false;
         }
         form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
         run();
+
+        window.getCalculatorPdfData = function () {
+          return {
+            title: 'CAC vs LTV ROI Calculator Results',
+            sections: [
+              {
+                heading: 'Inputs',
+                rows: [
+                  { label: 'Customer Acquisition Cost (CAC)', value: document.getElementById('cac').value },
+                  { label: 'Average Monthly Revenue per User (ARPU)', value: document.getElementById('arpu').value },
+                  { label: 'Gross Margin (%)', value: document.getElementById('margin').value },
+                  { label: 'Average Customer Lifespan (months)', value: document.getElementById('lifespan').value }
+                ]
+              },
+              {
+                heading: 'Results',
+                rows: [
+                  { label: 'ROI', value: document.getElementById('roi').textContent },
+                  { label: 'LTV', value: document.getElementById('ltv').textContent },
+                  { label: 'LTV:CAC ratio', value: document.getElementById('ratio').textContent },
+                  { label: 'Payback period (months)', value: document.getElementById('payback').textContent }
+                ]
+              }
+            ],
+            disclaimer: 'For informational purposes only. Not financial or investment advice.'
+          };
+        };
       });
     })();
   </script>
+  <script src="/assets/js/pdf-export.js?v=10" defer></script>
   <script src="/assets/js/navigation.js" defer></script>
 </body>
 </html>
