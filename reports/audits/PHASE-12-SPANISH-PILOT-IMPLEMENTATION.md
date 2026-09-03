@@ -204,8 +204,25 @@ Coverage includes: URL existence, HTTP 200, lang, canonical, hreflang reciprocit
 
 ## 21. Production QA Results
 
-*(Completed after deploy — see section update below / commit notes.)*
+Deploy commit: `78246ad`  
+Script: `PHASE12_BASE=https://roicalculator.live node scripts/qa/phase12-spanish-pilot-check.mjs`  
+(with automatic `?qa=` cache-bust against Cloudflare `max-age` caching)
 
+**131 passed, 0 failed** on production.
+
+Verified live:
+
+| URL | HTTP | lang | canonical |
+|-----|------|------|-----------|
+| `/es/` | 200 | es | self |
+| `/es/calculadora-roi.html` | 200 | es | self |
+| `/es/inmobiliario/calculadora-rentabilidad-alquiler.html` | 200 | es | self |
+| `/es/saas/calculadora-cac-ltv.html` | 200 | es | self |
+| `/es/impresion-3d/calculadora-precio-servicio.html` | 200 | es | self |
+
+Parity on production matches local. EN homepage ROI remains 50.00%.
+
+**Note:** Apex English HTML may be served from CDN cache without query bust (`cf-cache-status: HIT`). Cache-busted fetches confirm deployed markup includes hreflang + Español switches. Operators may purge Cloudflare cache for `/` and `/real-estate/` if immediate uncached visibility is required.
 ---
 
 ## 22. English Regression Results
@@ -276,8 +293,12 @@ Coverage includes: URL existence, HTTP 200, lang, canonical, hreflang reciprocit
 | No mass translation | PASS |
 | No formula change | PASS |
 | Local QA 131/131 | PASS |
+| Production QA 131/131 | PASS |
 | Responsive | PASS |
 
-**PHASE 12 LOCAL GATES: PASS**
+**PHASE 12 — PASS**
 
-Production QA and final git push verification recorded after deploy.
+Final commit: see git log for `Phase 12: implement Spanish pilot` (+ follow-up QA cache-bust if present).  
+`HEAD == origin/main`, working tree clean after push.
+
+**STOP. Do not begin Phase 13 or expand Spanish.**

@@ -10,6 +10,13 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '../..');
 const BASE = process.env.PHASE12_BASE || 'http://127.0.0.1:8791';
+const BUST = process.env.PHASE12_BUST || (BASE.includes('roicalculator.live') ? String(Date.now()) : '');
+
+function url(path) {
+  if (!BUST) return BASE + path;
+  const sep = path.includes('?') ? '&' : '?';
+  return BASE + path + sep + 'qa=' + BUST;
+}
 
 const ES_PAGES = [
   { path: '/es/', name: 'hub' },
@@ -103,7 +110,7 @@ const browser = await chromium.launch({ channel: 'chrome' });
 try {
   for (const p of ES_PAGES) {
     const page = await browser.newPage();
-    const resp = await page.goto(BASE + p.path, { waitUntil: 'load', timeout: 30000 });
+    const resp = await page.goto(url(p.path), { waitUntil: 'load', timeout: 30000 });
     check(p.name + ' HTTP 200', resp && resp.status() === 200, String(resp && resp.status()));
     const lang = await page.locator('html').getAttribute('lang');
     check(p.name + ' live lang=es', lang === 'es');
@@ -128,7 +135,7 @@ try {
 
       // Reciprocal on EN
       const enPage = await browser.newPage();
-      await enPage.goto(BASE + p.pairEn, { waitUntil: 'load' });
+      await enPage.goto(url(p.pairEn), { waitUntil: 'load' });
       const enAlts = await enPage.evaluate(() =>
         [...document.querySelectorAll('link[rel="alternate"][hreflang]')].map((a) => ({
           h: a.getAttribute('hreflang'),
@@ -182,12 +189,12 @@ try {
   }
 
   // Mathematical parity EN vs ES
-  async function calcValue(url, formSel, resultSel) {
+  async function calcValue(pathName, formSel, resultSel) {
     const page = await browser.newPage();
-    await page.goto(BASE + url, { waitUntil: 'load' });
+    await page.goto(url(pathName), { waitUntil: 'load' });
     // Force $ on ES for comparable display parsing if select exists
     const sym = page.locator('#currency-symbol');
-    if ((await sym.count()) && url.includes('/es/')) {
+    if ((await sym.count()) && pathName.includes('/es/')) {
       await sym.selectOption('$');
     }
     await page.locator(formSel + ' button[type="submit"]').click();
@@ -233,7 +240,7 @@ try {
 
   // English regression smoke
   const home = await browser.newPage();
-  await home.goto(BASE + '/', { waitUntil: 'load' });
+  await home.goto(url('/'), { waitUntil: 'load' });
   await home.locator('#roi-form button[type="submit"]').click();
   await home.waitForTimeout(300);
   const homeRoi = (await home.locator('#result-roi').textContent()).trim();
@@ -241,7 +248,7 @@ try {
   await home.close();
 
   const solar = await browser.newPage();
-  await solar.goto(BASE + '/solar/roi-calculator.html', { waitUntil: 'load' });
+  await solar.goto(url('/solar/roi-calculator.html'), { waitUntil: 'load' });
   check('Unrelated EN solar loads', (await solar.title()).length > 0);
   await solar.close();
 } finally {
