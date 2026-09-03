@@ -34,10 +34,12 @@
   }
 
   function formatMoney(n) {
+    if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatMoney(n, 0);
     return '$' + n.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 
   function formatPct(n) {
+    if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatPct(n, 2);
     return n.toFixed(2) + '%';
   }
 
@@ -48,6 +50,16 @@
    * reports/audits/MASTER-DIAGNOSTIC.md and the Phase 3 brief, Step 7.
    */
   function buildInterpretation(roiPct, annualCF, totalProfit, equityGained) {
+    var S = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
+    if (S) {
+      var base = S.rpInterpBase(formatPct(roiPct));
+      var cfClause = annualCF >= 0 ? S.rpInterpCfPos(formatMoney(annualCF)) : S.rpInterpCfNeg(formatMoney(annualCF));
+      var profitClause =
+        totalProfit >= 0
+          ? S.rpInterpProfitPos(formatMoney(totalProfit), formatMoney(equityGained))
+          : S.rpInterpProfitNeg(formatMoney(Math.abs(totalProfit)));
+      return base + cfClause + profitClause;
+    }
     var base =
       'At the assumptions entered, this property produces an estimated ' +
       formatPct(roiPct) +
@@ -75,15 +87,15 @@
     var termYears = parseNum(el('rp-term').value);
 
     if (purchase <= 0) {
-      alert('Purchase price must be positive.');
+      alert((window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S.rpAlertPurchase : 'Purchase price must be positive.'));
       return;
     }
     if (down < 0 || down > purchase) {
-      alert('Down payment must be between zero and purchase price.');
+      alert((window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S.rpAlertDown : 'Down payment must be between zero and purchase price.'));
       return;
     }
     if (years <= 0) {
-      alert('Holding period must be positive.');
+      alert((window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S.rpAlertYears : 'Holding period must be positive.'));
       return;
     }
 
@@ -124,8 +136,9 @@
     var cumSeries = [];
     var valueSeries = [];
     var i;
+    var chartS = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
     for (i = 0; i <= chartMaxYear; i++) {
-      labels.push('Year ' + i);
+      labels.push(chartS ? chartS.rpYear(i) : 'Year ' + i);
       if (i === 0) {
         cumSeries.push(0);
         valueSeries.push(purchase);
@@ -152,7 +165,7 @@
         labels: labels,
         datasets: [
           {
-            label: 'Cumulative cash flow',
+            label: chartS ? chartS.rpChartCf : 'Cumulative cash flow',
             data: cumSeries,
             borderColor: '#94a3b8',
             borderDash: [5, 5],
@@ -160,7 +173,7 @@
             tension: 0.2
           },
           {
-            label: 'Property value',
+            label: chartS ? chartS.rpChartValue : 'Property value',
             data: valueSeries,
             borderColor: '#2563eb',
             backgroundColor: 'rgba(37, 99, 235, 0.1)',
@@ -187,6 +200,7 @@
             ticks: {
               color: '#9ca3af',
               callback: function (v) {
+                if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatCompactAxis(v);
                 return '$' + (v / 1000).toFixed(0) + 'k';
               }
             },
@@ -201,4 +215,37 @@
     e.preventDefault();
     run();
   });
+
+  window.getCalculatorPdfData = function () {
+    var S = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
+    return {
+      title: S ? S.rpPdfTitle : 'Rental Property ROI Calculator Results',
+      sections: [
+        {
+          heading: S ? S.inputs : 'Inputs',
+          rows: [
+            { label: S ? S.rpPdfPurchase : 'Purchase price', value: el('rp-purchase').value },
+            { label: S ? S.rpPdfDown : 'Down payment', value: el('rp-down').value },
+            { label: S ? S.rpPdfRent : 'Monthly rent', value: el('rp-rent').value },
+            { label: S ? S.rpPdfExpenses : 'Monthly operating expenses', value: el('rp-expenses').value },
+            { label: S ? S.rpPdfVacancy : 'Vacancy rate (%)', value: el('rp-vacancy').value },
+            { label: S ? S.rpPdfAppreciation : 'Annual appreciation (%)', value: el('rp-appreciation').value },
+            { label: S ? S.rpPdfYears : 'Holding years', value: el('rp-years').value },
+            { label: S ? S.rpPdfRate : 'Interest rate (%)', value: el('rp-rate').value },
+            { label: S ? S.rpPdfTerm : 'Mortgage term (years)', value: el('rp-term').value }
+          ]
+        },
+        {
+          heading: S ? S.results : 'Results',
+          rows: [
+            { label: S ? S.rpPdfRoi : 'ROI', value: el('rp-result-roi').textContent },
+            { label: S ? S.rpPdfCf : 'Annual cash flow', value: el('rp-result-annual-cf').textContent },
+            { label: S ? S.rpPdfProfit : 'Total profit', value: el('rp-result-profit').textContent },
+            { label: S ? S.rpPdfEquity : 'Equity gained', value: el('rp-result-equity') ? el('rp-result-equity').textContent : '—' }
+          ]
+        }
+      ],
+      disclaimer: S ? S.disclaimer : 'For informational purposes only. Not financial or investment advice.'
+    };
+  };
 })();

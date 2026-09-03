@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="2026-09-03">
+  <title>Calculadora CAC vs LTV | SaaS | roicalculator.live</title>
+  <meta name="description" content="Calcule LTV, ratio LTV:CAC, ROI % y payback a partir de CAC, ARPU, margen bruto y vida útil del cliente. Gráfico de ingresos acumulados vs costo.">
+  <link rel="canonical" href="https://roicalculator.live/es/saas/calculadora-cac-ltv.html">
+  <link rel="alternate" hreflang="en" href="https://roicalculator.live/roi-calculator/saas/cac-ltv-roi.html" />
+  <link rel="alternate" hreflang="es" href="https://roicalculator.live/es/saas/calculadora-cac-ltv.html" />
+  <link rel="alternate" hreflang="x-default" href="https://roicalculator.live/roi-calculator/saas/cac-ltv-roi.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/es/saas/calculadora-cac-ltv.html">
+  <meta property="og:title" content="Calculadora CAC vs LTV | roicalculator.live">
+  <meta property="og:description" content="Calcule LTV, LTV:CAC, ROI y payback para SaaS.">
+  <meta property="og:locale" content="es">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=7b02">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio ES","item":"https://roicalculator.live/es/"},{"@type":"ListItem","position":2,"name":"CAC vs LTV","item":"https://roicalculator.live/es/saas/calculadora-cac-ltv.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Calculadora CAC vs LTV","description":"Calcule LTV, LTV:CAC, ROI y payback para SaaS.","url":"https://roicalculator.live/es/saas/calculadora-cac-ltv.html","inLanguage":"es"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "es",
+    "mainEntity": [
+      {"@type": "Question", "name": "¿Cómo calculo el LTV a partir del ARPU y el churn?", "acceptedAnswer": {"@type": "Answer", "text": "LTV = ARPU × margen bruto × vida media del cliente en meses. La vida media puede derivarse del churn: vida media ≈ 1 / tasa de churn mensual (en meses). Use el margen bruto para un LTV basado en beneficio."}},
+      {"@type": "Question", "name": "¿Cuál es un buen ratio LTV:CAC en SaaS?", "acceptedAnswer": {"@type": "Answer", "text": "Un punto de referencia habitual es 3:1 o superior. Por debajo de 2:1 suele indicar economía unitaria insostenible. Los objetivos varían según la etapa de crecimiento y el capital disponible."}},
+      {"@type": "Question", "name": "¿Por qué usar LTV ajustado por margen?", "acceptedAnswer": {"@type": "Answer", "text": "El LTV ajustado por margen refleja el beneficio bruto por cliente, no solo el ingreso. El ROI y el payback deben basarse en el beneficio para reflejar la verdadera economía unitaria."}},
+      {"@type": "Question", "name": "¿Cómo interpreto el periodo de recuperación (payback)?", "acceptedAnswer": {"@type": "Answer", "text": "El payback es el número de meses de beneficio bruto necesarios para recuperar el CAC. Un payback más corto mejora el flujo de caja. Muchas empresas B2B SaaS apuntan a menos de 18 meses."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Navegación principal">
+      <a href="/es/" class="logo">roicalculator.live</a>
+      <button type="button" class="nav-mobile-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Abrir menú de navegación">☰</button>
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="/es/">Inicio</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="calculators-menu">Calculadoras</button>
+          <div class="nav-dropdown-menu" id="calculators-menu" role="navigation" aria-label="Herramientas de cálculo">
+            <a href="/es/calculadora-roi.html">Calculadora de ROI</a>
+            <a href="/es/inmobiliario/calculadora-rentabilidad-alquiler.html">Rentabilidad de alquiler</a>
+            <a href="/es/saas/calculadora-cac-ltv.html">CAC vs LTV</a>
+            <a href="/es/impresion-3d/calculadora-precio-servicio.html">Precio impresión 3D</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Miga de pan">
+      <a href="/es/">Inicio</a>
+      <span> / </span>
+      <span>CAC vs LTV</span>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Calculadora CAC vs LTV</h1>
+        <p class="hero-sub">Compare el costo de adquisición de clientes (CAC) con el valor de vida del cliente (LTV) para estimar el retorno de adquirir y retener un cliente SaaS.</p>
+        <p class="lang-switch-row"><a class="lang-switch" href="/roi-calculator/saas/cac-ltv-roi.html">English</a></p>
+      </div>
+    </section>
+
+    <section class="calculator-section">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="cac-ltv-calc-heading">
+            <h2 id="cac-ltv-calc-heading">Calculadora CAC vs LTV</h2>
+            <p class="vertical-calc-note">Los importes son neutrales respecto a la moneda: introduce valores en la moneda que uses. El símbolo solo afecta la visualización; no hay conversión entre monedas.</p>
+            <div class="form-group">
+              <label for="currency-symbol">Símbolo de moneda (solo visualización)</label>
+              <select id="currency-symbol">
+                <option value="€" selected>€</option>
+                <option value="$">$</option>
+                <option value="MXN ">MXN</option>
+                <option value="COP ">COP</option>
+                <option value="ARS ">ARS</option>
+                <option value="CLP ">CLP</option>
+              </select>
+            </div>
+            <form id="cac-ltv-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cac">Costo de adquisición de clientes (CAC)</label>
+                  <input type="number" id="cac" min="0" step="10" value="2000" required>
+                </div>
+                <div class="form-group">
+                  <label for="arpu">Ingreso medio mensual por usuario (ARPU)</label>
+                  <input type="number" id="arpu" min="0" step="1" value="100" required>
+                </div>
+                <div class="form-group">
+                  <label for="margin">Margen bruto (%)</label>
+                  <input type="number" id="margin" min="0" max="100" step="1" value="75">
+                </div>
+                <div class="form-group">
+                  <label for="lifespan">Vida media del cliente (meses)</label>
+                  <input type="number" id="lifespan" min="1" step="1" value="36" required>
+                </div>
+              </div>
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calcular</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Descargar PDF</button>
+              </div>
+            </form>
+            <div class="results-panel" id="cac-ltv-results" hidden>
+              <h3>Resultados</h3>
+              <div class="result-dominant">
+                <span class="result-dominant-label">ROI</span>
+                <span class="result-dominant-value" id="roi">—</span>
+              </div>
+              <p class="result-interpretation" id="cac-ltv-interpretation" aria-live="polite"></p>
+              <div class="results-grid results-box">
+                <div class="result-item result-card">
+                  <span class="label">LTV</span>
+                  <span class="value" id="ltv">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Ratio LTV:CAC</span>
+                  <span class="value" id="ratio">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Periodo de recuperación (meses)</span>
+                  <span class="value" id="payback">—</span>
+                </div>
+              </div>
+              <div class="chart-container" style="height:260px;">
+                <canvas id="cac-ltv-chart" role="img" aria-label="Gráfico de beneficio bruto acumulado frente al CAC a lo largo del tiempo"></canvas>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <article class="content-section">
+      <h2>Fórmula del LTV</h2>
+      <p class="math-inline">LTV = ARPU × (Margen bruto / 100) × Vida media (meses)</p>
+      <p>Este es el LTV ajustado por margen: el beneficio bruto total esperado de un cliente a lo largo de su vida. Un LTV solo de ingresos omitiría el término de margen; para ROI y payback, use el beneficio bruto. La vida media puede estimarse a partir del churn: si el churn mensual es del 2%, la vida media ≈ 1 / 0,02 = 50 meses.</p>
+
+      <h2>LTV ajustado por margen</h2>
+      <p>El margen bruto es (Ingresos − Costo de los ingresos) / Ingresos. En SaaS, el costo de los ingresos incluye hosting, soporte y entrega directa. Multiplicar el ARPU por el margen bruto da el beneficio bruto mensual por cliente. El LTV es ese beneficio por la vida media. Usar ingresos en lugar de beneficio bruto sobrestima el efectivo disponible para cubrir el CAC y puede hacer que la economía unitaria parezca mejor de lo que es. Use siempre el LTV ajustado por margen al evaluar el ROI de adquisición.</p>
+
+      <h2>Por qué 3:1 es un punto de referencia habitual</h2>
+      <p>Un ratio LTV:CAC de 3:1 significa que cada unidad gastada en adquisición genera tres unidades de beneficio bruto a lo largo de la vida del cliente. Deja margen para ineficiencia comercial, overhead y un payback razonable. Ratios por debajo de 2:1 suelen exigir payback muy corto o CAC bajo para ser sostenibles; por encima de 5:1 pueden indicar subinversión en crecimiento. Es una regla práctica; las restricciones de capital y los objetivos de crecimiento afectan la meta.</p>
+
+      <h2>Ejemplo SaaS</h2>
+      <p>CAC = 2&nbsp;500, ARPU = 120/mes, margen bruto = 80%, vida = 30 meses. Beneficio bruto mensual = 120 × 0,80 = 96. LTV = 96 × 30 = 2&nbsp;880. LTV:CAC = 2&nbsp;880 / 2&nbsp;500 = 1,15:1. ROI = (2&nbsp;880 − 2&nbsp;500) / 2&nbsp;500 × 100 = 15,2%. Payback = 2&nbsp;500 / 96 ≈ 26 meses. El ratio bajo 2:1 y el payback largo sugieren economía unitaria marginal; mejorar la retención (más vida) o bajar el CAC ayudaría. Use la calculadora para probar escenarios.</p>
+
+      <h2>Riesgo de churn alto</h2>
+      <p>Un churn alto acorta la vida media y reduce el LTV. También aumenta la porción de ingresos nuevos necesarios solo para reemplazar clientes perdidos, lo que puede hacer el crecimiento no rentable. Pequeños cambios en el churn tienen efectos grandes en el LTV: con 2% de churn mensual, vida ≈ 50 meses; con 5%, ≈ 20 meses. Modele la sensibilidad ajustando la vida en la calculadora.</p>
+
+      <h2>Guía de interpretación</h2>
+      <p>Use LTV:CAC y payback juntos. Un ratio alto con payback muy largo puede tensionar el flujo de caja. Un ratio más bajo con payback corto puede ser aceptable para un crecimiento eficiente en capital. Segmente CAC y LTV por cohorte cuando sea posible; las métricas mezcladas pueden ocultar diferencias entre segmentos.</p>
+
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>¿Cómo calculo el LTV a partir del ARPU y el churn?</h3>
+          <p>LTV = ARPU × margen bruto × vida media del cliente en meses. Vida media ≈ 1 / churn mensual (en meses). Use el margen bruto para un LTV basado en beneficio.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Cuál es un buen ratio LTV:CAC en SaaS?</h3>
+          <p>3:1 o superior es un punto de referencia habitual. Por debajo de 2:1 suele indicar economía unitaria insostenible. Los objetivos varían según la etapa de crecimiento.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Por qué usar LTV ajustado por margen?</h3>
+          <p>El LTV ajustado por margen refleja el beneficio bruto por cliente. El ROI y el payback deben basarse en el beneficio para reflejar la verdadera economía unitaria.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Cómo interpreto el periodo de recuperación (payback)?</h3>
+          <p>El payback es el número de meses de beneficio bruto necesarios para recuperar el CAC. Un payback más corto mejora el flujo de caja. Muchas empresas B2B SaaS apuntan a menos de 18 meses.</p>
+        </div>
+      </div>
+
+      <section class="related-topics">
+        <h2>Otras calculadoras en español</h2>
+        <ul>
+          <li><a href="/es/">Hub de calculadoras en español</a></li>
+          <li><a href="/es/calculadora-roi.html">Calculadora de ROI</a></li>
+          <li><a href="/es/inmobiliario/calculadora-rentabilidad-alquiler.html">Rentabilidad de alquiler</a></li>
+          <li><a href="/es/impresion-3d/calculadora-precio-servicio.html">Precio de impresión 3D</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+  <p class="footer-mini">Calculadoras de ROI privadas para análisis financiero y operativo.</p>
+  <nav class="footer-links">
+    <a href="/es/calculadora-roi.html">Calculadora de ROI</a>
+    <a href="/es/inmobiliario/calculadora-rentabilidad-alquiler.html">Rentabilidad inmobiliaria</a>
+    <a href="/es/saas/calculadora-cac-ltv.html">CAC vs LTV</a>
+    <a href="/es/impresion-3d/calculadora-precio-servicio.html">Impresión 3D</a>
+  </nav>
+  <nav class="footer-secondary">
+    <a href="/methodology/">Metodología</a>
+    <a href="/about.html">Acerca de</a>
+    <a href="/privacy.html">Privacidad</a>
+    <a href="/terms.html">Términos</a>
+    <a href="/contact.html">Contacto</a>
+  </nav>
+  <p class="footer-disclaimer">Solo con fines informativos. No constituye asesoramiento financiero ni de inversión.</p>
+  <p class="footer-copy">© 2026 Albor Digital LLC</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="/assets/js/calc-i18n.js" defer></script>
+  <script src="/assets/js/marketing-calculators.js" defer></script>
+  <script src="/assets/js/cac-ltv-roi-calculator.js?v=12" defer></script>
+  <script src="/assets/js/pdf-export.js?v=12" defer></script>
+  <script src="/assets/js/navigation.js" defer></script>
+  <script>
+  (function () {
+    var sel = document.getElementById('currency-symbol');
+    if (!sel) return;
+    sel.addEventListener('change', function () {
+      var box = sel.closest('.calculator-box');
+      var form = box && box.querySelector('form');
+      var btn = form && form.querySelector('button[type="submit"]');
+      if (btn) btn.click();
+      else if (form && form.requestSubmit) form.requestSubmit();
+    });
+  })();
+  </script>
+</body>
+</html>

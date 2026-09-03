@@ -34,9 +34,10 @@
   }
 
   function validateInputs(initial, finalVal, years, isReverse) {
-    if (initial <= 0) return { ok: false, msg: 'Initial investment must be positive' };
-    if (!isReverse && finalVal < 0) return { ok: false, msg: 'Final value cannot be negative' };
-    if (years <= 0) return { ok: false, msg: 'Period must be positive' };
+    var S = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
+    if (initial <= 0) return { ok: false, msg: S ? S.roiAlertInitial : 'Initial investment must be positive' };
+    if (!isReverse && finalVal < 0) return { ok: false, msg: S ? S.roiAlertFinal : 'Final value cannot be negative' };
+    if (years <= 0) return { ok: false, msg: S ? S.roiAlertPeriod : 'Period must be positive' };
     return { ok: true };
   }
 
@@ -59,10 +60,12 @@
   }
 
   function formatPct(n) {
+    if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatPct(n, 2);
     return n.toFixed(2) + '%';
   }
 
   function formatMoney(n) {
+    if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatMoney(n, 2);
     return '$' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
@@ -107,6 +110,7 @@
   }
 
   function fmtSentenceMoney(n) {
+    if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatMoney(Number(n), 2);
     return '$' + Number(n).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 });
   }
 
@@ -114,28 +118,33 @@
     if (!window.CalculationAnswerBlock || typeof window.CalculationAnswerBlock.renderCalculationAnswer !== 'function') {
       return;
     }
+    var es = window.CalcI18n && window.CalcI18n.isEs();
+    var S = es ? window.CalcI18n.S : null;
     window.CalculationAnswerBlock.renderCalculationAnswer({
       containerId: 'aeo-answer',
       config: {
-        question:
-          'What ROI and annualized return does this scenario produce?',
+        question: S ? S.roiAeoQuestion : 'What ROI and annualized return does this scenario produce?',
         buildInterpretationParagraph: function (p, v, r) {
           var roiNum = typeof r.roi === 'number' && isFinite(r.roi) ? r.roi : NaN;
           var roi =
-            typeof r.roi === 'number' && isFinite(r.roi) ? r.roi.toFixed(2) : '—';
+            typeof r.roi === 'number' && isFinite(r.roi) ? (es ? window.CalcI18n.formatNumber(r.roi, 2, 2) : r.roi.toFixed(2)) : '—';
           var ann =
-            typeof r.annualized === 'number' && isFinite(r.annualized) ? r.annualized.toFixed(2) : '—';
+            typeof r.annualized === 'number' && isFinite(r.annualized)
+              ? es
+                ? window.CalcI18n.formatNumber(r.annualized, 2, 2)
+                : r.annualized.toFixed(2)
+              : '—';
 
           var interpretation = '';
           if (!isNaN(roiNum)) {
             if (roiNum < 0) {
-              interpretation = ' This represents a negative return.';
+              interpretation = S ? S.roiTierNeg : ' This represents a negative return.';
             } else if (roiNum < 50) {
-              interpretation = ' This is a moderate return.';
+              interpretation = S ? S.roiTierMod : ' This is a moderate return.';
             } else if (roiNum < 150) {
-              interpretation = ' This is a strong return.';
+              interpretation = S ? S.roiTierStrong : ' This is a strong return.';
             } else {
-              interpretation = ' This is a very high return.';
+              interpretation = S ? S.roiTierHigh : ' This is a very high return.';
             }
           }
 
@@ -149,27 +158,39 @@
             p.appendChild(a);
           }
 
-          appendText(
-            'An investment of ' +
-              fmtSentenceMoney(v.initialInvestment) +
-              ' growing to ' +
-              fmtSentenceMoney(v.finalValue) +
-              ' over ' +
-              v.years +
-              ' years results in an ROI of ' +
-              roi +
-              '% and an annualized return of ' +
-              ann +
-              '%.'
-          );
-          appendText(interpretation);
-          appendText(
-            ' This result can be compared to other financial metrics such as '
-          );
-          appendLink('/learn/roi-vs-irr.html', 'ROI vs IRR');
-          appendText(' or ');
-          appendLink('/real-estate/cap-rate-calculator.html', 'cap rate calculator');
-          appendText(', depending on the type of investment.');
+          if (S) {
+            appendText(
+              S.roiAeoLead(
+                fmtSentenceMoney(v.initialInvestment),
+                fmtSentenceMoney(v.finalValue),
+                v.years,
+                roi,
+                ann
+              )
+            );
+            appendText(interpretation);
+            appendText(S.roiAeoTail);
+          } else {
+            appendText(
+              'An investment of ' +
+                fmtSentenceMoney(v.initialInvestment) +
+                ' growing to ' +
+                fmtSentenceMoney(v.finalValue) +
+                ' over ' +
+                v.years +
+                ' years results in an ROI of ' +
+                roi +
+                '% and an annualized return of ' +
+                ann +
+                '%.'
+            );
+            appendText(interpretation);
+            appendText(' This result can be compared to other financial metrics such as ');
+            appendLink('/learn/roi-vs-irr.html', 'ROI vs IRR');
+            appendText(' or ');
+            appendLink('/real-estate/cap-rate-calculator.html', 'cap rate calculator');
+            appendText(', depending on the type of investment.');
+          }
         }
       },
       values: {
@@ -185,9 +206,10 @@
     resultRoi.textContent = formatPct(data.roi);
     resultAnnualized.textContent = formatPct(data.annualizedRoi);
     resultProfit.textContent = formatMoney(data.profit);
-    resultRoi.setAttribute('data-label', 'Return on Investment');
-    resultAnnualized.setAttribute('data-label', 'Annualized Return');
-    resultProfit.setAttribute('data-label', 'Total Profit');
+    var Sd = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
+    resultRoi.setAttribute('data-label', Sd ? Sd.roiDataLabelRoi : 'Return on Investment');
+    resultAnnualized.setAttribute('data-label', Sd ? Sd.roiDataLabelAnn : 'Annualized Return');
+    resultProfit.setAttribute('data-label', Sd ? Sd.roiDataLabelProfit : 'Total Profit');
     resultsPanel.hidden = false;
     if (typeof window.updateChart === 'function') {
       window.updateChart(data);
@@ -231,14 +253,28 @@
   if (window.CalculatorEngine) {
     window.CalculatorEngine.loadFromURL(form);
     if (reverseModeCheckbox && finalLabel) {
-      finalLabel.textContent = reverseModeCheckbox.checked ? 'Target ROI (%)' : 'Final Value ($)';
+      var Sr0 = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
+      finalLabel.textContent = reverseModeCheckbox.checked
+        ? Sr0
+          ? Sr0.roiTargetLabel
+          : 'Target ROI (%)'
+        : Sr0
+          ? Sr0.roiFinalLabel
+          : 'Final Value ($)';
     }
   }
 
   reverseModeCheckbox.addEventListener('change', function () {
     hasInteracted = true;
     if (finalLabel) {
-      finalLabel.textContent = this.checked ? 'Target ROI (%)' : 'Final Value ($)';
+      var Sr = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
+      finalLabel.textContent = this.checked
+        ? Sr
+          ? Sr.roiTargetLabel
+          : 'Target ROI (%)'
+        : Sr
+          ? Sr.roiFinalLabel
+          : 'Final Value ($)';
     }
     if (this.checked && parseNum(finalInput.value) === 15000) {
       finalInput.value = '10';
@@ -275,27 +311,34 @@
     var initial = parseNum(initialInput.value);
     var finalValue = parseNum(finalInput.value);
     var years = parseNum(periodInput.value);
+    var Sp = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
     return {
-      title: 'ROI Calculator Results',
+      title: Sp ? Sp.roiPdfTitle : 'ROI Calculator Results',
       sections: [
         {
-          heading: 'Inputs',
+          heading: Sp ? Sp.inputs : 'Inputs',
           rows: [
-            { label: 'Initial Investment', value: '$' + initial.toLocaleString(undefined, { minimumFractionDigits: 2 }) },
-            { label: 'Final Value', value: '$' + finalValue.toLocaleString(undefined, { minimumFractionDigits: 2 }) },
-            { label: 'Period (years)', value: years }
+            {
+              label: Sp ? Sp.roiPdfInitial : 'Initial Investment',
+              value: formatMoney(initial)
+            },
+            {
+              label: Sp ? Sp.roiPdfFinal : 'Final Value',
+              value: formatMoney(finalValue)
+            },
+            { label: Sp ? Sp.roiPdfPeriod : 'Period (years)', value: years }
           ]
         },
         {
-          heading: 'Results',
+          heading: Sp ? Sp.results : 'Results',
           rows: [
-            { label: 'ROI', value: resultRoi.textContent },
-            { label: 'Annualized ROI', value: resultAnnualized.textContent },
-            { label: 'Total Profit', value: resultProfit.textContent }
+            { label: Sp ? Sp.roiPdfRoi : 'ROI', value: resultRoi.textContent },
+            { label: Sp ? Sp.roiPdfAnn : 'Annualized ROI', value: resultAnnualized.textContent },
+            { label: Sp ? Sp.roiPdfProfit : 'Total Profit', value: resultProfit.textContent }
           ]
         }
       ],
-      disclaimer: 'For educational purposes only. Not financial advice.'
+      disclaimer: Sp ? Sp.disclaimer : 'For educational purposes only. Not financial advice.'
     };
   };
 })();

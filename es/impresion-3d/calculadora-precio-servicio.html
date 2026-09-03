@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="last-modified" content="2026-09-03">
+  <title>Calculadora de precio de servicio de impresión 3D | roicalculator.live</title>
+  <meta name="description" content="Calcule el precio de un trabajo de impresión 3D a partir de material, tiempo de máquina, mano de obra, overhead, comisiones y margen de beneficio objetivo.">
+  <link rel="canonical" href="https://roicalculator.live/es/impresion-3d/calculadora-precio-servicio.html">
+  <link rel="alternate" hreflang="en" href="https://roicalculator.live/3d-printing/service-pricing-calculator.html" />
+  <link rel="alternate" hreflang="es" href="https://roicalculator.live/es/impresion-3d/calculadora-precio-servicio.html" />
+  <link rel="alternate" hreflang="x-default" href="https://roicalculator.live/3d-printing/service-pricing-calculator.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='.9em' font-size='24'>📊</text></svg>" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roicalculator.live/es/impresion-3d/calculadora-precio-servicio.html">
+  <meta property="og:title" content="Calculadora de precio de servicio de impresión 3D">
+  <meta property="og:description" content="Calcule el precio de un trabajo de impresión 3D a partir de material, tiempo, mano de obra y margen objetivo.">
+  <meta property="og:image" content="https://roicalculator.live/assets/og-placeholder.svg">
+  <meta property="og:locale" content="es">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=7b02">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Calculadora de precio de servicio de impresión 3D","description":"Calcule el precio de un trabajo de impresión 3D a partir de material, tiempo de máquina, mano de obra, overhead, comisiones y margen de beneficio objetivo.","url":"https://roicalculator.live/es/impresion-3d/calculadora-precio-servicio.html","inLanguage":"es","author":{"@type":"Organization","name":"Albor Digital LLC"}}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "es",
+    "mainEntity": [
+      {"@type": "Question", "name": "¿Qué costos debo incluir al fijar el precio de un trabajo de impresión 3D?", "acceptedAnswer": {"@type": "Answer", "text": "Esta calculadora incluye material, electricidad, depreciación de la impresora, mano de obra de preparación y postprocesado, un overhead por trabajo y una provisión por fallos/reimpresiones; luego añade comisiones de plataforma o pago antes de aplicar el margen de beneficio objetivo."}},
+      {"@type": "Question", "name": "¿Cómo afecta un fallo de impresión al precio que debo cobrar?", "acceptedAnswer": {"@type": "Answer", "text": "La provisión por fallos/reimpresiones aumenta el costo de producción estimado antes de comisiones y margen, de modo que una provisión más alta eleva el precio recomendado para cubrir material, tiempo y mano de obra perdidos en intentos fallidos."}},
+      {"@type": "Question", "name": "¿Cómo debo contabilizar la mano de obra y el tiempo de postprocesado?", "acceptedAnswer": {"@type": "Answer", "text": "Introduzca el tiempo de preparación y postprocesado y su tarifa laboral; la calculadora multiplica ambos para obtener un costo de mano de obra incluido en el costo de producción antes de comisiones y margen, y también lo usa para calcular la ganancia horaria efectiva."}},
+      {"@type": "Question", "name": "¿Cuál es la diferencia entre precio mínimo viable y precio recomendado?", "acceptedAnswer": {"@type": "Answer", "text": "El precio mínimo viable cubre solo el costo de producción y las comisiones de plataforma/pago, sin margen de beneficio. El precio recomendado añade el margen objetivo encima, por lo que es mayor que el mínimo viable siempre que el margen objetivo sea mayor que cero."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio ES","item":"https://roicalculator.live/es/"},{"@type":"ListItem","position":2,"name":"Precio impresión 3D","item":"https://roicalculator.live/es/impresion-3d/calculadora-precio-servicio.html"}]}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Navegación principal">
+      <a href="/es/" class="logo">roicalculator.live</a>
+      <button type="button" class="nav-mobile-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Abrir menú de navegación">☰</button>
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="/es/">Inicio</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="calculators-menu">Calculadoras</button>
+          <div class="nav-dropdown-menu" id="calculators-menu" role="navigation" aria-label="Herramientas de cálculo">
+            <a href="/es/calculadora-roi.html">Calculadora de ROI</a>
+            <a href="/es/inmobiliario/calculadora-rentabilidad-alquiler.html">Rentabilidad de alquiler</a>
+            <a href="/es/saas/calculadora-cac-ltv.html">CAC vs LTV</a>
+            <a href="/es/impresion-3d/calculadora-precio-servicio.html">Precio impresión 3D</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Calculadora de precio de servicio de impresión 3D</h1>
+        <p class="hero-sub">Calcule el precio de un trabajo de impresión 3D a partir del material, el tiempo de máquina, la mano de obra, el overhead, las comisiones y su margen de beneficio objetivo.</p>
+        <p class="lang-switch-row"><a class="lang-switch" href="/3d-printing/service-pricing-calculator.html">English</a></p>
+      </div>
+    </section>
+
+    <section class="calculator-section" aria-label="Calculadora de precio de servicio de impresión 3D">
+      <div class="calculator-section-inner">
+        <div class="calculator-card">
+          <section class="calculator-module calculator-box" aria-labelledby="sp-calc-heading">
+            <h2 id="sp-calc-heading">Datos de entrada</h2>
+            <p class="vertical-calc-note">Los importes son neutrales respecto a la moneda: introduce valores en la moneda que uses. El símbolo solo afecta la visualización; no hay conversión entre monedas.</p>
+            <div class="form-group">
+              <label for="currency-symbol">Símbolo de moneda (solo visualización)</label>
+              <select id="currency-symbol">
+                <option value="€" selected>€</option>
+                <option value="$">$</option>
+                <option value="MXN ">MXN</option>
+                <option value="COP ">COP</option>
+                <option value="ARS ">ARS</option>
+                <option value="CLP ">CLP</option>
+              </select>
+            </div>
+            <form id="sp-form">
+              <h3>Trabajo de impresión</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sp-material-grams">Material usado (gramos)</label>
+                  <input type="number" id="sp-material-grams" min="0" step="1" value="100" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-material-price">Precio del material (por kg)</label>
+                  <input type="number" id="sp-material-price" min="0" step="0.01" value="25" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-print-time">Tiempo de impresión (horas)</label>
+                  <input type="number" id="sp-print-time" min="0" step="0.1" value="8" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-printed-parts">Piezas impresas</label>
+                  <input type="number" id="sp-printed-parts" min="1" step="1" value="1" required>
+                </div>
+              </div>
+
+              <h3>Costo de máquina</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sp-printer-price">Precio de compra de la impresora</label>
+                  <input type="number" id="sp-printer-price" min="0" step="1" value="500" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-printer-life">Vida útil esperada de la impresora (horas)</label>
+                  <input type="number" id="sp-printer-life" min="100" step="100" value="2500" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-electricity-rate">Tarifa eléctrica (por kWh)</label>
+                  <input type="number" id="sp-electricity-rate" min="0" step="0.01" value="0.15" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-printer-power">Potencia de la impresora (vatios)</label>
+                  <input type="number" id="sp-printer-power" min="0" step="1" value="150" required>
+                </div>
+              </div>
+
+              <h3>Mano de obra y overhead</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sp-setup-hours">Preparación y postprocesado (horas)</label>
+                  <input type="number" id="sp-setup-hours" min="0" step="0.1" value="1" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-labor-rate">Tarifa laboral (por hora)</label>
+                  <input type="number" id="sp-labor-rate" min="0" step="0.01" value="25" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-overhead">Overhead por trabajo</label>
+                  <input type="number" id="sp-overhead" min="0" step="0.01" value="5" required>
+                </div>
+              </div>
+
+              <h3>Comisiones y precio</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sp-platform-fee">Comisión de plataforma/pago (%)</label>
+                  <input type="number" id="sp-platform-fee" min="0" max="100" step="0.1" value="5" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-target-margin">Margen de beneficio objetivo (%)</label>
+                  <input type="number" id="sp-target-margin" min="0" max="99" step="0.1" value="30" required>
+                </div>
+                <div class="form-group">
+                  <label for="sp-failure-rate">Provisión por fallos/reimpresiones (%)</label>
+                  <input type="number" id="sp-failure-rate" min="0" max="99" step="0.1" value="5" required>
+                </div>
+              </div>
+
+              <div class="calc-buttons">
+                <button type="submit" class="btn btn-primary">Calcular</button>
+                <button type="button" class="btn btn-secondary" id="btn-pdf" disabled>Descargar PDF</button>
+              </div>
+            </form>
+
+            <div class="results-panel" id="sp-results" hidden>
+              <h3>Resultados</h3>
+
+              <div class="result-dominant">
+                <span class="result-dominant-label">Precio recomendado</span>
+                <span class="result-dominant-value" id="sp-res-price">—</span>
+              </div>
+              <p class="result-interpretation" id="sp-res-interpretation" aria-live="polite"></p>
+
+              <div class="results-grid results-box" id="sp-results-box">
+                <div class="result-item result-card">
+                  <span class="label">Precio mínimo viable</span>
+                  <span class="value" id="sp-res-min-price">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Beneficio esperado</span>
+                  <span class="value" id="sp-res-profit">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Margen de beneficio</span>
+                  <span class="value" id="sp-res-margin">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Ganancia horaria efectiva</span>
+                  <span class="value" id="sp-res-hourly">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Precio por hora de impresión</span>
+                  <span class="value" id="sp-res-price-per-hour">—</span>
+                </div>
+                <div class="result-item result-card">
+                  <span class="label">Precio por pieza</span>
+                  <span class="value" id="sp-res-price-per-part">—</span>
+                </div>
+              </div>
+
+              <h3>Desglose de costos</h3>
+              <div class="summary-table-box">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Material</td>
+                      <td id="sp-bd-material">—</td>
+                    </tr>
+                    <tr>
+                      <td>Electricidad</td>
+                      <td id="sp-bd-electricity">—</td>
+                    </tr>
+                    <tr>
+                      <td>Depreciación de la impresora</td>
+                      <td id="sp-bd-depreciation">—</td>
+                    </tr>
+                    <tr>
+                      <td>Mano de obra</td>
+                      <td id="sp-bd-labor">—</td>
+                    </tr>
+                    <tr>
+                      <td>Overhead</td>
+                      <td id="sp-bd-overhead">—</td>
+                    </tr>
+                    <tr>
+                      <td>Provisión por fallos/reimpresiones</td>
+                      <td id="sp-bd-failure">—</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Costo de producción estimado</strong></td>
+                      <td id="sp-bd-cost-before-fees"><strong>—</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Comisión de plataforma/pago</td>
+                      <td id="sp-bd-platform-fee">—</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Precio recomendado al cliente</strong></td>
+                      <td id="sp-bd-price"><strong>—</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="methodology-section" aria-labelledby="sp-methodology-heading">
+      <h2 id="sp-methodology-heading">Cómo se calcula el precio de impresión 3D</h2>
+      <p class="vertical-calc-note">La calculadora estima un precio al cliente combinando material, electricidad, depreciación de la impresora, mano de obra, overhead y una provisión por trabajos fallidos o reimpresos. Las comisiones de plataforma o pago se incluyen en el precio cotizado, mientras que el margen de beneficio objetivo se calcula sobre el precio final al cliente.</p>
+      <ul>
+        <li>El costo de material se basa en los gramos usados y el precio del material por kilogramo.</li>
+        <li>El costo de electricidad usa el tiempo de impresión, la potencia de la impresora y la tarifa eléctrica introducida.</li>
+        <li>La depreciación convierte el precio de compra de la impresora en un costo horario estimado de máquina.</li>
+        <li>La mano de obra incluye el tiempo de preparación y postprocesado.</li>
+        <li>La provisión por fallos aumenta el costo de producción estimado para cubrir reimpresiones.</li>
+        <li>Las comisiones de plataforma/pago se calculan a partir del precio final al cliente.</li>
+        <li>El margen de beneficio objetivo se calcula a partir del precio final al cliente.</li>
+      </ul>
+    </section>
+
+    <article class="content-section">
+      <h2>Cómo usar esta calculadora</h2>
+      <p>Introduzca el costo de material, el tiempo de impresión, la electricidad, la depreciación, la mano de obra, el overhead, la tasa de fallos, las comisiones de plataforma y el margen objetivo. La calculadora combina estos costos, tiene en cuenta los fallos esperados y estima un precio que cumple su margen tras las comisiones.</p>
+      <ul>
+        <li>Use su costo real de material, no el precio de venta de un carrete completo.</li>
+        <li>Incluya el tiempo de preparación, supervisión, acabado, embalaje y gestión del pedido cuando formen parte de su costo laboral.</li>
+        <li>Suba la tasa de fallos cuando el trabajo o el material tengan un riesgo relevante de impresión fallida.</li>
+      </ul>
+      <p>El precio recomendado es un modelo de precios, no un precio de mercado obligatorio. Compárelo con los requisitos del cliente, su posición competitiva y cualquier costo adicional específico del trabajo.</p>
+
+      <h3>Limitaciones e hipótesis</h3>
+      <p>La calculadora estima el precio del trabajo a partir de los costos y el margen que usted introduce. No determina lo que pagarán los clientes, no contempla todos los gastos posibles del negocio ni predice la tasa real de fallos de una impresión.</p>
+      <ul>
+        <li>La depreciación de la impresora se modela a partir del costo, la vida útil y el tiempo de impresión introducidos.</li>
+        <li>La tasa de fallos aumenta el costo esperado de una impresión exitosa al contabilizar intentos fallidos sobre el costo de producción completo.</li>
+        <li>Las comisiones de plataforma se aplican según el porcentaje que introduzca y pueden no representar todos los cargos de marketplace o de procesamiento de pagos.</li>
+        <li>Envío, impuestos, reembolsos, descuentos y otros cargos específicos del pedido no se incluyen automáticamente salvo que los incorpore en las entradas de costo relevantes.</li>
+      </ul>
+      <p>Use el resultado como estimación de precios y planificación de margen. Para una cotización al cliente, revise el alcance completo del trabajo y cualquier costo no representado por las entradas de la calculadora.</p>
+    </article>
+
+    <article class="content-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>¿Qué costos debo incluir al fijar el precio de un trabajo de impresión 3D?</h3>
+          <p>Esta calculadora incluye material, electricidad, depreciación de la impresora, mano de obra de preparación y postprocesado, un overhead por trabajo y una provisión por fallos/reimpresiones; luego añade comisiones de plataforma o pago antes de aplicar el margen de beneficio objetivo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Cómo afecta un fallo de impresión al precio que debo cobrar?</h3>
+          <p>La provisión por fallos/reimpresiones aumenta el costo de producción estimado antes de comisiones y margen, de modo que una provisión más alta eleva el precio recomendado para cubrir material, tiempo y mano de obra perdidos en intentos fallidos.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Cómo debo contabilizar la mano de obra y el tiempo de postprocesado?</h3>
+          <p>Introduzca el tiempo de preparación y postprocesado y su tarifa laboral; la calculadora multiplica ambos para obtener un costo de mano de obra incluido en el costo de producción antes de comisiones y margen, y también lo usa para calcular la ganancia horaria efectiva.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Cuál es la diferencia entre precio mínimo viable y precio recomendado?</h3>
+          <p>El precio mínimo viable cubre solo el costo de producción y las comisiones de plataforma/pago, sin margen de beneficio. El precio recomendado añade el margen objetivo encima, por lo que es mayor que el mínimo viable siempre que el margen objetivo sea mayor que cero.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="content-section tertiary">
+      <h2>Otras calculadoras en español</h2>
+      <ul>
+        <li><a href="/es/">Hub de calculadoras en español</a></li>
+        <li><a href="/es/calculadora-roi.html">Calculadora de ROI</a></li>
+        <li><a href="/es/inmobiliario/calculadora-rentabilidad-alquiler.html">Rentabilidad de alquiler</a></li>
+        <li><a href="/es/saas/calculadora-cac-ltv.html">CAC vs LTV</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+  <p class="footer-mini">Calculadoras de ROI privadas para análisis financiero y operativo.</p>
+  <nav class="footer-links">
+    <a href="/es/calculadora-roi.html">Calculadora de ROI</a>
+    <a href="/es/inmobiliario/calculadora-rentabilidad-alquiler.html">Rentabilidad inmobiliaria</a>
+    <a href="/es/saas/calculadora-cac-ltv.html">CAC vs LTV</a>
+    <a href="/es/impresion-3d/calculadora-precio-servicio.html">Impresión 3D</a>
+  </nav>
+  <nav class="footer-secondary">
+    <a href="/methodology/">Metodología</a>
+    <a href="/about.html">Acerca de</a>
+    <a href="/privacy.html">Privacidad</a>
+    <a href="/terms.html">Términos</a>
+    <a href="/contact.html">Contacto</a>
+  </nav>
+  <p class="footer-disclaimer">Solo con fines informativos. No constituye asesoramiento financiero ni de inversión.</p>
+  <p class="footer-copy">© 2026 Albor Digital LLC</p>
+  </footer>
+
+  <script src="/assets/js/calc-i18n.js" defer></script>
+  <script src="/assets/js/3d-printing-service-pricing-calculator.js?v=12" defer></script>
+  <script src="/assets/js/pdf-export.js?v=12" defer></script>
+  <script src="/assets/js/navigation.js" defer></script>
+  <script>
+  (function () {
+    var sel = document.getElementById('currency-symbol');
+    if (!sel) return;
+    sel.addEventListener('change', function () {
+      var box = sel.closest('.calculator-box');
+      var form = box && box.querySelector('form');
+      var btn = form && form.querySelector('button[type="submit"]');
+      if (btn) btn.click();
+      else if (form && form.requestSubmit) form.requestSubmit();
+    });
+  })();
+  </script>
+</body>
+</html>

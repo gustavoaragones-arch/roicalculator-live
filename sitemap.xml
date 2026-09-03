@@ -410,4 +410,34 @@
     <priority>0.82</priority>
   </url>
   <!-- GENERATED:calculators:END -->
+  <url>
+    <loc>https://roicalculator.live/es/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roicalculator.live/es/calculadora-roi.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://roicalculator.live/es/inmobiliario/calculadora-rentabilidad-alquiler.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://roicalculator.live/es/saas/calculadora-cac-ltv.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://roicalculator.live/es/impresion-3d/calculadora-precio-servicio.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

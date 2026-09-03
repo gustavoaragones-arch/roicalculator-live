@@ -32,7 +32,7 @@ import { SITE_HEADER_HTML, SITE_FOOTER_HTML } from './site-chrome.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'templates', 'partials', 'scripts']);
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'templates', 'partials', 'scripts', 'es']);
 
 const HEADER_RE = /<header class="site-header">[\s\S]*?<\/header>/;
 const FOOTER_RE = /<footer class="site-footer">[\s\S]*?<\/footer>/;

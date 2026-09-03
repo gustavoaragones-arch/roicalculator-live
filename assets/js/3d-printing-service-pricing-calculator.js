@@ -14,6 +14,7 @@
   }
 
   function formatMoney(n, decimals) {
+    if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatMoney(n, decimals === undefined ? 2 : decimals);
     if (n === null || n === undefined || !isFinite(n)) return '—';
     var d = decimals === undefined ? 2 : decimals;
     var sign = n < 0 ? '-' : '';
@@ -21,6 +22,7 @@
   }
 
   function formatPct(n) {
+    if (window.CalcI18n && window.CalcI18n.isEs()) return window.CalcI18n.formatPct(n, 1);
     if (n === null || n === undefined || !isFinite(n)) return '—';
     return n.toFixed(1) + '%';
   }
@@ -59,6 +61,7 @@
   }
 
   function run() {
+    var S = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
     var materialGrams = parseNum(el('sp-material-grams').value);
     var materialPricePerKg = parseNum(el('sp-material-price').value);
     var printTimeHours = parseNum(el('sp-print-time').value);
@@ -75,19 +78,19 @@
     var failurePct = parseNum(el('sp-failure-rate').value);
 
     if (printerLifeHours <= 0) {
-      alert('Expected printer life must be greater than 0 hours.');
+      alert(S ? S.spAlertLife : 'Expected printer life must be greater than 0 hours.');
       return;
     }
     if (printedParts < 1) {
-      alert('Printed parts must be at least 1.');
+      alert(S ? S.spAlertParts : 'Printed parts must be at least 1.');
       return;
     }
     if (failurePct < 0 || failurePct > 99) {
-      alert('Failure/reprint allowance must be between 0 and 99%.');
+      alert(S ? S.spAlertFailure : 'Failure/reprint allowance must be between 0 and 99%.');
       return;
     }
     if (platformFeePct < 0 || platformFeePct > 100 || targetMarginPct < 0 || targetMarginPct > 99) {
-      alert('Platform fee and target margin must be within their allowed ranges.');
+      alert(S ? S.spAlertFeeMargin : 'Platform fee and target margin must be within their allowed ranges.');
       return;
     }
 
@@ -105,7 +108,7 @@
     // ---------- F: failure/reprint allowance ----------
     var failureFactor = failureRate >= 1 ? null : 1 / (1 - failureRate);
     if (failureFactor === null) {
-      showInvalid('No production cost can be modeled at a 100% (or higher) failure/reprint allowance — reduce the failure allowance below 100%.');
+      showInvalid(S ? S.spInvalidFailure : 'No production cost can be modeled at a 100% (or higher) failure/reprint allowance — reduce the failure allowance below 100%.');
       return;
     }
     var costBeforeFees = baseCost * failureFactor;
@@ -114,7 +117,7 @@
     // ---------- G: recommended price (denominator guard) ----------
     var priceDenominator = 1 - platformFeeRate - targetMarginRate;
     if (priceDenominator <= 0) {
-      showInvalid('The platform/payment fee and target profit margin together must be less than 100% — reduce one or both to calculate a price.');
+      showInvalid(S ? S.spInvalidFeeMargin : 'The platform/payment fee and target profit margin together must be less than 100% — reduce one or both to calculate a price.');
       return;
     }
     var recommendedPrice = costBeforeFees / priceDenominator;
@@ -139,10 +142,11 @@
 
     // ---------- Render dominant result + interpretation ----------
     el('sp-res-price').textContent = formatMoney(recommendedPrice);
-    el('sp-res-interpretation').textContent =
-      'At this price, the job covers estimated production costs and platform fees while targeting a ' +
-      formatPct(profitMargin) +
-      ' profit margin.';
+    el('sp-res-interpretation').textContent = S
+      ? S.spInterp(formatPct(profitMargin))
+      : 'At this price, the job covers estimated production costs and platform fees while targeting a ' +
+        formatPct(profitMargin) +
+        ' profit margin.';
 
     // ---------- Render supporting metrics ----------
     el('sp-res-min-price').textContent = minimumViablePrice === null ? '—' : formatMoney(minimumViablePrice);
@@ -174,34 +178,35 @@
   });
 
   window.getCalculatorPdfData = function () {
+    var Sp = window.CalcI18n && window.CalcI18n.isEs() ? window.CalcI18n.S : null;
     return {
-      title: '3D Print Service Pricing Calculator Results',
+      title: Sp ? Sp.spPdfTitle : '3D Print Service Pricing Calculator Results',
       sections: [
         {
-          heading: 'Inputs',
+          heading: Sp ? Sp.inputs : 'Inputs',
           rows: [
-            { label: 'Material used (grams)', value: el('sp-material-grams').value },
-            { label: 'Material price ($/kg)', value: el('sp-material-price').value },
-            { label: 'Print time (hours)', value: el('sp-print-time').value },
-            { label: 'Printed parts', value: el('sp-printed-parts').value },
-            { label: 'Target profit margin (%)', value: el('sp-target-margin').value },
-            { label: 'Platform fee (%)', value: el('sp-platform-fee').value }
+            { label: Sp ? Sp.spPdfMaterialG : 'Material used (grams)', value: el('sp-material-grams').value },
+            { label: Sp ? Sp.spPdfMaterialPrice : 'Material price ($/kg)', value: el('sp-material-price').value },
+            { label: Sp ? Sp.spPdfPrintTime : 'Print time (hours)', value: el('sp-print-time').value },
+            { label: Sp ? Sp.spPdfParts : 'Printed parts', value: el('sp-printed-parts').value },
+            { label: Sp ? Sp.spPdfMargin : 'Target profit margin (%)', value: el('sp-target-margin').value },
+            { label: Sp ? Sp.spPdfFee : 'Platform fee (%)', value: el('sp-platform-fee').value }
           ]
         },
         {
-          heading: 'Results',
+          heading: Sp ? Sp.results : 'Results',
           rows: [
-            { label: 'Recommended price', value: el('sp-res-price').textContent },
-            { label: 'Minimum viable price', value: el('sp-res-min-price').textContent },
-            { label: 'Expected profit', value: el('sp-res-profit').textContent },
-            { label: 'Profit margin', value: el('sp-res-margin').textContent },
-            { label: 'Effective hourly earnings', value: el('sp-res-hourly').textContent },
-            { label: 'Price per printed hour', value: el('sp-res-price-per-hour').textContent },
-            { label: 'Price per part', value: el('sp-res-price-per-part').textContent }
+            { label: Sp ? Sp.spPdfPrice : 'Recommended price', value: el('sp-res-price').textContent },
+            { label: Sp ? Sp.spPdfMin : 'Minimum viable price', value: el('sp-res-min-price').textContent },
+            { label: Sp ? Sp.spPdfProfit : 'Expected profit', value: el('sp-res-profit').textContent },
+            { label: Sp ? Sp.spPdfMarginRes : 'Profit margin', value: el('sp-res-margin').textContent },
+            { label: Sp ? Sp.spPdfHourly : 'Effective hourly earnings', value: el('sp-res-hourly').textContent },
+            { label: Sp ? Sp.spPdfPerHour : 'Price per printed hour', value: el('sp-res-price-per-hour').textContent },
+            { label: Sp ? Sp.spPdfPerPart : 'Price per part', value: el('sp-res-price-per-part').textContent }
           ]
         }
       ],
-      disclaimer: 'For informational purposes only. Not financial or investment advice.'
+      disclaimer: Sp ? Sp.disclaimer : 'For informational purposes only. Not financial or investment advice.'
     };
   };
 })();

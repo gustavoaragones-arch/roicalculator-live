@@ -28,12 +28,19 @@
     var data = window.getCalculatorPdfData();
     if (!data) return;
 
-    var dateStr = new Date().toLocaleDateString(undefined, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-    var title = data.title || 'Calculator Results';
+    var dateStr = new Date().toLocaleDateString(
+      document.documentElement.lang === 'es' ? 'es' : undefined,
+      {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
+    );
+    var title =
+      data.title ||
+      (document.documentElement.lang === 'es' && window.CalcI18n
+        ? window.CalcI18n.S.pdfFallbackTitle
+        : 'Calculator Results');
 
     var html = '<html><head><title>' + escapeHtml(title) + '</title>';
     html += '<style>body{font-family:sans-serif;max-width:600px;margin:2rem auto;padding:1rem;} h1{font-size:1.25rem;} h2{font-size:1rem;margin-top:1.5rem;} p{margin:0.35rem 0;}</style>';
@@ -58,7 +65,11 @@
 
     var printWindow = window.open('', '_blank');
     if (!printWindow) {
-      alert('Please allow pop-ups to download the PDF.');
+      var popupMsg =
+        document.documentElement.lang === 'es' && window.CalcI18n
+          ? window.CalcI18n.S.pdfPopup
+          : 'Please allow pop-ups to download the PDF.';
+      alert(popupMsg);
       return;
     }
     printWindow.document.write(html);
