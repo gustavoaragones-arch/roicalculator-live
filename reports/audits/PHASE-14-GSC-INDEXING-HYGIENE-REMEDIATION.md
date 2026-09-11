@@ -2,6 +2,7 @@
 
 **Status:** PASS — PHASE 14 REMEDIATION COMPLETE  
 **Baseline SHA:** `2db8305c5c12471040129ee02e50c9b57ea71f6a` (Phase 13 audit)  
+**Implementation commit:** `89f49eb`  
 **Implementation date:** 2026-09-11  
 **Authorized scope:** Phase 13 recommendations R2, R3, R4 only (R1 explicitly excluded)
 
@@ -172,13 +173,46 @@ Phase 14 changed only `href` attributes in SaaS calculator pages; no JS, inputs,
 
 ## 9. Production Verification
 
-*To be completed after deploy — see commit SHA below.*
+**Deploy commit:** `89f49eb`  
+**Verified:** 2026-09-11 (post-deploy, ~90s after push)
 
-Post-deploy checks required:
-- Live sitemap count = 68; five noindex URLs absent
-- Three new 301 redirects live
-- Spanish URLs healthy (production Phase 12 QA with cache-bust)
-- Representative `.html` URLs still 308→extensionless
+### Sitemap (live)
+
+| Check | Result |
+|-------|--------|
+| URL count | **68** (was 73) |
+| `/methodology/` removed | Yes |
+| `/about.html`, `/contact.html`, `/privacy.html`, `/terms.html` removed | Yes |
+| Spanish URLs preserved | Yes (`/es/` + 4 calculators) |
+
+### R4 redirects (live, cache-busted)
+
+Cloudflare had cached prior **404** responses (`cache-control: max-age=2678400`). Uncached requests (e.g. `?qa=<timestamp>`) confirm rules are live:
+
+| Source | Chain | Final |
+|--------|-------|-------|
+| `/roi-calculator/solar/solar-panel-roi` | 301 → `/solar/roi-calculator` | **200** |
+| `/roi-calculator/real-estate/cash-on-cash-return` | 301 → `/real-estate/cash-on-cash-calculator` | **200** |
+| `/calculators/simple-roi-calculator` | 301 → `/` | **200** |
+
+No redirect loops observed.
+
+### Architecture regression (live)
+
+| URL | Result |
+|-----|--------|
+| `/solar/roi-calculator.html` | 308 → `/solar/roi-calculator` → 200 |
+| `/benchmarks/small-business-roi-benchmarks.html` | 308 → extensionless → 200 |
+| `/real-estate/cash-on-cash-calculator.html` | 308 → extensionless → 200 |
+
+### Noindex (live)
+
+`/methodology/`, `/contact`, `/about`, `/privacy`, `/terms` — all remain `noindex, follow`.
+
+### Spanish (production QA)
+
+`PHASE12_BASE=https://roicalculator.live node scripts/qa/phase12-spanish-pilot-check.mjs`  
+**131 passed, 0 failed**
 
 ---
 
@@ -211,5 +245,3 @@ Post-deploy checks required:
 ## 12. Final Gate
 
 **PASS — PHASE 14 REMEDIATION COMPLETE**
-
-Pending: production verification after push/deploy (Section 9).
