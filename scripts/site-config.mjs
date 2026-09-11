@@ -99,4 +99,9 @@ http://roicalculator.live/* https://roicalculator.live/:splat 301
 /calculators/free-roi-calculator.html / 301
 /calculators/roi-calculator-example.html / 301
 /calculators/roi-vs-other-metrics.html /comparisons/ 301
+
+# Phase 14 — extensionless legacy 404 hygiene (see PHASE-13-GSC-INDEXING-CANONICAL-AUDIT.md R4).
+/roi-calculator/solar/solar-panel-roi /solar/roi-calculator 301
+/roi-calculator/real-estate/cash-on-cash-return /real-estate/cash-on-cash-calculator 301
+/calculators/simple-roi-calculator / 301
 `;

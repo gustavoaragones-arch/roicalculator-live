@@ -32,7 +32,7 @@ export const SITE_HEADER_HTML =
   '      <button type="button" class="nav-mobile-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>\n' +
   '      <ul class="nav-links" id="site-nav-links">\n' +
   '        <li><a href="/real-estate/index.html">Real Estate</a></li>\n' +
-  '        <li><a href="/solar/roi-calculator.html">Solar</a></li>\n' +
+  '        <li><a href="/solar/roi-calculator">Solar</a></li>\n' +
   '        <li><a href="/saas/index.html">SaaS</a></li>\n' +
   '        <li class="nav-dropdown">\n' +
   '          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="calculators-menu">Calculators</button>\n' +
@@ -40,7 +40,7 @@ export const SITE_HEADER_HTML =
   '            <a href="/marketing/index.html">Marketing ROI</a>\n' +
   '            <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
   '            <a href="/saas/index.html">SaaS ROI</a>\n' +
-  '            <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
+  '            <a href="/solar/roi-calculator">Solar ROI</a>\n' +
   '            <a href="/hvac/roi-calculator.html">HVAC ROI</a>\n' +
   '            <a href="/hr/roi-calculator.html">Employee ROI</a>\n' +
   '            <a href="/3d-printing/">3D Printing Calculators</a>\n' +
@@ -62,7 +62,7 @@ export const TRENDING_TOOLS_SECTION_HTML =
   '          <li><a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a></li>\n' +
   '          <li><a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a></li>\n' +
   '          <li><a href="/real-estate/index.html">Real Estate ROI</a></li>\n' +
-  '          <li><a href="/solar/roi-calculator.html">Solar ROI</a></li>\n' +
+  '          <li><a href="/solar/roi-calculator">Solar ROI</a></li>\n' +
   '          <li><a href="/saas/index.html">SaaS ROI</a></li>\n' +
   '        </ul>\n' +
   '      </section>\n';
@@ -74,7 +74,7 @@ export const POPULAR_TOOLS_FOOTER_HTML =
   '    <a href="/comparisons/roi-vs-irr.html">ROI vs IRR</a>\n' +
   '    <a href="/comparisons/roi-vs-npv.html">ROI vs NPV</a>\n' +
   '    <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
-  '    <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
+  '    <a href="/solar/roi-calculator">Solar ROI</a>\n' +
   '    <a href="/saas/index.html">SaaS ROI</a>\n' +
   '  </nav>\n\n';
 
@@ -89,8 +89,8 @@ export const SITE_FOOTER_HTML =
   '    <a href="/marketing/index.html">Marketing ROI</a>\n' +
   '    <a href="/real-estate/index.html">Real Estate ROI</a>\n' +
   '    <a href="/saas/index.html">SaaS ROI</a>\n' +
-  '    <a href="/solar/roi-calculator.html">Solar ROI</a>\n' +
-  '    <a href="/benchmarks/index.html">Benchmarks</a>\n' +
+  '    <a href="/solar/roi-calculator">Solar ROI</a>\n' +
+  '    <a href="/benchmarks/">Benchmarks</a>\n' +
   '    <a href="/comparisons/index.html">Comparisons</a>\n' +
   '  </nav>\n' +
   '\n' +
